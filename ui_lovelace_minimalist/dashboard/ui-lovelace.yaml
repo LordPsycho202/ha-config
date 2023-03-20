@@ -14,6 +14,7 @@ views:
   - !include views/foyer.yaml
   - !include views/garage.yaml
   - !include views/outside.yaml
+  - !include views/laundry.yaml
   #Upstairs
   - !include views/upstairs.yaml
   - !include views/office.yaml
