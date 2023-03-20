@@ -1,0 +1,40 @@
+title: "Master Closet & Laundry"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:dryer
+subview: true
+path: laundry
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Laundry Room
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.laundry_room
+        name: Laundry
+        variables:
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_generic_swap
+            entity: input_select.washing_machine
+          - type: "custom:button-card"
+            template: card_generic_swap
+            entity: input_select.dryer
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Master Closet"
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.master_closet
+        name: Closet
+        variables:
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
