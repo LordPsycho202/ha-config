@@ -1,0 +1,527 @@
+binary_sensor:
+  - name: Mail Card
+    state: >
+      {% if states.input_boolean.mail_present.state == 'on' or states('sensor.mail_usps_mail')|int > 0 %}
+      on
+      {% else %}
+      off
+      {% endif %}
+
+  - name: WX Card
+    state: >
+      {% if 'Extreme' in states.sensor.nws_alerts.attributes.event_severity or 'Severe' in states.sensor.nws_alerts.attributes.event_severity %}
+      on
+      {% else %}
+      off
+      {% endif %}
+
+  - name: Rain
+    device_class: moisture
+    state: >
+      {% if states.sensor.rainfall_sum.state |float > 0 %}
+      on
+      {% else %}
+      off
+      {% endif %}
+
+  - unique_id: christmas_season
+    name: Christmas Season
+    state: >
+      {%- set month, week, day = 11, 4, 3 %}
+      {%- set today = now().date() %}
+      {%- set temp = today.replace(month=month, day=1) %}
+      {%- set adjust = (day - temp.weekday()) % 7 %}
+      {%- set temp = temp + timedelta(days=adjust) %}
+      {%- set thanksgiving = temp + timedelta(weeks = week - 1) %}
+      {%- set secondday = today.replace(month=1, day=2) %}
+      {{ today < secondday or today > thanksgiving }}
+
+  - unique_id: wind_chill_active
+    name: Wind Chill Active
+    state: >
+      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set wc = states.sensor.wind_chill.state|float%}
+      {% if (temp-wc) > 5 and wc < 40 %}
+        on
+      {% else %}
+        off
+      {% endif %}
+
+  - unique_id: heat_index_active
+    name: Heat Index Active
+    state: >
+      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set hi = states.sensor.heat_index.state|float%}
+      {% if (hi-temp) > 5 and hi > 80 %}
+        on
+      {% else %}
+        off
+      {% endif %}
+
+sensor:
+  - name: Dining Opacity
+    state: >
+      {% if states['light.dining_room'].state == 'on' %}
+        {{ ((states['light.dining_room'].attributes.brightness / 255)*100)| string ~ '%' }}
+      {% else %}
+        {{ '0%' }}
+      {% endif %}
+
+  - name: sunlight pct
+    unique_id: sunlight_pct
+    unit_of_measurement: "%"
+    device_class: "illuminance"
+    state: >
+      {%- set elevation = state_attr('sun.sun','elevation') | float %}
+      {%- set cloud_coverage = states('sensor.cloud_cover') | float %}
+      {%- set cloud_factor = (1 - (0.4 * ( cloud_coverage / 100) ** 3 )) %}
+      {%- set elevation_factor = 12 %}
+      {%- set max_elevation = states['sensor.max_solar_elevation'].state | int %}
+      {%- set adjusted_elevation = elevation + elevation_factor %}
+      {%- set adjusted_elevation = [adjusted_elevation,0] | max %}
+      {%- set adjusted_elevation = [adjusted_elevation,max_elevation] | min %}
+      {%- set adjusted_elevation = adjusted_elevation / (max_elevation) %}
+      {%- set adjusted_elevation = adjusted_elevation * 100 %}
+      {%- set brightness = adjusted_elevation * cloud_factor %}
+      {{ brightness | round  }}
+
+  - name: Mail State
+    state: >
+      {% if states('sensor.mail_usps_mail')|int > 0 %}
+        {% if states.input_boolean.mail_present.state == 'off' and states.input_boolean.mail_grabbed.state == 'off' %}
+        1
+        {% elif states.input_boolean.mail_present.state == 'on' and states.input_boolean.mail_grabbed.state == 'off' %}
+        2
+        {% else %}
+        3
+        {% endif %}
+      {% else %}
+      0
+      {% endif %}
+
+  - name: Blank
+    state: " "
+
+  - unique_id: header_greet
+    state: >
+      {% set recyclingDays = state_attr( 'sensor.recycling', 'days')  %}
+      {% set trashDays = state_attr( 'sensor.trash', 'days')  %}
+      {% set mailbox = states('input_boolean.mail_present') %}
+      {% set time = now().hour %}
+
+      {% if trashDays == 0  and recyclingDays == 7 %} 🗑️Trash Day🗑️
+      {% elif trashDays == 0  and recyclingDays == 0 %} 🗑️Trash & Recycling Day♻️
+      {% elif mailbox == 'on' %} {{ '\U0001F4EC' }} Mail's Here! {{ '\U0001F4EC' }}
+      {% else %}
+        {% if time <= 1 %} Good Night {{'\U0001F611'}}
+        {% elif time <= 3 %} Good Night {{'\U0001F62A'}}
+        {% elif time <= 5 %} Good Night {{'\U0001F634'}}
+        {% elif time <= 7 %} Good Morning {{'\U0001F4A9'}}
+        {% elif time <= 9 %} Good Morning {{'\u2615\uFE0F'}}
+        {% elif time <= 10 %} Good Morning {{'\U0001F642'}}
+        {% elif time <= 12 %} Good Afternoon {{'\U0001F60A'}}
+        {% elif time <= 15 %} Good Afternoon {{'\U0001F60E'}}
+       {% elif time <= 17 %} Good Afternoon{{'\U0001F44B\U0001F3FB'}}
+        {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
+        {% elif time <= 22 %} Good Night {{'\U0001F60C'}}
+        {% elif time <= 23 %} Good Night {{'\U0001F974'}}
+        {% else %} Hello! {{'\U0001F974'}}
+        {% endif %}
+      {% endif %}
+
+  - unique_id: date_long
+    name: date_long
+    state: >
+      {% set months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Agu", "Sep", "Oct", "Nov", "Dic"] %}
+      {% set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+      {{ months[now().month-1] }}.{{ now().day }}th. {{ days[now().weekday()] }}
+
+  - name: rpi_mem_use_cardinal
+    unique_id: rpi_mem_use_cardinal
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_cardinal.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_cardinal.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_cardinal
+    unique_id: rpi_model_cardinal
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_cardinal.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_cardinal.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - name: rpi_mem_use_apollo
+    unique_id: rpi_mem_use_apollo
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_apollo.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_apollo.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_apollo
+    unique_id: rpi_model_apollo
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_apollo.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_apollo.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - name: rpi_mem_use_artemis
+    unique_id: rpi_mem_use_artemis
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_artemis.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_artemis.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_artemis
+    unique_id: rpi_model_artemis
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_artemis.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_artemis.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - name: rpi_mem_use_charles
+    unique_id: rpi_mem_use_charles
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_charles.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_charles.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_charles
+    unique_id: rpi_model_charles
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_charles.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_charles.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - unique_id: wind_dir
+    state: >
+      {{states.sensor.wind_acurite_5n1.state | float }} {{states.sensor.wind_acurite_5n1.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1.attributes.compass | string }}
+
+  - unique_id: stardate
+    name: Stardate
+    state: >
+      {% set century='1' %}
+      {% set today = as_timestamp(now()) %}
+      {% set startdate = as_timestamp('2000-1-1 00:00:00.00000') %}
+      {% set daysgone = ((today-startdate)/86400)|round(1) %}
+      {{century}}{{daysgone}}
+
+  - unique_id: header_weather
+    state: >
+      {% set entity = 'weather.kwdr_daynight' %}
+      {% if not is_state(entity, 'unknown') %}
+        {% set forecast= state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
+        {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
+        {% set sun = states.sun.sun.state %}
+        {% if precip == 0 %}
+          {% if sun == 'above_horizon' %} {{forecast}}🌞              
+          {% else %} {{forecast}}🌙
+          {% endif %}
+        {% else %} {{forecast}}{{'\u2614\uFE0F'}}
+        {% endif %}
+      {% else %}
+        Can't Load Weather...
+      {% endif %}
+
+  - name: Water Meter m3
+    unique_id: water_meter_m3
+    state: >
+      {{ states('sensor.water_meter') | float * 0.0037854118 }}
+    unit_of_measurement: m³
+    device_class: water
+    icon: mdi:water
+
+  - name: "Water Bill"
+    icon: mdi:currency-usd
+    unit_of_measurement: USD
+    device_class: monetary
+    state: >
+      {% set sewer_base=24.48 %}
+      {% set water_base=12.60 %}
+      {% set sum = sewer_base + water_base %}
+      {% set sum = sum + ((([states('sensor.monthly_water') | float , 5700 ] | min ) /1000 ) * 7.01) %}
+      {% set sum = sum + (([[ states('sensor.monthly_water') | float - 5700, 0 ] | max, 7500] | min / 1000 )* 10.64) %}
+      {% set sum = sum + (([ states('sensor.monthly_water') | float - 7500 , 0 ] | max / 1000 ) * 13.98) %}
+      {% set sum = sum + (([ states('sensor.monthly_water') | float - 1500 , 0 ] | max / 1000 ) * 9.86 )%}
+
+      {{ sum|float|round(2) }}
+
+  - name: "Power Bill"
+    icon: mdi:currency-usd
+    unit_of_measurement: USD
+    device_class: monetary
+    state: >-
+      {%- if now().month in (1,2,3,4,10,11,12) -%}
+        {% set sum = ([states('sensor.home_123_1mon') | float , 650 ] | min * 0.0881) %}
+        {% set sum = sum + ([[ states('sensor.home_123_1mon') | float - 650 , 0 ] | max, 350 ] | min * 0.0816) %}
+        {% set sum = sum + ([ states('sensor.home_123_1mon') | float - 1000 , 0 ] | max * 0.0806) %}
+      {%- else -%}
+        {% set sum = ([states('sensor.home_123_1mon') | float , 650 ] | min * 0.0881) %}
+        {% set sum = sum + ([[ states('sensor.home_123_1mon') | float - 650 , 0 ] | max, 350 ] | min * 0.1106) %}
+        {% set sum = sum + ([ states('sensor.home_123_1mon') | float - 1000 , 0 ] | max * 0.1166) %}
+      {%- endif -%}
+      {{ sum + 25 }}
+
+  - name: "Current Power Price"
+    icon: mdi:currency-usd
+    unit_of_measurement: USD/kWh
+    state: >-
+      {%- if now().month in (1,2,3,4,10,11,12) -%}
+        {% if states('sensor.home_123_1mon') | float <= 650 %} 0.0881
+        {% elif states('sensor.home_123_1mon') | float <= 1000 %} 0.0816
+        {% else %} 0.0806
+        {% endif %}
+      {%- else -%}
+        {% if states('sensor.home_123_1mon') | float <= 650 %} 0.0881
+        {% elif states('sensor.home_123_1mon') | float <= 1000 %} 0.1106
+        {% else %} 0.1166
+        {% endif %}
+      {%- endif -%}
+
+  - name: "Current Water Price"
+    icon: mdi:currency-usd
+    unit_of_measurement: USD/gal
+    state: >-
+      {% if states('sensor.monthly_water') | float  < 1500 %} 0.00701
+      {% elif states('sensor.monthly_water') | float < 5700 %} 0.01687
+      {% elif states('sensor.monthly_water') | float < 7500 %} 0.02050
+      {% else %} 0.02384
+      {% endif %}
+
+  - name: "Next Sunrise"
+    state: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
+    icon: mdi:weather-sunset-up
+
+  - name: "Morning Outside Off"
+    state: "{{ state_attr('sun.sun', 'next_rising') | as_datetime + timedelta(minutes=(states.input_number.morning_outside_offset.state|int-1440)) }}"
+    device_class: timestamp
+    icon: mdi:weather-sunset-up
+
+  - name: "Evening Outside On"
+    state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=states.input_number.evening_outside_offset.state|int) }}"
+    device_class: timestamp
+    icon: mdi:weather-sunset-down
+
+  - name: "Evening Living Room On"
+    state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=states.input_number.evening_livingroom_offset.state|int) }}"
+    device_class: timestamp
+    icon: mdi:weather-sunset-down
+
+  - name: "Night Living Room dim"
+    state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=(states.input_number.night_livingroom_offset.state|int-1440)) }}"
+    device_class: timestamp
+    icon: mdi:weather-sunset-down
+
+  - name: "Rain Delay Time"
+    state: "{{ now() +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
+    device_class: timestamp
+    icon: mdi:sprinkler
+
+  - name: "Last Watering"
+    device_class: timestamp
+    state: >
+      {% set water_times = as_timestamp(states("sensor.back_yard_zone_history")), as_timestamp(states("sensor.front_yard_zone_history")), as_timestamp(states("sensor.side_yard_zone_history")) %}
+          {{ water_times|max | timestamp_custom("%Y-%m-%dT%H:%M:%S%z",false) }}
+
+  - name: "Alarm - Lights"
+    device_class: timestamp
+    state: >
+      {{(as_timestamp(states('sensor.rodney_s_phone_next_alarm')) - (15*60))|timestamp_custom("%Y-%m-%dT%H:%M:%S%z")}}
+
+  - name: "Next Sunset"
+    state: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
+    icon: mdi:weather-sunset-down
+
+  - name: "Sun Hours"
+    icon: mdi:weather-sunny
+    state: >
+      {% set nrise = as_timestamp(state_attr('sun.sun','next_rising')) %}
+      {% set nset = as_timestamp(state_attr('sun.sun','next_setting')) %}
+      {% if nrise > nset %}
+        {% set nrise = nrise - 606024 %}
+      {% endif %}
+      {{ (nset - nrise)|timestamp_custom('%H:%M',false) }}
+
+  - name: "Sun Elevation"
+    unit_of_measurement: "degrees"
+    icon: mdi:angle-acute
+    state: "{{ state_attr('sun.sun', 'elevation') }}"
+
+  - name: "sun azimuth"
+    state: "{{ state_attr ('sun.sun', 'azimuth') | int }}"
+    icon: mdi:angle-acute
+    unit_of_measurement: "degrees"
+
+  - name: "Sun Minutes"
+    state: "{{ (states.sensor.sun_hours.state.split(':')[0]|int * 60) + (states.sensor.sun_hours.state.split(':')[1] | int) }}"
+    icon: mdi:weather-sunny
+
+  - name: "USG Pro 4 TX"
+    state: "{{ state_attr('sensor.unifi_gateway_www', 'tx_bytes-r') | filesizeformat() }}"
+    unit_of_measurement: "/s"
+    icon: mdi:upload
+    state_class: measurement
+
+  - name: "USG Pro 4 RX"
+    state: "{{ state_attr('sensor.unifi_gateway_www', 'rx_bytes-r')  | filesizeformat()}}"
+    unit_of_measurement: "/s"
+    icon: mdi:download
+    state_class: measurement
+
+  - name: "Water Heater"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.water_heater_1_11_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.water_heater_2_12_1mon.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Downstairs Climate"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.downstairs_furnace_16_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.downstairs_air_conditioner_14_1mon.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Kitchen"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.cooktop_3_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.dishwasher_6_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.oven_1_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.refrigerator_5_1mon.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Laundry"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.dryer_2_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.washer_4_1mon.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Downstairs Balance"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.kitchen.state|float %}
+      {% set sum = sum|float + states.sensor.master_bedroom_bathroom_8_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.laundry.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Downstairs"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.water_heater.state|float %}
+      {% set sum = sum|float + states.sensor.downstairs_climate.state|float %}
+      {% set sum = sum|float + states.sensor.downstairs_balance.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Upstairs Climate"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.upstairs_air_conditioner_13_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.upstairs_furnace_15_1mon.state|float %}
+       
+      {{sum|round(4)}}
+
+  - name: "Upstairs Balance"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.office_kids_room_9_1mon.state|float %}
+      {% set sum = sum|float + states.sensor.guest_bedroom_upstairs_bathroom_10_1mon.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: "Upstairs"
+    device_class: energy
+    icon: "mdi:guage"
+    unit_of_measurement: kWh
+    state: >
+      {% set sum = states.sensor.upstairs_balance.state|float %}
+      {% set sum = sum|float + states.sensor.upstairs_climate.state|float %}
+
+      {{sum|round(4)}}
+
+  - name: Rpi Temp Hestia
+    unit_of_measurement: °C
+    device_class: temperature
+    icon: mdi:thermometer
+    state: >
+      {{ states.sensor.cpu_temp.state}}
+
+  - name: "Wind Chill"
+    device_class: temperature
+    unit_of_measurement: °F
+    icon: mdi:windsock
+    state: >
+      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set wind = states.sensor.wind_acurite_5n1.state|float %}
+      {% if temp > 50 or wind < 3 %}
+        {{ temp }}
+      {% else %}
+        {{ (35.74 + 0.6215*temp - 35.75*(wind**0.16) + 0.4275*temp*(wind**0.16))|round(1) }}
+      {% endif %}
+
+  - name: "Heat Index"
+    device_class: temperature
+    unit_of_measurement: °F
+    icon: mdi:thermometer-alert
+    state: >
+      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set rh = states.sensor.outdoor_humidity.state|float %}
+      {% set adjustment = 0 %}
+      {% set hi = 0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (rh*0.094)) %}
+      {% set hi2 = (hi+temp)/2 %}
+      {% if hi2 > 80 %}
+        {% set hi = -42.379 + 2.04901523*temp + 10.14333127*rh - 0.22475541*temp*rh - 0.00683783*(temp**2) - 0.05481717*(rh**2) + 0.00122874*(temp**2)*rh + 0.00085282*temp*(rh**2) - 0.00000199*(temp**2)*(rh**2) %}
+        {% if temp > 80 and temp < 87 and rh > 85 %}
+          {% set adjustment =  ((rh-85)/10) * ((87-temp)/5) %}
+        {% elif temp > 80 and temp < 112 and rh < 13 %}
+          {% set adjustment = adjustment - ((13-rh)/4)*((17-(temp-95)|abs)/17)|sqrt%}
+        {% endif %}
+        {% set hi = (hi + adjustment)|float %}
+      {% endif %}
+      {{ hi|float }}

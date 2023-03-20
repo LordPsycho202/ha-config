@@ -1,0 +1,75 @@
+title: "Master Bedroom"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:bed-double
+subview: true
+path: master_bed
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Master Bedroom
+
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.master_bedroom_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.master_bathroom_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.office_day
+            state: "off"
+        card:
+          type: "custom:button-card"
+          template: card_script
+          entity: aautomation.alarm_raise_lights
+          variables:
+            ulm_card_script_title: Turn on Lights Slowly
+            ulm_card_script_icon: "mdi:weather-sunset-up"
+          hold_action:
+            action: call-service
+            service: automation.trigger
+            service_data:
+              entity_id: automation.alarm_raise_lights
+          tap_action:
+            action: none
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.master_ceiling_fan
+            variables:
+              ulm_card_light_name: Ceiling Fan
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Ceiling Fan
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.master_bedroom_ceiling_fan
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.master_overhead
+        variables:
+          ulm_card_light_name: Overhead Lights
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: "card_vacuum"
+        entity: "vacuum.gurtrude"

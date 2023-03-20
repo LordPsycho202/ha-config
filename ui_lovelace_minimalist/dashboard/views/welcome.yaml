@@ -1,0 +1,31 @@
+type: "custom:button-card"
+template: "card_esh_welcome"
+triggers_update: "input_boolean.minimalist_dropdown"
+variables:
+  ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
+  ulm_weather: "weather.kwdr_daynight"
+  entity_1:
+    nav: "downstairs"
+    icon: "mdi:stairs-down"
+    name: Downstairs
+    color: "green"
+  entity_2:
+    nav: "upstairs"
+    icon: "mdi:stairs-up"
+    name: Upstairs
+    color: "red"
+  entity_3:
+    nav: "security"
+    icon: "mdi:shield"
+    name: "Security"
+    color: "purple"
+  entity_4:
+    nav: "weather"
+    icon: "mdi:cloud"
+    name: Weather
+    color: "yellow"
+  entity_5:
+    nav: "network"
+    icon: "mdi:web"
+    name: Net
+    color: "blue"

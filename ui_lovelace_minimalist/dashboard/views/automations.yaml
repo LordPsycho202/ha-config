@@ -1,0 +1,73 @@
+title: "Automation Control"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:cogs
+subview: true
+path: automations
+back_path: /ui-lovelace-minimalist/admin
+cards:
+  - type: "custom:button-card"
+    template: card_title
+    name: Automation Control
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.arlo_motion_detect
+    variables:
+      ulm_card_input_boolean_name: Arlo Motion Detector Lights
+      ulm_card_input_boolean_icon: mdi:spotlight-beam
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.downstairs_lights
+    variables:
+      ulm_card_input_boolean_name: Downstairs Lights
+      ulm_card_input_boolean_icon: mdi:lightbulb-group
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.fresnel_lens
+    variables:
+      ulm_card_input_boolean_name: Fresnel Lense Light
+      ulm_card_input_boolean_icon: mdi:lighthouse-on
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.mail_packages
+    variables:
+      ulm_card_input_boolean_name: Mail & Packages Alerts
+      ulm_card_input_boolean_icon: mdi:email-alert
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.garage
+    variables:
+      ulm_card_input_boolean_name: Garage Lights & Alerts
+      ulm_card_input_boolean_icon: mdi:garage-open
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.kitchen
+    variables:
+      ulm_card_input_boolean_name: Kitchen Lights
+      ulm_card_input_boolean_icon: mdi:knife
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.lamp
+    variables:
+      ulm_card_input_boolean_name: Living Room Lamp
+      ulm_card_input_boolean_icon: mdi:lamp
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.office
+    variables:
+      ulm_card_input_boolean_name: Office Lights & Fan
+      ulm_card_input_boolean_icon: mdi:hexagon-multiple-outline
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: automation.outdoor_lights
+    variables:
+      ulm_card_input_boolean_name: Outdoor Lights
+      ulm_card_input_boolean_icon: mdi:coach-lamp

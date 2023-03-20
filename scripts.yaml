@@ -1,0 +1,256 @@
+good_night:
+  sequence:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.outside
+      - light.upstairs
+      - light.downstairs
+  - service: fan.turn_off
+    data: {}
+    target:
+      entity_id:
+      - fan.living_room_ceiling_fan
+      - fan.master_toilet_vent
+      - fan.shower_vent
+      - fan.powder_room_vent
+      - fan.office_ceiling_fan
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id:
+      - fan.master_bedroom_ceiling_fan
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.fresnel_lens
+  - service: media_player.turn_off
+    data: {}
+    target:
+      entity_id: media_player.living_room_tv
+  - choose:
+    - conditions:
+      - condition: state
+        entity_id: light.decoration
+        state: 'on'
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.decoration
+  mode: single
+  alias: 'Bedroom: Flic: All Lights Off'
+bedroom_flic_double_click:
+  alias: 'Bedroom: Flic: Bedroom Lights On'
+  sequence:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.master_bedroom
+  mode: single
+bedroom_flic_long_click:
+  alias: 'Bedroom: Flic: All Lights On'
+  sequence:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.all
+  - service: switch.turn_on
+    data: {}
+  mode: single
+activate_meeting_mode:
+  alias: 'Office: Meeting Mode '
+  sequence:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_concentrate
+    metadata: {}
+  - service: light.turn_on
+    data:
+      brightness_pct: 50
+    target:
+      entity_id:
+      - light.elgato_key_light
+  - service: fan.turn_off
+    data: {}
+    target:
+      entity_id: fan.office_ceiling_fan
+  - service: cover.set_cover_tilt_position
+    data:
+      tilt_position: 100
+    target:
+      entity_id: cover.blind_tilt_03de
+  mode: single
+deactivate_meeting_mode:
+  alias: 'Office: Day Mode'
+  sequence:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_bright
+    metadata: {}
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.elgato_key_light
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.rack
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.office_ceiling_fan
+  mode: single
+office_night_mode:
+  alias: 'Office: Night Mode'
+  sequence:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.office_nightlight
+    metadata: {}
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.rack
+      - light.elgato_key_light
+  - service: fan.turn_on
+    data: {}
+    target:
+      entity_id: fan.office_ceiling_fan
+  mode: single
+light_path_on:
+  alias: light path on
+  sequence:
+  - type: turn_on
+    device_id: e11b48cfb11b015ec6e355bfd73c88e7
+    entity_id: light.kitchen_hanging
+    domain: light
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - type: turn_on
+    device_id: a7ab7d4451e7e7e3903dc3a4f7bad024
+    entity_id: light.lamp
+    domain: light
+    brightness_pct: 25
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - type: turn_on
+    device_id: 6deeafff7cb5c03b2ca8708770096c21
+    entity_id: light.stairway_lights
+    domain: light
+  mode: single
+light_path_on_2:
+  alias: light path off
+  sequence:
+  - type: turn_off
+    device_id: 6deeafff7cb5c03b2ca8708770096c21
+    entity_id: light.stairway_lights
+    domain: light
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - type: turn_off
+    device_id: a7ab7d4451e7e7e3903dc3a4f7bad024
+    entity_id: light.lamp
+    domain: light
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - type: turn_off
+    device_id: e11b48cfb11b015ec6e355bfd73c88e7
+    entity_id: switch.kitchen_hanging_lights
+    domain: switch
+  mode: single
+set_water_meter:
+  alias: 'Water: Monthly Calibrate'
+  sequence:
+  - service: utility_meter.calibrate
+    data:
+      value: '{{ states.sensor.water_meter.state | int - 144360 }}'
+    target:
+      entity_id: sensor.monthly_water
+  mode: single
+reset_flic:
+  alias: Reset Flic
+  sequence:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.flichub_socket_1
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 5
+      milliseconds: 0
+  - service: switch.turn_on
+    data: {}
+    target:
+      entity_id: switch.flichub_socket_1
+  mode: single
+  icon: mdi:power
+m_and_p_reset:
+  alias: M&P - Reset
+  sequence:
+  - service: input_boolean.turn_off
+    data: {}
+    target:
+      entity_id:
+      - input_boolean.mail_present
+      - input_boolean.package_present
+      - input_boolean.mail_grabbed
+  mode: single
+  icon: mdi:email-sync
+mark_dishwasher_as_dirty:
+  alias: Mark Dishwasher as Dirty
+  sequence:
+  - if:
+    - condition: state
+      entity_id: input_select.dishwasher_state
+      state: Clean
+    then:
+    - service: input_select.select_option
+      data:
+        option: Dirty
+      target:
+        entity_id: input_select.dishwasher_state
+  mode: single
+office_blinds:
+  alias: Office Blinds
+  sequence:
+  - choose:
+    - conditions:
+      - condition: numeric_state
+        entity_id: cover.blind_tilt_03de
+        attribute: current_tilt_position
+        above: 90
+      sequence:
+      - service: cover.set_cover_tilt_position
+        data:
+          tilt_position: 50
+        target:
+          entity_id: cover.blind_tilt_03de
+    - conditions:
+      - condition: numeric_state
+        entity_id: cover.blind_tilt_03de
+        attribute: current_tilt_position
+        below: 60
+      sequence:
+      - service: cover.set_cover_tilt_position
+        data:
+          tilt_position: 100
+        target:
+          entity_id: cover.blind_tilt_03de
+  mode: single
+  icon: mdi:blinds-horizontal-closed

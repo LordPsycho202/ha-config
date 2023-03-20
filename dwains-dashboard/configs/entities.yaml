@@ -1,0 +1,212 @@
+device_tracker.hs220:
+  hidden: true
+device_tracker.hs220_4:
+  hidden: true
+device_tracker.hs200_9:
+  hidden: true
+device_tracker.roomba_3144460c60820620:
+  hidden: true
+sensor.plant_light_current:
+  hidden: true
+sensor.plant_light_power:
+  hidden: true
+switch.living_room_ceiling_fan_led:
+  hidden: true
+switch.living_room_outer_lights_led:
+  hidden: true
+switch.living_room_ceiling_fan_light_led:
+  hidden: true
+climate.main_floor:
+  sort_order: 13
+binary_sensor.gurtrude_bin_full:
+  sort_order: 2
+fan.living_room_ceiling_fan:
+  sort_order: 8
+light.lamp_1:
+  sort_order: 1
+light.living_room_outer_lights:
+  sort_order: 3
+light.living_room_ceiling_fan_light:
+  sort_order: 4
+media_player.living_room_tv:
+  sort_order: 7
+  hidden: true
+media_player.sony_xbr_55x900h:
+  sort_order: 5
+remote.sony_xbr_55x900h:
+  sort_order: 6
+sensor.main_floor_temperature:
+  sort_order: 9
+sensor.main_floor_humidity:
+  sort_order: 10
+sensor.gurtrude_battery_level:
+  sort_order: 12
+  hidden: true
+vacuum.gurtrude:
+  sort_order: 7
+weather.main_floor:
+  sort_order: 14
+  hidden: true
+device_tracker.hs210:
+  hidden: true
+device_tracker.hs200_4:
+  hidden: true
+device_tracker.hs200_8:
+  hidden: true
+light.kitchen_hanging_lights:
+  sort_order: 2
+binary_sensor.refrigerator_door_open:
+  sort_order: 4
+climate.refrigerator_fridge:
+  sort_order: 5
+climate.refrigerator_freezer:
+  sort_order: 6
+light.breakfast:
+  sort_order: 3
+light.kitchen_pot_lights:
+  sort_order: 1
+sensor.refrigerator:
+  sort_order: 8
+  hidden: false
+sensor.refrigerator_fridge_temp:
+  sort_order: 7
+sensor.refrigerator_freezer_temp:
+  sort_order: 8
+switch.refrigerator_express_mode:
+  sort_order: 10
+  hidden: true
+switch.kitchen_hanging_lights_led:
+  sort_order: 11
+  hidden: true
+switch.breakfast_led:
+  sort_order: 12
+  hidden: true
+switch.kitchen_pot_lights_led:
+  sort_order: 13
+  hidden: true
+button.identify:
+  hidden: true
+button.identify_2:
+  hidden: true
+device_tracker.elgato_key_light_air_5e12:
+  hidden: true
+device_tracker.elgato_key_light_air_c40d:
+  hidden: true
+device_tracker.ecb5fa110bf3:
+  hidden: true
+device_tracker.hs105:
+  hidden: true
+scene.office_relax:
+  hidden: true
+scene.office_concentrate:
+  hidden: true
+scene.office_dimmed:
+  hidden: true
+scene.office_read:
+  hidden: true
+scene.office_energize:
+  hidden: true
+scene.office_bright:
+  hidden: true
+scene.office_autumn_gold:
+  hidden: true
+scene.office_nightlight:
+  hidden: true
+scene.office_frosty_dawn:
+  hidden: true
+sensor.hue_motion_sensor_1_temperature:
+  hidden: true
+switch.networking_led:
+  hidden: true
+switch.plant_light_socket_1:
+  hidden: true
+light.office_lights:
+  sort_order: 1
+binary_sensor.office_occupancy:
+  sort_order: 5
+light.office_1:
+  sort_order: 2
+  hidden: true
+light.office_2:
+  sort_order: 3
+  hidden: true
+light.rack:
+  sort_order: 4
+light.elgato_key_light_air_5e12:
+  sort_order: 6
+light.elgato_key_light_air:
+  sort_order: 7
+media_player.viziocastdisplay2026:
+  sort_order: 8
+sensor.office_temperature:
+  sort_order: 9
+switch.networking:
+  sort_order: 10
+switch.master_bedroom_ceiling_fan_led:
+  hidden: true
+switch.master_bedroom_center_light_led:
+  hidden: true
+switch.master_bedroom_outer_lights_led:
+  hidden: true
+binary_sensor.master_bedroom_occupancy:
+  sort_order: 4
+device_tracker.hs200_5:
+  sort_order: 5
+  hidden: true
+device_tracker.hs220_2:
+  sort_order: 6
+  hidden: true
+device_tracker.hs220_3:
+  sort_order: 7
+  hidden: true
+sensor.master_bedroom_temperature:
+  sort_order: 8
+  hidden: false
+fan.master_bedroom_ceiling_fan:
+  sort_order: 3
+light.master_bedroom_center_light:
+  sort_order: 1
+light.master_bedroom_outer_lights:
+  sort_order: 2
+  hidden: false
+device_tracker.hs220_5:
+  hidden: true
+sensor.dining_room_temperature:
+  sort_order: 1
+binary_sensor.dining_room_occupancy:
+  sort_order: 3
+light.dining_room:
+  sort_order: 2
+switch.dining_room_led:
+  sort_order: 4
+device_tracker.hs200_3:
+  hidden: true
+device_tracker.hs200_6:
+  hidden: true
+switch.garage_lights_led:
+  hidden: true
+switch.waterbender_smart_watering_program_3:
+  hidden: true
+switch.waterbender_smart_watering_program:
+  hidden: true
+switch.waterbender_rain_delay:
+  hidden: true
+device_tracker.hs200:
+  hidden: true
+device_tracker.hs200_2:
+  hidden: true
+device_tracker.hs200_7:
+  hidden: true
+device_tracker.hs210_4:
+  hidden: true
+switch.foyer_led:
+  hidden: true
+device_tracker.hs210_3:
+  disabled: false
+  hidden: true
+switch.stairway_lights_led:
+  hidden: true
+device_tracker.hs210_2:
+  hidden: true
+switch.mud_room_lights_led:
+  hidden: true

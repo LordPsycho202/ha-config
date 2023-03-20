@@ -1,0 +1,79 @@
+sensor:
+  - name: "Humidity"
+    object_id: office_humidity
+    unique_id: 181645a6_hum
+    state_topic: "sensor/eplus/humidity"
+    unit_of_measurement: "%"
+    device_class: humidity
+    value_template: "{{ value | round(1) }}"
+    expire_after: 600
+    device:
+      identifiers: 00181645a6
+      model: Enviro+
+      name: Enviro+
+      manufacturer: Pimaroni
+
+  - name: "Pressure"
+    object_id: office_pressure
+    unique_id: 181645a6_pre
+    state_topic: "sensor/eplus/pressure"
+    unit_of_measurement: "hPa"
+    device_class: pressure
+    value_template: "{{ value | round(2) }}"
+    expire_after: 600
+    device:
+      identifiers: 00181645a6
+      model: Enviro+
+      name: Enviro+
+      manufacturer: Pimaroni
+
+  - name: "NH3"
+    object_id: office_nh3
+    unique_id: 181645a6_nh3
+    state_topic: "sensor/eplus/gas/nh3"
+    unit_of_measurement: "ppm"
+    value_template: |-
+      {% set resist = ( value | round(1))/1000 %}
+      {% set percentage = ((resist-10)/1490) %}
+      {% set ppm = 1 + (percentage*299) %}
+      {{ ppm | round(1) }}
+    expire_after: 600
+    device:
+      identifiers: 00181645a6
+      model: Enviro+
+      name: Enviro+
+      manufacturer: Pimaroni
+
+  - name: "Reducing"
+    object_id: office_reducing
+    unique_id: 181645a6_red
+    state_topic: "sensor/eplus/gas/reducing"
+    unit_of_measurement: "ppm"
+    value_template: |-
+      {% set resist = ( value | round(1))/1000 %}
+      {% set percentage = ((resist-100)/1400) %}
+      {% set ppm = 1 + (percentage*999) %}
+      {{ ppm | round(1) }}
+    expire_after: 600
+    device:
+      identifiers: 00181645a6
+      model: Enviro+
+      name: Enviro+
+      manufacturer: Pimaroni
+
+  - name: "Oxidising"
+    object_id: office_oxidising
+    unique_id: 181645a6_oxi
+    state_topic: "sensor/eplus/gas/oxidising"
+    unit_of_measurement: "ppm"
+    value_template: |-
+      {% set resist = ( value | round(1))/1000 %}
+      {% set percentage = ((resist-0.8)/19.2) %}
+      {% set ppm = 0.05 + (percentage*9.95) %}
+      {{ ppm | round(1) }}
+    expire_after: 600
+    device:
+      identifiers: 00181645a6
+      model: Enviro+
+      name: Enviro+
+      manufacturer: Pimaroni

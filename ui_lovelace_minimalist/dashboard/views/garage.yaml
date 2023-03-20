@@ -1,0 +1,90 @@
+title: "Garage"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:garage
+subview: true
+path: garage
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Garage
+
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_driveway
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
+
+      - type: custom:mushroom-entity-card
+        entity: sensor.trash
+        icon_color: brown
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+
+      - type: custom:mushroom-entity-card
+        entity: sensor.recycling
+        icon_color: yellow
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
+        double_tap_action:
+          action: none
+
+      - type: custom:mushroom-entity-card
+        entity: input_select.cat_litter_full_clean
+        icon_color: red
+        tap_action:
+          action: call-service
+          service: input_select.select_option
+          target:
+            entity_id: input_select.cat_litter_full_clean
+          data:
+            option: Done
+        hold_action:
+          action: more-info
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.mud_room
+            variables:
+              ulm_card_light_name: Mud Room
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.laundry_room
+            variables:
+              ulm_card_light_name: Laundry
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.garage
+        variables:
+          ulm_card_light_name: Garage
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: card_cover
+        entity: cover.garage_door_2
+        variables:
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_garage_large: true

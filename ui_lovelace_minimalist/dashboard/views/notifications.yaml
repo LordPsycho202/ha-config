@@ -1,0 +1,52 @@
+title: "Notifications"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:bell-cog
+subview: true
+path: notifications
+back_path: /ui-lovelace-minimalist/admin
+cards:
+  - type: "custom:button-card"
+    template: card_title
+    name: Notifications
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.mail_notifications
+    variables:
+      ulm_card_input_boolean_name: Mail Notifications
+      ulm_card_input_boolean_icon: mdi:mailbox-up
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.package_notifications
+    variables:
+      ulm_card_input_boolean_name: Package Notifications
+      ulm_card_input_boolean_icon: mdi:package-check
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.garage_notifications
+    variables:
+      ulm_card_input_boolean_name: Garage Notifications
+      ulm_card_input_boolean_icon: mdi:garage-open
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.wx_alert_notifications
+    variables:
+      ulm_card_input_boolean_name: Weather Notifications
+      ulm_card_input_boolean_icon: mdi:weather-tornado
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.battery_notifications
+    variables:
+      ulm_card_input_boolean_name: Battery Notifications
+      ulm_card_input_boolean_icon: mdi:battery-alert
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.speedtest_notifications
+    variables:
+      ulm_card_input_boolean_name: Speedtest Notifications
+      ulm_card_input_boolean_icon: mdi:speedometer

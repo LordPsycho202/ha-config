@@ -1,0 +1,116 @@
+title: "Weather"
+icon: "mdi:cloud"
+theme: "minimalist-mobile"
+path: "weather"
+cards:
+  - type: vertical-stack
+    cards:
+      - !include alerts.yaml
+      - !include welcome.yaml
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Conditions
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.wind_chill_active
+            state: "on"
+        card:
+          type: "custom:button-card"
+          template: card_graph
+          entity: sensor.wind_chill
+          variables:
+            ulm_card_graph_color: blue
+            ulm_card_graph_name: Wind Chill
+            ulm_card_graph_entity: sensor.wind_chill
+            ulm_card_graph_type: fill
+            ulm_card_graph_icon: mdi:thermometer-low
+            ulm_card_graph_hours: 6
+
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.heat_index_active
+            state: "on"
+        card:
+          type: "custom:button-card"
+          template: card_graph
+          entity: sensor.heat_index
+          variables:
+            ulm_card_graph_color: red
+            ulm_card_graph_name: Heat Index
+            ulm_card_graph_entity: sensor.heat_index
+            ulm_card_graph_type: fill
+            ulm_card_graph_icon: mdi:thermometer-high
+            ulm_card_graph_hours: 6
+
+      - type: custom:button-card
+        template: custom_card_rnissen_weather
+        variables:
+          ulm_custom_card_rnissen_weather: weather.kwdr_daynight
+          ulm_custom_card_rnissen_weather_entity_1: sensor.rain_daily
+          ulm_custom_card_rnissen_weather_entity_2: sensor.outdoor_humidity
+          ulm_custom_card_rnissen_weather_entity_3: sensor.wind_acurite_5n1
+          ulm_custom_card_rnissen_weather_entity_4: sensor.office_pressure
+          ulm_custom_card_rnissen_weather_name_1: Rain
+          ulm_custom_card_rnissen_weather_name_2: Humidity
+          ulm_custom_card_rnissen_weather_name_3: Wind
+          ulm_custom_card_rnissen_weather_name_4: Pressure
+          ulm_custom_card_rnissen_weather_temperature_outside: sensor.outside_temp
+          ulm_custom_card_rnissen_weather_date: sensor.date_long
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.rainfall_rate
+            variables:
+              ulm_card_graph_color: blue
+              ulm_card_graph_name: Rainfall Rate
+              ulm_card_graph_entity: sensor.rainfall_rate
+              ulm_card_graph_type: fill
+              ulm_card_graph_icon: mdi:weather-rainy
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.lightning_acurite_6045m
+            variables:
+              ulm_card_graph_color: yellow
+              ulm_card_graph_name: Lightning
+              ulm_card_graph_entity: sensor.lightning_acurite_6045m
+              ulm_card_graph_type: fill
+              ulm_card_graph_icon: mdi:flash-alert
+              ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - camera_view: auto
+        type: picture-glance
+        image: https://511ga.org/map/Cctv/JKSN-CAM-013--1
+        entities:
+          - entity: sensor.waze_travel_time
+          - entity: sensor.jennifer_time_to_home
+
+      - type: custom:weather-radar-card
+        card_title: Radar
+        data_source: RainViewer-Original
+        map_style: Voyager
+        zoom_level: 8
+        center_latitude: 34.0720728
+        center_longitude: -83.6917093
+        marker_latitude: 34.0720728
+        marker_longitude: -83.6917093
+        show_marker: true
+        static_map: false
+        show_scale: true
+        show_range: true
+        show_playback: true
+        show_zoom: true
+        square_map: true
+        show_recenter: true
+        frame_count: 5
+        frame_delay: 1000
+        restart_delay: 5000
+        extra_labels: true

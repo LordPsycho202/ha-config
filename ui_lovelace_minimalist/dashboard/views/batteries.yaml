@@ -1,0 +1,133 @@
+title: "Batteries"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:battery
+subview: true
+path: battery
+back_path: /ui-lovelace-minimalist/admin
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Camera Batteries
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.aarlo_battery_level_back_door
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.aarlo_battery_level_back_door
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Backdoor Camera
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.aarlo_battery_level_driveway
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.aarlo_battery_level_driveway
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Driveway Camera
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Robot Batteries
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.catbug_battery_level
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.catbug_battery_level
+          ulm_card_battery_battery_level_danger: 5
+          ulm_card_battery_battery_level_warning: 10
+          ulm_card_battery_name: Catbug (Vacuum)
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.gurtrude_battery_level
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.gurtrude_battery_level
+          ulm_card_battery_battery_level_danger: 5
+          ulm_card_battery_battery_level_warning: 10
+          ulm_card_battery_name: Gurtrude (Vacuum)
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.philoctetes_battery_level
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.philoctetes_battery_level
+          ulm_card_battery_battery_level_danger: 5
+          ulm_card_battery_battery_level_warning: 10
+          ulm_card_battery_name: Phil (Mower)
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Sensor Batteries
+
+      - type: "custom:button-card"
+        template:
+          - card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_acurite_5n1
+
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_nexus_th
+
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_acurite_6045m
+
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_acurite_606tx
+
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_kerui_security
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Office Batteries
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.hue_dimmer_switch_1_battery_level
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.hue_dimmer_switch_1_battery_level
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Dimmer Switch
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.blind_tilt_03de_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.blind_tilt_03de_battery
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Blinds
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.hue_motion_sensor_1_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.hue_motion_sensor_1_battery
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Motion Sensor

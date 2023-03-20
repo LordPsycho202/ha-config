@@ -1,0 +1,109 @@
+title: "Office"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:desk
+subview: true
+path: office
+back_path: /ui-lovelace-minimalist/upstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Office
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.office_temperature
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Room
+              ulm_card_graph_entity: sensor.office_temperature
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.temp_acurite_606tx
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Rack
+              ulm_card_graph_entity: sensor.temp_acurite_606tx
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.office_ceiling_fan
+            variables:
+              ulm_card_light_name: Light
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Fan
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.office_ceiling_fan
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.back_display
+            variables:
+              ulm_card_light_name: Hexagons
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.rack
+            variables:
+              ulm_card_light_name: Rack
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.elgato_key_light
+        variables:
+          ulm_card_light_name: Elgato Lights
+          ulm_card_light_enable_color: true
+          ulm_card_light_enable_collapse: true
+      - type: custom:mushroom-cover-card
+        entity: cover.blind_tilt_03de
+        show_tilt_position_control: true
+        secondary_info: none
+
+      - type: conditional
+        conditions:
+          - entity: media_player.office_tv
+            state: playing
+        card:
+          type: "custom:button-card"
+          template: card_media_player_chromecast_with_controls
+          variables:
+            ulm_card_media_player_with_controls_name: "Office TV"
+            ulm_card_media_player_with_controls_entity: media_player.office_tv
+
+      - type: conditional
+        conditions:
+          - entity: media_player.office_tv
+            state: "off"
+        card:
+          type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.office_tv_2
+          variables:
+            ulm_card_media_player_enable_popup: true
+            ulm_card_media_player_more_info: true
+            ulm_card_media_player_power_button: true
+            ulm_card_media_player_name: Office TV

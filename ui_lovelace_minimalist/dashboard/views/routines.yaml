@@ -1,0 +1,66 @@
+title: "Routines"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:sun-clock
+subview: true
+path: routines
+back_path: /ui-lovelace-minimalist/admin
+cards:
+  - type: entities
+    entities:
+      - type: section
+        label: Sunrise Offsets
+      - type: attribute
+        entity: sun.sun
+        attribute: next_rising
+        format: time
+        name: Next Sunrise
+      - entity: input_number.morning_outside_offset
+        name: Turn Outside Lights On
+      - entity: sensor.morning_outside_off
+        name: Next Trigger
+        format: time
+      - type: section
+        label: Sunset Offsets
+      - type: attribute
+        entity: sun.sun
+        attribute: next_setting
+        format: time
+        name: Next Sunset
+      - entity: input_number.evening_livingroom_offset
+        name: Turn Living Room On
+      - entity: sensor.evening_living_room_on
+        name: Next Trigger
+        format: time
+      - entity: input_number.evening_outside_offset
+        name: Turn Outside Lights On
+      - entity: sensor.evening_outside_on
+        name: Next Trigger
+        format: time
+      - entity: input_number.night_livingroom_offset
+        name: Dim Living Room Lights
+      - entity: sensor.night_living_room_dim
+        name: Next Trigger
+        format: time
+      - type: section
+        label: Relative to event.  Negative is Before, Positive is After
+    title: Routine Sun Offsets
+    state_color: false
+
+  - type: entities
+    entities:
+      - entity: input_datetime.mail_package_reset
+        name: Mail Reset
+      - entity: input_datetime.morning
+        name: Wake Up Prep
+      - entity: input_datetime.morning_outside_on
+        name: Outside Lights On (AM)
+      - entity: input_datetime.time_for_work
+        name: Time for Work
+      - entity: input_datetime.pump_on
+        name: Water Heater Pump Reactivation
+      - entity: input_datetime.evening_outside_off
+        name: Outside Lights Off (PM)
+      - entity: input_datetime.cat_feeding
+        name: Cat Feeding
+    title: Routine Times
+    state_color: false

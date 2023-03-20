@@ -1,0 +1,76 @@
+title: "Mail Alert"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:mailbox-open-up-outline
+subview: true
+path: mailalert
+cards:
+  - type: custom:stack-in-card
+    cards:
+      - type: custom:mushroom-template-card
+        entity: input_boolean.mail_present
+        tap_action:
+          action: toggle
+        primary: |
+          USPS Mail
+        secondary: |-
+          {% if states('input_boolean.mail_present') == "on"%}
+            Mail's Here!
+            Arrived {{ relative_time(as_datetime(states.input_datetime.mail_delivered.state)) }} ago.
+          {% else %} 
+            No Mail
+          {% endif %}
+        icon: |-
+          {% if states('input_boolean.mail_present') == "on" %} mdi:mailbox-open
+          {% else %} mdi:mailbox
+          {% endif %}
+        icon_color: |-
+          {% if states('input_boolean.mail_present') == "on" %} green
+          {% else %} white
+          {% endif %}
+        layout: vertical
+        multiline_secondary: true
+      - type: conditional
+        conditions:
+          - entity: input_boolean.mail_present
+            state: "on"
+        card:
+          show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: sensor.mail_usps_mail
+          camera_image: camera.mail_usps_camera
+
+  - type: custom:stack-in-card
+    cards:
+      - type: custom:mushroom-template-card
+        entity: input_boolean.package_present
+        tap_action:
+          action: toggle
+        primary: |
+          USPS Mail
+        secondary: |-
+          {% if states('input_boolean.package_present') == "on"%}
+            Package's Here!
+            Arrived {{ relative_time(as_datetime(states.input_datetime.package_delivered.state)) }} ago.
+          {% else %} 
+            No Packages
+          {% endif %}
+        icon: mdi:package
+        icon_color: |-
+          {% if states('input_boolean.package_present') == "on" %} green
+          {% else %} white
+          {% endif %}
+        layout: vertical
+        multiline_secondary: true
+      - type: conditional
+        conditions:
+          - entity: input_boolean.package_present
+            state: "on"
+        card:
+          show_state: true
+          show_name: true
+          camera_view: auto
+          type: picture-entity
+          entity: sensor.mail_packages_delivered
+          camera_image: camera.aarlo_doorbell

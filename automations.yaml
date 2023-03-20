@@ -1,0 +1,1130 @@
+- id: '1643311555654'
+  alias: Office
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.office_ceiling_fan
+    to: 'off'
+    id: lights_off
+  - platform: state
+    entity_id:
+    - light.office_ceiling_fan
+    to: 'on'
+    id: lights_on
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: lights_off
+      sequence:
+      - service: light.turn_off
+        target:
+          entity_id:
+          - light.rack
+          - light.back_display
+          - light.elgato_key_light
+        data: {}
+      - service: media_player.turn_off
+        data: {}
+        target:
+          entity_id:
+          - media_player.office_tv
+          - media_player.office_tv_2
+      - service: fan.turn_off
+        data: {}
+        target:
+          entity_id: fan.office_ceiling_fan
+      - service: cover.set_cover_tilt_position
+        data:
+          tilt_position: 100
+        target:
+          entity_id: cover.blind_tilt_03de
+    - conditions:
+      - condition: trigger
+        id: lights_on
+      sequence:
+      - service: scene.turn_on
+        data: {}
+        target:
+          entity_id: scene.office_bright
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id:
+          - light.rack
+          - light.back_display
+      - service: fan.turn_on
+        data: {}
+        target:
+          entity_id: fan.office_ceiling_fan
+      - if:
+        - condition: state
+          entity_id: sun.sun
+          state: above_horizon
+        then:
+        - service: cover.set_cover_tilt_position
+          data:
+            tilt_position: 50
+          target:
+            entity_id: cover.blind_tilt_03de
+  mode: single
+- id: '1657052858240'
+  alias: Outdoor Lights
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.evening_outside_off
+    id: lights_off
+  - platform: time
+    at: input_datetime.morning_outside_on
+    id: lights_on_morning
+  - platform: time
+    at: sensor.morning_outside_off
+    id: lights_off
+  - platform: time
+    at: sensor.evening_outside_on
+    id: lights_on_evening
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: lights_off
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.back_porch
+          - light.front_yard
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: lights_on_evening
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id:
+          - light.back_porch
+          - light.front_yard
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: lights_on_morning
+        - condition: state
+          entity_id: binary_sensor.work_day
+          state: 'on'
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id:
+          - light.back_porch
+          - light.front_yard
+  mode: single
+- id: '1658619345368'
+  alias: 'Lamp: Off'
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_off
+    device_id: 499fe3a797526bfaf359c923303de79c
+    entity_id: light.living_room_ceiling_fan
+    domain: light
+    id: light_off
+  - platform: device
+    type: turned_on
+    device_id: 499fe3a797526bfaf359c923303de79c
+    entity_id: light.living_room_ceiling_fan
+    domain: light
+    id: light_on
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: light_off
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.lamp
+    - conditions:
+      - condition: trigger
+        id: light_on
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.lamp
+  mode: single
+- id: '1658624337078'
+  alias: 'Tuya: daily restart'
+  description: ''
+  trigger:
+  - platform: time
+    at: 03:00:00
+  condition: []
+  action:
+  - service: homeassistant.reload_config_entry
+    data: {}
+    target:
+      device_id: 3a103d27710392d562656a5fad885d8f
+  mode: single
+- id: '1661174685016'
+  alias: 'Stairway: Cat food Time'
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - service: scene.turn_on
+    data: {}
+    target:
+      entity_id: scene.stairway_on
+  mode: single
+- id: '1662557334063'
+  alias: 'Vacation: Round 1: Turn off some lights'
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:30:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  action:
+  - delay: 00:{{ '{:02}'.format(range(0,30) | random | int) }}:00
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id:
+      - light.kitchen_hanging
+      - light.living_room_overhead
+  mode: single
+- id: '1662557528089'
+  alias: 'Vacation: Round 2: Turn off Rest'
+  description: ''
+  trigger:
+  - platform: time
+    at: '12:00:00'
+  condition:
+  - condition: state
+    entity_id: input_boolean.vacation_mode
+    state: 'on'
+  action:
+  - delay: '{{ ''{:02}''.format(range(0,1) | random | int) }}:{{ ''{:02}''.format(range(0,59)
+      | random | int) }}:00'
+  - service: script.turn_on
+    data: {}
+    target:
+      entity_id: script.good_night
+  mode: single
+- id: '1663561080496'
+  alias: 'Wake Up: raise lights'
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:15:00
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      state: 'on'
+      entity_id: binary_sensor.office_day
+  action:
+  - service: light.turn_on
+    data:
+      transition: 1800
+      brightness_pct: 100
+    target:
+      entity_id: light.master_bedroom
+  mode: single
+- id: '1663987749124'
+  alias: 'Sprinkler: Space it out'
+  description: ''
+  trigger:
+  - platform: time
+    at: '17:30:00'
+  condition:
+  - condition: state
+    entity_id: switch.waterbender_rain_delay
+    state: 'off'
+  action:
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{now().month in (1,2,10,11,12)}}'
+      sequence:
+      - service: bhyve.enable_rain_delay
+        data:
+          entity_id: switch.waterbender_rain_delay
+          hours: '{{ states(''sensor.rain_delay_month_counter'') | int }}'
+    - conditions:
+      - condition: template
+        value_template: '{{ as_timestamp(now().astimezone()) - as_timestamp(states.sensor.last_watering.state)
+          < 1209600 }}'
+      sequence:
+      - service: bhyve.enable_rain_delay
+        data:
+          entity_id: switch.waterbender_rain_delay
+          hours: '{{ (((as_timestamp(states.sensor.last_watering.state)+1209600) -
+            as_timestamp(now().astimezone()))/3600)|int }}'
+    - conditions:
+      - condition: numeric_state
+        entity_id: weather.kwdr_daynight
+        below: 50
+        attribute: temperature
+      sequence:
+      - service: bhyve.enable_rain_delay
+        data:
+          entity_id: switch.waterbender_rain_delay
+          hours: 24
+- id: '1666376190482'
+  alias: Fresnel Lens
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - light.living_room_2
+    to: 'on'
+    id: lights_on
+  - platform: sun
+    event: sunrise
+    offset: 0
+    id: sun_rises
+  - platform: sun
+    event: sunset
+    offset: 0
+    id: sun_sets
+  - platform: state
+    entity_id:
+    - light.living_room_2
+    to: 'off'
+    id: lights_off
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.fresnel_lens
+  - choose:
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: lights_on
+        - condition: trigger
+          id: sun_rises
+      sequence:
+      - service: switch.turn_off
+        data: {}
+        target:
+          entity_id: switch.fresnel_lens
+    - conditions:
+      - condition: or
+        conditions:
+        - condition: trigger
+          id: lights_off
+        - condition: trigger
+          id: sun_sets
+      sequence:
+      - if:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: light.living_room_2
+            state: 'off'
+          - condition: state
+            entity_id: sun.sun
+            state: below_horizon
+        then:
+        - service: switch.turn_on
+          data: {}
+          target:
+            entity_id: switch.fresnel_lens
+  mode: single
+- id: '1669501325355'
+  alias: 'Christmas: Turn On Lights'
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 01:00:00
+  condition:
+  - condition: state
+    entity_id: binary_sensor.christmas_season
+    state: 'on'
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id:
+      - light.indoor_decoration
+  mode: single
+- id: '1671555523375'
+  alias: Warning - Battery
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.hue_motion_sensor_1_battery
+    below: 25
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: numeric_state
+    entity_id: sensor.hue_dimmer_switch_1_battery_level
+    below: 25
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: numeric_state
+    entity_id: sensor.aarlo_battery_level_driveway
+    below: 25
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: numeric_state
+    entity_id: sensor.aarlo_battery_level_back_door
+    below: 25
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: state
+    entity_id:
+    - binary_sensor.batt_acurite_5n1
+    - binary_sensor.batt_acurite_606tx
+    - binary_sensor.batt_acurite_6045m
+    - binary_sensor.batt_nexus_th
+    - binary_sensor.batt_kerui_security
+    to: 'on'
+  - platform: state
+    entity_id:
+    - binary_sensor.batt_acurite_5n1
+    - binary_sensor.batt_acurite_606tx
+    - binary_sensor.batt_acurite_6045m
+    - binary_sensor.batt_nexus_th
+    - binary_sensor.batt_kerui_security
+    to: unavailable
+  - platform: numeric_state
+    entity_id: sensor.blind_tilt_03de_battery
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+    below: 25
+  condition: []
+  action:
+  - service: notify.mobile_app_rodney_s_phone
+    data:
+      message: '{{trigger.to_state.attributes.friendly_name}} is low!'
+      title: Battery Warning
+      data:
+        clickAction: /ui-lovelace-minimalist/battery
+  - if:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{ as_timestamp(now().astimezone()) - as_timestamp(states.sensor.rodney_work_lastactive.state)
+          < 900 }}'
+    then:
+    - service: notify.rodney_work
+      data:
+        message: '{{trigger.to_state.attributes.friendly_name}} is low!'
+        title: Battery Warning
+  mode: single
+- id: '1672854185371'
+  alias: 'Reload Config: Speedtest'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id: sensor.speedtest_download
+    to: unavailable
+  condition: []
+  action:
+  - service: homeassistant.reload_config_entry
+    data: {}
+    target:
+      device_id: 277291260d633ab39e41834861c42d2a
+      entity_id:
+      - sensor.speedtest_upload
+      - sensor.speedtest_download
+      - sensor.speedtest_ping
+  - if:
+    - condition: state
+      entity_id: input_boolean.speedtest_notifications
+      state: 'on'
+    then:
+    - service: notify.mobile_app_rodney_s_phone
+      data:
+        message: SpeetTest Restarted
+        title: Oof!
+  mode: single
+- id: '1674967823933'
+  alias: 'Arlo: Motion Detect Turn on nearby light'
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.aarlo_motion_back_door
+    to: 'on'
+    id: backporch
+  - platform: state
+    entity_id:
+    - binary_sensor.aarlo_motion_driveway
+    to: 'on'
+    id: driveway
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: sun.sun
+      state: below_horizon
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: backporch
+        - condition: state
+          entity_id: light.back_porch
+          state: 'off'
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.back_porch
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - repeat:
+          while:
+          - condition: state
+            state: 'on'
+            entity_id: binary_sensor.aarlo_motion_back_door
+          sequence:
+          - delay:
+              hours: 0
+              minutes: 1
+              seconds: 0
+              milliseconds: 0
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.back_porch
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: driveway
+        - condition: state
+          state: 'off'
+          entity_id: light.flood_light
+      sequence:
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id: light.flood_light
+      - delay:
+          hours: 0
+          minutes: 2
+          seconds: 0
+          milliseconds: 0
+      - repeat:
+          while:
+          - condition: state
+            state: 'on'
+            entity_id: binary_sensor.aarlo_motion_driveway
+          sequence:
+          - delay:
+              hours: 0
+              minutes: 1
+              seconds: 0
+              milliseconds: 0
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id: light.flood_light
+  mode: parallel
+  max: 10
+- id: '1675488512522'
+  alias: Kitchen
+  description: ''
+  use_blueprint:
+    path: aderusha/link_multiple_devices.yaml
+    input:
+      linked_entities:
+      - light.kitchen_overhead
+      - light.breakfast
+- id: '1676559248161'
+  alias: Warning - Device Error
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - vacuum.philoctetes
+    to: error
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: state
+    entity_id:
+    - vacuum.catbug
+    to: error
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: state
+    entity_id:
+    - vacuum.gurtrude
+    to: error
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  - platform: state
+    entity_id:
+    - vacuum.philoctetes
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 30
+      seconds: 0
+  condition: []
+  action:
+  - service: notify.mobile_app_rodney_s_phone
+    data:
+      message: '{{trigger.to_state.attributes.friendly_name}} is in trouble and needs
+        help!'
+      title: Error Warning
+  - if:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{ as_timestamp(now().astimezone()) - as_timestamp(states.sensor.rodney_work_lastactive.state)
+          < 900 }}'
+    then:
+    - service: notify.rodney_work
+      data:
+        message: '{{trigger.to_state.attributes.friendly_name}} is in trouble and
+          needs help!'
+        title: Error Warning
+  mode: single
+- id: '1676777796732'
+  alias: Downstairs Lights
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.morning
+    id: morning
+  - platform: time
+    at: input_datetime.time_for_work
+    id: time_for_work
+  - platform: time
+    at: sensor.evening_living_room_on
+    id: pre_sunset
+  - platform: time
+    at: sensor.night_living_room_dim
+    id: post_sunset
+  condition:
+  - condition: state
+    entity_id: input_boolean.downstairs_lights
+    state: 'on'
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.work_day
+          state: 'on'
+        - condition: trigger
+          id: morning
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness_pct: 50
+        target:
+          entity_id:
+          - light.dining_room
+          - light.kitchen_hanging
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: binary_sensor.work_day
+          state: 'on'
+        - condition: trigger
+          id: time_for_work
+      sequence:
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.downstairs
+      - service: fan.turn_off
+        data: {}
+        target:
+          entity_id:
+          - fan.master_bedroom_ceiling_fan
+          - fan.living_room_ceiling_fan
+    - conditions:
+      - condition: trigger
+        id: pre_sunset
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 191
+        target:
+          entity_id:
+          - light.living_room_2
+          - light.kitchen
+      - service: fan.turn_on
+        data: {}
+        target:
+          entity_id: fan.living_room_ceiling_fan
+    - conditions:
+      - condition: trigger
+        id: post_sunset
+      sequence:
+      - service: light.turn_on
+        data:
+          brightness: 127
+          transition: 120
+        target:
+          entity_id:
+          - light.living_room_2
+  mode: single
+- id: '1676785719967'
+  alias: Mail & Packages
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - binary_sensor.door_kerui_security
+    to: 'on'
+    id: mailbox_open
+  - platform: numeric_state
+    entity_id: sensor.mail_packages_delivered
+    above: 0
+    id: package_delivered
+  - platform: time
+    at: input_datetime.mail_package_reset
+    id: reset
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: mailbox_open
+        - condition: state
+          entity_id: input_boolean.mail_present
+          state: 'off'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.mail_present
+      - service: input_datetime.set_datetime
+        data:
+          datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+        target:
+          entity_id: input_datetime.mail_delivered
+      - if:
+        - condition: state
+          entity_id: input_boolean.mail_notifications
+          state: 'on'
+        then:
+        - service: notify.mobile_app_rodney_s_phone
+          data:
+            message: You've got Mail!
+            data:
+              image: '{{ states.sensor.mail_image_url.state }}'
+              clickAction: /ui-lovelace-minimalist/mailalert
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: mailbox_open
+        - condition: state
+          entity_id: input_boolean.mail_present
+          state: 'on'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.mail_grabbed
+      - service: input_datetime.set_datetime
+        data:
+          datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+        target:
+          entity_id: input_datetime.mail_picked_up
+      - service: input_boolean.turn_off
+        data: {}
+        target:
+          entity_id: input_boolean.mail_present
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: package_delivered
+        - condition: state
+          entity_id: input_boolean.package_present
+          state: 'off'
+      sequence:
+      - service: input_boolean.turn_on
+        data: {}
+        target:
+          entity_id: input_boolean.package_present
+      - service: input_datetime.set_datetime
+        data:
+          datetime: '{{ now().strftime(''%Y-%m-%d %H:%M:%S'') }}'
+        target:
+          entity_id: input_datetime.package_delivered
+      - service: aarlo.camera_request_snapshot_to_file
+        data:
+          entity_id: camera.aarlo_doorbell
+          filename: package.png
+      - if:
+        - condition: state
+          entity_id: input_boolean.package_notifications
+          state: 'on'
+        then:
+        - service: notify.mobile_app_rodney_s_phone
+          data:
+            message: You've got a Package!
+            data:
+              image: /config/www/images/package.png
+              clickAction: /ui-lovelace-minimalist/mailalert
+    - conditions:
+      - condition: trigger
+        id: reset
+      sequence:
+      - service: script.turn_on
+        data: {}
+        target:
+          entity_id: script.m_and_p_reset
+  mode: single
+- id: '1676787164207'
+  alias: Garage
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - cover.garage_door_2
+    to: open
+    id: opening
+  - platform: state
+    entity_id:
+    - cover.garage_door_2
+    to: opening
+    id: opening
+  - platform: state
+    entity_id:
+    - cover.garage_door_2
+    for:
+      hours: 0
+      minutes: 10
+      seconds: 0
+    to: open
+    id: left_open
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: trigger
+        id: opening
+      sequence:
+      - service: aarlo.camera_request_snapshot
+        data:
+          entity_id: camera.aarlo_driveway
+      - service: light.turn_on
+        data: {}
+        target:
+          entity_id:
+          - light.garage
+          - light.mud_room
+      - service: aarlo.alarm_set_mode
+        data:
+          entity_id: alarm_control_panel.aarlo_driveway
+          mode: disarmed
+      - delay:
+          hours: 0
+          minutes: 1
+          seconds: 0
+          milliseconds: 0
+      - repeat:
+          while:
+          - condition: state
+            state: open
+            entity_id: cover.garage_door_2
+          sequence:
+          - delay:
+              hours: 0
+              minutes: 1
+              seconds: 0
+              milliseconds: 0
+      - service: aarlo.alarm_set_mode
+        data:
+          entity_id: alarm_control_panel.aarlo_driveway
+          mode: armed
+      - delay:
+          hours: 0
+          minutes: 15
+          seconds: 0
+          milliseconds: 0
+      - service: light.turn_off
+        data: {}
+        target:
+          entity_id:
+          - light.garage
+          - light.mud_room
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: left_open
+        - condition: state
+          entity_id: input_boolean.garage_notifications
+          state: 'on'
+      sequence:
+      - service: notify.mobile_app_rodney_s_phone
+        data:
+          message: Garage Door was left open!
+          data:
+            actions:
+            - action: CLOSE_GARAGE_DOOR
+              title: Close Door
+      - wait_for_trigger:
+        - platform: event
+          event_type: mobile_app_notification_action
+          event_data:
+            action: CLOSE_GARAGE_DOOR
+        timeout: 00:30:00
+        continue_on_timeout: false
+      - service: cover.close_cover
+        data: {}
+        target:
+          entity_id: cover.garage_door_2
+      - service: notify.mobile_app_rodney_s_phone
+        data:
+          message: Closing Garage Door.
+  mode: single
+- id: '1677462927035'
+  alias: Warning - Wx Alert
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.nws_alerts
+    above: 0
+  condition:
+  - condition: and
+    conditions:
+    - condition: state
+      entity_id: input_boolean.wx_alert_notifications
+      state: 'on'
+    - condition: or
+      conditions:
+      - condition: template
+        value_template: '  {{ ''Extreme'' in states.sensor.nws_alerts.attributes.event_severity
+          }}'
+      - condition: template
+        value_template: '{{ ''Severe'' in states.sensor.nws_alerts.attributes.event_severity
+          }}'
+  action:
+  - service: notify.mobile_app_rodney_s_phone
+    data:
+      message: '{{ states.sensor.nws_alerts.attributes.spoken_desc }}'
+      title: '{{ states.sensor.nws_alerts.attributes.title }}'
+      data:
+        clickAction: /ui-lovelace-minimalist/wxalert
+  - service: notify.mobile_app_jennifer_s_phone
+    data:
+      message: '{{ states.sensor.nws_alerts.attributes.spoken_desc }}'
+      title: '{{ states.sensor.nws_alerts.attributes.title }}'
+      data:
+        clickAction: /ui-lovelace-minimalist/wxalert
+  - if:
+    - condition: and
+      conditions:
+      - condition: template
+        value_template: '{{ as_timestamp(now().astimezone()) - as_timestamp(states.sensor.rodney_work_lastactive.state)
+          < 900 }}'
+    then:
+    - service: notify.rodney_work
+      data:
+        message: '{{ states.sensor.nws_alerts.attributes.spoken_desc }}'
+        title: '{{ states.sensor.nws_alerts.attributes.title }}'
+  mode: single
+- id: '1677856465812'
+  alias: Warning - Battery Group
+  description: ''
+  use_blueprint:
+    path: sbyx/low-battery-level-detection-notification-for-all-battery-sensors.yaml
+    input:
+      time: '17:30:00'
+      day: 1
+      exclude:
+        entity_id:
+        - sensor.aarlo_battery_level_doorbell
+        - sensor.sm_n986u_battery_level_2
+        - sensor.rodney_s_phone_battery_level
+      actions:
+      - if:
+        - condition: state
+          entity_id: input_boolean.battery_notifications
+          state: 'on'
+        then:
+        - service: notify.mobile_app_rodney_s_phone
+          data:
+            title: Battery Alert
+            message: 'The Following Batteries are low:  {{sensors}}'
+        - if:
+          - condition: template
+            value_template: '{{ as_timestamp(now().astimezone()) - as_timestamp(states.sensor.rodney_work_lastactive.state)
+              < 900 }}'
+          then:
+          - service: notify.rodney_work
+            data:
+              title: Battery Alert
+              message: 'The Following Batteries are low:  {{sensors}}'
+- id: '1678133024423'
+  alias: Dishwasher
+  description: ''
+  trigger:
+  - platform: numeric_state
+    entity_id: sensor.dishwasher_6_1min
+    for:
+      hours: 0
+      minutes: 1
+      seconds: 0
+    above: 10
+    id: start_run
+  - platform: numeric_state
+    entity_id: sensor.dishwasher_6_1min
+    for:
+      hours: 0
+      minutes: 3
+      seconds: 0
+    below: 5
+    id: end_run
+  condition: []
+  action:
+  - choose:
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: trigger
+          id: start_run
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Running
+        target:
+          entity_id: input_select.dishwasher_state
+    - conditions:
+      - condition: and
+        conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_state
+          state: Running
+        - condition: trigger
+          id: end_run
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Clean
+        target:
+          entity_id: input_select.dishwasher_state
+  mode: single
+- id: '1679107623769'
+  alias: 'Reload Config: Emporia '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - sensor.dishwasher_6_1min
+    to: unavailable
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - service: homeassistant.reload_config_entry
+    data: {}
+    target:
+      entity_id: sensor.dishwasher_6_1min
+      device_id: c36dbcbbe3305b79a84eba529b6c51cb
+  mode: single
+- id: '1679320266699'
+  alias: Cat Litter Selector
+  description: ''
+  trigger:
+  - platform: time
+    at: input_datetime.morning
+  condition:
+  - condition: and
+    conditions:
+    - condition: template
+      value_template: '{{ now().weekday() == 0 }}'
+  action:
+  - variables:
+      boxIndex: '{{ now().strftime(''%U'')|int % 4 }}'
+  - choose:
+    - conditions:
+      - condition: template
+        value_template: '{{boxIndex == 0}}'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Dining Room
+        target:
+          entity_id: input_select.cat_litter_full_clean
+    - conditions:
+      - condition: template
+        value_template: '{{ boxIndex == 1 }}'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Laundry Room
+        target:
+          entity_id: input_select.cat_litter_full_clean
+    - conditions:
+      - condition: template
+        value_template: '{{ boxIndex == 2 }}'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Upstairs (Near Wall)
+        target:
+          entity_id: input_select.cat_litter_full_clean
+    - conditions:
+      - condition: template
+        value_template: '{{ boxIndex == 3 }}'
+      sequence:
+      - service: input_select.select_option
+        data:
+          option: Upstairs (Near Catbug)
+        target:
+          entity_id: input_select.cat_litter_full_clean
+  mode: single

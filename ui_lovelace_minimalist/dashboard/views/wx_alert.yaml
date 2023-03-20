@@ -1,0 +1,21 @@
+title: "Weather Alert"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:weather-tornado
+subview: true
+path: wxalert
+cards:
+  - type: "custom:button-card"
+    template: card_title
+    label: >
+      [[[ return states['sensor.nws_alerts'].attributes.title; ]]]
+    icon: >
+      [[[ return states['sensor.nws_alerts'].attributes.icon; ]]]
+
+  - type: markdown
+    content: "{{ states.sensor.nws_alerts.attributes.display_desc }}"
+
+  - type: iframe
+    url: >-
+      https://radar.weather.gov/?settings=v1_eyJhZ2VuZGEiOnsiaWQiOiJ3ZWF0aGVyIiwiY2VudGVyIjpbLTgxLjU1OSwzNC40NTRdLCJsb2NhdGlvbiI6Wy04My41NjIsMzQuMTY2XSwiem9vbSI6Ni40MDY3MjE2NTM2NDAyMDR9LCJhbmltYXRpbmciOmZhbHNlLCJiYXNlIjoic3RhbmRhcmQiLCJhcnRjYyI6ZmFsc2UsImNvdW50eSI6ZmFsc2UsImN3YSI6ZmFsc2UsInJmYyI6ZmFsc2UsInN0YXRlIjpmYWxzZSwibWVudSI6dHJ1ZSwic2hvcnRGdXNlZE9ubHkiOmZhbHNlLCJvcGFjaXR5Ijp7ImFsZXJ0cyI6MC42MiwibG9jYWwiOjAuNiwibG9jYWxTdGF0aW9ucyI6MC44LCJuYXRpb25hbCI6MC42fX0%3D
+    title: Radar
+    aspect_ratio: 125%

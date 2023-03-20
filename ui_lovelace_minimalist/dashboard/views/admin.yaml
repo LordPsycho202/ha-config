@@ -1,0 +1,115 @@
+title: "Admin"
+icon: mdi:cog
+theme: "minimalist-mobile"
+path: "admin"
+visible:
+  - user: 829c75b162794808a699871056da2b93
+cards:
+  - type: vertical-stack
+    cards:
+      - !include alerts.yaml
+      - !include welcome.yaml
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Settings
+
+      - type: entities
+        entities:
+          - entity: input_boolean.vacation_mode
+          - entity: input_boolean.guest_mode
+        title: Running Modes
+
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/routines
+          ulm_card_navigate_title: Routine Times
+          ulm_card_navigate_icon: mdi:sun-clock
+          ulm_card_navigate_color: var(--color-red)
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Scripts (Hold to run)
+
+      - type: "custom:button-card"
+        template: card_script
+        entity: script.m_and_p_reset
+        variables:
+          ulm_card_script_title: Reset Mail
+          ulm_card_script_icon: "mdi:email-sync"
+        hold_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.m_and_p_reset
+        tap_action:
+          action: none
+
+      - type: "custom:button-card"
+        template: card_script
+        entity: script.reset_flic
+        variables:
+          ulm_card_script_title: Reset FlicHub
+          ulm_card_script_icon: "mdi:restart-alert"
+        hold_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.reset_flic
+        tap_action:
+          action: none
+
+      - type: "custom:button-card"
+        template: card_script
+        entity: script.good_night
+        variables:
+          ulm_card_script_title: Turn off all lights
+          ulm_card_script_icon: "mdi:weather-night"
+        hold_action:
+          action: call-service
+          service: script.turn_on
+          service_data:
+            entity_id: script.good_night
+        tap_action:
+          action: none
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Automations
+
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/automations
+          ulm_card_navigate_title: Automation Control
+          ulm_card_navigate_icon: mdi:cogs
+          ulm_card_navigate_color: var(--color-red)
+
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/notifications
+          ulm_card_navigate_title: Notifications
+          ulm_card_navigate_icon: mdi:bell-cog
+          ulm_card_navigate_color: var(--color-red)
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Info
+
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/battery
+          ulm_card_navigate_title: Battery
+          ulm_card_navigate_icon: mdi:battery
+          ulm_card_navigate_color: var(--color-red)

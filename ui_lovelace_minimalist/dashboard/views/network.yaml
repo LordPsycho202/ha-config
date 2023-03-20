@@ -1,0 +1,183 @@
+title: "Net"
+icon: "mdi:web"
+theme: "minimalist-mobile"
+path: "network"
+#visible:
+#  - user: 829c75b162794808a699871056da2b93
+cards:
+  - type: vertical-stack
+    cards:
+      - !include alerts.yaml
+      - !include welcome.yaml
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Network
+
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.temp_acurite_606tx
+        variables:
+          ulm_card_graph_color: red
+          ulm_card_graph_name: Rack Temp
+          ulm_card_graph_entity: sensor.temp_acurite_606tx
+          ulm_card_graph_type: fill
+          ulm_card_graph_icon: mdi:server
+          ulm_card_graph_hours: 24
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.speedtest_download
+            variables:
+              ulm_card_graph_color: green
+              ulm_card_graph_name: Download
+              ulm_card_graph_entity: sensor.speedtest_download
+              ulm_card_graph_type: fill
+              ulm_card_graph_icon: mdi:arrow-down
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.speedtest_upload
+            variables:
+              ulm_card_graph_color: green
+              ulm_card_graph_name: Upload
+              ulm_card_graph_entity: sensor.speedtest_upload
+              ulm_card_graph_type: fill
+              ulm_card_graph_icon: mdi:arrow-up
+              ulm_card_graph_hours: 24
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            layout: vertical
+            primary: |-
+              {% if states.binary_sensor.internet_connection.state == 'on' %}
+                Internet Connection: Up
+              {% else %}
+                Internet Connection: Down
+              {% endif %}
+            secondary: >-
+              Uptime: {{ relative_time(now() - timedelta( seconds =
+              state_attr('sensor.unifi_gateway_www', 'uptime') | int))  }}
+            icon: |-
+              {% if states.binary_sensor.internet_connection.state == 'on' %}
+                mdi:network
+              {% else %}
+                mdi:network-off
+              {% endif %}
+            icon_color: |-
+              {% if states.binary_sensor.internet_connection.state == 'on' %}
+                green
+              {% else %}
+                red
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.speedtest_ping
+            variables:
+              ulm_card_graph_color: green
+              ulm_card_graph_name: Upload
+              ulm_card_graph_entity: sensor.speedtest_ping
+              ulm_card_graph_type: fill
+              ulm_card_graph_icon: mdi:lan-pending
+              ulm_card_graph_hours: 24
+
+      - type: custom:mushroom-template-card
+        primary: UPS01
+        secondary: >-
+          Battery: {{states.sensor.ups01_battery_charge.state}}% | Load:
+          {{states.sensor.ups01_load.state}}%
+        icon: mdi:lightning-bolt-circle
+        icon_color: |-
+          {% if states.sensor.ups01_battery_charge.state | float >= 30 %}
+          green
+          {% elif states.sensor.ups01_battery_charge.state | float >= 10 %}
+          orange
+          {% else %}
+          red
+          {% endif %}
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Raspberry Pis
+
+      - type: custom:button-card
+        template: custom_card_rnissen_entities
+        variables:
+          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_cardinal
+          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_cardinal
+          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_cardinal
+          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_cardinal
+          ulm_custom_card_rnissen_entities_name_1: Temp
+          ulm_custom_card_rnissen_entities_name_2: CPU
+          ulm_custom_card_rnissen_entities_name_3: SD Card
+          ulm_custom_card_rnissen_entities_name_4: Memory
+          ulm_custom_card_rnissen_entities_icon: 🐦
+          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_cardinal'].attributes.host_name ]]]"
+          ulm_custom_card_rnissen_entities: sensor.uptimekuma_cardinal_https
+
+      - type: custom:button-card
+        template: custom_card_rnissen_entities
+        variables:
+          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_hestia
+          ulm_custom_card_rnissen_entities_entity_2: sensor.processor_use
+          ulm_custom_card_rnissen_entities_entity_3: sensor.disk_use_percent
+          ulm_custom_card_rnissen_entities_entity_4: sensor.memory_use_percent
+          ulm_custom_card_rnissen_entities_name_1: Temp
+          ulm_custom_card_rnissen_entities_name_2: CPU
+          ulm_custom_card_rnissen_entities_name_3: SD Card
+          ulm_custom_card_rnissen_entities_name_4: Memory
+          ulm_custom_card_rnissen_entities_icon: 🏠
+          ulm_custom_card_rnissen_entities_name: hestia
+          ulm_custom_card_rnissen_entities: sensor.uptimekuma_hestia_http
+
+      - type: custom:button-card
+        template: custom_card_rnissen_entities
+        variables:
+          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_apollo
+          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_apollo
+          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_apollo
+          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_apollo
+          ulm_custom_card_rnissen_entities_name_1: Temp
+          ulm_custom_card_rnissen_entities_name_2: CPU
+          ulm_custom_card_rnissen_entities_name_3: SD Card
+          ulm_custom_card_rnissen_entities_name_4: Memory
+          ulm_custom_card_rnissen_entities_icon: ☀️
+          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_apollo'].attributes.host_name ]]]"
+          ulm_custom_card_rnissen_entities: sensor.uptimekuma_apollo_dns
+
+      - type: custom:button-card
+        template: custom_card_rnissen_entities
+        variables:
+          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_artemis
+          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_artemis
+          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_artemis
+          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_artemis
+          ulm_custom_card_rnissen_entities_name_1: Temp
+          ulm_custom_card_rnissen_entities_name_2: CPU
+          ulm_custom_card_rnissen_entities_name_3: SD Card
+          ulm_custom_card_rnissen_entities_name_4: Memory
+          ulm_custom_card_rnissen_entities_icon: 🌘
+          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_artemis'].attributes.host_name ]]]"
+          ulm_custom_card_rnissen_entities: sensor.uptimekuma_artemis_dns
+
+      - type: custom:button-card
+        template: custom_card_rnissen_entities
+        variables:
+          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_charles
+          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_charles
+          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_charles
+          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_charles
+          ulm_custom_card_rnissen_entities_name_1: Temp
+          ulm_custom_card_rnissen_entities_name_2: CPU
+          ulm_custom_card_rnissen_entities_name_3: SD Card
+          ulm_custom_card_rnissen_entities_name_4: Memory
+          ulm_custom_card_rnissen_entities_icon: ✈️
+          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_charles'].attributes.host_name ]]]"
+          ulm_custom_card_rnissen_entities: sensor.uptimekuma_charles_piaware

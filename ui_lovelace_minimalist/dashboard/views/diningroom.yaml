@@ -1,0 +1,36 @@
+title: "Dining Room"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:silverware
+subview: true
+path: diningroom
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Dining Room
+
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.dining_room_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.dining_room_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.dining_room
+        variables:
+          ulm_card_light_name: Lights
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true

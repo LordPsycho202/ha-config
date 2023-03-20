@@ -1,0 +1,225 @@
+### configuration.yaml
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+#### Logbook ##################################
+logbook:
+  exclude:
+    entity_globs:
+      - sensor.lastrx_*
+      - sensor.rpi_monitor_*
+    entities:
+      - sensor.unifi_main_switch_uptime
+      - sensor.fr24_aircraft
+      - sensor.watchman_last_updated
+      - sensor.template_wind_dir
+      - sensor.brother_mfc_j995dw
+      - sensor.rain_delay_time
+
+#### Text to speech ##################################
+tts:
+  - platform: google_translate
+
+#### Includes ##################################
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+homeassistant:
+  customize: !include customize.yaml
+  packages: !include_dir_named packages
+
+#### Frontend ##################################
+frontend:
+  themes: !include_dir_merge_named themes
+
+#### HTTPS ##################################
+http: !include http.yaml
+
+#### Template Sensors #############################################
+template: !include template.yaml
+
+#### Influx Integration ##################################
+influxdb: !include influxdb.yaml
+
+#### Rest Sensors #############################################
+rest: !include rest.yaml
+
+#### Rest Sensors #############################################
+mqtt: !include mqtt.yaml
+
+#### Filter Sensors #############################################
+#filter: !include filter.yaml
+
+#### Workday Sensors #############################################
+#workday: !include workday.yaml
+
+#### Workday Sensors #############################################
+#time_date: !include time_date.yaml
+
+#### Arlo Integration #############################################
+aarlo:
+  host: "https://my.arlo.com"
+  username: !secret arlo_username
+  password: !secret arlo_password
+  db_motion_time: 30
+  db_ding_time: 10
+  recent_time: 10
+  last_format: "%m-%d %H:%M"
+  refresh_devices_every: 2
+  verbose_debug: True
+  tfa_host: "imap.gmail.com"
+  tfa_username: !secret arlo_2fa_username
+  tfa_password: !secret arlo_2fa_password
+
+switch:
+  - platform: aarlo
+    siren: True
+    all_sirens: True
+    snapshot: True
+    doorbell_silence: True
+    siren_volume: 1
+    siren_duration: 10
+
+camera:
+  - platform: aarlo
+
+light:
+  - platform: blink1_status
+  - platform: aarlo
+
+media_player:
+  - platform: aarlo
+
+sensor:
+  - platform: aarlo
+    monitored_conditions:
+      - total_cameras
+      - last_capture
+      - recent_activity
+      - captured_today
+      - battery_level
+      - signal_strength
+      - temperature
+      - humidity
+      - air_quality
+
+  - platform: unifigateway
+    host: !secret unifi_ip
+    port: !secret unifi_port
+    username: !secret unifi_user
+    password: !secret unifi_pass
+    version: "UDMP-unifiOS"
+    verify_ssl: false
+    monitored_conditions:
+      - www
+      - wlan
+      - lan
+      - wan
+      - firmware
+
+  - platform: time_date
+    display_options: "date"
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /
+      - type: memory_use_percent
+      - type: processor_use
+
+  - platform: command_line
+    name: CPU Temp
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unique_id: cpu_temp
+    unit_of_measurement: "°C"
+    value_template: "{{ value | multiply(0.001) | round(1) }}"
+
+  - platform: snmp
+    host: 192.168.1.143
+    name: Unifi Main Switch Uptime
+    community: !secret snmp_comm
+    baseoid: 1.3.6.1.2.1.1.3.0
+    value_template: >
+      {%- set time = value | int // 100 %}
+      {%- set minutes = ((time % 3600) // 60) %}
+      {%- set minutes = '{}min'.format(minutes) if minutes > 0 else '' %}
+      {%- set hours = ((time % 86400) // 3600) %}
+      {%- set hours = '{}hr '.format(hours) if hours > 0 else '' %}
+      {%- set days = (time // 86400) %}
+      {%- set days = '{}d '.format(days) if days > 0 else '' %}
+      {{ 'Less than 1 min' if time < 60 else days + hours + minutes }}
+
+  - platform: statistics
+    name: "Rainfall Sum"
+    unique_id: rainfall_sum
+    entity_id: sensor.rainfall_rate
+    state_characteristic: sum
+    max_age:
+      minutes: 5
+
+  - platform: statistics
+    name: "Rainfall mean"
+    unique_id: rainfall_mean
+    entity_id: sensor.rainfall_rate
+    state_characteristic: mean
+    max_age:
+      minutes: 5
+
+  - platform: statistics
+    name: "Max Winds"
+    unique_id: wind_max
+    entity_id: sensor.wind_acurite_5n1
+    state_characteristic: value_max
+    max_age:
+      hours: 24
+
+binary_sensor:
+  - platform: aarlo
+    monitored_conditions:
+      - motion
+      - sound
+      - ding
+      - cry
+      - connectivity
+
+  - platform: workday
+    name: work_day
+    country: US
+    workdays: [mon, tue, wed, thu, fri]
+    excludes: [sat, sun]
+
+  - platform: workday
+    name: office_day
+    country: US
+    workdays: [mon, tue, thu, fri]
+    excludes: [sat, sun, wed]
+
+  - platform: ping
+    host: 1.1.1.1
+    count: 2
+    scan_interval: 60
+    name: “Internet_Connection”
+
+alarm_control_panel:
+  - platform: aarlo
+    away_mode_name: armed
+    home_mode_name: home
+    night_mode_name: night
+    trigger_time: 30
+    alarm_volume: 8
+
+weather:
+  - platform: template
+    name: "Station"
+    unique_id: "home_wx"
+    condition_template: "{{ states('weather.kwdr_daynight') }}"
+    temperature_template: "{{ states.sensor.outside_temp.state|float }}"
+    temperature_unit: "°F"
+    humidity_template: "{{ states.sensor.outdoor_humidity.state|float }}"
+    forecast_template: "{{ state_attr('weather.kwdr_daynight', 'forecast') }}"
+    pressure_template: "{{ states.sensor.office_pressure.state|float }}"
+    pressure_unit: "hPa"
+    wind_speed_template: "{{ states.sensor.wind_acurite_5n1.state|float }}"
+    wind_speed_unit: "mph"
+    wind_bearing_template: "{{ states.sensor.wind_dir_acurite_5n1.state }}"

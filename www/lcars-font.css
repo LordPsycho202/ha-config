@@ -1,0 +1,9 @@
+/*
+Fonts should go in /config/www/fonts/
+*/
+
+/* borda-regular - latin */
+@font-face {
+    font-family: 'Antonio', 'Arial Narrow', 'Avenir Next Condensed';
+    src: url(/local/fonts/antonio.ttf);
+ }

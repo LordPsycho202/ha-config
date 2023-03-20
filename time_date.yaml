@@ -1,0 +1,4 @@
+sensor:
+- name: date
+  display_options:
+  - "date"

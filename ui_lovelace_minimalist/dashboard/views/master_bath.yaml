@@ -1,0 +1,86 @@
+title: "Master Bathroom"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:shower-head
+subview: true
+path: master_bath
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Master Bathroom
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.master_bathroom_temperature
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.master_bathroom_temperature
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            entity: sensor.monthly_water
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Water Usage
+              ulm_card_graph_entity: sensor.monthly_water
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.vanity
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.master_closet
+            name: Closet
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.shower
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Shower Vent
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.shower_vent
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.toilet
+            Name: Toilet Light
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Toilet Vent
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.master_toilet_vent

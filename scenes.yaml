@@ -1,0 +1,393 @@
+- id: '1634500988042'
+  name: 'Office: Normal'
+  entities:
+    light.office_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 255
+      hs_color:
+      - 37.778
+      - 52.941
+      rgb_color:
+      - 255
+      - 205
+      - 120
+      xy_color:
+      - 0.46
+      - 0.408
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: Office 2
+      supported_features: 44
+      state: 'on'
+    light.elgato_key_light:
+      min_mireds: 143
+      max_mireds: 344
+      supported_color_modes:
+      - color_temp
+      icon: mdi:light-flood-down
+      friendly_name: Elgato Key Light Air (Right)
+      supported_features: 0
+      state: 'off'
+    light.rack:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - brightness
+      - color_temp
+      - hs
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 225
+      - 85
+      rgb_color:
+      - 38
+      - 92
+      - 255
+      xy_color:
+      - 0.146
+      - 0.095
+      icon: mdi:led-strip-variant
+      friendly_name: Rack
+      supported_features: 0
+      state: 'on'
+  metadata: {}
+- id: '1634684757913'
+  name: Dim Living Room
+  entities:
+    light.lamp:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: xy
+      brightness: 127
+      hs_color:
+      - 37.778
+      - 52.941
+      rgb_color:
+      - 255
+      - 205
+      - 120
+      xy_color:
+      - 0.459
+      - 0.408
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: Lamp 1
+      supported_features: 44
+      state: 'on'
+    light.living_room_ceiling_fan:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 191
+      icon: mdi:ceiling-fan-light
+      friendly_name: Living Room Ceiling Fan Light
+      supported_features: 32
+      state: 'on'
+    light.living_room_overhead:
+      supported_color_modes:
+      - brightness
+      icon: mdi:wall-sconce-round
+      friendly_name: Living Room Outer Lights
+      supported_features: 32
+      color_mode: brightness
+      brightness: 64
+      state: 'on'
+  metadata: {}
+- id: '1659453555020'
+  name: Meetings
+  entities:
+    light.office_ceiling_fan:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 233
+      hs_color:
+      - 26.727
+      - 29.841
+      rgb_color:
+      - 255
+      - 212
+      - 178
+      xy_color:
+      - 0.405
+      - 0.36
+      effect: None
+      entity_id:
+      - light.office_2
+      icon: mdi:lightbulb-group
+      friendly_name: Office Lights
+      supported_features: 44
+      state: 'on'
+    light.elgato_key_light:
+      supported_color_modes:
+      - color_temp
+      icon: mdi:light-flood-down
+      friendly_name: Elgato Camera Lighting
+      supported_features: 0
+      min_mireds: 143
+      max_mireds: 344
+      entity_id:
+      - light.elgato_key_light_air_left
+      - light.elgato_key_light_air_right
+      color_mode: color_temp
+      brightness: 191
+      color_temp: 143
+      hs_color:
+      - 242.702
+      - 4.994
+      rgb_color:
+      - 242
+      - 242
+      - 255
+      xy_color:
+      - 0.314
+      - 0.315
+      state: 'on'
+  icon: mdi:calendar-account
+  metadata:
+    light.office_ceiling_fan:
+      entity_only: true
+    light.elgato_key_light:
+      entity_only: true
+- id: '1661174562120'
+  name: 'Stairway: On'
+  entities:
+    switch.stairway_lights:
+      friendly_name: Stairway
+      state: 'on'
+    light.stairway_lights:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      icon: mdi:ceiling-light-outline
+      friendly_name: Stairway Lights
+      supported_features: 0
+      state: 'on'
+    switch.guest_powder_room:
+      friendly_name: Guest Powder Room
+      state: 'on'
+    light.guest_bathroom:
+      supported_color_modes:
+      - onoff
+      icon: mdi:vanity-light
+      friendly_name: Guest Bathroom
+      supported_features: 0
+      color_mode: onoff
+      state: 'on'
+  icon: mdi:stairs-up
+  metadata: {}
+- id: '1661189627586'
+  name: 'Office: Meeting'
+  entities:
+    light.elgato_key_light:
+      min_mireds: 143
+      max_mireds: 344
+      supported_color_modes:
+      - color_temp
+      color_mode: color_temp
+      brightness: 26
+      color_temp: 143
+      hs_color:
+      - 242.702
+      - 4.994
+      rgb_color:
+      - 242
+      - 242
+      - 255
+      xy_color:
+      - 0.314
+      - 0.315
+      icon: mdi:light-flood-down
+      friendly_name: Elgato Key Light Air (Right)
+      supported_features: 0
+      state: 'on'
+    light.office_2:
+      min_mireds: 153
+      max_mireds: 500
+      effect_list:
+      - None
+      - candle
+      - fire
+      supported_color_modes:
+      - color_temp
+      - xy
+      color_mode: color_temp
+      brightness: 255
+      color_temp: 233
+      hs_color:
+      - 26.727
+      - 29.841
+      rgb_color:
+      - 255
+      - 212
+      - 178
+      xy_color:
+      - 0.405
+      - 0.36
+      effect: None
+      mode: normal
+      dynamics: none
+      friendly_name: Office 2
+      supported_features: 44
+      state: 'on'
+    light.rack:
+      min_mireds: 153
+      max_mireds: 500
+      supported_color_modes:
+      - brightness
+      - color_temp
+      - hs
+      color_mode: hs
+      brightness: 255
+      hs_color:
+      - 225
+      - 85
+      rgb_color:
+      - 38
+      - 92
+      - 255
+      xy_color:
+      - 0.146
+      - 0.095
+      icon: mdi:led-strip-variant
+      friendly_name: Rack
+      supported_features: 0
+      state: 'on'
+  icon: mdi:calendar-alert
+  metadata: {}
+- id: '1666404656626'
+  name: Shower Time
+  entities:
+    light.kitchen_pot_lights:
+      supported_color_modes:
+      - onoff
+      icon: mdi:wall-sconce-round
+      friendly_name: Kitchen Pot Lights
+      supported_features: 0
+      state: 'off'
+    light.living_room_overhead:
+      supported_color_modes:
+      - brightness
+      icon: mdi:wall-sconce-round
+      friendly_name: Living Room Overhead
+      supported_features: 32
+      state: 'off'
+    light.kitchen_hanging_lights:
+      supported_color_modes:
+      - onoff
+      color_mode: onoff
+      icon: mdi:ceiling-light
+      friendly_name: Kitchen Hanging Lights
+      supported_features: 0
+      state: 'on'
+    light.living_room_ceiling_fan:
+      supported_color_modes:
+      - brightness
+      color_mode: brightness
+      brightness: 128
+      icon: mdi:ceiling-fan-light
+      friendly_name: Living Room Ceiling Fan Light
+      supported_features: 32
+      state: 'on'
+    light.stairway_lights:
+      supported_color_modes:
+      - onoff
+      icon: mdi:ceiling-light-outline
+      friendly_name: Stairway Lights
+      supported_features: 0
+      state: 'off'
+    light.kitteh_loft:
+      supported_color_modes:
+      - onoff
+      icon: mdi:wall-sconce-round
+      friendly_name: Kitteh Loft
+      supported_features: 0
+      state: 'off'
+    light.master_bedroom:
+      supported_color_modes:
+      - brightness
+      entity_id:
+      - light.master_bedroom_center_light
+      - light.master_bedroom_outer_lights
+      icon: mdi:lightbulb-group
+      friendly_name: Master Bedroom
+      supported_features: 32
+      color_mode: brightness
+      brightness: 255
+      state: 'on'
+    fan.master_bedroom_ceiling_fan:
+      icon: mdi:ceiling-fan
+      friendly_name: Master Bedroom Ceiling Fan
+      supported_features: 0
+      state: 'on'
+    fan.living_room_ceiling_fan:
+      icon: mdi:ceiling-fan
+      friendly_name: Living Room Ceiling fan
+      supported_features: 0
+      state: 'off'
+    switch.fresnel_lens:
+      friendly_name: Fresnel Lens
+      state: 'on'
+    switch.mud_room_lights:
+      friendly_name: Mud Room
+      state: 'off'
+    light.garage_lights:
+      supported_color_modes:
+      - onoff
+      icon: mdi:wall-sconce-round
+      friendly_name: Garage Lights
+      supported_features: 0
+      state: 'off'
+  icon: mdi:shower-head
+  metadata:
+    light.kitchen_pot_lights:
+      entity_only: true
+    light.living_room_outer_lights:
+      entity_only: true
+    light.kitchen_hanging_lights:
+      entity_only: true
+    light.living_room_ceiling_fan_light:
+      entity_only: true
+    light.stairway_lights:
+      entity_only: true
+    light.kitteh_loft:
+      entity_only: true
+    light.master_bedroom:
+      entity_only: true
+    fan.master_bedroom_ceiling_fan:
+      entity_only: true
+    fan.living_room_ceiling_fan:
+      entity_only: true
+    switch.fresnel_lens:
+      entity_only: true
+    switch.mud_room_lights:
+      entity_only: true
+    light.garage_lights:
+      entity_only: true

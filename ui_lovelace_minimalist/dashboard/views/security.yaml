@@ -1,0 +1,70 @@
+title: "Upstairs"
+icon: "mdi:shield"
+theme: "minimalist-mobile"
+path: "security"
+cards:
+  - type: vertical-stack
+    cards:
+      - !include alerts.yaml
+      - !include welcome.yaml
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Cameras
+
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_doorbell
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
+
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_driveway
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
+
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_back_door
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Alarms (Hold to activate)
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_script
+            variables:
+              ulm_card_script_title: Lights
+              ulm_card_script_icon: "mdi:lightbulb-on"
+            hold_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.bedroom_flic_long_click
+            tap_action:
+              action: none
+          - type: "custom:button-card"
+            template: card_script
+            entity: switch.aarlo_all_sirens
+            variables:
+              ulm_card_script_title: Siren
+              ulm_card_script_icon: "mdi:alarm-light"
+            hold_action:
+              action: toggle
+            tap_action:
+              action: none

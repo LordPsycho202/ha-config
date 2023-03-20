@@ -1,0 +1,95 @@
+title: "Living Room"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:sofa-outline
+subview: true
+path: livingroom
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Living Room
+
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.main_floor_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.main_floor_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.living_room_ceiling_fan
+            variables:
+              ulm_card_light_name: Ceiling Fan
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Ceiling Fan
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.living_room_ceiling_fan
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.living_room_overhead
+        variables:
+          ulm_card_light_name: Overhead Lights
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.lamp
+            variables:
+              ulm_card_light_name: Lamp
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: switch.fresnel_lens
+            variables:
+              ulm_card_light_name: Fresnel Lens
+              ulm_card_light_icon: mdi:lighthouse-on
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: conditional
+        conditions:
+          - entity: media_player.living_room_tv
+            state: playing
+        card:
+          type: "custom:button-card"
+          template: card_media_player_chromecast_with_controls
+          variables:
+            ulm_card_media_player_with_controls_name: "Living Room"
+            ulm_card_media_player_with_controls_entity: media_player.living_room_tv
+
+      - type: conditional
+        conditions:
+          - entity: media_player.living_room_tv
+            state: "off"
+        card:
+          type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.sony_xbr_55x900h
+          variables:
+            ulm_card_media_player_enable_popup: true
+            ulm_card_media_player_more_info: true
+            ulm_card_media_player_power_button: true
+            ulm_card_media_player_name: Living Room

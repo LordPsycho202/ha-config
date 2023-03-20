@@ -1,0 +1,109 @@
+title: "Kitchen"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:knife
+subview: true
+path: kitchen
+back_path: /ui-lovelace-minimalist/downstairs
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Kitchen
+
+      - type: "custom:button-card"
+        entity: sensor.monthly_water
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Water Usage
+          ulm_card_graph_entity: sensor.monthly_water
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: "Devices"
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.kitchen_overhead
+            variables:
+              ulm_card_light_name: Overhead Lights
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.breakfast
+            variables:
+              ulm_card_light_name: Breakfast
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.kitchen_hanging
+        variables:
+          ulm_card_light_name: Island Lights
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+
+      - type: "custom:button-card"
+        template: card_generic_swap
+        entity: input_select.dishwasher_state
+        tap_action:
+          action: call-service
+          service: script.mark_dishwasher_as_dirty
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_thermostat
+            entity: climate.refrigerator_fridge
+            variables:
+              ulm_card_thermostat_enable_collapse: true
+              ulm_card_thermostat_enable_display_temperature: true
+              ulm_card_thermostat_enable_background_color: true
+              ulm_card_thermostat_name: Fridge
+
+          - type: "custom:button-card"
+            template: card_thermostat
+            entity: climate.refrigerator_freezer
+            variables:
+              ulm_card_thermostat_enable_collapse: true
+              ulm_card_thermostat_enable_display_temperature: true
+              ulm_card_thermostat_enable_background_color: true
+              ulm_card_thermostat_name: Freezer
+
+      - type: conditional
+        conditions:
+          - entity: media_player.living_room_tv
+            state: playing
+        card:
+          type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.living_room_tv
+          variables:
+            ulm_card_media_player_enable_popup: true
+            ulm_card_media_player_more_info: true
+            ulm_card_media_player_power_button: true
+            ulm_card_media_player_name: Living Room
+
+      - type: conditional
+        conditions:
+          - entity: media_player.living_room_tv
+            state: "off"
+        card:
+          type: "custom:button-card"
+          template: card_media_player
+          entity: media_player.sony_xbr_55x900h
+          variables:
+            ulm_card_media_player_enable_popup: true
+            ulm_card_media_player_more_info: true
+            ulm_card_media_player_power_button: true
+            ulm_card_media_player_name: Living Room
