@@ -127,7 +127,7 @@
     name: NWS Alert Event
     value_template: >
         {% if value_json.features[0] is defined %}
-          {{ value_json['features'] | length}}
+          {{ value_json.features | length}}
         {% else %}
           0
         {% endif %}
