@@ -183,10 +183,13 @@ cards:
       
   - type: conditional
     conditions:
-      - entity: sensor.water_front_planter
+      - entity: binary_sensor.water_front_planter
         state: "on"
     card:
       type: "custom:button-card"
       template: chip_icon_label
       label: Front Planter
-      icon: "mdi:watering_can_outline"
+      icon: mdi:watering-can-outline
+      tap_action:
+        action: navigate
+        navigation_path: "outside"

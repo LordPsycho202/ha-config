@@ -18,7 +18,7 @@ binary_sensor:
   - unique_id: water_front
     name: Water Front Planter
     state: >
-      {% if sensor.soil_moisture_1 < 30 %}
+      {% if states.sensor.soil_moisture_1.state | float < 30 %}
       on 
       {% else %}
       off 
