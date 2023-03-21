@@ -15,6 +15,15 @@ binary_sensor:
       off
       {% endif %}
 
+  - unique_id: water_front
+    name: Water Front Planter
+    state: >
+      {% if sensor.soil_moisture_1 < 30 %}
+      on 
+      {% else %}
+      off 
+      {% endif %}
+
   - name: Rain
     device_class: moisture
     state: >
@@ -35,6 +44,8 @@ binary_sensor:
       {%- set thanksgiving = temp + timedelta(weeks = week - 1) %}
       {%- set secondday = today.replace(month=1, day=2) %}
       {{ today < secondday or today > thanksgiving }}
+
+
 
   - unique_id: wind_chill_active
     name: Wind Chill Active
