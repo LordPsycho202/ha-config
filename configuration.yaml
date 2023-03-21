@@ -176,7 +176,8 @@ sensor:
 
   - platform: weatheralerts
     state: GA
-    zone: GAC157
+    county: 157
+    zone: 25
 
 binary_sensor:
   - platform: aarlo
