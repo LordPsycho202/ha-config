@@ -174,6 +174,10 @@ sensor:
     max_age:
       hours: 24
 
+  - platform: weatheralerts
+    state: GA
+    zone: GAC157
+
 binary_sensor:
   - platform: aarlo
     monitored_conditions:
