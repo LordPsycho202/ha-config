@@ -111,7 +111,7 @@ cards:
             template:
               - card_esh_room
               - yellow_on
-            name: Outside
+            name: Laundry/Closet
             entity: light.laundry_room
             icon: mdi:tree
             variables:
