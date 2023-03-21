@@ -189,7 +189,7 @@ cards:
       type: "custom:button-card"
       template: chip_icon_label
       label: Front Planter
-      icon: mdi:watering-can-outline
+      icon: mdi:watering-can
       tap_action:
         action: navigate
         navigation_path: "outside"
