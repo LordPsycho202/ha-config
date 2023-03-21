@@ -21,10 +21,10 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_generic_swap
-            entity: input_select.washing_machine
+            entity: sensor.washing_machine
           - type: "custom:button-card"
             template: card_generic_swap
-            entity: input_select.dryer
+            entity: sensor.dryer
 
   - type: vertical-stack
     cards:

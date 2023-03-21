@@ -525,3 +525,23 @@ sensor:
         {% set hi = (hi + adjustment)|float %}
       {% endif %}
       {{ hi|float }}
+
+  - name: "Washing Machine"
+    unique_id: washing_machine_template
+    icon: mdi:washing-machine
+    state: >
+      {% if states.sensor.washer_4_1min.state | float > 5 %}
+        Running
+      {% else %}
+        Done 
+      {% endif %} 
+
+  - name: "Dryer"
+    unique_id: dryer_template
+    icon: mdi:dryer
+    state: >
+      {% if states.sensor.dryer_2_1min.state | float > 5 %}
+        Running
+      {% else %}
+        Done 
+      {% endif %} 

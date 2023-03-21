@@ -42,7 +42,7 @@ cards:
               navigation_path: "kitchen"
             variables:
               ulm_custom_card_esh_room_light_entity: light.kitchen
-            label: "I can haz fud"
+            label: '[[[ return "DW: " + states["input_select.dishwasher"].state ]]]'
 
       - type: horizontal-stack
         cards:
@@ -112,14 +112,14 @@ cards:
               - card_esh_room
               - yellow_on
             name: Outside
-            entity: light.outside
+            entity: light.laundry_room
             icon: mdi:tree
             variables:
-              ulm_custom_card_esh_room_light_entity: light.outside
+              ulm_custom_card_esh_room_light_entity: light.laundry_room
             tap_action:
               action: navigate
-              navigation_path: "outside"
-            label: '[[[ return states["sensor.outside_temp"].state + "°F" ]]]'
+              navigation_path: "laundry"
+            label: '[[[ return "Dryer: " + states["sensor.dryer"].state ]]]'
           - type: "custom:button-card"
             template:
               - card_rnissen_garage
@@ -134,6 +134,19 @@ cards:
               action: navigate
               navigation_path: "garage"
             label: '[[[ return states["cover.garage_door_2"].state ]]]'
+      - type: "custom:button-card"
+        template:
+          - card_esh_room
+          - yellow_on
+        name: Outside
+        entity: light.outside
+        icon: mdi:tree
+        variables:
+          ulm_custom_card_esh_room_light_entity: light.outside
+        tap_action:
+          action: navigate
+          navigation_path: "outside"
+        label: '[[[ return states["sensor.outside_temp"].state + "°F" ]]]'
 
       - type: "custom:button-card"
         template: card_thermostat
