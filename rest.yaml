@@ -115,21 +115,3 @@
       value_template: '{{ value_json["value"]["timeSeries"][0]["values"][0]["value"][0]["value"] | float}}'
       device_class: distance
       unit_of_measurement: "ft"
-
-- scan_interval: 60
-  resource: https://api.weather.gov/alerts/active?zone=GAZ025
-  method: GET
-  headers:
-    User-Agent: Homeassistant
-    Accept: application/geo+json
-  sensor:
-    unique_id: nws_alert_event
-    name: NWS Alert Event
-    value_template: >
-        {% if value_json.features[0] is defined %}
-          {{ value_json.features | length}}
-        {% else %}
-          0
-        {% endif %}
-    json_attributes:
-      - features
