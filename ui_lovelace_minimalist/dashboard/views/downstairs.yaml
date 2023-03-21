@@ -42,7 +42,7 @@ cards:
               navigation_path: "kitchen"
             variables:
               ulm_custom_card_esh_room_light_entity: light.kitchen
-            label: '[[[ return "DW: " + states["input_select.dishwasher"].state ]]]'
+            label: '[[[ return "DW: " + states["input_select.dishwasher_state"].state ]]]'
 
       - type: horizontal-stack
         cards:
