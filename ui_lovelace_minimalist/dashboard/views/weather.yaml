@@ -100,8 +100,8 @@ cards:
 
       - type: custom:weather-radar-card
         card_title: Radar
-        data_source: RainViewer-Original
-        map_style: Voyager
+        data_source: RainViewer-NEXRAD
+        map_style: dark
         zoom_level: 8
         center_latitude: 34.0720728
         center_longitude: -83.6917093
