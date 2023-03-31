@@ -34,7 +34,7 @@ cards:
             template:
               - card_esh_room
               - yellow_on
-            name: Office
+            name: Kid's Room
             entity: light.kids_room
             icon: mdi:desk
             tap_action:
