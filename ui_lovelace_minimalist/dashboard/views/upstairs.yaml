@@ -41,7 +41,7 @@ cards:
               action: navigate
               navigation_path: "kroom"
             variables:
-              ulm_custom_card_esh_room_light_entity: light.kidsroom
+              ulm_custom_card_esh_room_light_entity: light.kids_room
             label: '[[[ return "🌡️ " + states["sensor.kids_room_temperature"].state + "°F" ]]]'
 
       - type: "custom:button-card"
