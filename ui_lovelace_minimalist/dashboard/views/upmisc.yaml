@@ -19,18 +19,19 @@ cards:
         image_click: stream
         library_sizes: 3,4,2
 
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.upstairs_temperature
-        variables:
-          ulm_card_graph_color: "var(--google-red)"
-          ulm_card_graph_name: Hallway
-          ulm_card_graph_entity: sensor.upstairs_temperature
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
-
       - type: horizontal-stack
         cards:
+
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.upstairs_temperature
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Hallway
+              ulm_card_graph_entity: sensor.upstairs_temperature
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.guest_room_temperature
@@ -38,15 +39,6 @@ cards:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Guest Room
               ulm_card_graph_entity: sensor.guest_room_temperature
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.kid_s_room_temperature
-            variables:
-              ulm_card_graph_color: "var(--google-red)"
-              ulm_card_graph_name: "Kid's Room"
-              ulm_card_graph_entity: sensor.kid_s_room_temperature
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
