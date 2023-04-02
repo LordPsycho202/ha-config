@@ -238,7 +238,7 @@ sensor:
 
   - unique_id: wind_dir
     state: >
-      {{states.sensor.wind_acurite_5n1.state | float }} {{states.sensor.wind_acurite_5n1.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1.attributes.compass | string }}
+      {{states.sensor.wind_acurite_5n1_b.state | float }} {{states.sensor.wind_acurite_5n1_b.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1_b.attributes.compass | string }}
 
   - unique_id: stardate
     name: Stardate
@@ -518,7 +518,7 @@ sensor:
     icon: mdi:windsock
     state: >
       {% set temp = states.sensor.outside_temp.state|float %}
-      {% set wind = states.sensor.wind_acurite_5n1.state|float %}
+      {% set wind = states.sensor.wind_acurite_5n1_b.state|float %}
       {% if temp > 50 or wind < 3 %}
         {{ temp }}
       {% else %}
