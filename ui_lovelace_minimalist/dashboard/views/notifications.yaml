@@ -50,3 +50,10 @@ cards:
     variables:
       ulm_card_input_boolean_name: Speedtest Notifications
       ulm_card_input_boolean_icon: mdi:speedometer
+
+  - type: "custom:button-card"
+    template: card_input_boolean
+    entity: input_boolean.watering_notifications
+    variables:
+      ulm_card_input_boolean_name: Watering Notifications
+      ulm_card_input_boolean_icon: mdi:watering-can-outline

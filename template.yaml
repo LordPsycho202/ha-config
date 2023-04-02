@@ -24,6 +24,15 @@ binary_sensor:
       off 
       {% endif %}
 
+  - unique_id: water_greenhouse
+    name: Water Greenhouse
+    state: >
+      {% if states.sensor.soil_moisture_2.state | float < 25 %}
+      on 
+      {% else %}
+      off 
+      {% endif %}
+
   - name: Rain
     device_class: moisture
     state: >
