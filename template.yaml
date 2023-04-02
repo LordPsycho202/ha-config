@@ -356,7 +356,7 @@ sensor:
     icon: mdi:weather-sunset-down
 
   - name: "Rain Delay Time"
-    state: "{{ now() +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
+    state: "{{ now().replace(minute=0) +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
     device_class: timestamp
     icon: mdi:sprinkler
 
