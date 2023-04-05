@@ -27,7 +27,8 @@ cards:
           ulm_card_graph_icon: mdi:server
           ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
+      - type: custom:stack-in-card
+        mode: horizontal
         cards:
           - type: "custom:button-card"
             template: card_graph
@@ -50,7 +51,8 @@ cards:
               ulm_card_graph_icon: mdi:arrow-up
               ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
+      - type: custom:stack-in-card
+        mode: horizontal
         cards:
           - type: custom:mushroom-template-card
             layout: vertical
@@ -80,7 +82,7 @@ cards:
             entity: sensor.speedtest_ping
             variables:
               ulm_card_graph_color: green
-              ulm_card_graph_name: Upload
+              ulm_card_graph_name: Ping
               ulm_card_graph_entity: sensor.speedtest_ping
               ulm_card_graph_type: fill
               ulm_card_graph_icon: mdi:lan-pending
