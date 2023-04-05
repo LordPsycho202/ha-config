@@ -19,9 +19,11 @@ cards:
         image_click: stream
         library_sizes: 3,4,2
 
+  - type: vertical-stack
+    cards:
       - type: "custom:button-card"
         template: card_title
-        label: Soil Moisture
+        label: Front Planter
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -29,17 +31,62 @@ cards:
             entity: sensor.soil_moisture_1
             variables:
               ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Front Planter
+              ulm_card_graph_name: Soil Moisture
               ulm_card_graph_entity: sensor.soil_moisture_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
-            entity: sensor.soil_moisture_2
+            entity: sensor.temp_nexus_th_c
             template: card_graph
             variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Greenhouse
-              ulm_card_graph_entity: sensor.soil_moisture_2
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temp
+              ulm_card_graph_entity: sensor.temp_nexus_th_c
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            entity: sensor.rh_nexus_th_c
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.rh_nexus_th_c
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: Greenhouse
+      - type: "custom:button-card"
+        entity: sensor.soil_moisture_2
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_2
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.temp_nexus_th_b
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temp
+              ulm_card_graph_entity: sensor.temp_nexus_th_b
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            entity: sensor.rh_nexus_th_b
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.rh_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 

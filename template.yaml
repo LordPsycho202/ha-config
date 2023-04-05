@@ -24,6 +24,15 @@ binary_sensor:
       off 
       {% endif %}
 
+  - unique_id: water_greenhouse
+    name: Water Greenhouse
+    state: >
+      {% if states.sensor.soil_moisture_2.state | float < 25 %}
+      on 
+      {% else %}
+      off 
+      {% endif %}
+
   - name: Rain
     device_class: moisture
     state: >
@@ -229,7 +238,7 @@ sensor:
 
   - unique_id: wind_dir
     state: >
-      {{states.sensor.wind_acurite_5n1.state | float }} {{states.sensor.wind_acurite_5n1.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1.attributes.compass | string }}
+      {{states.sensor.wind_acurite_5n1_b.state | float }} {{states.sensor.wind_acurite_5n1_b.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1_b.attributes.compass | string }}
 
   - unique_id: stardate
     name: Stardate
@@ -347,7 +356,7 @@ sensor:
     icon: mdi:weather-sunset-down
 
   - name: "Rain Delay Time"
-    state: "{{ now() +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
+    state: "{{ now().replace(minute=0) +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
     device_class: timestamp
     icon: mdi:sprinkler
 
@@ -509,7 +518,7 @@ sensor:
     icon: mdi:windsock
     state: >
       {% set temp = states.sensor.outside_temp.state|float %}
-      {% set wind = states.sensor.wind_acurite_5n1.state|float %}
+      {% set wind = states.sensor.wind_acurite_5n1_b.state|float %}
       {% if temp > 50 or wind < 3 %}
         {{ temp }}
       {% else %}

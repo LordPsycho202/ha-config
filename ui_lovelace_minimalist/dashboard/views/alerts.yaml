@@ -193,3 +193,16 @@ cards:
       tap_action:
         action: navigate
         navigation_path: "outside"
+
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.water_greenhouse
+        state: "on"
+    card:
+      type: "custom:button-card"
+      template: chip_icon_label
+      label: Greenhouse
+      icon: mdi:watering-can-outline
+      tap_action:
+        action: navigate
+        navigation_path: "outside"
