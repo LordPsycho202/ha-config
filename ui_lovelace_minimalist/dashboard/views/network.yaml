@@ -29,6 +29,9 @@ cards:
 
       - type: custom:stack-in-card
         mode: horizontal
+        keep: 
+          border_radius: true
+          margin: true
         cards:
           - type: "custom:button-card"
             template: card_graph
@@ -53,6 +56,9 @@ cards:
 
       - type: custom:stack-in-card
         mode: horizontal
+        keep: 
+          border_radius: true
+          margin: true
         cards:
           - type: custom:mushroom-template-card
             layout: vertical
