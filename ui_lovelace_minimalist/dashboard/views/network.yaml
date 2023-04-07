@@ -20,7 +20,7 @@ cards:
         template: card_graph
         entity: sensor.temp_acurite_606tx_a
         variables:
-          ulm_card_graph_color: red
+          ulm_card_graph_color: "var(--google-red)"
           ulm_card_graph_name: Rack Temp
           ulm_card_graph_entity: sensor.temp_acurite_606tx_a
           ulm_card_graph_type: fill
@@ -37,7 +37,7 @@ cards:
             template: card_graph
             entity: sensor.speedtest_download
             variables:
-              ulm_card_graph_color: blue
+              ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Download
               ulm_card_graph_entity: sensor.speedtest_download
               ulm_card_graph_type: fill
@@ -47,7 +47,7 @@ cards:
             template: card_graph
             entity: sensor.speedtest_upload
             variables:
-              ulm_card_graph_color: purple
+              ulm_card_graph_color: "var(--google-purple)"
               ulm_card_graph_name: Upload
               ulm_card_graph_entity: sensor.speedtest_upload
               ulm_card_graph_type: fill
@@ -87,7 +87,7 @@ cards:
             template: card_graph
             entity: sensor.speedtest_ping
             variables:
-              ulm_card_graph_color: yellow
+              ulm_card_graph_color: "var(--google-yellow)"
               ulm_card_graph_name: Ping
               ulm_card_graph_entity: sensor.speedtest_ping
               ulm_card_graph_type: fill
