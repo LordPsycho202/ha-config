@@ -218,13 +218,23 @@ weather:
   - platform: template
     name: "Station"
     unique_id: "home_wx"
-    condition_template: "{{ states('weather.kwdr_daynight') }}"
+    condition_template: >
+      {% if has_value('weather.kwdr_daynight') %}
+        {{ states('weather.kwdr_daynight') }}
+      {% else %}
+        Unknown
+      {% endif %}
     temperature_template: "{{ states.sensor.outside_temp.state|float }}"
     temperature_unit: "°F"
     humidity_template: "{{ states.sensor.outdoor_humidity.state|float }}"
-    forecast_template: "{{ state_attr('weather.kwdr_daynight', 'forecast') }}"
+    forecast_template: >
+      {% if has_value('weather.kwdr_daynight') %}
+        {{ state_attr('weather.kwdr_daynight', 'forecast') }}
+      {% else %}
+        Unknown
+      {% endif %}
     pressure_template: "{{ states.sensor.office_pressure.state|float }}"
     pressure_unit: "hPa"
-    wind_speed_template: "{{ states.sensor.wind_acurite_5n1.state|float }}"
+    wind_speed_template: "{{ states.sensor.wind_acurite_5n1_b.state|float }}"
     wind_speed_unit: "mph"
-    wind_bearing_template: "{{ states.sensor.wind_dir_acurite_5n1.state }}"
+    wind_bearing_template: "{{ states.sensor.wind_dir_acurite_5n1_b.state }}"

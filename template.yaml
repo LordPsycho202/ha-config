@@ -251,7 +251,7 @@ sensor:
 
   - unique_id: header_weather
     state: >
-      {% if has_value('weather.kwdr_daynight')}
+      {% if has_value('weather.kwdr_daynight') %}
         {% set entity = 'weather.kwdr_daynight' %}
         {% set forecast= state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
         {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
