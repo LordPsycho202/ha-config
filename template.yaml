@@ -251,8 +251,8 @@ sensor:
 
   - unique_id: header_weather
     state: >
-      {% set entity = 'weather.kwdr_daynight' %}
-      {% if not is_state(entity, 'unknown') %}
+      {% if has_value('weather.kwdr_daynight')}
+        {% set entity = 'weather.kwdr_daynight' %}
         {% set forecast= state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
         {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
         {% set sun = states.sun.sun.state %}
@@ -261,7 +261,7 @@ sensor:
           {% else %} {{forecast}}🌙
           {% endif %}
         {% else %} {{forecast}}{{'\u2614\uFE0F'}}
-        {% endif %}
+        {% endif %}  
       {% else %}
         Can't Load Weather...
       {% endif %}
