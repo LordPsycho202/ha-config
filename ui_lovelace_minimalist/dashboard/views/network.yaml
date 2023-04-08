@@ -47,7 +47,7 @@ cards:
             template: card_graph
             entity: sensor.speedtest_upload
             variables:
-              ulm_card_graph_color: "var(--google-purple)"
+              ulm_card_graph_color: "#e7d1ff"
               ulm_card_graph_name: Upload
               ulm_card_graph_entity: sensor.speedtest_upload
               ulm_card_graph_type: fill
