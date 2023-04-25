@@ -75,7 +75,16 @@ cards:
             entity: sensor.temp_nexus_th_b
             template: card_graph
             variables:
-              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_color: |-
+                [[[ 
+                  if (states('sensor.temp_nexus_th_b').state > 100) {
+                    return "var(--google-red)";
+                  } elseif (states('sensor.temp_nexus_th_b').state > 85) {
+                    return "var(--google-yellow)";
+                  } else {
+                    return "var(--google-green)";
+                  }
+                ]]]
               ulm_card_graph_name: Temp
               ulm_card_graph_entity: sensor.temp_nexus_th_b
               ulm_card_graph_type: fill
