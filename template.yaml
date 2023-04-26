@@ -33,10 +33,10 @@ binary_sensor:
       off 
       {% endif %}
 
-  - name: Rain
+  - name: is_rain
     device_class: moisture
     state: >
-      {% if states.sensor.rainfall_sum.state |float > 0 %}
+      {% if as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 900 %}
       on
       {% else %}
       off
