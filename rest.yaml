@@ -67,11 +67,7 @@
       icon: mdi:cloud
       value_template: "{{ value_json.current.cloud }}"
       json_attributes:
-        - current.condition.text
-        - current.temp_f
-        - current.humidity
-        - current.vis_miles
-        - current.pressure_mb
+        - current
       unit_of_measurement: "%"
 
 - scan_interval: 900
