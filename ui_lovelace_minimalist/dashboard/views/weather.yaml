@@ -63,7 +63,7 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.is_rain
+          - entity: binary_sensor.is_rain_2
             state: "on"
         card:
           - type: horizontal-stack
