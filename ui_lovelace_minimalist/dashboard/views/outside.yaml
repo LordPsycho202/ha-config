@@ -103,6 +103,21 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        label: Backyard Crops
+      - type: "custom:button-card"
+        entity: sensor.soil_moisture_3
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_3
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         label: "Devices"
 
       - type: conditional
