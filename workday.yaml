@@ -1,9 +1,0 @@
-binary_sensor:
-  - name: work_day
-    country: US
-    workdays: [mon, tue, wed, thu, fri]
-    excludes: [sat, sun]
-  - name: office_day
-    country: US
-    workdays: [mon, tue, thu, fri]
-    excludes: [sat, sun, wed]
