@@ -48,13 +48,16 @@ cards:
 
   - type: conditional
     conditions:
-      - entity: binary_sensor.is_rain
+      - entity: binary_sensor.is_rain_2
         state: "on"
     card:
       type: "custom:button-card"
       template: chip_icon_label
       label: Raining
       icon: "mdi:weather-pouring"
+      tap_action:
+        action: navigate
+        navigation_path: "weather"
 
   - type: conditional
     conditions:

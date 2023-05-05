@@ -33,10 +33,12 @@ binary_sensor:
       off 
       {% endif %}
 
-  - name: Rain
+  - name: Is Rain
     device_class: moisture
+    unique_id: is_rain
+    icon: mdi:weather-rainy
     state: >
-      {% if states.sensor.rainfall_sum.state |float > 0 %}
+      {% if as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600 %}
       on
       {% else %}
       off

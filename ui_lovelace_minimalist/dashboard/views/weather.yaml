@@ -63,31 +63,31 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.is_rain
+          - entity: binary_sensor.is_rain_2
             state: "on"
         card:
-          - type: horizontal-stack
-            cards:
-              - type: "custom:button-card"
-                template: card_graph
-                entity: sensor.rainfall_rate
-                variables:
-                  ulm_card_graph_color: blue
-                  ulm_card_graph_name: Rainfall Rate
-                  ulm_card_graph_entity: sensor.rainfall_rate
-                  ulm_card_graph_type: fill
-                  ulm_card_graph_icon: mdi:weather-rainy
-                  ulm_card_graph_hours: 24
-              - type: "custom:button-card"
-                template: card_graph
-                entity: sensor.lightning_acurite_6045m_a
-                variables:
-                  ulm_card_graph_color: yellow
-                  ulm_card_graph_name: Lightning
-                  ulm_card_graph_entity: sensor.lightning_acurite_6045m_a
-                  ulm_card_graph_type: fill
-                  ulm_card_graph_icon: mdi:flash-alert
-                  ulm_card_graph_hours: 24
+          type: horizontal-stack
+          cards:
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.rainfall_rate
+              variables:
+                ulm_card_graph_color: blue
+                ulm_card_graph_name: Rainfall Rate
+                ulm_card_graph_entity: sensor.rainfall_rate
+                ulm_card_graph_type: fill
+                ulm_card_graph_icon: mdi:weather-rainy
+                ulm_card_graph_hours: 24
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.lightning_acurite_6045m_a
+              variables:
+                ulm_card_graph_color: yellow
+                ulm_card_graph_name: Lightning
+                ulm_card_graph_entity: sensor.lightning_acurite_6045m_a
+                ulm_card_graph_type: fill
+                ulm_card_graph_icon: mdi:flash-alert
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
