@@ -116,6 +116,9 @@ cards:
       icon: >
         [[[ return states['sensor.heat_index'].attributes.icon;
         ]]]
+      tap_action:
+        action: navigate
+        navigation_path: "weather"
 
   - type: conditional
     conditions:

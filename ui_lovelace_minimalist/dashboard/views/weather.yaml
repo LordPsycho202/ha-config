@@ -19,32 +19,26 @@ cards:
           - entity: binary_sensor.wind_chill_active
             state: "on"
         card:
-          type: "custom:button-card"
-          template: card_graph
-          entity: sensor.wind_chill
-          variables:
-            ulm_card_graph_color: blue
-            ulm_card_graph_name: Wind Chill
-            ulm_card_graph_entity: sensor.wind_chill
-            ulm_card_graph_type: fill
-            ulm_card_graph_icon: mdi:thermometer-low
-            ulm_card_graph_hours: 6
+            type: custom:mushroom-template-card
+            primary: >-
+              {{ states('sensor.wind_chill') | round(1) }}{{
+              state_attr('sensor.wind_chill','unit_of_measurement') }}
+            secondary: Wind Chill Warning
+            icon: mdi:thermometer-alert
+            icon_color: blue
 
       - type: conditional
         conditions:
           - entity: binary_sensor.heat_index_active
             state: "on"
         card:
-          type: "custom:button-card"
-          template: card_graph
-          entity: sensor.heat_index
-          variables:
-            ulm_card_graph_color: red
-            ulm_card_graph_name: Heat Index
-            ulm_card_graph_entity: sensor.heat_index
-            ulm_card_graph_type: fill
-            ulm_card_graph_icon: mdi:thermometer-high
-            ulm_card_graph_hours: 6
+          type: custom:mushroom-template-card
+          primary: >-
+            {{ states('sensor.heat_index') | round(1) }}{{
+            state_attr('sensor.heat_index','unit_of_measurement') }}
+          secondary: Heat Index Warning
+          icon: mdi:thermometer-alert
+          icon_color: red
 
       - type: custom:button-card
         template: custom_card_rnissen_weather
