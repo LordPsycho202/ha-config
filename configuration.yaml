@@ -188,18 +188,6 @@ binary_sensor:
       - cry
       - connectivity
 
-  - platform: workday
-    name: work_day
-    country: US
-    workdays: [mon, tue, wed, thu, fri]
-    excludes: [sat, sun]
-
-  - platform: workday
-    name: office_day
-    country: US
-    workdays: [mon, tue, thu, fri]
-    excludes: [sat, sun, wed]
-
   - platform: ping
     host: 1.1.1.1
     count: 2
