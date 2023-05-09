@@ -546,7 +546,7 @@ sensor:
         {% endif %}
         {% set hi = (hi + adjustment)|float %}
       {% endif %}
-      {{ hi|float }}
+      {{ hi|float|round(1) }}
 
   - name: "Washing Machine"
     unique_id: washing_machine_template
