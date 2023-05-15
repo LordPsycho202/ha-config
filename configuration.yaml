@@ -32,7 +32,7 @@ homeassistant:
 #### Frontend ##################################
 frontend:
   themes: !include_dir_merge_named themes
-  extra_module_url:
+  extra_js_url_es5:
     - https://thejiraguy.atlassian.net/s/d41d8cd98f00b204e9800998ecf8427e-T/6i46lu/b/8/c95134bc67d3a521bb3f4331beb9b804/_/download/batch/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector/com.atlassian.jira.collector.plugin.jira-issue-collector-plugin:issuecollector.js?locale=en-US&collectorId=864601d9
 
 
