@@ -1,0 +1,1071 @@
+theme: Backend-selected
+title: Red Alert
+path: red-alert
+icon: mdi:hazard-lights
+layout:
+  grid-template-columns: 8% 28% minmax(auto,63%)
+  grid-template-rows: minmax(auto,80%)
+  grid-template-areas: |
+    "time weather greeting"
+    "sidebar sidebar2 main"
+    "footer footer footer"
+  mediaquery:
+    '(max-width: 800px)':
+      grid-template-columns: 100%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "weather"
+        "greeting"
+        "main"
+        "sidebar2"
+        "footer"
+type: custom:grid-layout
+visible:
+  - user: 829c75b162794808a699871056da2b93
+badges: []
+cards:
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 80px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #c00;
+                border-right: 28px solid #c00;
+                border-left: 18px solid #c00;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 50px;
+                background-color: #c00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 80px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-image: linear-gradient(to right top, rgb(204, 0, 0) 50%, rgb(0, 0, 0) 50%);
+                border: #111;
+              }
+              ha-card div.vertical.no-icon.no-label.no-state {
+                background: #111;
+                border-radius: 0 0 0 30px;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+      - type: custom:button-card
+        style: |
+          ha-card.button-card-main {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 0 0 35px !important;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #c00;
+            border-right: 28px solid #c00;
+            border-left: 18px solid #c00;
+            border-bottom-left-radius: 3.75rem;
+          }
+          ha-card.button-card-main::after {
+            right: 0;
+            bottom: 1.5rem;
+            border-bottom-left-radius: 35px;
+          }
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #c00;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-align: right;
+            text-transform: uppercase;
+            color: #111;
+          }
+    view_layout:
+      grid-area: time
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var date = new Date().getDate();
+            var year = new Date().getYear();
+            var year = year - 100;
+            var numMonth = new Date().getMonth();
+            var month;
+            switch(numMonth) {
+              case 0:
+                month = 'Jan';
+                break;
+              case 1:
+                month = 'Feb';
+                break;
+              case 2:
+                month = 'Mar';
+                break;
+              case 3:
+                month = 'Apr';
+                break;
+              case 4:
+                month = 'May';
+                break;
+              case 5:
+                month = 'Jun';
+                break;
+              case 6:
+                month = 'Jul';
+                break;
+              case 7:
+                month = 'Aug';
+                break;
+              case 8:
+                month = 'Sep';
+                break;
+              case 9:
+                month = 'Oct';
+                break;
+              case 10:
+                month = 'Nov';
+                break;
+              case 11:
+                month = 'Dec';
+                break;
+            }
+
+            var time = new Date().toLocaleTimeString('en-US',{ hour12: false, hour: "2-digit", minute: "2-digit"});
+            return `Stardate: ${states['sensor.stardate'].state} &#149; ${date} ${month} ${year} &#149; ${time}`
+          ]]]
+        layout: vertical
+        style: |
+          ha-card.button-card-main {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-color: #111;
+            padding: 0 0 !important;
+          }
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            right: 10px;
+            background-color: #111;
+            color: #FFF;
+            height: 80px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 80px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            text-align: right;
+            color: #FFF;
+          }
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var condition = states['weather.kwdr_daynight'].state;
+            var output;
+            switch(condition) {
+              case 'sunny':
+                output = 'Sunny';
+                break;
+              case 'clear':
+                output = 'Clear';
+                break;
+              case 'mostly-sunny':
+                output = 'Mostly Sunny';
+                break;
+              case 'partly-cloudy':
+                output = 'Partly Cloudy';
+                break;
+              case 'cloudy':
+                output = 'Cloudy';
+                break;
+              case 'light-rain':
+                output = 'Light Rain';
+                break;
+              case 'wind':
+                output = 'Windy';
+                break;
+              case 'windy':
+                output = 'Windy';
+                break;
+              case 'dust':
+                output = 'Dusty';
+                break;
+              case 'fog':
+                output = 'Foggy';
+                break;
+              case 'showers':
+                output = 'Showers';
+                break;
+              case 'rain':
+                output = 'Rain';
+                break;
+              case 'rainy':
+                output = 'Rainy';
+                break;
+              case 'storm':
+                output = 'Stormy';
+                break;
+              case 'stormy':
+                output = 'Stormy';
+                break;
+              case 'light-showers':
+                output = 'Light Showers';
+                break;
+              case 'light-shower':
+                output = 'Light Showers';
+                break;
+              case 'heavy-showers':
+                output = 'Heavy Showers';
+                break;
+              case 'heavy-shower':
+                output = 'Heavy Showers';
+                break;
+              case 'clear-day':
+                output = 'Clear';
+                break;
+              case 'clear-night':
+                output = 'Clear';
+                break;
+              case 'partly-cloudy-day':
+                output = 'Partly Cloudy';
+                break;
+              case 'partly-cloudy-night':
+                output = 'Partly Cloudy';
+                break;
+              case 'hail':
+                output = 'Hailing';
+                break;
+              case 'lightning':
+                output = 'Lightning';
+                break;
+              case 'thunderstorm':
+                output = 'Thunderstorms';
+                break;
+              default:
+                output = states['weather.kwdr_daynight'].state;
+                break;
+              }
+
+              return `Conditions: ${output}`;
+          ]]]
+        style: |
+          ha-card.button-card-main {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 40px;
+            min-height: 40px;
+            background-color: #c00;
+            border-right: 28px solid #c00;
+            border-left: 18px solid #c00;
+            padding: 0 0 !important;
+          }
+
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            right: 10px;
+            background-color: #c00;
+            height: 40px;
+            overflow: visible;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #EEE;
+          }
+          ha-card {
+            
+          }
+    view_layout:
+      grid-area: weather
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: custom:button-card
+        name: |
+          [[[
+              return `${states['sensor.template_header_weather'].state}`
+          ]]]
+        layout: vertical
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-color: #111;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #111;
+            color: #FFF;
+            height: 80px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 80px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: #FFF;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var forecast;
+            var current;
+
+            var greeting = states['sensor.template_header_greet'].state;
+            if ( states['weather.kwdr_daynight'].attributes.forecast === undefined ) {
+              forecast = "";
+              current = " Current: " + states['sensor.outside_temp'].state + states['sensor.outside_temp'].attributes.unit_of_measurement
+            }
+            else {
+              var daytime = states['weather.kwdr_daynight'].attributes.forecast[0].daytime;
+              if (daytime) {
+                forecast = "Hi: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
+              }
+              else
+              {
+                forecast = "Lo: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
+              }
+              
+              current = " Current: " + states['weather.kwdr_daynight'].attributes.temperature + states['weather.kwdr_daynight'].attributes.temperature_unit;
+            }
+            return greeting + " | " + forecast + " | " + current;
+          ]]]
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 10px 10px 0 !important;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #C00;
+            border-right: 28px solid #C00;
+            border-left: 18px solid #C00;
+            border-top: #111;
+            border-bottom: #111;
+          }
+          ha-card.button-card-main::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #C00;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #EEE;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+    view_layout:
+      grid-area: greeting
+  - type: vertical-stack
+    cards:
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 35px 0 0 0 !important;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+                border-top-left-radius: 3.75rem;
+              }
+              ha-card.button-card-main::after {
+                right: 0;
+                bottom: 1.5rem;
+                border-top-left-radius: 35px;
+              }
+              ha-card.button-card-main div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                style: |
+                  ha-card {
+                    display: flex;
+                    position: relative;
+                    margin: 0;
+                    overflow: visible;
+                    border-radius: 0;
+                    height: 278px;
+                    width: 5.9rem;
+                    min-width: 5.9rem;
+                    min-height: 80px;
+                    background-color: #C00;
+                    border-right: 28px solid #C00;
+                    border-left: 18px solid #C00;
+                  }
+                  ha-card div.ellipsis {
+                    position: absolute;
+                    left: 10px;
+                    background-color: #C00;
+                    height: 40px;
+                    overflow: visible;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    font-family: Antonio;
+                    line-height: 80px;
+                    text-transform: uppercase;
+                    color: #111;
+                  }
+              - type: custom:button-card
+                style: |
+
+                  ha-card {
+                    display: flex;
+                    position: relative;
+                    margin: 0;
+                    overflow: visible;
+                    border-radius: 0;
+                    height: 278px;
+                    width: 6rem;
+                    min-width: 6.1rem;
+                    min-height: 80px;
+                    background-image: linear-gradient(to right, rgb(204, 0, 0) 50%, rgb(28, 28, 28) 50%);
+                    border: #111;
+                  }
+                  ha-card div.vertical.no-icon.no-label.no-state {
+                    background: #111;
+                    border-radius: 30px 0 0 0;
+                  }
+                  ha-card div.ellipsis {
+                    position: absolute;
+                    left: 10px;
+                    background-color: #111;
+                    color: #FFF;
+                    height: 40px;
+                    overflow: visible;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    font-family: Antonio;
+                    line-height: 40px;
+                    text-transform: uppercase;
+                    color: #FFF;
+                  }
+                  ha-card.button-card-main {
+                    padding: 0 0 !important;
+                  }
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        mode: horizontal
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                min-height: 80px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #111;
+                border: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 191px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                vertical-align: middle;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        mode: horizontal
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                min-height: 80px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #111;
+                border: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 191px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                vertical-align: middle;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+    view_layout:
+      grid-area: sidebar
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Hold to Activate
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0 0 0 0;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+                border-top: 0;
+                border-bottom: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #EEE;;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+          - type: custom:mushroom-entity-card
+            entity: script.bedroom_flic_long_click
+            name: All Lights
+            icon_color: red
+            secondary_info: none
+            icon: mdi:light-flood-down
+            tap_action:
+              action: more-info
+            hold_action:
+              action: call-service
+              service: script.turn_on
+              data: {}
+              target:
+                entity_id: script.bedroom_flic_long_click
+            double_tap_action:
+              action: more-info
+          - type: custom:mushroom-entity-card
+            entity: switch.aarlo_all_sirens
+            tap_action:
+              action: more-info
+            hold_action:
+              action: toggle
+            double_tap_action:
+              action: none
+            name: Sirens
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Lights
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 10px 10px 10px 10px;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+                border-top: 0;
+                border-bottom: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #EEE;;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+              ha-card::after {
+                content: "";
+                background-color: #111;
+                display: block;
+                width: 10px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                right: 0;
+                bottom: 1.5rem;
+
+              }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.upstairs
+                show_brightness_control: false
+                collapsible_controls: true
+                icon: ''
+                name: Upstairs
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-light-card
+                entity: light.downstairs
+                show_brightness_control: false
+                collapsible_controls: true
+                icon: ''
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Motion Sensors
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 10px 10px 10px 10px;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+                border-top: 0;
+                border-bottom: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #EEE;;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+              ha-card::after {
+                content: "";
+                background-color: #111;
+                display: block;
+                width: 10px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                right: 0;
+                bottom: 1.5rem;
+
+              }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_motion_driveway
+                name: Driveway
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_motion_doorbell
+                name: Front Door
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_motion_back_door
+                name: Back Door
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Misc Sensors
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 10px 10px 10px 10px;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #C00;
+                border-right: 28px solid #C00;
+                border-left: 18px solid #C00;
+                border-top: 0;
+                border-bottom: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #C00;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #EEE;;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+              ha-card::after {
+                content: "";
+                background-color: #111;
+                display: block;
+                width: 10px;
+                height: 50px;
+                position: absolute;
+                top: 0;
+                overflow: hidden;
+                right: 0;
+                bottom: 1.5rem;
+
+              }
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_sound_driveway
+                name: Driveway
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_ding_doorbell
+                name: Front Door
+              - type: custom:mushroom-entity-card
+                entity: binary_sensor.aarlo_sound_back_door
+                name: Back Door
+    view_layout:
+      grid-area: sidebar2
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        name: Cameras
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 0 0 0;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #C00;
+            border-right: 28px solid #C00;
+            border-left: 18px solid #C00;
+            border-top: #111;
+            border-bottom: #111;
+          }
+          ha-card::after {
+            content: "";
+
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #C00;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #EEE;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - type: custom:stack-in-card
+        cards:
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:aarlo-glance
+                entity: camera.aarlo_doorbell
+                image_view: direct
+                image_top: name,date,status
+                image_bottom: motion,sound,signal|library,snapshot
+                image_click: stream
+                library_sizes: 3,4,2
+              - type: custom:aarlo-glance
+                entity: camera.aarlo_back_door
+                image_view: direct
+                image_top: name,date,status
+                image_bottom: motion,sound,signal,battery|library,snapshot
+                image_click: stream
+                library_sizes: 3,4,2
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:aarlo-glance
+                entity: camera.aarlo_driveway
+                image_view: direct
+                image_top: name,date,status
+                image_bottom: motion,sound,signal,battery|library,snapshot
+                image_click: stream
+                library_sizes: 3,4,2
+              - type: custom:aarlo-glance
+                entity: camera.aarlo_kitty_loft
+                image_view: direct
+                image_top: name,date,status
+                image_bottom: motion,sound,signal|library,snapshot
+                image_click: stream
+                library_sizes: 3,4,2

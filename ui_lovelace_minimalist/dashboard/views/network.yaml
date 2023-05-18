@@ -7,7 +7,7 @@ path: "network"
 cards:
   - type: vertical-stack
     cards:
-      - !include /config/includes/dashboard_cards/alerts.yaml
+      - !include /config/ui-includes/dashboard_cards/alerts.yaml
       - !include welcome.yaml
 
   - type: vertical-stack

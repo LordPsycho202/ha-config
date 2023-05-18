@@ -1,0 +1,2056 @@
+theme: Backend-selected
+title: Weather
+path: weather
+icon: mdi:weather-night-partly-cloudy
+type: custom:grid-layout
+layout:
+  grid-template-columns: 8% 23% minmax(auto,38%) 25%
+  grid-template-rows: 10% minmax(auto,80%) 10%
+  grid-template-areas: |
+    "time weather greeting greeting"
+    "sidebar sidebar2 main aux"
+    "footer footer footer footer"
+  mediaquery:
+    '(max-width: 800px)':
+      grid-template-columns: 100%
+      grid-template-rows: auto
+      grid-template-areas: |
+        "weather"
+        "greeting"
+        "main"
+        "aux"
+        "sidebar2"
+        "footer"
+visible:
+  - user: 829c75b162794808a699871056da2b93
+badges: []
+cards:
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: horizontal-stack
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 80px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #58e;
+                border-right: 28px solid #58e;
+                border-left: 18px solid #58e;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 50px;
+                background-color: #58e;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 80px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-image: linear-gradient(to right top, rgb(85, 136, 238) 50%, rgb(0, 0, 0) 50%);
+                border: #111;
+              }
+              ha-card div.vertical.no-icon.no-label.no-state {
+                background: #111;
+                border-radius: 0 0 0 30px;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+      - type: custom:button-card
+        style: |
+          ha-card.button-card-main {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 0 0 35px !important;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #58e;
+            border-right: 28px solid #58e;
+            border-left: 18px solid #58e;
+            border-bottom-left-radius: 3.75rem;
+          }
+          ha-card.button-card-main::after {
+            right: 0;
+            bottom: 1.5rem;
+            border-bottom-left-radius: 35px;
+          }
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #58e;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-align: right;
+            text-transform: uppercase;
+            color: #111;
+          }
+    view_layout:
+      grid-area: time
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var date = new Date().getDate();
+            var year = new Date().getYear();
+            var year = year - 100;
+            var numMonth = new Date().getMonth();
+            var month;
+            switch(numMonth) {
+              case 0:
+                month = 'Jan';
+                break;
+              case 1:
+                month = 'Feb';
+                break;
+              case 2:
+                month = 'Mar';
+                break;
+              case 3:
+                month = 'Apr';
+                break;
+              case 4:
+                month = 'May';
+                break;
+              case 5:
+                month = 'Jun';
+                break;
+              case 6:
+                month = 'Jul';
+                break;
+              case 7:
+                month = 'Aug';
+                break;
+              case 8:
+                month = 'Sep';
+                break;
+              case 9:
+                month = 'Oct';
+                break;
+              case 10:
+                month = 'Nov';
+                break;
+              case 11:
+                month = 'Dec';
+                break;
+            }
+
+            var time = new Date().toLocaleTimeString('en-US',{ hour12: false, hour: "2-digit", minute: "2-digit"});
+
+            return `Stardate: ${states['sensor.stardate'].state} &#149; ${date} ${month} ${year} &#149; ${time}`
+          ]]]
+        layout: vertical
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-color: #111;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #111;
+            color: #FFF;
+            height: 80px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 80px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: #FFF;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var condition = states['weather.kwdr_daynight'].state;
+            var output;
+            switch(condition) {
+              case 'sunny':
+                output = 'Sunny';
+                break;
+              case 'clear':
+                output = 'Clear';
+                break;
+              case 'mostly-sunny':
+                output = 'Mostly Sunny';
+                break;
+              case 'partly-cloudy':
+                output = 'Partly Cloudy';
+                break;
+              case 'cloudy':
+                output = 'Cloudy';
+                break;
+              case 'light-rain':
+                output = 'Light Rain';
+                break;
+              case 'wind':
+                output = 'Windy';
+                break;
+              case 'windy':
+                output = 'Windy';
+                break;
+              case 'dust':
+                output = 'Dusty';
+                break;
+              case 'fog':
+                output = 'Foggy';
+                break;
+              case 'showers':
+                output = 'Showers';
+                break;
+              case 'rain':
+                output = 'Rain';
+                break;
+              case 'rainy':
+                output = 'Rainy';
+                break;
+              case 'storm':
+                output = 'Stormy';
+                break;
+              case 'stormy':
+                output = 'Stormy';
+                break;
+              case 'light-showers':
+                output = 'Light Showers';
+                break;
+              case 'light-shower':
+                output = 'Light Showers';
+                break;
+              case 'heavy-showers':
+                output = 'Heavy Showers';
+                break;
+              case 'heavy-shower':
+                output = 'Heavy Showers';
+                break;
+              case 'clear-day':
+                output = 'Clear';
+                break;
+              case 'clear-night':
+                output = 'Clear';
+                break;
+              case 'partly-cloudy-day':
+                output = 'Partly Cloudy';
+                break;
+              case 'partly-cloudy-night':
+                output = 'Partly Cloudy';
+                break;
+              case 'hail':
+                output = 'Hailing';
+                break;
+              case 'lightning':
+                output = 'Lightning';
+                break;
+              case 'thunderstorm':
+                output = 'Thunderstorms';
+                break;
+              default:
+                output = states['weather.kwdr_daynight'].state;
+                break;
+              }
+
+              return `Conditions: ${output}`;
+          ]]]
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #8FF;
+            border-right: 28px solid #8FF;
+            border-left: 18px solid #8FF;
+          }
+          ha-card:after {
+            right: 0;
+            bottom: 1.5rem;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #8FF;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+    view_layout:
+      grid-area: weather
+  - type: custom:stack-in-card
+    keep:
+      background: true
+    card_mod:
+      style: |
+        ha-card.type-custom-stack-in-card {
+          border-radius: 0;
+          border: 0;
+        }
+    cards:
+      - type: custom:button-card
+        name: |
+          [[[
+              return `${states['sensor.template_header_weather'].state}`
+          ]]]
+        layout: vertical
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-color: #111;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #111;
+            color: #FFF;
+            height: 80px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 80px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            color: #FFF;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - type: custom:button-card
+        name: |
+          [[[ 
+            var forecast;
+            var current;
+
+            var greeting = states['sensor.template_header_greet'].state;
+            if ( states['weather.kwdr_daynight'].attributes.forecast === undefined ) {
+              forecast = "";
+              current = " Current: " + states['sensor.outside_temp'].state + states['sensor.outside_temp'].attributes.unit_of_measurement
+            }
+            else {
+              var daytime = states['weather.kwdr_daynight'].attributes.forecast[0].daytime;
+              if (daytime) {
+                forecast = "Hi: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
+              }
+              else
+              {
+                forecast = "Lo: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
+              }
+              
+              current = " Current: " + states['weather.kwdr_daynight'].attributes.temperature + states['weather.kwdr_daynight'].attributes.temperature_unit;
+            }
+            return greeting + " | " + forecast + " | " + current;
+          ]]]
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 10px 10px 0 !important;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #79D;
+            border-right: 28px solid #79D;
+            border-left: 18px solid #79D;
+            border-top: #111;
+            border-bottom: #111;
+          }
+          ha-card.button-card-main::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          ha-card.button-card-main div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #79D;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+    view_layout:
+      grid-area: greeting
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        name: Forecast Modeling
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 10px 10px 0;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #79D;
+            border-right: 28px solid #79D;
+            border-left: 18px solid #79D;
+            border-top: #111;
+            border-bottom: #111;
+          }
+          ha-card::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #79D;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - show_current: false
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.kwdr_daynight
+        theme: ios-dark-mode
+        secondary_info_attribute: pressure
+        card_mod:
+          style: |
+            ha-card {
+              height:215px !important;
+            }
+      - camera_view: auto
+        type: picture-glance
+        image: https://511ga.org/map/Cctv/JKSN-CAM-013--1
+        entities:
+          - entity: sensor.waze_travel_time
+          - entity: sensor.jennifer_time_to_home
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: >+
+              {% set suffix='' %}
+
+              {% set hour =
+              as_timestamp(state_attr('weather.kwdr_daynight','forecast').1.datetime)
+              | timestamp_custom('%H') %} 
+
+              {% if hour | int >= 18 %}
+                {% set suffix="night" %}
+              {% endif %}
+
+
+              {{
+              as_timestamp(state_attr('weather.kwdr_daynight','forecast').1.datetime)
+              | timestamp_custom('%A') }} {{suffix}}
+
+            secondary: >-
+              {{state_attr('weather.kwdr_daynight','forecast').1.detailed_description}}
+            icon: >-
+              {% if
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'sunny' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'clear' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)
+              %} mdi:moon-waning-crescent
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'clear' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'mostly-sunny' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partly-cloudy' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partly-cloudy' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partlycloudy' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partlycloudy' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'cloudy' %} mdi:weather-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'light-rain' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'wind' %} mdi:weather-windy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'windy' %} mdi:weather-windy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'dust' %} mdi:weather-dust
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'fog' %} mdi:weather-fog
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'showers' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'rain' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'rainy' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'storm' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'stormy' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'light-showers' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'light-shower' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'heavy-showers' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'heavy-shower' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'clear-day' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'clear-night' %} mdi:moon-waning-crescent
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partly-cloudy-day' %} mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'partly-cloudy-night' %}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'hail' %} mdi:weather-hail
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'lightning' %} mdi:weather-lightning
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'thunderstorm' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[1].condition
+              | string == 'lightning-rainy' %} mdi:weather-lightning-rainy
+
+              {% else %} mdi:exclamation-thick
+
+              {% endif %}
+            fill_container: false
+            multiline_secondary: true
+            icon_color: >-
+              {% if
+              states.weather.kwdr_daynight.attributes.forecast[1].daytime %}
+                yellow
+              {% else %}
+                blue
+              {% endif %}
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: >+
+              {% set suffix='' %}
+
+              {% set hour =
+              as_timestamp(state_attr('weather.kwdr_daynight','forecast').2.datetime)
+              | timestamp_custom('%H') %} 
+
+              {% if hour | int >= 18 %}
+                {% set suffix="night" %}
+              {% endif %}
+
+
+              {{
+              as_timestamp(state_attr('weather.kwdr_daynight','forecast').2.datetime)
+              | timestamp_custom('%A') }} {{suffix}}
+
+            secondary: >-
+              {{state_attr('weather.kwdr_daynight','forecast').2.detailed_description}}
+            icon: >-
+              {% if
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'sunny' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'clear' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)
+              %} mdi:moon-waning-crescent
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'clear' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'mostly-sunny' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partly-cloudy' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partly-cloudy' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partlycloudy' and
+              states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+              mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partlycloudy' and
+              not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'cloudy' %} mdi:weather-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'light-rain' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'wind' %} mdi:weather-windy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'windy' %} mdi:weather-windy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'dust' %} mdi:weather-dust
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'fog' %} mdi:weather-fog
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'showers' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'rain' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'rainy' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'storm' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'stormy' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'light-showers' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'light-shower' %} mdi:weather-partly-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'heavy-showers' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'heavy-shower' %} mdi:weather-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'clear-day' %} mdi:weather-sunny
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'clear-night' %} mdi:moon-waning-crescent
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partly-cloudy-day' %} mdi:weather-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'partly-cloudy-night' %}
+              mdi:weather-night-partly-cloudy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'hail' %} mdi:weather-hail
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'lightning' %} mdi:weather-lightning
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'thunderstorm' %} mdi:weather-lightning-rainy
+
+              {% elif
+              states.weather.kwdr_daynight.attributes.forecast[2].condition
+              | string == 'lightning-rainy' %} mdi:weather-lightning-rainy
+
+              {% else %} mdi:exclamation-thick
+
+              {% endif %}
+            fill_container: false
+            multiline_secondary: true
+            icon_color: >-
+              {% if
+              states.weather.kwdr_daynight.attributes.forecast[2].daytime %}
+                yellow
+              {% else %}
+                blue
+              {% endif %}
+      - type: custom:mushroom-template-card
+        primary: >+
+          {% set suffix='' %}
+
+          {% set hour =
+          as_timestamp(state_attr('weather.kwdr_daynight','forecast').3.datetime)
+          | timestamp_custom('%H') %} 
+
+          {% if hour | int >= 18 %}
+            {% set suffix="night" %}
+          {% endif %}
+
+
+          {{
+          as_timestamp(state_attr('weather.kwdr_daynight','forecast').3.datetime)
+          | timestamp_custom('%A') }} {{suffix}}
+
+        secondary: >-
+          {{state_attr('weather.kwdr_daynight','forecast').3.detailed_description}}
+        icon: >
+          {% if
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'sunny' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'clear' and
+          not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)
+          %} mdi:moon-waning-crescent
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'clear' and
+          states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+          mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'mostly-sunny' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partly-cloudy' and
+          states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+          mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partly-cloudy' and
+          not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+          mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partlycloudy' and
+          states.weather.kwdr_daynight.attributes.forecast[3].daytime %}
+          mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partlycloudy' and
+          not(states.weather.kwdr_daynight.attributes.forecast[3].daytime)%}
+          mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'cloudy' %} mdi:weather-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'light-rain' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'wind' %} mdi:weather-windy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'windy' %} mdi:weather-windy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'dust' %} mdi:weather-dust
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'fog' %} mdi:weather-fog
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'showers' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'rain' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'rainy' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'storm' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'stormy' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'light-showers' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'light-shower' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'heavy-showers' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'heavy-shower' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'clear-day' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'clear-night' %} mdi:moon-waning-crescent
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partly-cloudy-day' %} mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'partly-cloudy-night' %} mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'hail' %} mdi:weather-hail
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'lightning' %} mdi:weather-lightning
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'thunderstorm' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[3].condition |
+          string == 'lightning-rainy' %} mdi:weather-lightning-rainy
+
+          {% else %} mdi:exclamation-thick
+
+          {% endif %}
+        fill_container: false
+        multiline_secondary: true
+        icon_color: >-
+          {% if states.weather.kwdr_daynight.attributes.forecast[3].daytime
+          %}
+            yellow
+          {% else %}
+            blue
+          {% endif %}
+      - type: custom:mushroom-template-card
+        primary: >+
+          {% set suffix='' %}
+
+          {% set hour =
+          as_timestamp(state_attr('weather.kwdr_daynight','forecast').4.datetime)
+          | timestamp_custom('%H') %} 
+
+          {% if hour | int >= 18 %}
+            {% set suffix="night" %}
+          {% endif %}
+
+
+          {{
+          as_timestamp(state_attr('weather.kwdr_daynight','forecast').4.datetime)
+          | timestamp_custom('%A') }} {{suffix}}
+
+        secondary: >-
+          {{state_attr('weather.kwdr_daynight','forecast').4.detailed_description}}
+        icon: >
+          {% if
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'sunny' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'clear' and
+          not(states.weather.kwdr_daynight.attributes.forecast[4].daytime)
+          %} mdi:moon-waning-crescent
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'clear' and
+          states.weather.kwdr_daynight.attributes.forecast[4].daytime %}
+          mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'mostly-sunny' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partly-cloudy' and
+          states.weather.kwdr_daynight.attributes.forecast[4].daytime %}
+          mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partly-cloudy' and
+          not(states.weather.kwdr_daynight.attributes.forecast[4].daytime)%}
+          mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partlycloudy' and
+          states.weather.kwdr_daynight.attributes.forecast[4].daytime %}
+          mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partlycloudy' and
+          not(states.weather.kwdr_daynight.attributes.forecast[4].daytime)%}
+          mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'cloudy' %} mdi:weather-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'light-rain' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'wind' %} mdi:weather-windy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'windy' %} mdi:weather-windy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'dust' %} mdi:weather-dust
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'fog' %} mdi:weather-fog
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'showers' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'rain' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'rainy' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'storm' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'stormy' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'light-showers' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'light-shower' %} mdi:weather-partly-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'heavy-showers' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'heavy-shower' %} mdi:weather-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'clear-day' %} mdi:weather-sunny
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'clear-night' %} mdi:moon-waning-crescent
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partly-cloudy-day' %} mdi:weather-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'partly-cloudy-night' %} mdi:weather-night-partly-cloudy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'hail' %} mdi:weather-hail
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'lightning' %} mdi:weather-lightning
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'thunderstorm' %} mdi:weather-lightning-rainy
+
+          {% elif
+          states.weather.kwdr_daynight.attributes.forecast[4].condition |
+          string == 'lightning-rainy' %} mdi:weather-lightning-rainy
+
+          {% else %} mdi:exclamation-thick
+
+          {% endif %}
+        fill_container: false
+        multiline_secondary: true
+        icon_color: >-
+          {% if states.weather.kwdr_daynight.attributes.forecast[4].daytime
+          %}
+            yellow
+          {% else %}
+            blue
+          {% endif %}
+    view_layout:
+      grid-area: aux
+  - type: vertical-stack
+    cards:
+      - type: custom:button-card
+        name: Sensors
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0 0 0 0;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #79D;
+            border-right: 28px solid #79D;
+            border-left: 18px solid #79D;
+            border-top: #111;
+            border-bottom: #111;
+          }
+          ha-card::after {
+            content: "";
+
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            overflow: hidden;
+          }
+
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #79D;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+      - type: custom:weather-radar-card
+        card_title: Radar
+        data_source: RainViewer-Original
+        map_style: Voyager
+        zoom_level: 8
+        center_latitude: 34.0720728
+        center_longitude: -83.6917093
+        marker_latitude: 34.0720728
+        marker_longitude: -83.6917093
+        show_marker: true
+        static_map: false
+        show_scale: true
+        show_range: true
+        show_playback: true
+        show_zoom: true
+        square_map: true
+        show_recenter: true
+        frame_count: 5
+        frame_delay: 1000
+        restart_delay: 5000
+        extra_labels: true
+    view_layout:
+      grid-area: main
+  - type: vertical-stack
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: custom:button-card
+            name: Logistics
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0 0 0 0;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #8FF;
+                border-right: 28px solid #8FF;
+                border-left: 18px solid #8FF;
+                border-top: 0;
+                border-bottom: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #8FF;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #111;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mushroom-template-card
+                card_mod:
+                  style: |
+                    ha-card {
+                      height: 500px;
+                    }
+                entity: sensor.mail_state
+                primary: |
+                  USPS Mail
+                secondary: |-
+
+                  {% if states('sensor.mail_state')|int == 0 %}
+                    No Mail Today
+                  {% elif states('sensor.mail_state')|int == 1 %} 
+                    No Mail Yet
+                    Check Back Later
+                  {% elif states('sensor.mail_state')|int == 2 %} 
+                    Mail Delivered
+                    {{ states.input_datetime.mail_delivered.state }}
+                  {% elif states('sensor.mail_state')|int == 3 %} 
+                    Mail Picked Up
+                    More Words Here Eventually
+                  {% else %} 
+                    Error
+                    I have no idea anymore...
+                  {% endif %}
+                icon: >
+                  {% if states('sensor.mail_state')|int == 0 %}
+                  mdi:email-off-outline
+
+                  {% elif states('sensor.mail_state')|int == 1 %}
+                  mdi:mailbox
+
+                  {% elif states('sensor.mail_state')|int == 2 %}
+                  mdi:mailbox-open
+
+                  {% elif states('sensor.mail_state')|int == 3 %}
+                  mdi:mailbox-open-up
+
+                  {% else %} mdi:exclamation
+
+                  {% endif %}
+                icon_color: |-
+                  {% if states('sensor.mail_state')|int == 0 %} white
+                  {% elif states('sensor.mail_state')|int == 1 %} black 
+                  {% elif states('sensor.mail_state')|int == 2 %} red
+                  {% elif states('sensor.mail_state')|int == 3 %} green
+                  {% else %} orange
+                  {% endif %}
+                layout: vertical
+                multiline_secondary: true
+              - type: vertical-stack
+                cards:
+                  - type: custom:mushroom-template-card
+                    primary: USPS Mail
+                    secondary: |-
+                      {% if states('sensor.mail_usps_mail')|int > 0 %} 
+                      {{states('sensor.mail_usps_mail') }} Letters 
+                      {% elif states('sensor.mail_usps_mail')|int == 0 %}
+                      {% else %} ERROR
+                      {% endif %}
+                    icon: |
+                      {% if states('sensor.mail_usps_mail')|int > 0 %}
+                      mdi:mailbox-open
+                      {% elif states('sensor.mail_usps_mail')|int == 0 %}
+                      mdi:mailbox
+                      {% else %}
+                      mdi:exclamation
+                      {% endif %}
+                    icon_color: |
+                      {% if states('sensor.mail_usps_mail')|int > 0 %}
+                      green
+                      {% elif states('sensor.mail_usps_mail')|int == 0 %}
+                      white
+                      {% else %}
+                      red
+                      {% endif %}
+                  - type: custom:mushroom-template-card
+                    primary: Packages
+                    secondary: |
+                      {{ states('sensor.mail_packages_in_transit') }} ➤ {{
+                      states('sensor.mail_packages_delivered') }}
+                    icon: mdi:package
+                    icon_color: >
+                      {% if states('sensor.mail_packages_delivered')|int > 0
+                      %}
+
+                      green
+
+                      {% elif states('sensor.mail_packages_in_transit')|int
+                      > 0 %}
+
+                      yellow
+
+                      {% elif states('sensor.mail_packages_in_transit')|int
+                      == 0 %}
+
+                      white
+
+                      {% else %}
+
+                      red
+
+                      {% endif %}
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: custom:mushroom-template-card
+                primary: USPS
+                secondary: |
+                  {{ states('sensor.mail_usps_packages') }} ➤ {{
+                  states('sensor.mail_usps_delivering') }} ➤ {{
+                  states('sensor.mail_usps_delivered') }}
+                icon: mdi:package-variant-closed
+                icon_color: |
+                  {% if states('sensor.mail_usps_delivered')|int > 0 %}
+                  green
+                  {% elif states('sensor.mail_usps_delivering')|int > 0 %}
+                  blue
+                  {% elif states('sensor.mail_usps_packages')|int > 0 %}
+                  yellow
+                  {% elif states('sensor.mail_usps_packages')|int == 0 %}
+                  white
+                  {% else %}
+                  red
+                  {% endif %}
+                layout: vertical
+              - type: custom:mushroom-template-card
+                primary: UPS
+                secondary: |
+                  {{ states('sensor.mail_ups_packages') }} ➤ {{
+                  states('sensor.mail_ups_delivering') }} ➤ {{
+                  states('sensor.mail_ups_delivered') }}
+                icon: mdi:alpha-u-box-outline
+                icon_color: |
+                  {% if states('sensor.mail_ups_delivered')|int > 0 %}
+                  green
+                  {% elif states('sensor.mail_ups_delivering')|int > 0 %}
+                  blue
+                  {% elif states('sensor.mail_ups_packages')|int > 0 %}
+                  yellow
+                  {% elif states('sensor.mail_ups_packages')|int == 0 %}
+                  white
+                  {% else %}
+                  red
+                  {% endif %}
+                layout: vertical
+              - type: custom:mushroom-template-card
+                primary: Fedex
+                secondary: |
+                  {{ states('sensor.mail_fedex_packages') }} ➤ {{
+                  states('sensor.mail_fedex_delivering') }} ➤ {{
+                  states('sensor.mail_fedex_delivered') }}
+                icon: mdi:alpha-f-box-outline
+                layout: vertical
+                icon_color: |
+                  {% if states('sensor.mail_fedex_delivered')|int > 0 %}
+                  green
+                  {% elif states('sensor.mail_fedex_delivering')|int > 0 %}
+                  blue
+                  {% elif states('sensor.mail_fedex_packages')|int > 0 %}
+                  yellow
+                  {% elif states('sensor.mail_fedex_packages')|int == 0 %}
+                  white
+                  {% else %}
+                  red
+                  {% endif %}
+              - type: custom:mushroom-template-card
+                primary: Amazon
+                secondary: |
+                  {{ states('sensor.mail_amazon_packages') }} ➤ {{
+                  states('sensor.mail_amazon_packages_delivered') }}
+                icon: mdi:alpha-a-box-outline
+                layout: vertical
+                icon_color: >
+                  {% if states('sensor.mail_amazon_packages_delivered')|int
+                  > 0 %}
+
+                  green {% elif states('sensor.mail_amazon_packages')|int >
+                  0 %}
+
+                  yellow {% elif states('sensor.mail_amazon_packages')|int
+                  == 0 %}
+
+                  white {% else %} red {% endif %}
+      - type: custom:button-card
+        name: Conditions
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 10px 10px 10px 10px;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #79D;
+            border-right: 28px solid #79D;
+            border-left: 18px solid #79D;
+            border-top: 0;
+            border-bottom: 0;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #79D;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+          ha-card::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            right: 0;
+            bottom: 1.5rem;
+
+          }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.outside_temp
+            name: Temp
+          - type: custom:mushroom-entity-card
+            entity: sensor.outdoor_humidity
+            name: '%RH'
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            entity: sensor.wind_acurite_5n1_b
+            icon: mdi:windsock
+            icon_color: |-
+              {% if states.sensor.wind_acurite_5n1_b.state | float < 15 %}
+                blue
+              {% else %}
+                red
+              {% endif %}
+            primary: Wind
+            secondary: >-
+              {{states.sensor.wind_acurite_5n1_b.state | float }}
+              {{states.sensor.wind_acurite_5n1_b.attributes.unit_of_measurement
+              }} {{states.sensor.wind_dir_acurite_5n1_b.attributes.compass |
+              string }}
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-entity-card
+            entity: sensor.office_pressure
+            name: Pressure
+      - type: custom:button-card
+        name: Storm Conditions
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 10px 10px 10px 10px;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #455580;
+            border-right: 28px solid #455580;
+            border-left: 18px solid #455580;
+            border-top: 0;
+            border-bottom: 0;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #455580;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+          ha-card::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            right: 0;
+            bottom: 1.5rem;
+
+          }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.rain_daily
+            name: Rain Total (Today)
+            icon: mdi:weather-pouring
+          - type: custom:mushroom-entity-card
+            entity: weather.kwdr_daynight
+            name: Conditions
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.rainfall
+            name: Rainfall Rate
+          - type: custom:mushroom-entity-card
+            entity: sensor.lightning_acurite_6045m
+            name: Lightning
+      - type: custom:button-card
+        name: Solar Timings
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 10px 10px 10px 10px;
+            height: 40px;
+            width: 9.5rem;
+            min-width: 9.5rem;
+            min-height: 40px;
+            background-color: #6CF;
+            border-right: 28px solid #6CF;
+            border-left: 18px solid #6CF;
+            border-top: 0;
+            border-bottom: 0;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #6CF;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #111;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+          ha-card::after {
+            content: "";
+            background-color: #111;
+            display: block;
+            width: 10px;
+            height: 50px;
+            position: absolute;
+            top: 0;
+            overflow: hidden;
+            right: 0;
+            bottom: 1.5rem;
+
+          }
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: sensor.next_sunrise
+          - type: custom:mushroom-entity-card
+            entity: sensor.next_sunset
+    view_layout:
+      grid-area: sidebar2
+  - type: vertical-stack
+    cards:
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 35px 0 0 0 !important;
+                height: 40px;
+                width: 9.5rem;
+                min-width: 9.5rem;
+                min-height: 40px;
+                background-color: #58e;
+                border-right: 28px solid #58e;
+                border-left: 18px solid #58e;
+                border-top-left-radius: 3.75rem;
+              }
+              ha-card.button-card-main::after {
+                right: 0;
+                bottom: 1.5rem;
+                border-top-left-radius: 35px;
+              }
+              ha-card.button-card-main div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #58e;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 40px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: horizontal-stack
+            cards:
+              - type: custom:button-card
+                style: |
+                  ha-card {
+                    display: flex;
+                    position: relative;
+                    margin: 0;
+                    overflow: visible;
+                    border-radius: 0;
+                    height: 277px;
+                    width: 5.9rem;
+                    min-width: 5.9rem;
+                    min-height: 80px;
+                    background-color: #58e;
+                    border-right: 28px solid #58e;
+                    border-left: 18px solid #58e;
+                  }
+                  ha-card div.ellipsis {
+                    position: absolute;
+                    left: 10px;
+                    background-color: #58e;
+                    height: 40px;
+                    overflow: visible;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    font-family: Antonio;
+                    line-height: 80px;
+                    text-transform: uppercase;
+                    color: #111;
+                  }
+              - type: custom:button-card
+                style: |
+
+                  ha-card {
+                    display: flex;
+                    position: relative;
+                    margin: 0;
+                    overflow: visible;
+                    border-radius: 0;
+                    height: 277px;
+                    width: 6rem;
+                    min-width: 6.1rem;
+                    min-height: 80px;
+                    background-image: linear-gradient(to right, rgb(85, 136, 238) 50%, rgb(28, 28, 28) 50%);
+                    border: #111;
+                  }
+                  ha-card div.vertical.no-icon.no-label.no-state {
+                    background: #111;
+                    border-radius: 30px 0 0 0;
+                  }
+                  ha-card div.ellipsis {
+                    position: absolute;
+                    left: 10px;
+                    background-color: #111;
+                    color: #FFF;
+                    height: 40px;
+                    overflow: visible;
+                    padding: 5px;
+                    font-size: 1.5rem;
+                    font-family: Antonio;
+                    line-height: 40px;
+                    text-transform: uppercase;
+                    color: #FFF;
+                  }
+                  ha-card.button-card-main {
+                    padding: 0 0 !important;
+                  }
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        mode: horizontal
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                min-height: 80px;
+                background-color: #79D;
+                border-right: 28px solid #79D;
+                border-left: 18px solid #79D;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #111;
+                border: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 191px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                vertical-align: middle;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        mode: horizontal
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                min-height: 80px;
+                background-color: #455580;
+                border-right: 28px solid #455580;
+                border-left: 18px solid #455580;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #58e;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #111;
+                border: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 191px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                vertical-align: middle;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+      - type: custom:stack-in-card
+        keep:
+          background: true
+        card_mod:
+          style: |
+            ha-card.type-custom-stack-in-card {
+              border-radius: 0;
+              border: 0;
+            }
+        mode: horizontal
+        cards:
+          - type: custom:button-card
+            style: |
+              ha-card.button-card-main {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                min-height: 80px;
+                background-color: #6CF;
+                border-right: 28px solid #6CF;
+                border-left: 18px solid #6CF;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #58e;
+                height: 40px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                color: #111;
+              }
+          - type: custom:button-card
+            style: |
+              ha-card {
+                display: flex;
+                position: relative;
+                margin: 0;
+                overflow: visible;
+                border-radius: 0;
+                height: 191px;
+                width: 6rem;
+                min-width: 6rem;
+                min-height: 80px;
+                background-color: #111;
+                border: 0;
+              }
+              ha-card div.ellipsis {
+                position: absolute;
+                left: 10px;
+                background-color: #111;
+                color: #FFF;
+                height: 191px;
+                overflow: visible;
+                padding: 5px;
+                font-size: 1.5rem;
+                font-family: Antonio;
+                line-height: 80px;
+                text-transform: uppercase;
+                vertical-align: middle;
+                color: #FFF;
+              }
+              ha-card.button-card-main {
+                padding: 0 0 !important;
+              }
+    view_layout:
+      grid-area: sidebar
