@@ -10,43 +10,7 @@ card_mod:
       border: 0;
     }
 cards:
-  - type: custom:button-card
-    name: |
-      [[[
-          return `${states['sensor.template_header_weather'].state}`
-      ]]]
-    layout: vertical
-    style: |
-      ha-card {
-        display: flex;
-        position: relative;
-        margin: 0;
-        overflow: visible;
-        border-radius: 0;
-        height: 80px;
-        width: 6rem;
-        min-width: 6rem;
-        min-height: 80px;
-        background-color: #111;
-      }
-      ha-card div.ellipsis {
-        position: absolute;
-        left: 10px;
-        background-color: #111;
-        color: #FFF;
-        height: 80px;
-        overflow: visible;
-        padding: 5px;
-        font-size: 1.5rem;
-        font-family: Antonio;
-        line-height: 80px;
-        text-transform: uppercase;
-        vertical-align: middle;
-        color: #FFF;
-      }
-      ha-card.button-card-main {
-        padding: 0 0 !important;
-      }
+  - !include /config/ui-includes/alerts.yaml
   - type: custom:button-card
     name: |
       [[[ 
