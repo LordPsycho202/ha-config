@@ -9,11 +9,16 @@ binary_sensor:
 
   - name: WX Card
     state: >
-      {% if 'Extreme' in states.sensor.nws_alerts.attributes.event_severity or 'Severe' in states.sensor.nws_alerts.attributes.event_severity %}
-      on
-      {% else %}
+      {% if states.sensor.nws_alerts.state | int == 0 %}
       off
+      {% else %}
+        {% if 'Extreme' in states.sensor.nws_alerts.attributes.event_severity or 'Severe' in states.sensor.nws_alerts.attributes.event_severity %}
+          on
+        {% else %}
+          off
+        {% endif %}
       {% endif %}
+      
 
   - unique_id: water_front
     name: Water Front Planter
