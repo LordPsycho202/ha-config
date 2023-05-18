@@ -5,6 +5,7 @@ transporter.py
 # ignore hidden folders
 .storage
 .cloud
+.aarlo
 .google.token
 
 # ignore some directories.
@@ -18,6 +19,7 @@ icloud/
 /custom_components
 /deps
 /hacs
+/www/community
 
 
 # ignore any of these files no matter where they are using double *
@@ -49,8 +51,8 @@ icloud/
 **.key
 **core.*
 **OZW_Log.txt
-**home-assistant.log
-**home-assistant_v2.db
+**home-assistant.log*
+**home-assistant_v2.db*
 **.db-journal
 **.db-shm
 **.db-wal
