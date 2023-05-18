@@ -7,12 +7,12 @@ lovelace:
   mode: storage
   # Add yaml dashboards
   dashboards:
-    kiosk:
+    ui-kiosk:
       mode: yaml
       title: Kiosk
       icon: mdi:monitor-dashboard
       show_in_sidebar: true
-      filename: kiosk/main.yaml
+      filename: ui-kiosk/main.yaml
 
 #### Logbook ##################################
 logbook:
