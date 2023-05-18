@@ -9,10 +9,11 @@ lovelace:
   dashboards:
     kiosk-2:
       mode: yaml
-      title: YAML
-      icon: mdi:script
-      show_in_sidebar: false
-      filename: kiosk2/main.yaml
+      title: Kiosk
+      icon: mdi:monitor-dashboard
+      show_in_sidebar: true
+      require-admin: true
+      filename: kiosk/main.yaml
 
 #### Logbook ##################################
 logbook:
