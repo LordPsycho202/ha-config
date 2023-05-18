@@ -5,7 +5,7 @@ path: "upstairs"
 cards:
   - type: vertical-stack
     cards:
-      - !include /includes/dashboard_cards/alerts.yaml
+      - !include !include /config/includes/dashboard_cards/alerts.yaml
       - !include welcome.yaml
 
   - type: vertical-stack
