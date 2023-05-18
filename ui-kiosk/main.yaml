@@ -6,4 +6,4 @@ views:
   - !include views/50-outside.yaml
   - !include views/60-planeTracker.yaml
   - !include views/70-security.yaml
-  - !include views/80-blankTest.yaml
+  - !include views/80-blank.yaml
