@@ -62,7 +62,7 @@ cards:
       ]]]
     layout: vertical
     style: |
-      ha-card.button-card-main {
+      ha-card {
         display: flex;
         position: relative;
         margin: 0;
@@ -73,11 +73,11 @@ cards:
         min-width: 6rem;
         min-height: 80px;
         background-color: #111;
-        padding: 0 0 !important;
+        border: 0;
       }
-      ha-card.button-card-main div.ellipsis {
+      ha-card div.ellipsis {
         position: absolute;
-        right: 10px;
+        left: 10px;
         background-color: #111;
         color: #FFF;
         height: 80px;
@@ -88,8 +88,10 @@ cards:
         line-height: 80px;
         text-transform: uppercase;
         vertical-align: middle;
-        text-align: right;
         color: #FFF;
+      }
+      ha-card.button-card-main {
+        padding: 0 0 !important;
       }
   - type: custom:button-card
     name: |
