@@ -1,104 +1,117 @@
-- type: horizontal-stack
-  cards:
-    - type: custom:button-card
-      style: |
-        ha-card {
-          display: flex;
-          position: relative;
-          margin: 0;
-          overflow: visible;
-          border-radius: 0;
-          height: 80px;
-          width: 6rem;
-          min-width: 6rem;
-          min-height: 80px;
-          background-color: #58e;
-          border-right: 28px solid #58e;
-          border-left: 18px solid #58e;
-        }
-        ha-card div.ellipsis {
-          position: absolute;
-          left: 50px;
-          background-color: #58e;
-          height: 40px;
-          overflow: visible;
-          padding: 5px;
-          font-size: 1.5rem;
-          font-family: Antonio;
-          line-height: 80px;
-          text-transform: uppercase;
-          color: #111;
-        }
-    - type: custom:button-card
-      style: |
 
-        ha-card {
-          display: flex;
-          position: relative;
-          margin: 0;
-          overflow: visible;
-          border-radius: 0;
-          height: 80px;
-          width: 6rem;
-          min-width: 6rem;
-          min-height: 80px;
-          background-image: linear-gradient(to right top, rgb(85, 136, 238) 50%, rgb(0, 0, 0) 50%);
-          border: #111;
-        }
-        ha-card div.vertical.no-icon.no-label.no-state {
-          background: #111;
-          border-radius: 0 0 0 30px;
-        }
-        ha-card div.ellipsis {
-          position: absolute;
-          left: 10px;
-          background-color: #111;
-          color: #FFF;
-          height: 40px;
-          overflow: visible;
-          padding: 5px;
-          font-size: 1.5rem;
-          font-family: Antonio;
-          line-height: 40px;
-          text-transform: uppercase;
-          color: #FFF;
-        }
-        ha-card.button-card-main {
-          padding: 0 0 !important;
-        }
-- type: custom:button-card
+view_layout:
+  grid-area: headerLeft
+type: custom:stack-in-card
+keep:
+  background: true
+card_mod:
   style: |
-    ha-card.button-card-main {
-      display: flex;
-      position: relative;
-      margin: 0;
-      overflow: visible;
-      border-radius: 0 0 0 35px !important;
-      height: 40px;
-      width: 9.5rem;
-      min-width: 9.5rem;
-      min-height: 40px;
-      background-color: #58e;
-      border-right: 28px solid #58e;
-      border-left: 18px solid #58e;
-      border-bottom-left-radius: 3.75rem;
+    ha-card.type-custom-stack-in-card {
+      border-radius: 0;
+      border: 0;
     }
-    ha-card.button-card-main::after {
-      right: 0;
-      bottom: 1.5rem;
-      border-bottom-left-radius: 35px;
-    }
-    ha-card.button-card-main div.ellipsis {
-      position: absolute;
-      left: 10px;
-      background-color: #58e;
-      height: 40px;
-      overflow: visible;
-      padding: 5px;
-      font-size: 1.5rem;
-      font-family: Antonio;
-      line-height: 40px;
-      text-align: right;
-      text-transform: uppercase;
-      color: #111;
-    }
+cards:
+  - type: horizontal-stack
+    cards:
+      - type: custom:button-card
+        style: |
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-color: #58e;
+            border-right: 28px solid #58e;
+            border-left: 18px solid #58e;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 50px;
+            background-color: #58e;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 80px;
+            text-transform: uppercase;
+            color: #111;
+          }
+      - type: custom:button-card
+        style: |
+
+          ha-card {
+            display: flex;
+            position: relative;
+            margin: 0;
+            overflow: visible;
+            border-radius: 0;
+            height: 80px;
+            width: 6rem;
+            min-width: 6rem;
+            min-height: 80px;
+            background-image: linear-gradient(to right top, rgb(85, 136, 238) 50%, rgb(0, 0, 0) 50%);
+            border: #111;
+          }
+          ha-card div.vertical.no-icon.no-label.no-state {
+            background: #111;
+            border-radius: 0 0 0 30px;
+          }
+          ha-card div.ellipsis {
+            position: absolute;
+            left: 10px;
+            background-color: #111;
+            color: #FFF;
+            height: 40px;
+            overflow: visible;
+            padding: 5px;
+            font-size: 1.5rem;
+            font-family: Antonio;
+            line-height: 40px;
+            text-transform: uppercase;
+            color: #FFF;
+          }
+          ha-card.button-card-main {
+            padding: 0 0 !important;
+          }
+  - type: custom:button-card
+    style: |
+      ha-card.button-card-main {
+        display: flex;
+        position: relative;
+        margin: 0;
+        overflow: visible;
+        border-radius: 0 0 0 35px !important;
+        height: 40px;
+        width: 9.5rem;
+        min-width: 9.5rem;
+        min-height: 40px;
+        background-color: #58e;
+        border-right: 28px solid #58e;
+        border-left: 18px solid #58e;
+        border-bottom-left-radius: 3.75rem;
+      }
+      ha-card.button-card-main::after {
+        right: 0;
+        bottom: 1.5rem;
+        border-bottom-left-radius: 35px;
+      }
+      ha-card.button-card-main div.ellipsis {
+        position: absolute;
+        left: 10px;
+        background-color: #58e;
+        height: 40px;
+        overflow: visible;
+        padding: 5px;
+        font-size: 1.5rem;
+        font-family: Antonio;
+        line-height: 40px;
+        text-align: right;
+        text-transform: uppercase;
+        color: #111;
+      }

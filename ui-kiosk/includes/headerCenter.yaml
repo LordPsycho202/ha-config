@@ -1,202 +1,214 @@
-- type: custom:button-card
-  name: |
-    [[[ 
-      var date = new Date().getDate();
-      var year = new Date().getYear();
-      var year = year - 100;
-      var numMonth = new Date().getMonth();
-      var month;
-      switch(numMonth) {
-        case 0:
-          month = 'Jan';
-          break;
-        case 1:
-          month = 'Feb';
-          break;
-        case 2:
-          month = 'Mar';
-          break;
-        case 3:
-          month = 'Apr';
-          break;
-        case 4:
-          month = 'May';
-          break;
-        case 5:
-          month = 'Jun';
-          break;
-        case 6:
-          month = 'Jul';
-          break;
-        case 7:
-          month = 'Aug';
-          break;
-        case 8:
-          month = 'Sep';
-          break;
-        case 9:
-          month = 'Oct';
-          break;
-        case 10:
-          month = 'Nov';
-          break;
-        case 11:
-          month = 'Dec';
-          break;
-      }
-
-      var time = new Date().toLocaleTimeString('en-US',{ hour12: false, hour: "2-digit", minute: "2-digit"});
-      return `Stardate: ${states['sensor.stardate'].state} &#149; ${date} ${month} ${year} &#149; ${time}`
-    ]]]
-  layout: vertical
+view_layout:
+  grid-area: headerCenter
+type: custom:stack-in-card
+keep:
+  background: true
+card_mod:
   style: |
-    ha-card.button-card-main {
-      display: flex;
-      position: relative;
-      margin: 0;
-      overflow: visible;
+    ha-card.type-custom-stack-in-card {
       border-radius: 0;
-      height: 80px;
-      width: 6rem;
-      min-width: 6rem;
-      min-height: 80px;
-      background-color: #111;
-      padding: 0 0 !important;
+      border: 0;
     }
-    ha-card.button-card-main div.ellipsis {
-      position: absolute;
-      right: 10px;
-      background-color: #111;
-      color: #FFF;
-      height: 80px;
-      overflow: visible;
-      padding: 5px;
-      font-size: 1.5rem;
-      font-family: Antonio;
-      line-height: 80px;
-      text-transform: uppercase;
-      vertical-align: middle;
-      text-align: right;
-      color: #FFF;
-    }
-- type: custom:button-card
-  name: |
-    [[[ 
-      var condition = states['weather.kwdr_daynight'].state;
-      var output;
-      switch(condition) {
-        case 'sunny':
-          output = 'Sunny';
-          break;
-        case 'clear':
-          output = 'Clear';
-          break;
-        case 'mostly-sunny':
-          output = 'Mostly Sunny';
-          break;
-        case 'partly-cloudy':
-          output = 'Partly Cloudy';
-          break;
-        case 'cloudy':
-          output = 'Cloudy';
-          break;
-        case 'light-rain':
-          output = 'Light Rain';
-          break;
-        case 'wind':
-          output = 'Windy';
-          break;
-        case 'windy':
-          output = 'Windy';
-          break;
-        case 'dust':
-          output = 'Dusty';
-          break;
-        case 'fog':
-          output = 'Foggy';
-          break;
-        case 'showers':
-          output = 'Showers';
-          break;
-        case 'rain':
-          output = 'Rain';
-          break;
-        case 'rainy':
-          output = 'Rainy';
-          break;
-        case 'storm':
-          output = 'Stormy';
-          break;
-        case 'stormy':
-          output = 'Stormy';
-          break;
-        case 'light-showers':
-          output = 'Light Showers';
-          break;
-        case 'light-shower':
-          output = 'Light Showers';
-          break;
-        case 'heavy-showers':
-          output = 'Heavy Showers';
-          break;
-        case 'heavy-shower':
-          output = 'Heavy Showers';
-          break;
-        case 'clear-day':
-          output = 'Clear';
-          break;
-        case 'clear-night':
-          output = 'Clear';
-          break;
-        case 'partly-cloudy-day':
-          output = 'Partly Cloudy';
-          break;
-        case 'partly-cloudy-night':
-          output = 'Partly Cloudy';
-          break;
-        case 'hail':
-          output = 'Hailing';
-          break;
-        case 'lightning':
-          output = 'Lightning';
-          break;
-        case 'thunderstorm':
-          output = 'Thunderstorms';
-          break;
-        default:
-          output = states['weather.kwdr_daynight'].state;
-          break;
+cards:
+  - type: custom:button-card
+    name: |
+      [[[ 
+        var date = new Date().getDate();
+        var year = new Date().getYear();
+        var year = year - 100;
+        var numMonth = new Date().getMonth();
+        var month;
+        switch(numMonth) {
+          case 0:
+            month = 'Jan';
+            break;
+          case 1:
+            month = 'Feb';
+            break;
+          case 2:
+            month = 'Mar';
+            break;
+          case 3:
+            month = 'Apr';
+            break;
+          case 4:
+            month = 'May';
+            break;
+          case 5:
+            month = 'Jun';
+            break;
+          case 6:
+            month = 'Jul';
+            break;
+          case 7:
+            month = 'Aug';
+            break;
+          case 8:
+            month = 'Sep';
+            break;
+          case 9:
+            month = 'Oct';
+            break;
+          case 10:
+            month = 'Nov';
+            break;
+          case 11:
+            month = 'Dec';
+            break;
         }
 
-        return `Conditions: ${output}`;
-    ]]]
-  style: |
-    ha-card.button-card-main {
-      display: flex;
-      position: relative;
-      margin: 0;
-      overflow: visible;
-      border-radius: 0;
-      height: 40px;
-      min-height: 40px;
-      background-color: #8FF;
-      border-right: 28px solid #8FF;
-      border-left: 18px solid #8FF;
-      padding: 0 0 !important;
-    }
+        var time = new Date().toLocaleTimeString('en-US',{ hour12: false, hour: "2-digit", minute: "2-digit"});
+        return `Stardate: ${states['sensor.stardate'].state} &#149; ${date} ${month} ${year} &#149; ${time}`
+      ]]]
+    layout: vertical
+    style: |
+      ha-card.button-card-main {
+        display: flex;
+        position: relative;
+        margin: 0;
+        overflow: visible;
+        border-radius: 0;
+        height: 80px;
+        width: 6rem;
+        min-width: 6rem;
+        min-height: 80px;
+        background-color: #111;
+        padding: 0 0 !important;
+      }
+      ha-card.button-card-main div.ellipsis {
+        position: absolute;
+        right: 10px;
+        background-color: #111;
+        color: #FFF;
+        height: 80px;
+        overflow: visible;
+        padding: 5px;
+        font-size: 1.5rem;
+        font-family: Antonio;
+        line-height: 80px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        text-align: right;
+        color: #FFF;
+      }
+  - type: custom:button-card
+    name: |
+      [[[ 
+        var condition = states['weather.kwdr_daynight'].state;
+        var output;
+        switch(condition) {
+          case 'sunny':
+            output = 'Sunny';
+            break;
+          case 'clear':
+            output = 'Clear';
+            break;
+          case 'mostly-sunny':
+            output = 'Mostly Sunny';
+            break;
+          case 'partly-cloudy':
+            output = 'Partly Cloudy';
+            break;
+          case 'cloudy':
+            output = 'Cloudy';
+            break;
+          case 'light-rain':
+            output = 'Light Rain';
+            break;
+          case 'wind':
+            output = 'Windy';
+            break;
+          case 'windy':
+            output = 'Windy';
+            break;
+          case 'dust':
+            output = 'Dusty';
+            break;
+          case 'fog':
+            output = 'Foggy';
+            break;
+          case 'showers':
+            output = 'Showers';
+            break;
+          case 'rain':
+            output = 'Rain';
+            break;
+          case 'rainy':
+            output = 'Rainy';
+            break;
+          case 'storm':
+            output = 'Stormy';
+            break;
+          case 'stormy':
+            output = 'Stormy';
+            break;
+          case 'light-showers':
+            output = 'Light Showers';
+            break;
+          case 'light-shower':
+            output = 'Light Showers';
+            break;
+          case 'heavy-showers':
+            output = 'Heavy Showers';
+            break;
+          case 'heavy-shower':
+            output = 'Heavy Showers';
+            break;
+          case 'clear-day':
+            output = 'Clear';
+            break;
+          case 'clear-night':
+            output = 'Clear';
+            break;
+          case 'partly-cloudy-day':
+            output = 'Partly Cloudy';
+            break;
+          case 'partly-cloudy-night':
+            output = 'Partly Cloudy';
+            break;
+          case 'hail':
+            output = 'Hailing';
+            break;
+          case 'lightning':
+            output = 'Lightning';
+            break;
+          case 'thunderstorm':
+            output = 'Thunderstorms';
+            break;
+          default:
+            output = states['weather.kwdr_daynight'].state;
+            break;
+          }
 
-    ha-card.button-card-main div.ellipsis {
-      position: absolute;
-      right: 10px;
-      background-color: #8FF;
-      height: 40px;
-      overflow: visible;
-      font-size: 1.5rem;
-      font-family: Antonio;
-      line-height: 40px;
-      text-transform: uppercase;
-      color: #111;
-    }
-    ha-card {
-      
-    }
+          return `Conditions: ${output}`;
+      ]]]
+    style: |
+      ha-card.button-card-main {
+        display: flex;
+        position: relative;
+        margin: 0;
+        overflow: visible;
+        border-radius: 0;
+        height: 40px;
+        min-height: 40px;
+        background-color: #8FF;
+        border-right: 28px solid #8FF;
+        border-left: 18px solid #8FF;
+        padding: 0 0 !important;
+      }
+
+      ha-card.button-card-main div.ellipsis {
+        position: absolute;
+        right: 10px;
+        background-color: #8FF;
+        height: 40px;
+        overflow: visible;
+        font-size: 1.5rem;
+        font-family: Antonio;
+        line-height: 40px;
+        text-transform: uppercase;
+        color: #111;
+      }
+      ha-card {
+        
+      }
