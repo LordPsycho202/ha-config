@@ -2,6 +2,18 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+#### Dashboards ##################################
+lovelace:
+  mode: storage
+  # Add yaml dashboards
+  dashboards:
+    kiosk-2:
+      mode: yaml
+      title: YAML
+      icon: mdi:script
+      show_in_sidebar: false
+      filename: kiosk2/main.yaml
+
 #### Logbook ##################################
 logbook:
   exclude:
