@@ -1,6 +1,6 @@
 
 view_layout:
-  grid-area: headerLeft
+  grid-area: headerL
 type: custom:stack-in-card
 keep:
   background: true

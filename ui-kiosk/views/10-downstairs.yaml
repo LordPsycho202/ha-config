@@ -7,7 +7,7 @@ layout:
   grid-template-columns: 8% 23% minmax(auto,38%) 25%
   grid-template-rows: 10% minmax(auto,60%) 10%
   grid-template-areas: |
-    "headerLeft headerCenter headerRight"
+    "headerL headerC headerR headerR"
     "sidebar sidebar2 main aux"
     "footer footer footer footer"
   mediaquery:
@@ -15,8 +15,8 @@ layout:
       grid-template-columns: 100%
       grid-template-rows: auto
       grid-template-areas: |
-        "headerCenter"
-        "headerRight"
+        "headerC"
+        "headerR"
         "main"
         "aux"
         "sidebar2"
@@ -25,9 +25,9 @@ type: custom:grid-layout
 path: mainfloor
 badges: []
 cards:
-  - !include ../includes/headerLeft.yaml
-  - !include ../includes/headerCenter.yaml
-  - !include ../includes/headerRight.yaml
+  - !include ../includes/headerL.yaml
+  - !include ../includes/headerC.yaml
+  - !include ../includes/headerR.yaml
 
   - view_layout:
       grid-area: sidebar2
