@@ -19,7 +19,7 @@ cards:
         margin: 0;
         overflow: visible;
         border-radius: 0;
-        height: 191px;
+        height: 40px;
         width: 6rem;
         min-width: 6rem;
         min-height: 40px;
@@ -31,7 +31,7 @@ cards:
         left: 10px;
         background-color: #111;
         color: #FFF;
-        height: 191px;
+        height: 40px;
         overflow: visible;
         padding: 5px;
         font-size: 1.5rem;
