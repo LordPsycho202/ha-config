@@ -77,7 +77,7 @@ cards:
       }
       ha-card div.ellipsis {
         position: absolute;
-        left: 10px;
+        right: 10px;
         background-color: #111;
         color: #FFF;
         height: 80px;
