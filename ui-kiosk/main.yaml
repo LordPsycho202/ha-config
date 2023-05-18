@@ -7,3 +7,4 @@ views:
   - !include views/60-planeTracker.yaml
   - !include views/70-security.yaml
   - !include views/80-blank.yaml
+  - !include views/90-new_downstairs.yaml
