@@ -7,7 +7,7 @@ visible:
 cards:
   - type: vertical-stack
     cards:
-      - !include alerts.yaml
+      - !include /includes/dashboard_cards/alerts.yaml
       - !include welcome.yaml
 
   - type: vertical-stack
