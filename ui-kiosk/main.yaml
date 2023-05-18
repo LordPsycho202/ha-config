@@ -1,9 +1,9 @@
-views:
-  - !include views/10-downstairs.yaml
-  - !include views/20-upstairs.yaml
-  - !include views/30-weather.yaml
-  - !include views/40-rack.yaml
-  - !include views/50-outside.yaml
-  - !include views/60-planeTracker.yaml
-  - !include views/70-security.yaml
-  - !include views/80-blank.yaml
+views: !include_dir_named views
+  #- !include views/10-downstairs.yaml
+  #- !include views/20-upstairs.yaml
+  #- !include views/30-weather.yaml
+  #- !include views/40-rack.yaml
+  #- !include views/50-outside.yaml
+  #- !include views/60-planeTracker.yaml
+  #- !include views/70-security.yaml
+  #- !include views/80-blank.yaml
