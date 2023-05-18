@@ -1,0 +1,220 @@
+theme: Backend-selected
+title: blank
+path: blank
+badges: []
+cards:
+  - type: custom:stack-in-card
+    cards:
+      - type: custom:mushroom-template-card
+        entity: input_boolean.mail_present
+        primary: |
+          USPS Mail
+        secondary: |-
+          {% if states('input_boolean.mail_present') == "on"%}
+            Mail's Here!
+            Arrived {{ relative_time(as_datetime(states.input_datetime.mail_delivered.state)) }} ago.
+          {% else %} 
+            No Mail
+          {% endif %}
+        icon: >-
+          {% if states('input_boolean.mail_present') == "on" %}
+          mdi:mailbox-open
+
+          {% else %} mdi:mailbox
+
+          {% endif %}
+        icon_color: |-
+          {% if states('input_boolean.mail_present') == "on" %} green
+          {% else %} white
+          {% endif %}
+        layout: vertical
+        multiline_secondary: true
+  - type: horizontal-stack
+    cards:
+      - type: custom:mushroom-chips-card
+        chips:
+          - type: conditional
+            conditions:
+              - entity: input_boolean.mail_present
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Mail
+              tap_action:
+                action: navigate
+                navigation_path: mailalert
+              icon: mdi:mail
+          - type: conditional
+            conditions:
+              - entity: input_boolean.package_present
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Packages
+              tap_action:
+                action: navigate
+                navigation_path: mailalert
+              icon: mdi:package-check
+          - type: conditional
+            conditions:
+              - entity: sensor.trash
+                state: today
+            chip:
+              type: template
+              icon_color: white
+              content: Trash
+              icon: mdi:delete
+          - type: conditional
+            conditions:
+              - entity: sensor.recycling
+                state: today
+            chip:
+              type: template
+              icon_color: white
+              content: Recycling
+              icon: mdi:recycle-variant
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.is_rain_2
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Raining
+              icon: mdi:weather-pouring
+              tap_action:
+                action: navigate
+                navigation_path: weather
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.is_snow
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Snowing
+              icon: mdi:weather-snowy
+          - type: conditional
+            conditions:
+              - entity: input_boolean.vacation_mode
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Vacation Mode On
+              icon: mdi:airplane-check
+          - type: conditional
+            conditions:
+              - entity: input_boolean.guest_mode
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Guest Mode On
+              icon: mdi:bed
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.wind_chill_active
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: >-
+                Wind Chill:
+                {{states.sensor.wind_chill.state}}{{states.sensor.wind_chill.attributes.unit_of_measurement}}
+              icon: '{{ states.sensor.wind_chill.attributes.icon }}'
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.heat_index_active
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: 'Heat Index: {{states.sensor.heat_index.state}}F'
+              icon: '{{states.sensor.heat_index.attributes.icon}}'
+              tap_action:
+                action: navigate
+                navigation_path: weather
+          - type: conditional
+            conditions:
+              - entity: vacuum.philoctetes
+                state: error
+            chip:
+              type: template
+              icon_color: white
+              content: Philoctetes
+              icon: mdi:alert
+          - type: conditional
+            conditions:
+              - entity: vacuum.catbug
+                state: error
+            chip:
+              type: template
+              icon_color: white
+              content: Catbug
+              icon: mdi:alert
+          - type: conditional
+            conditions:
+              - entity: vacuum.gurtrude
+                state: error
+            chip:
+              type: template
+              icon_color: white
+              content: Gurtrude
+              icon: mdi:alert
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.wx_card
+                state: 'on'
+            chip:
+              type: template
+              entity: sensor.nws_alerts
+              tap_action:
+                action: navigate
+                navigation_path: wxalert
+              icon_color: white
+              content: |-
+                {% if states.sensor.nws_alerts.state | int > 1 %}
+                  {{states.sensor.nws_alerts.state | int}} NWS Alerts
+                {% else %}
+                  {{states.sensor.nws_alerts.attributes.title}}
+                {% endif %}
+              icon: '{{states.sensor.nws_alerts.attributes.icon}}'
+          - type: conditional
+            conditions:
+              - entity: input_select.dishwasher_state
+                state: Clean
+            chip:
+              type: template
+              icon_color: white
+              content: Dishwasher Done
+              icon: mdi:dishwasher
+              tap_action:
+                action: call-service
+                service: script.mark_dishwasher_as_dirty
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.water_front_planter
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Front Planter
+              icon: mdi:watering-can-outline
+              tap_action:
+                action: navigate
+                navigation_path: outside
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.water_greenhouse
+                state: 'on'
+            chip:
+              type: template
+              icon_color: white
+              content: Greenhouse
+              icon: mdi:watering-can-outline
+              tap_action:
+                action: navigate
+                navigation_path: outside
