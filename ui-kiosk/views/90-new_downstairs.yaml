@@ -22,7 +22,7 @@ layout:
         "sidebar2"
         "footer"
 type: custom:grid-layout
-path: mainfloor
+path: mainfloor2
 badges: []
 cards:
   - view_layout:
