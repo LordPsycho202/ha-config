@@ -19,10 +19,10 @@ cards:
         margin: 0;
         overflow: visible;
         border-radius: 0;
-        height: 30px;
+        height: 24px;
         width: 6rem;
         min-width: 6rem;
-        min-height: 30px;
+        min-height: 24px;
         background-color: #111;
         border: 0;
       }
@@ -31,12 +31,12 @@ cards:
         left: 10px;
         background-color: #111;
         color: #FFF;
-        height: 30px;
+        height: 24px;
         overflow: visible;
         padding: 5px;
         font-size: 1.5rem;
         font-family: Antonio;
-        line-height: 30px;
+        line-height: 24px;
         text-transform: uppercase;
         vertical-align: middle;
         color: #FFF;
@@ -53,10 +53,10 @@ cards:
         margin: 0;
         overflow: visible;
         border-radius: 0;
-        height: 11px;
+        height: 18px;
         width: 6rem;
         min-width: 6rem;
-        min-height: 11px;
+        min-height: 18px;
         background-color: #111;
         border: 0;
       }
@@ -65,12 +65,12 @@ cards:
         left: 10px;
         background-color: #111;
         color: #FFF;
-        height: 11px;
+        height: 18px;
         overflow: visible;
         padding: 5px;
         font-size: 1.5rem;
         font-family: Antonio;
-        line-height: 11px;
+        line-height: 18px;
         text-transform: uppercase;
         vertical-align: middle;
         color: #FFF;
