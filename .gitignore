@@ -20,6 +20,7 @@ icloud/
 /deps
 /hacs
 /www/community
+/www/mail_and_packages
 
 
 # ignore any of these files no matter where they are using double *
