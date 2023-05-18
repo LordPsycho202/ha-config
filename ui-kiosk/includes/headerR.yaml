@@ -8,6 +8,7 @@ card_mod:
     ha-card.type-custom-stack-in-card {
       border-radius: 0;
       border: 0;
+      min-height: 120px;
     }
 cards:
   - !include /config/ui-includes/alerts.yaml
