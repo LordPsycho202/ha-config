@@ -5,7 +5,7 @@ path: "weather"
 cards:
   - type: vertical-stack
     cards:
-      - !include /config/ui-includes/dashboard_cards/alerts.yaml
+      - !include /config/ui-includes/alerts.yaml
       - !include welcome.yaml
 
   - type: vertical-stack
