@@ -19,10 +19,10 @@ cards:
         margin: 0;
         overflow: visible;
         border-radius: 0;
-        height: 40px;
+        height: 30px;
         width: 6rem;
         min-width: 6rem;
-        min-height: 40px;
+        min-height: 30px;
         background-color: #111;
         border: 0;
       }
@@ -31,12 +31,12 @@ cards:
         left: 10px;
         background-color: #111;
         color: #FFF;
-        height: 40px;
+        height: 30px;
         overflow: visible;
         padding: 5px;
         font-size: 1.5rem;
         font-family: Antonio;
-        line-height: 40px;
+        line-height: 30px;
         text-transform: uppercase;
         vertical-align: middle;
         color: #FFF;
@@ -45,6 +45,39 @@ cards:
         padding: 0 0 !important;
       }
   - !include /config/ui-includes/alerts.yaml
+  - type: custom:button-card
+    style: |
+      ha-card {
+        display: flex;
+        position: relative;
+        margin: 0;
+        overflow: visible;
+        border-radius: 0;
+        height: 11px;
+        width: 6rem;
+        min-width: 6rem;
+        min-height: 11px;
+        background-color: #111;
+        border: 0;
+      }
+      ha-card div.ellipsis {
+        position: absolute;
+        left: 10px;
+        background-color: #111;
+        color: #FFF;
+        height: 11px;
+        overflow: visible;
+        padding: 5px;
+        font-size: 1.5rem;
+        font-family: Antonio;
+        line-height: 11px;
+        text-transform: uppercase;
+        vertical-align: middle;
+        color: #FFF;
+      }
+      ha-card.button-card-main {
+        padding: 0 0 !important;
+      }
   - type: custom:button-card
     name: |
       [[[ 
