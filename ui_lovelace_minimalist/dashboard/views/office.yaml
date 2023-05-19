@@ -71,13 +71,22 @@ cards:
               ulm_card_light_enable_color: true
               ulm_card_light_enable_collapse: true
 
-      - type: "custom:button-card"
-        template: card_light
-        entity: light.elgato_key_light
-        variables:
-          ulm_card_light_name: Elgato Lights
-          ulm_card_light_enable_color: true
-          ulm_card_light_enable_collapse: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.Shelf
+            variables:
+              ulm_card_light_name: Shelf Backlight
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.elgato_key_light
+            variables:
+              ulm_card_light_name: Elgato Lights
+              ulm_card_light_enable_color: true
+              ulm_card_light_enable_collapse: true
       - type: custom:mushroom-cover-card
         entity: cover.blind_tilt_03de
         show_tilt_position_control: true
