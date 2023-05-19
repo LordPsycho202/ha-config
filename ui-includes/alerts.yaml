@@ -185,3 +185,4 @@ chips:
       tap_action:
         action: navigate
         navigation_path: outside
+  - type: spacer
