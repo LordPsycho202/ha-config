@@ -185,4 +185,22 @@ chips:
       tap_action:
         action: navigate
         navigation_path: outside
+  - type: conditional
+    conditions:
+      - entity: input_select.cat_litter_full_clean
+        state_not: Done
+    chip:
+      type: template
+      icon: mdi:cat
+      icon_color: white
+      content: 'Empty: {{ states.input_select.cat_litter_full_clean.state }}'
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.cat_litter_full_clean
+        data:
+          option: Done
+
   - type: spacer
+
