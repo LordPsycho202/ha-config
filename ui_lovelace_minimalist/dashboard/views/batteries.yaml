@@ -83,31 +83,37 @@ cards:
           - card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
-        entity: binary_sensor.batt_acurite_5n1
+        entity: binary_sensor.batt_acurite_5n1_b
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
-        entity: binary_sensor.batt_nexus_th
+        entity: binary_sensor.batt_nexus_th_b
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
-        entity: binary_sensor.batt_acurite_6045m
+        entity: binary_sensor.batt_nexus_th_c
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
-        entity: binary_sensor.batt_acurite_606tx
+        entity: binary_sensor.batt_acurite_6045m_a
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
-        entity: binary_sensor.batt_kerui_security
+        entity: binary_sensor.batt_acurite_606tx_a
+
+      - type: "custom:button-card"
+        template: card_binary_sensor_alert
+        variables:
+          ulm_card_binary_sensor_alert: true
+        entity: binary_sensor.batt_kerui_security_d
 
   - type: vertical-stack
     cards:
