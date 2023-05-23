@@ -58,7 +58,11 @@ cards:
         entity: input_select.dishwasher_state
         tap_action:
           action: call-service
-          service: script.mark_dishwasher_as_dirty
+          service: input_select.select_option
+          target:
+            entity_id: input_select.dishwasher_state
+          data:
+            option: Empty
 
       - type: horizontal-stack
         cards:
