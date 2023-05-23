@@ -1,6 +1,6 @@
 title: "Master Closet & Laundry"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:dryer
+icon: mdi:tumble-dryer
 subview: true
 path: laundry
 back_path: /ui-lovelace-minimalist/downstairs
@@ -24,7 +24,7 @@ cards:
             entity: sensor.washing_machine
           - type: "custom:button-card"
             template: card_generic_swap
-            entity: sensor.dryer
+            entity: input_select.dryer_state
 
   - type: vertical-stack
     cards:

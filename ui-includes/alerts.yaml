@@ -149,6 +149,7 @@ chips:
           {{states.sensor.nws_alerts.attributes.title}}
         {% endif %}
       icon: '{{states.sensor.nws_alerts.attributes.icon}}'
+
   - type: conditional
     conditions:
       - entity: input_select.dishwasher_state
@@ -160,7 +161,29 @@ chips:
       icon: mdi:dishwasher
       tap_action:
         action: call-service
-        service: script.mark_dishwasher_as_dirty
+        service: input_select.select_option
+        target:
+          entity_id: input_select.dishwasher_state
+        data:
+          option: Empty
+
+  - type: conditional
+    conditions:
+      - entity: input_select.dryer_state
+        state: Dry
+    chip:
+      type: template
+      icon_color: white
+      content: Dryer Done
+      icon: mdi:tumble-dryer
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.dryer_state
+        data:
+          option: Empty
+
   - type: conditional
     conditions:
       - entity: binary_sensor.water_front_planter

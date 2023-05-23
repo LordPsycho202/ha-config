@@ -119,7 +119,7 @@ cards:
             tap_action:
               action: navigate
               navigation_path: "laundry"
-            label: '[[[ return "Dryer: " + states["sensor.dryer"].state ]]]'
+            label: '[[[ return "Dryer: " + states["input_select.dryer_state"].state ]]]'
           - type: "custom:button-card"
             template:
               - card_rnissen_garage
