@@ -7,32 +7,37 @@ cards:
   - type: custom:stack-in-card
     cards:
       - type: custom:mushroom-template-card
-        entity: input_boolean.mail_present
+        entity: Mail Delivered
         tap_action:
-          action: toggle
+          action: call-service
+          service: input_select.select_option
+          target:
+            entity_id: input_select.mail_status
+          data:
+            option: Mail Picked Up
         primary: |
           USPS Mail
         secondary: |-
-          {% if states('input_boolean.mail_present') == "on"%}
+          {% if states('input_select.mail_status') == "Mail Delivered"%}
             Mail's Here!
             Arrived {{ relative_time(as_datetime(states.input_datetime.mail_delivered.state)) }} ago.
           {% else %} 
-            No Mail
+            {{ state('input_select.mail_status')}}
           {% endif %}
         icon: |-
-          {% if states('input_boolean.mail_present') == "on" %} mdi:mailbox-open
+          {% if states('input_select.mail_status') == "Mail Delivered"%} mdi:mailbox-open
           {% else %} mdi:mailbox
           {% endif %}
         icon_color: |-
-          {% if states('input_boolean.mail_present') == "on" %} green
+          {% if states('input_select.mail_status') == "Mail Delivered"%} green
           {% else %} white
           {% endif %}
         layout: vertical
         multiline_secondary: true
       - type: conditional
         conditions:
-          - entity: input_boolean.mail_present
-            state: "on"
+          - entity: input_select.mail_status
+            state: "Mail Delivered"
         card:
           show_state: true
           show_name: true

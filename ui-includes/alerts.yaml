@@ -2,8 +2,8 @@ type: custom:mushroom-chips-card
 chips:
   - type: conditional
     conditions:
-      - entity: input_boolean.mail_present
-        state: 'on'
+      - entity: input_select.mail_status
+        state: 'Mail Delivered'
     chip:
       type: template
       icon_color: white
