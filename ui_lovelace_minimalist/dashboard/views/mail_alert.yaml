@@ -22,9 +22,9 @@ cards:
             No Mail Today
           {% else %}
             {{ states('input_select.mail_status') }}
-            {% if states('input_select.mail_status') == 'No Mail yet' %} {{ states('sensor.mail_usps_mail')|int }} Letters Expected
+            {% if states('input_select.mail_status') == 'No Mail yet' %} {{ states('sensor.mail_usps_mail')|int }} Letter(s) Expected
             {% elif states('input_select.mail_status') == 'Mail Delivered' %} {{ states.input_datetime.mail_delivered.state }}
-            {% elif states('input_select.mail_status') == 'Mail Picked Up' %} {{ states('sensor.mail_usps_mail')|int }} Letters
+            {% elif states('input_select.mail_status') == 'Mail Picked Up' %} {{ states('sensor.mail_usps_mail')|int }} Letter(s)
             {% endif %}
           {% endif %}
         icon: |-
@@ -41,7 +41,7 @@ cards:
           {% elif states('input_select.mail_status') == 'Mail Picked Up' %} green
           {% else %} orange
           {% endif %}
-        layout: vertical
+        layout: Horizontal
         multiline_secondary: true
       - type: conditional
         conditions:
