@@ -53,18 +53,15 @@ cards:
             No Mail Today
           {% else %}
             {{ states('input_select.mail_status') }}
-            {% if states('input_select.mail_status') == 'No Mail Yet' %}
-            {{ states('sensor.mail_usps_mail')|int }} Letters Expected
-            {% elif states('input_select.mail_status') == 'Mail Delivered' %}
-            {{ states.input_datetime.mail_delivered.state }}
-            {% elif states('input_select.mail_status') == 'Mail Picked Up' %}
-            {{ states('sensor.mail_usps_mail')|int }} Letters
+            {% if states('input_select.mail_status') == 'No Mail Yet' %} {{ states('sensor.mail_usps_mail')|int }} Letters Expected
+            {% elif states('input_select.mail_status') == 'Mail Delivered' %} {{ states.input_datetime.mail_delivered.state }}
+            {% elif states('input_select.mail_status') == 'Mail Picked Up' %} {{ states('sensor.mail_usps_mail')|int }} Letters
             {% endif %}
           {% endif %}
 
         icon: |
           {% if states('sensor.mail_usps_mail')|int == 0  %} mdi:email-off-outline
-          {% elif states('input_select.mail_status') == 'No Mail Yet' %} mdi:mailbox
+          {% elif states('input_select.mail_status') == 'No Mail yet' %} mdi:mailbox
           {% elif states('input_select.mail_status') == 'Mail Delivered' %} mdi:mailbox-open
           {% elif states('input_select.mail_status') == 'Mail Picked Up' %} mdi:mailbox-open-up
           {% else %} mdi:exclamation
