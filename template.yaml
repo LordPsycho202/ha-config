@@ -152,9 +152,7 @@ sensor:
   - unique_id: date_long
     name: date_long
     state: >
-      {% set months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Agu", "Sep", "Oct", "Nov", "Dic"] %}
-      {% set days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
-      {{ months[now().month-1] }}.{{ now().day }}th. {{ days[now().weekday()] }}
+      {{ as_timestamp(now()) | timestamp_custom( '%b %d %A') }}
 
   - name: rpi_mem_use_cardinal
     unique_id: rpi_mem_use_cardinal
