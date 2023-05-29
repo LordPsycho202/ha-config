@@ -241,7 +241,7 @@ sensor:
   - unique_id: stardate
     name: Stardate
     state: >
-      {% set century='1' %}
+      {% set century=(now().year / 100 - 19) | int %}
       {% set today = as_timestamp(now()) %}
       {% set startdate = as_timestamp('2000-1-1 00:00:00.00000') %}
       {% set daysgone = ((today-startdate)/86400)|round(1) %}
