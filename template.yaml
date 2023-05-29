@@ -130,31 +130,24 @@ sensor:
     state: " "
 
   - unique_id: header_greet
-    state: >
-      {% set recyclingDays = state_attr( 'sensor.recycling', 'days')  %}
-      {% set trashDays = state_attr( 'sensor.trash', 'days')  %}
-      {% set mailbox = states('input_boolean.mail_present') %}
+    state: |
       {% set time = now().hour %}
 
-      {% if trashDays == 0  and recyclingDays == 7 %} 🗑️Trash Day🗑️
-      {% elif trashDays == 0  and recyclingDays == 0 %} 🗑️Trash & Recycling Day♻️
-      {% elif mailbox == 'on' %} {{ '\U0001F4EC' }} Mail's Here! {{ '\U0001F4EC' }}
-      {% else %}
-        {% if time <= 1 %} Good Night {{'\U0001F611'}}
-        {% elif time <= 3 %} Good Night {{'\U0001F62A'}}
-        {% elif time <= 5 %} Good Night {{'\U0001F634'}}
-        {% elif time <= 7 %} Good Morning {{'\U0001F4A9'}}
-        {% elif time <= 9 %} Good Morning {{'\u2615\uFE0F'}}
-        {% elif time <= 10 %} Good Morning {{'\U0001F642'}}
-        {% elif time <= 12 %} Good Afternoon {{'\U0001F60A'}}
-        {% elif time <= 15 %} Good Afternoon {{'\U0001F60E'}}
-       {% elif time <= 17 %} Good Afternoon{{'\U0001F44B\U0001F3FB'}}
-        {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
-        {% elif time <= 22 %} Good Night {{'\U0001F60C'}}
-        {% elif time <= 23 %} Good Night {{'\U0001F974'}}
-        {% else %} Hello! {{'\U0001F974'}}
-        {% endif %}
+      {% if time <= 1 %} Good Night {{'\U0001F611'}}
+      {% elif time <= 3 %} Good Night {{'\U0001F62A'}}
+      {% elif time <= 5 %} Good Night {{'\U0001F634'}}
+      {% elif time <= 7 %} Good Morning {{'\U0001F4A9'}}
+      {% elif time <= 9 %} Good Morning {{'\u2615\uFE0F'}}
+      {% elif time <= 10 %} Good Morning {{'\U0001F642'}}
+      {% elif time <= 12 %} Good Afternoon {{'\U0001F60A'}}
+      {% elif time <= 15 %} Good Afternoon {{'\U0001F60E'}}
+      {% elif time <= 17 %} Good Afternoon{{'\U0001F44B\U0001F3FB'}}
+      {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
+      {% elif time <= 22 %} Good Night {{'\U0001F60C'}}
+      {% elif time <= 23 %} Good Night {{'\U0001F974'}}
+      {% else %} Hello! {{'\U0001F974'}}
       {% endif %}
+
 
   - unique_id: date_long
     name: date_long
