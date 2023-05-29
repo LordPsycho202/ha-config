@@ -165,7 +165,7 @@ chips:
         target:
           entity_id: input_select.dishwasher_state
         data:
-          option: Empty
+          option: Dirty
 
   - type: conditional
     conditions:

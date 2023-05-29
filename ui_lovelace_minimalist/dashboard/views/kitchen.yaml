@@ -62,7 +62,7 @@ cards:
           target:
             entity_id: input_select.dishwasher_state
           data:
-            option: Empty
+            option: Dirty
 
       - type: horizontal-stack
         cards:
