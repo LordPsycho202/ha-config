@@ -70,6 +70,22 @@ cards:
           ulm_card_graph_entity: sensor.soil_moisture_2
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
+
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        label: Greenhouse 2
+      - type: "custom:button-card"
+        entity: sensor.soil_moisture_4
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: GH2 Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_4
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -108,21 +124,6 @@ cards:
           {% else %}
             green
           {% endif %}
-
-  - type: vertical-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_title
-        label: Greenhouse 2
-      - type: "custom:button-card"
-        entity: sensor.soil_moisture_4
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: GH2 Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_4
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
