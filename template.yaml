@@ -146,6 +146,7 @@ sensor:
       {% elif time <= 22 %} Good Night {{'\U0001F60C'}}
       {% elif time <= 23 %} Good Night {{'\U0001F974'}}
       {% else %} Hello! {{'\U0001F974'}}
+      {% endif %}
 
   - unique_id: date_long
     name: date_long
