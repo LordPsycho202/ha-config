@@ -18,53 +18,14 @@ cards:
   - !include ../includes/mailCluster.yaml
   - type: vertical-stack
     cards:
-      - type: custom:button-card
-        name: Compute Core
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 0 10px 10px 0;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #79D;
-            border-right: 28px solid #79D;
-            border-left: 18px solid #79D;
-            border-top: #111;
-            border-bottom: #111;
-          }
-          ha-card::after {
-            content: "";
-            background-color: #111;
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            overflow: hidden;
-          }
-
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #79D;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
+      - type: markdown
+        content: '# Computer Rack Layout'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: picture
         image: /local/images/rack.png
         tap_action:
@@ -179,53 +140,14 @@ cards:
             }
   - type: vertical-stack
     cards:
-      - type: custom:button-card
-        name: R-PI
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 0 0 0 0;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #79D;
-            border-right: 28px solid #79D;
-            border-left: 18px solid #79D;
-            border-top: #111;
-            border-bottom: #111;
-          }
-          ha-card::after {
-            content: "";
-
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            overflow: hidden;
-          }
-
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #79D;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
+      - type: markdown
+        content: '# Computer Cores'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
@@ -454,54 +376,14 @@ cards:
             entity: sensor.rpi_temp_charles
             tap_action:
               action: more-info
-      - type: custom:button-card
-        name: Subspace Uplink
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 10px 10px 10px 10px;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #79D;
-            border-right: 28px solid #79D;
-            border-left: 18px solid #79D;
-            border-top: 0;
-            border-bottom: 0;
-          }
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #79D;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
-          ha-card::after {
-            content: "";
-            background-color: #111;
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            overflow: hidden;
-            right: 0;
-            bottom: 1.5rem;
-
-          }
+      - type: markdown
+        content: '# Subspace Uplink'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
@@ -567,54 +449,14 @@ cards:
               {% else %}
                 green
               {% endif %}
-      - type: custom:button-card
-        name: Power Usage
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 10px 10px 10px 10px;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #455580;
-            border-right: 28px solid #455580;
-            border-left: 18px solid #455580;
-            border-top: 0;
-            border-bottom: 0;
-          }
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #455580;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
-          ha-card::after {
-            content: "";
-            background-color: #111;
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            overflow: hidden;
-            right: 0;
-            bottom: 1.5rem;
-
-          }
+      - type: markdown
+        content: '# Computer Core Power Usage'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: custom:mushroom-entity-card
         entity: sensor.office_kids_room_9_1mon
         primary_info: state
