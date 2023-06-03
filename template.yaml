@@ -555,7 +555,7 @@ sensor:
 
   - name: "Unifi Router Uptime"
     unique_id: unifi_router_uptime
-    icom: mdi:web
+    icon: mdi:web
     state: >
       {%- set time = state_attr('sensor.unifi_gateway_wan','gw_system-stats').uptime | int %}
       {%- set minutes = ((time % 3600) // 60) %}
