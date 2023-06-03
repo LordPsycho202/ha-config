@@ -234,6 +234,3 @@ chips:
           entity_id: input_select.cat_litter_full_clean
         data:
           option: Done
-
-  - type: spacer
-
