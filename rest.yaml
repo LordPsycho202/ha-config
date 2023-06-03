@@ -103,8 +103,8 @@
     - unique_id: quote
       name: quote
       icon: mdi:chat
-      value_template: '{{ value_json.q}}'
+      value_template: '{{ value_json[0].q}}'
     - unique_id: quote_author
       name: quote_author
       icon: mdi:chat
-      value_template: '{{ value_json.a}}'
+      value_template: '{{ value_json[0].a}}'
