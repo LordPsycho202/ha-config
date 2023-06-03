@@ -75,86 +75,51 @@ cards:
       grid-area: aux
   - type: vertical-stack
     cards:
-      - type: vertical-stack
-        cards:
-          - type: custom:button-card
-            name: Relays
-            style: |
-              ha-card {
-                display: flex;
-                position: relative;
-                margin: 0;
-                overflow: visible;
-                border-radius: 10px 10px 10px 10px;
-                height: 40px;
-                width: 9.5rem;
-                min-width: 9.5rem;
-                min-height: 40px;
-                background-color: #79D;
-                border-right: 28px solid #79D;
-                border-left: 18px solid #79D;
-                border-top: 0;
-                border-bottom: 0;
-              }
-              ha-card div.ellipsis {
-                position: absolute;
-                left: 10px;
-                background-color: #79D;
-                height: 40px;
-                overflow: visible;
-                padding: 5px;
-                font-size: 1.5rem;
-                font-family: Antonio;
-                line-height: 40px;
-                text-transform: uppercase;
-                color: #111;
-              }
-              ha-card.button-card-main {
-                padding: 0 0 !important;
-              }
-              ha-card::after {
-                content: "";
-                background-color: #111;
-                display: block;
-                width: 10px;
-                height: 50px;
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                right: 0;
-                bottom: 1.5rem;
+      - type: markdown
+        content: '# Relays'
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: more-info
+        show_state: true
+        hold_action:
+          action: none
+        entity: sensor.unifi_main_switch_uptime
+        theme: LCARS Modern
+        icon: mdi:lan
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: custom:mushroom-template-card
+        primary: Unifi Secure Gateway Pro 4
+        secondary: >-
+          RX: {{states.sensor.usg_pro_4_rx.state}}/s | TX:
+          {{states.sensor.usg_pro_4_tx.state}}/s | Uptime: {{
+          relative_time(now() - timedelta( seconds =
+          state_attr('sensor.unifi_gateway_wan','gw_system-stats').uptime
+          | int))  }}
+        icon: mdi:web
+        icon_color: >-
+          {% if states.sensor.unifi_gateway_www.state | string == 'OK'
+          %}
 
-              }
-          - type: custom:mushroom-template-card
-            primary: Unifi USW-24-PoE
-            secondary: 'Uptime: {{ states.sensor.unifi_main_switch_uptime.state }}'
-            icon: mdi:lan
-            icon_color: |-
-              {% if states.device_tracker.usl24p.state == 'home' %}
-              green
-              {% else %}
-              red
-              {% endif %}
-          - type: custom:mushroom-template-card
-            primary: Unifi Secure Gateway Pro 4
-            secondary: >-
-              RX: {{states.sensor.usg_pro_4_rx.state}}/s | TX:
-              {{states.sensor.usg_pro_4_tx.state}}/s | Uptime: {{
-              relative_time(now() - timedelta( seconds =
-              state_attr('sensor.unifi_gateway_wan','gw_system-stats').uptime
-              | int))  }}
-            icon: mdi:web
-            icon_color: >-
-              {% if states.sensor.unifi_gateway_www.state | string == 'OK'
-              %}
+          green
 
-              green
+          {% else %}
 
-              {% else %}
+          red
 
-              red
-
-              {% endif %}
+          {% endif %}
       - type: vertical-stack
         cards:
           - type: custom:button-card
