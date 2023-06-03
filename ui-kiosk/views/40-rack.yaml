@@ -151,6 +151,8 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
               {% if states.sensor.rpi_temp_cardinal.state | int < 140 %}
@@ -191,6 +193,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
               {% if states.sensor.cpu_temp.state | int < 60 %}
@@ -213,6 +217,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
               {% if states.sensor.rpi_temp_artemis.state | int < 140 %}
@@ -253,6 +259,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
               {% if states.sensor.rpi_temp_Apollo.state | int < 140 %}
@@ -295,6 +303,8 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
               {% if states.sensor.rpi_temp_charles.state | int < 140 %}
@@ -335,6 +345,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: white
             multiline_secondary: true
@@ -349,6 +361,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: grey
             multiline_secondary: true
@@ -363,6 +377,8 @@ cards:
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:raspberry-pi
             icon_color: grey
             multiline_secondary: true
@@ -387,6 +403,8 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             primary: >-
               {{states.sensor.speedtest_download.state | float}}
               {{state_attr('sensor.speedtest_download','unit_of_measurement')}}   
@@ -399,6 +417,8 @@ cards:
                 green
               {% endif %}
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             primary: >-
               {{states.sensor.speedtest_upload.state | float}}
               {{state_attr('sensor.speedtest_upload','unit_of_measurement')}}   
@@ -413,6 +433,8 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             primary: >-
               {% if states.binary_sensor.internet_connection.state == 'on'
               %}
@@ -438,6 +460,8 @@ cards:
                 red
               {% endif %}
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             primary: >-
               {{states.sensor.speedtest_ping.state | float}}
               {{state_attr('sensor.speedtest_ping','unit_of_measurement')}}   
@@ -458,6 +482,8 @@ cards:
               font-family: Antonio
             }
       - type: custom:mushroom-entity-card
+        card_mod:
+          class: button-large
         entity: sensor.office_kids_room_9_1mon
         primary_info: state
         secondary_info: name
