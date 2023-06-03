@@ -552,3 +552,16 @@ sensor:
       {% else %}
         Done 
       {% endif %}  
+
+  - name: "Unifi Router Uptime"
+    unique_id: unifi_router_uptime
+    icom: mdi:web
+    state: >
+      {%- set time = state_attr('sensor.unifi_gateway_wan','gw_system-stats').uptime %}
+      {%- set minutes = ((time % 3600) // 60) %}
+      {%- set minutes = '{}min'.format(minutes) if minutes > 0 else '' %}
+      {%- set hours = ((time % 86400) // 3600) %}
+      {%- set hours = '{}hr '.format(hours) if hours > 0 else '' %}
+      {%- set days = (time // 86400) %}
+      {%- set days = '{}d '.format(days) if days > 0 else '' %}
+      {{ 'Less than 1 min' if time < 60 else days + hours + minutes }}
