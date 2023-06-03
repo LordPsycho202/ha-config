@@ -148,7 +148,6 @@ sensor:
       {% else %} Hello! {{'\U0001F974'}}
       {% endif %}
 
-
   - unique_id: date_long
     name: date_long
     state: >
