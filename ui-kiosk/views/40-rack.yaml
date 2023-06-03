@@ -489,3 +489,4 @@ cards:
         secondary_info: name
     view_layout:
       grid-area: main
+  - !include ../includes/footer.yaml
