@@ -74,6 +74,8 @@ cards:
     view_layout:
       grid-area: aux
   - type: vertical-stack
+    view_layout:
+      grid-area: sidebar
     cards:
       - type: markdown
         content: '# Relays'
@@ -136,79 +138,45 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }   
-      - type: vertical-stack
-        cards:
-          - type: custom:button-card
-            name: Core Temps
-            style: |
-              ha-card {
-                display: flex;
-                position: relative;
-                margin: 0;
-                overflow: visible;
-                border-radius: 10px 10px 10px 10px;
-                height: 40px;
-                width: 9.5rem;
-                min-width: 9.5rem;
-                min-height: 40px;
-                background-color: #6CF;
-                border-right: 28px solid #6CF;
-                border-left: 18px solid #6CF;
-                border-top: 0;
-                border-bottom: 0;
-              }
-              ha-card div.ellipsis {
-                position: absolute;
-                left: 10px;
-                background-color: #6CF;
-                height: 40px;
-                overflow: visible;
-                padding: 5px;
-                font-size: 1.5rem;
-                font-family: Antonio;
-                line-height: 40px;
-                text-transform: uppercase;
-                color: #111;
-              }
-              ha-card.button-card-main {
-                padding: 0 0 !important;
-              }
-              ha-card::after {
-                content: "";
-                background-color: #111;
-                display: block;
-                width: 10px;
-                height: 50px;
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                right: 0;
-                bottom: 1.5rem;
-
-              }
-          - type: custom:mushroom-template-card
-            icon: mdi:thermometer
-            primary: 'Rack Temp: {{states.sensor.temp_acurite_606tx.state}}°F'
-            secondary: 'Room Temp: {{states.sensor.office_temperature.state}}°F'
-            icon_color: >-
-              {% if states.sensor.temp_acurite_606tx_239.state | float <= 85
-              %}
-
-              green
-
-              {% elif states.sensor.temp_acurite_606tx_239.state | float <=
-              100 %}
-
-              orange
-
-              {% else %}
-
-              red
-
-              {% endif %}
-    view_layout:
-      grid-area: sidebar
+            }
+      - type: markdown
+        content: '# Core Temps'
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: more-info
+        show_state: true
+        hold_action:
+          action: none
+        entity: sensor.temp_acurite_606tx_a
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: more-info
+        show_state: true
+        hold_action:
+          action: none
+        entity: sensor.office_temperature
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
   - type: vertical-stack
     cards:
       - type: custom:button-card
