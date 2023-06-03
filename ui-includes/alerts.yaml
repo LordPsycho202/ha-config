@@ -1,5 +1,36 @@
 type: custom:mushroom-chips-card
+card_mod:
+  class: middle-blank
+  style:
+    .: |
+      ha-card > * {
+        font-family: Antonio;
+      }
 chips:
+  - type: weather
+    entity: weather.weather_station
+    show_temperature: true
+    show_conditions: false
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.is_snow
+        state: 'on'
+    chip:
+      type: template
+      content: Snowing
+      icon: mdi:weather-snowy
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.is_rain_2
+        state: 'on'
+    chip:
+      type: template
+      content: Raining
+      icon: mdi:weather-pouring
+      tap_action:
+        action: navigate
+        navigation_path: weather
+  - type: spacer
   - type: conditional
     conditions:
       - entity: input_select.mail_status
@@ -42,27 +73,6 @@ chips:
       icon_color: white
       content: Recycling
       icon: mdi:recycle-variant
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.is_rain_2
-        state: 'on'
-    chip:
-      type: template
-      icon_color: white
-      content: Raining
-      icon: mdi:weather-pouring
-      tap_action:
-        action: navigate
-        navigation_path: weather
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.is_snow
-        state: 'on'
-    chip:
-      type: template
-      icon_color: white
-      content: Snowing
-      icon: mdi:weather-snowy
   - type: conditional
     conditions:
       - entity: input_boolean.vacation_mode

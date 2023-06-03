@@ -1,184 +1,24 @@
+type: vertical-stack
 view_layout:
   grid-area: headerR
-type: custom:stack-in-card
-keep:
-  background: true
-card_mod:
-  style: |
-    ha-card.type-custom-stack-in-card {
-      border-radius: 0;
-      border: 0;
-      background-color: #111;
-    }
+  place-self: end stretch
 cards:
-  - type: custom:button-card
-    style: |
-      ha-card {
-        display: flex;
-        position: relative;
-        margin: 0;
-        overflow: visible;
-        border-radius: 0;
-        height: 24px;
-        width: 6rem;
-        min-width: 6rem;
-        min-height: 24px;
-        background-color: #111;
-        border: 0;
-      }
-      ha-card div.ellipsis {
-        position: absolute;
-        left: 10px;
-        background-color: #111;
-        color: #FFF;
-        height: 24px;
-        overflow: visible;
-        padding: 5px;
-        font-size: 1.5rem;
-        font-family: Antonio;
-        line-height: 24px;
-        text-transform: uppercase;
-        vertical-align: middle;
-        color: #FFF;
-      }
-      ha-card.button-card-main {
-        padding: 0 0 !important;
-      }
-  - type: horizontal-stack
-    cards:
-      - !include /config/ui-includes/alerts.yaml
-      - type: custom:button-card
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 0;
-            height: 38px;
-            min-height: 38px;
-            background-color: #111;
-            border: 0;
+  - !include /config/ui-includes/alerts.yaml
+  - type: markdown
+    content: '# Weather: {{ states(''sensor.template_header_weather'') }}'
+    card_mod:
+      class: footer-open
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio
+            align-items: end
           }
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #111;
-            color: #FFF;
-            height: 38px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 38px;
-            text-transform: uppercase;
-            vertical-align: middle;
-            color: #FFF;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
-  - type: custom:button-card
-    style: |
-      ha-card {
-        display: flex;
-        position: relative;
-        margin: 0;
-        overflow: visible;
-        border-radius: 0;
-        height: 18px;
-        width: 6rem;
-        min-width: 6rem;
-        min-height: 18px;
-        background-color: #111;
-        border: 0;
-      }
-      ha-card div.ellipsis {
-        position: absolute;
-        left: 10px;
-        background-color: #111;
-        color: #FFF;
-        height: 18px;
-        overflow: visible;
-        padding: 5px;
-        font-size: 1.5rem;
-        font-family: Antonio;
-        line-height: 18px;
-        text-transform: uppercase;
-        vertical-align: middle;
-        color: #FFF;
-      }
-      ha-card.button-card-main {
-        padding: 0 0 !important;
-      }
-  - type: custom:button-card
-    name: |
-      [[[ 
-        var forecast;
-        var current;
-
-        var greeting = states['sensor.template_header_greet'].state;
-        if ( states['weather.kwdr_daynight'].attributes.forecast === undefined ) {
-          forecast = "";
-          current = " Current: " + states['sensor.outside_temp'].state + states['sensor.outside_temp'].attributes.unit_of_measurement
-        }
-        else {
-          var daytime = states['weather.kwdr_daynight'].attributes.forecast[0].daytime;
-          if (daytime) {
-            forecast = "Hi: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
-          }
-          else
-          {
-            forecast = "Lo: " + states['weather.kwdr_daynight'].attributes.forecast[0].temperature + states['weather.kwdr_daynight'].attributes.temperature_unit
-          }
-          
-          current = " Current: " + states['weather.kwdr_daynight'].attributes.temperature + states['weather.kwdr_daynight'].attributes.temperature_unit;
-        }
-        return greeting + " | " + forecast + " | " + current;
-      ]]]
-    style: |
-      ha-card {
-        display: flex;
-        position: relative;
-        margin: 0;
-        overflow: visible;
-        border-radius: 0 10px 10px 0 !important;
-        height: 40px;
-        width: 9.5rem;
-        min-width: 9.5rem;
-        min-height: 40px;
-        background-color: #79D;
-        border-right: 28px solid #79D;
-        border-left: 18px solid #79D;
-        border-top: #111;
-        border-bottom: #111;
-      }
-      ha-card.button-card-main::after {
-        content: "";
-        background-color: #111;
-        display: block;
-        width: 10px;
-        height: 50px;
-        position: absolute;
-        top: 0;
-        right: 0;
-        overflow: hidden;
-      }
-
-      ha-card.button-card-main div.ellipsis {
-        position: absolute;
-        left: 10px;
-        background-color: #79D;
-        height: 40px;
-        overflow: visible;
-        padding: 5px;
-        font-size: 1.5rem;
-        font-family: Antonio;
-        line-height: 40px;
-        text-transform: uppercase;
-        color: #111;
-      }
-      ha-card.button-card-main {
-        padding: 0 0 !important;
-      }
-
+        ha-markdown:
+          $: |
+            h1 {
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              overflow-wrap: unset;
+            }

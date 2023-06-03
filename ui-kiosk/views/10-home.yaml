@@ -1,0 +1,277 @@
+title: Home
+theme: LCARS Modern
+type: custom:grid-layout
+layout:
+  grid-template-columns: minmax(auto,26%) minmax(54%,auto) 20%
+  grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+  grid-template-areas: |
+    "headerL headerR headerR"
+    "logistics main aux"
+    "sidebar main aux"
+    "footer footer footer"
+path: home
+badges: []
+cards:
+  - !include ../includes/headerL.yaml
+  - !include ../includes/headerR.yaml
+  - !include ../includes/mailCluster.yaml
+  
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: '# Status Updates'
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: lock.front_door
+        name: Primary Airlock
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: cover.garage_door_2
+        name: Shuttle Bay Door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: input_select.dishwasher_state
+        name: Dish Sanitizer
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: input_select.dryer_state
+        name: Clothes Dryer
+        icon: ''
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: binary_sensor.internet_connection
+        name: Subspace Uplink
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.speedtest_upload
+        name: Uplink Speed
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.speedtest_download
+        name: Downlink Speed
+        icon: ''
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Work Mode
+        entity: binary_sensor.work_day
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+    view_layout:
+      grid-area: sidebar
+    card_mod:
+      class: middle
+  - !include ../includes/footer.yaml
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: '# Deck A'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - !include ../includes/space_maps/downstairsMap.yaml      
+      - type: markdown
+        content: '# Deck B'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - !include ../includes/space_maps/upstairsMap.yaml 
+    view_layout:
+      grid-area: aux
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: '# Viewscreen'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: custom:aarlo-glance
+        entities:
+          - entity: camera.aarlo_driveway
+            image_bottom: motion,sound,signal,bell,battery|library,snapshot
+          - entity: camera.aarlo_back_door
+            image_bottom: motion,sound,signal,bell,battery|library,snapshot
+          - entity: camera.aarlo_doorbell
+            image_bottom: motion,sound,signal,bell,battery|library,snapshot
+      - type: markdown
+        content: '# Utility Usage'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: false
+        show_state: true
+        type: glance
+        entities:
+          - entity: sensor.water_bill
+          - entity: sensor.monthly_water
+          - entity: sensor.power_bill
+          - entity: sensor.home_123_1mon
+        columns: 4
+        card_mod:
+          class: middle-blank
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: '# Worker Bees'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: vacuum.catbug
+            show_state: true
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: vacuum.gurtrude
+            show_state: true
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: vacuum.philoctetes
+            show_state: true
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.waterbender_rain_delay
+            show_state: true
+            name: Sprinkler Delay
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+    view_layout:
+      grid-area: main

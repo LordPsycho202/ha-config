@@ -1,0 +1,202 @@
+title: Weather
+theme: LCARS Modern
+type: custom:grid-layout
+layout:
+  grid-template-columns: minmax(auto,26%) minmax(44%,auto) 30%
+  grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+  grid-template-areas: |
+    "headerL headerR headerR"
+    "logistics main aux"
+    "sidebar main aux"
+    "footer footer footer"
+path: weather
+badges: []
+cards:
+  - !include ../includes/headerL.yaml
+  - !include ../includes/headerR.yaml
+  - !include ../includes/mailCluster.yaml
+  - type: vertical-stack
+    view_layout:
+      grid-area: sidebar
+    cards:
+      - type: markdown
+        content: '# Current Conditions'
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Conditions
+        show_state: true
+        entity: weather.kwdr_daynight
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: sensor.outside_temp
+        icon: ''
+        show_state: true
+        name: Exterior Heat
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: sensor.outdoor_humidity
+        show_state: true
+        name: Exterior Humidity
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        entity: sensor.wind_acurite_5n1_b
+        show_state: true
+        name: Exterior Winds
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.relative_pressure
+        icon: ''
+        show_state: true
+        name: Air Pressure
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.rain_daily
+        show_state: true
+        icon: mdi:weather-pouring
+        name: Percipitation (Today)
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: binary_sensor.is_rain_2
+        icon: ''
+        show_state: true
+        name: Current Rain
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.lightning_acurite_6045m_a
+        show_state: true
+        name: Lightning
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: '# Viewscreen'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: custom:weather-radar-card
+        card_title: Radar
+        data_source: RainViewer-Original
+        map_style: Voyager
+        zoom_level: 8
+        center_latitude: 34.0720728
+        center_longitude: -83.6917093
+        marker_latitude: 34.0720728
+        marker_longitude: -83.6917093
+        show_marker: true
+        static_map: false
+        show_scale: true
+        show_range: true
+        show_playback: true
+        show_zoom: true
+        square_map: true
+        show_recenter: true
+        frame_count: 5
+        frame_delay: 1000
+        restart_delay: 5000
+        extra_labels: true
+    view_layout:
+      grid-area: main
+  - type: vertical-stack
+    view_layout:
+      grid-area: aux
+    cards:
+      - type: markdown
+        content: '# Forecast Modeling'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_current: false
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.kwdr_daynight
+        theme: ios-dark-mode
+        secondary_info_attribute: pressure
+        card_mod:
+          style: |
+            ha-card {
+              height:215px !important;
+            }
+      - camera_view: auto
+        type: picture-glance
+        image: https://511ga.org/map/Cctv/JKSN-CAM-013--1
+        entities:
+          - entity: sensor.waze_travel_time
+          - entity: sensor.jennifer_time_to_home
+  - !include ../includes/footer.yaml

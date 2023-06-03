@@ -1,0 +1,12 @@
+type: vertical-stack
+view_layout:
+  grid-area: footer
+cards:
+  - type: markdown
+    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
+    card_mod:
+      class: footer
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
