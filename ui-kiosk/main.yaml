@@ -1,7 +1,6 @@
 views: 
-  - !include views/10-downstairs.yaml
-  - !include views/20-upstairs.yaml
-  - !include views/30-weather.yaml
+  - !include views/10-home.yaml
+  - !include views/20-weather.yaml
   - !include views/40-rack.yaml
   - !include views/50-outside.yaml
   - !include views/60-planeTracker.yaml
