@@ -1,6 +1,7 @@
 title: Home
 theme: LCARS Modern
 type: custom:grid-layout
+icon: "mdi:home"
 layout:
   grid-template-columns: minmax(auto,26%) minmax(54%,auto) 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
