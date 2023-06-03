@@ -95,3 +95,16 @@
       value_template: '{{ value_json["value"]["timeSeries"][0]["values"][0]["value"][0]["value"] | float}}'
       device_class: distance
       unit_of_measurement: "ft"
+
+- scan_interval: 86400
+  resource: https://zenquotes.io/api/random
+  method: POST
+  sensor:
+    - unique_id: quote
+      name: quote
+      icon: mdi:chat
+      value_template: '{{ value_json.q}}'
+    - unique_id: quote_author
+      name: quote_author
+      icon: mdi:chat
+      value_template: '{{ value_json.a}}'
