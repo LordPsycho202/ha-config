@@ -114,101 +114,29 @@ cards:
             ha-card > * {
               font-family: Antonio
             }     
-
-      - type: vertical-stack
-        cards:
-          - type: custom:button-card
-            name: EMERGENCY POWER
-            style: |
-              ha-card {
-                display: flex;
-                position: relative;
-                margin: 0;
-                overflow: visible;
-                border-radius: 10px 10px 10px 10px;
-                height: 40px;
-                width: 9.5rem;
-                min-width: 9.5rem;
-                min-height: 40px;
-                background-color: #455580;
-                border-right: 28px solid #455580;
-                border-left: 18px solid #455580;
-                border-top: 0;
-                border-bottom: 0;
-              }
-              ha-card div.ellipsis {
-                position: absolute;
-                left: 10px;
-                background-color: #455580;
-                height: 40px;
-                overflow: visible;
-                padding: 5px;
-                font-size: 1.5rem;
-                font-family: Antonio;
-                line-height: 40px;
-                text-transform: uppercase;
-                color: #111;
-              }
-              ha-card.button-card-main {
-                padding: 0 0 !important;
-              }
-              ha-card::after {
-                content: "";
-                background-color: #111;
-                display: block;
-                width: 10px;
-                height: 50px;
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                right: 0;
-                bottom: 1.5rem;
-
-              }
-          - type: custom:mushroom-template-card
-            primary: UPS01
-            secondary: >-
-              Battery: {{states.sensor.ups01_battery_charge.state}}% | Load:
-              {{states.sensor.ups01_load.state}}%
-            icon: mdi:lightning-bolt-circle
-            icon_color: >-
-              {% if states.sensor.ups01_battery_charge.state | float >= 30
-              %}
-
-              green
-
-              {% elif states.sensor.ups01_battery_charge.state | float >= 10
-              %}
-
-              orange
-
-              {% else %}
-
-              red
-
-              {% endif %}
-          - type: custom:mushroom-template-card
-            primary: UPS02
-            secondary: >-
-              Battery: {{states.sensor.ups02_battery_charge.state}}% | Load:
-              {{states.sensor.ups02_load.state}}%
-            icon: mdi:lightning-bolt-circle
-            icon_color: >-
-              {% if states.sensor.ups02_battery_charge.state | float >= 30
-              %}
-
-              green
-
-              {% elif states.sensor.ups02_battery_charge.state | float >= 10
-              %}
-
-              orange
-
-              {% else %}
-
-              red
-
-              {% endif %}
+      - type: markdown
+        content: '# Emergency Power'
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: more-info
+        show_state: true
+        hold_action:
+          action: none
+        entity: sensor.ups01_battery_charge_2
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }   
       - type: vertical-stack
         cards:
           - type: custom:button-card
