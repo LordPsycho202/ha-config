@@ -26,6 +26,17 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Devices"
+      - type: "custom:button-card"
+        entity: lock.back_door
+        template: "custom_card_eraycetinay_lock"
+        name: "Door Lock"
+        variables:
+          ulm_custom_card_eraycetinay_lock_tap_control: true
+          ulm_custom_card_eraycetinay_lock_battery_level: sensor.back_door_battery
+          ulm_custom_card_eraycetinay_lock_door_open: binary_sensor.back_door_open
+        triggers_update:
+          - "sensor.back_door_battery"
+          - "binary_sensor.back_door_open"
 
       - type: horizontal-stack
         cards:
