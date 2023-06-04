@@ -86,10 +86,10 @@ cards:
             state: playing
         card:
           type: "custom:button-card"
-          template: card_media_player_chromecast_with_controls
+          template: card_media_player
+          entity: media_player.living_room_tv
           variables:
             ulm_card_media_player_with_controls_name: "Living Room"
-            ulm_card_media_player_with_controls_entity: media_player.living_room_tv
 
       - type: conditional
         conditions:
