@@ -7,5 +7,5 @@ pipelines:
           enabled: false
         script:
           - git clone --bare git@bitbucket.org:rgnissen202/ha-config.git
-          - cd RepoName.git
+          - cd ha-config.git
           - git push --mirror https://github.com/LordPsycho202/ha-config.git
