@@ -20,8 +20,37 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            template: card_generic_swap
-            entity: sensor.washing_machine
+            template: "custom_card_haven_washer"
+            variables:
+              ulm_custom_card_washer_power: switch.washer
+              ulm_custom_card_washer_machine_state: sensor.washer_washer_machine_state
+              ulm_custom_card_washer_job_state: sensor.washer_washer_job_state
+              ulm_custom_card_washer_job_states:
+                state1:
+                  name: "weightSensing"
+                  icon: "mdi:scale"
+                state2:
+                  name: "wash"
+                  icon: "mdi:waves"
+                state3:
+                  name: "rinse"
+                  icon: "mdi:water"
+                state4:
+                  name: "spin"
+                  icon: "mdi:fan"
+ 
+          - type: "custom:button-card"
+            template: "custom_card_haven_washer"
+            variables:
+              ulm_custom_card_washer_power: switch.dryer
+              ulm_custom_card_washer_machine_state: sensor.dryer_dryer_machine_state
+              ulm_custom_card_washer_job_state: sensor.dryer_dryer_job_state
+              ulm_custom_card_washer_job_states:
+                state1:
+                  name: "drying"
+                  icon: "mdi:tumble-dryer"
+
+
           - type: "custom:button-card"
             template: card_generic_swap
             entity: input_select.dryer_state
