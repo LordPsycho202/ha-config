@@ -21,14 +21,6 @@ cards:
         image_bottom: motion,sound,signal|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
-
-      - type: custom:aarlo-glance
-        entity: camera.aarlo_driveway
-        image_view: direct
-        image_top: name,date,status
-        image_bottom: motion,sound,signal,battery|library,snapshot
-        image_click: stream
-        library_sizes: 3,4,2
       - type: "custom:button-card"
         entity: lock.front_door
         template: "custom_card_eraycetinay_lock"
@@ -38,6 +30,14 @@ cards:
           ulm_custom_card_eraycetinay_lock_battery_level: sensor.front_door_battery
         triggers_update:
           - "sensor.front_door_battery"
+
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_driveway
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
 
       - type: custom:aarlo-glance
         entity: camera.aarlo_back_door
