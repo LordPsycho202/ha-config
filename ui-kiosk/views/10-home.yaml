@@ -47,21 +47,6 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: lock.front_door
-        name: Forward Airlock
-        icon: mdi:door
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
         entity: lock.back_door
         name: Aft Airlock
         icon: mdi:door
@@ -105,7 +90,22 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: input_select.dryer_state
+        entity: sensor.washer_washer_job_state
+        name: Clothes Washer
+        icon: ''
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: sensor.dryer_dryer_job_state
         name: Clothes Dryer
         icon: ''
         show_state: true
