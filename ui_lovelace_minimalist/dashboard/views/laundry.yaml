@@ -50,18 +50,6 @@ cards:
                   name: "drying"
                   icon: "mdi:tumble-dryer"
 
-
-          - type: "custom:button-card"
-            template: card_generic_swap
-            entity: input_select.dryer_state
-            tap_action:
-              action: call-service
-              service: input_select.select_option
-              target:
-                entity_id: input_select.dryer_state
-              data:
-                option: Empty
-
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
