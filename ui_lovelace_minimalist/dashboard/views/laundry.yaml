@@ -36,6 +36,9 @@ cards:
             state4:
               name: "spin"
               icon: "mdi:fan"
+            state5:
+              name: "finished"
+              icon: "mdi:progress-check"
 
       - type: "custom:button-card"
         template: "custom_card_haven_washer"
@@ -47,6 +50,12 @@ cards:
             state1:
               name: "drying"
               icon: "mdi:tumble-dryer"
+            state2:
+              name: "cooling"
+              icon: "mdi:snowflake-thermometer"
+            state3:
+              name: "finished"
+              icon: "mdi:progress-check"
 
   - type: vertical-stack
     cards:
