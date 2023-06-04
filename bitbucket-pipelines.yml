@@ -8,4 +8,4 @@ pipelines:
         script:
           - git clone --bare git@bitbucket.org:rgnissen202/ha-config.git
           - cd ha-config.git
-          - git push --mirror https://github.com/LordPsycho202/ha-config.git
+          - git push --mirror git@github.com:LordPsycho202/ha-config.git
