@@ -198,10 +198,13 @@ cards:
       - type: custom:aarlo-glance
         entities:
           - entity: camera.aarlo_driveway
+            image_top: previous,name,next
             image_bottom: motion,sound,signal,bell,battery|library,snapshot
           - entity: camera.aarlo_back_door
+            image_top: previous,name,next
             image_bottom: motion,sound,signal,bell,battery|library,snapshot
           - entity: camera.aarlo_doorbell
+            image_top: previous,name,next
             image_bottom: motion,sound,signal,bell,battery|library,snapshot
       - type: markdown
         content: '# Utility Usage'
