@@ -77,7 +77,7 @@ mqtt: !include mqtt.yaml
 
 #### Arlo Integration #############################################
 aarlo:
-  host: "https://my.arlo.com"
+  #host: "https://my.arlo.com"
   username: !secret arlo_username
   password: !secret arlo_password
   db_motion_time: 30
@@ -86,6 +86,7 @@ aarlo:
   last_format: "%m-%d %H:%M"
   refresh_devices_every: 2
   verbose_debug: True
+  backend: sse
   tfa_host: "imap.gmail.com"
   tfa_username: !secret arlo_2fa_username
   tfa_password: !secret arlo_2fa_password
