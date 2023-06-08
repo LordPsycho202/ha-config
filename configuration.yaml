@@ -51,6 +51,9 @@ frontend:
 #### HTTPS ##################################
 http: !include http.yaml
 
+#### Command Line ##################################
+command_line: !include commandLine.yaml
+
 #### Template Sensors #############################################
 template: !include template.yaml
 
@@ -143,12 +146,6 @@ sensor:
       - type: memory_use_percent
       - type: processor_use
 
-  - platform: command_line
-    name: CPU Temp
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unique_id: cpu_temp
-    unit_of_measurement: "°C"
-    value_template: "{{ value | multiply(0.001) | round(1) }}"
 
   - platform: snmp
     host: 192.168.1.143
