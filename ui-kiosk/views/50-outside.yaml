@@ -145,13 +145,16 @@ cards:
           - entity: vacuum.philoctetes
             state_not: docked
         card:
-          type: custom:mushroom-vacuum-card
+          show_name: true
+          show_icon: true
+          type: button
+          tap_action:
+            action: toggle
           entity: vacuum.philoctetes
-          commands:
-            - start_pause
-            - return_home
-            - stop
-          icon_animation: false
+          theme: LCARS Modern
+          show_state: true
+          card_mod:
+            class: button-lozenge
       - show_state: true
         show_name: true
         camera_view: live
