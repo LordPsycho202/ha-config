@@ -1,4 +1,3 @@
-theme: Backend-selected
 title: Outside
 path: out
 icon: mdi:flower
@@ -134,37 +133,36 @@ cards:
             ha-card > * {
               font-family: Antonio
             }      - type: custom:stack-in-card
-        cards:
-          - type: conditional
-            conditions:
-              - entity: vacuum.philoctetes
-                state: docked
-            card:
-              type: custom:mushroom-entity-card
-              entity: sensor.philoctetes_next_start
-          - type: conditional
-            conditions:
-              - entity: vacuum.philoctetes
-                state_not: docked
-            card:
-              type: custom:mushroom-vacuum-card
-              entity: vacuum.philoctetes
-              commands:
-                - start_pause
-                - return_home
-                - stop
-              icon_animation: false
-          - show_state: true
-            show_name: true
-            camera_view: live
-            type: picture-entity
-            entity: vacuum.philoctetes
-            camera_image: camera.philoctetes_map
-            image: /local/images/transparent.png
-            tap_action:
-              action: more-info
-            hold_action:
-              action: none
+      - type: conditional
+        conditions:
+          - entity: vacuum.philoctetes
+            state: docked
+        card:
+          type: custom:mushroom-entity-card
+          entity: sensor.philoctetes_next_start
+      - type: conditional
+        conditions:
+          - entity: vacuum.philoctetes
+            state_not: docked
+        card:
+          type: custom:mushroom-vacuum-card
+          entity: vacuum.philoctetes
+          commands:
+            - start_pause
+            - return_home
+            - stop
+          icon_animation: false
+      - show_state: true
+        show_name: true
+        camera_view: live
+        type: picture-entity
+        entity: vacuum.philoctetes
+        camera_image: camera.philoctetes_map
+        image: /local/images/transparent.png
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
       - type: custom:button-card
         name: Green Houses
         style: |
