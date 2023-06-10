@@ -78,23 +78,23 @@ cards:
               - entity: light.shelf
                 state_not: "unavailable"
             card:
-              - type: "custom:button-card"
-                template: card_light
-                entity: light.shelf
-                variables:
-                  ulm_card_light_name: Shelf Backlight
-                  ulm_card_light_enable_color: true
-                  ulm_card_light_enable_collapse: true
+              type: "custom:button-card"
+              template: card_light
+              entity: light.shelf
+              variables:
+                ulm_card_light_name: Shelf Backlight
+                ulm_card_light_enable_color: true
+                ulm_card_light_enable_collapse: true
           - type: conditional
             conditions:
               - entity: light.shelf
                 state: "unavailable"
             card:
-              - type: 'custom:button-card'
-                template: card_power_outlet
-                variables:
-                  ulm_card_power_outlet_name: Shelf Backlight
-                entity: switch.servers_socket_1
+              type: 'custom:button-card'
+              template: card_power_outlet
+              variables:
+                ulm_card_power_outlet_name: Shelf Backlight
+              entity: switch.servers_socket_1
           - type: "custom:button-card"
             template: card_light
             entity: light.elgato_key_light
