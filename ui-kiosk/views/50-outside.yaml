@@ -2,6 +2,7 @@ theme: Backend-selected
 title: Outside
 path: out
 icon: mdi:flower
+theme: LCARS Modern
 type: custom:grid-layout
 layout:
   grid-template-columns: minmax(auto,26%) minmax(54%,auto) 20%
