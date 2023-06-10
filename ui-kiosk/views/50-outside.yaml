@@ -409,3 +409,4 @@ cards:
                 name: Delay
     view_layout:
       grid-area: aux
+  - !include ../includes/footer.yaml
