@@ -138,8 +138,15 @@ cards:
           - entity: vacuum.philoctetes
             state: docked
         card:
-          type: custom:mushroom-entity-card
+          show_name: true
+          show_icon: true
+          type: button
+          tap_action:
+            action: toggle
           entity: sensor.philoctetes_next_start
+          show_state: true
+          card_mod:
+            class: button-lozenge
       - type: conditional
         conditions:
           - entity: vacuum.philoctetes
@@ -151,7 +158,6 @@ cards:
           tap_action:
             action: toggle
           entity: vacuum.philoctetes
-          theme: LCARS Modern
           show_state: true
           card_mod:
             class: button-lozenge
