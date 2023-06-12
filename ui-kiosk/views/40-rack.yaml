@@ -490,7 +490,7 @@ cards:
         entities:
           - sensor.office_kids_room_9_1min
         name: Computer Core Power Usage
-        line_color: blue
+        color: var(--lcars-card-top-color)
         card_mod:
           class: middle-blank
           style: |
