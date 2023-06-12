@@ -184,7 +184,7 @@ cards:
       - type: horizontal-stack
         cards:
           - show_name: true
-            show_icon: true
+            show_icon: false
             type: button
             tap_action:
               action: toggle
@@ -197,7 +197,7 @@ cards:
                   font-family: Antonio
                 }
           - show_name: true
-            show_icon: true
+            show_icon: false
             type: button
             tap_action:
               action: toggle
