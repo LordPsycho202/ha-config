@@ -16,6 +16,7 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/mailCluster.yaml
+  - !include ../includes/footer.yaml
 
   - type: vertical-stack
     view_layout:
@@ -132,7 +133,18 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }      - type: custom:stack-in-card
+            }      
+      - show_state: true
+        show_name: true
+        camera_view: live
+        type: picture-entity
+        entity: vacuum.philoctetes
+        camera_image: camera.philoctetes_map
+        image: /local/images/transparent.png
+        tap_action:
+          action: more-info
+        hold_action:
+          action: none
       - type: conditional
         conditions:
           - entity: vacuum.philoctetes
@@ -161,177 +173,55 @@ cards:
           show_state: true
           card_mod:
             class: button-lozenge
-      - show_state: true
-        show_name: true
-        camera_view: live
-        type: picture-entity
-        entity: vacuum.philoctetes
-        camera_image: camera.philoctetes_map
-        image: /local/images/transparent.png
-        tap_action:
-          action: more-info
-        hold_action:
-          action: none
-      - type: custom:button-card
-        name: Green Houses
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 10px 10px 10px 10px;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #79D;
-            border-right: 28px solid #79D;
-            border-left: 18px solid #79D;
-            border-top: 0;
-            border-bottom: 0;
-          }
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #79D;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
-          ha-card::after {
-            content: "";
-            background-color: #111;
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            overflow: hidden;
-            right: 0;
-            bottom: 1.5rem;
-
-          }
-      - type: custom:stack-in-card
+      - type: markdown
+        content: '# Green Houses'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            entity: sensor.soil_moisture_2
-            secondary: >-
-              {{ states.sensor.soil_moisture_2.state }}{{
-
-              states.sensor.soil_moisture_2.attributes.unit_of_measurement
-              }}
-            primary: |-
-              {% if states.sensor.soil_moisture_2.state|float < 40 %}
-                Water GH1 Now
-              {% else %}
-                GH1 Soil Moisture
-              {% endif %}
-            icon_color: |-
-              {% if states.sensor.soil_moisture_2.state|float < 40 %}
-                red
-              {% else %}
-                blue
-              {% endif %}
-            icon: |
-              {% if states.sensor.soil_moisture_2.state|float < 40 %}
-                mdi:water-percent-alert
-              {% else %}
-                mdi:water-percent
-              {% endif %}
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-template-card
-                entity: sensor.temp_nexus_th_b
-                primary: |-
-                  {% if states.sensor.temp_nexus_th_b.state|float > 100 %}
-                    Open GH1 Now
-                  {% elif states.sensor.temp_nexus_th_b.state|float > 85 %}
-                    Ensure GH1 is Open
-                  {% else %}
-                    GH1 Temp
-                  {% endif %}
-                secondary: >-
-                  {{ states.sensor.temp_nexus_th_b.state}}{{
-                  states.sensor.temp_nexus_th_b.attributes.unit_of_measurement
-                  }}
-                icon_color: |-
-                  {% if states.sensor.temp_nexus_th_b.state|float > 100 %}
-                    red
-                  {% elif states.sensor.temp_nexus_th_b.state|float > 85 %}
-                    yellow
-                  {% else %}
-                    blue
-                  {% endif %}
-                icon: |
-                  {% if states.sensor.temp_nexus_th_b.state|float > 100 %}
-                    mdi:thermometer-alert
-                  {% elif states.sensor.temp_nexus_th_b.state|float > 85 %}
-                    mdi:thermometer-chevron-up
-                  {% else %}
-                    mdi:thermometer
-                  {% endif %}        
-              - type: custom:mushroom-entity-card
-                entity: sensor.rh_nexus_th_b
-                name: GH1 Humidity
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.temp_nexus_th_b
+            show_state: true
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.rh_nexus_th_b
+            show_state: true
+            card_mod:
+              class: button-large
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
 
   - type: vertical-stack
+    view_layout:
+      grid-area: aux
     cards:
-      - type: custom:button-card
-        name: Outdoor Modeling
-        style: |
-          ha-card {
-            display: flex;
-            position: relative;
-            margin: 0;
-            overflow: visible;
-            border-radius: 0 10px 10px 0;
-            height: 40px;
-            width: 9.5rem;
-            min-width: 9.5rem;
-            min-height: 40px;
-            background-color: #79D;
-            border-right: 28px solid #79D;
-            border-left: 18px solid #79D;
-            border-top: #111;
-            border-bottom: #111;
-          }
-          ha-card::after {
-            content: "";
-            background-color: #111;
-            display: block;
-            width: 10px;
-            height: 50px;
-            position: absolute;
-            top: 0;
-            right: 0;
-            overflow: hidden;
-          }
-
-          ha-card div.ellipsis {
-            position: absolute;
-            left: 10px;
-            background-color: #79D;
-            height: 40px;
-            overflow: visible;
-            padding: 5px;
-            font-size: 1.5rem;
-            font-family: Antonio;
-            line-height: 40px;
-            text-transform: uppercase;
-            color: #111;
-          }
-          ha-card.button-card-main {
-            padding: 0 0 !important;
-          }
+      - type: markdown
+        content: '# Weather Modeling'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }    
       - show_current: false
         show_forecast: true
         type: weather-forecast
@@ -340,81 +230,93 @@ cards:
         secondary_info_attribute: pressure
         card_mod:
           style: |
-            ha-card {
+            ha-card > * {
               height:215px !important;
+              font-family: Antonio;
             }
-      - type: vertical-stack
-        cards:
-          - type: custom:button-card
-            name: Moisture Controls
-            style: |
-              ha-card {
-                display: flex;
-                position: relative;
-                margin: 0;
-                overflow: visible;
-                border-radius: 10px 10px 10px 10px;
-                height: 40px;
-                width: 9.5rem;
-                min-width: 9.5rem;
-                min-height: 40px;
-                background-color: #6CF;
-                border-right: 28px solid #6CF;
-                border-left: 18px solid #6CF;
-                border-top: 0;
-                border-bottom: 0;
-              }
-              ha-card div.ellipsis {
-                position: absolute;
-                left: 10px;
-                background-color: #6CF;
-                height: 40px;
-                overflow: visible;
-                padding: 5px;
-                font-size: 1.5rem;
-                font-family: Antonio;
-                line-height: 40px;
-                text-transform: uppercase;
-                color: #111;
-              }
-              ha-card.button-card-main {
-                padding: 0 0 !important;
-              }
-              ha-card::after {
-                content: "";
-                background-color: #111;
-                display: block;
-                width: 10px;
-                height: 50px;
-                position: absolute;
-                top: 0;
-                overflow: hidden;
-                right: 0;
-                bottom: 1.5rem;
-
-              }
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: switch.front_yard_zone
-                name: Front Yard
-              - type: custom:mushroom-entity-card
-                entity: switch.back_yard_zone
-                name: Back Yard
-              - type: custom:mushroom-entity-card
-                entity: sensor.last_watering
-                name: Last
-          - type: horizontal-stack
-            cards:
-              - type: custom:mushroom-entity-card
-                entity: switch.side_yard_zone
-                name: Side Yard
-              - type: custom:mushroom-entity-card
-                entity: switch.flower_beds_zone
-                name: Flowers
-              - type: custom:mushroom-entity-card
-                entity: switch.waterbender_rain_delay
-                name: Delay
-    view_layout:
-      grid-area: aux
-  - !include ../includes/footer.yaml
+      - type: markdown
+        content: '# Irrigation Controls'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.last_watering
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: switch.waterbender_rain_delay
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: switch.front_yard_zone
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: switch.back_yard_zone
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: switch.side_yard_zone
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: switch.flower_beds_zone
+        show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
