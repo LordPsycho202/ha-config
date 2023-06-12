@@ -184,27 +184,27 @@ cards:
       - type: horizontal-stack
         cards:
           - show_name: true
-            show_icon: false
+            show_icon: true
             type: button
             tap_action:
               action: toggle
             entity: sensor.temp_nexus_th_b
             show_state: true
             card_mod:
-              class: button-large
+              class: button-capped
               style: |
                 ha-card > * {
                   font-family: Antonio
                 }
           - show_name: true
-            show_icon: false
+            show_icon: true
             type: button
             tap_action:
               action: toggle
             entity: sensor.rh_nexus_th_b
             show_state: true
             card_mod:
-              class: button-large
+              class: button-capped-right
               style: |
                 ha-card > * {
                   font-family: Antonio
