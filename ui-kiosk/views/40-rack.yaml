@@ -3,7 +3,7 @@ icon: "mdi:server"
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: minmax(auto,26%) minmax(54%,auto) 20%
+  grid-template-columns: minmax(auto,26%) minmax(59%,auto) 15%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
@@ -16,6 +16,8 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/mailCluster.yaml
+  - !include ../includes/footer.yaml
+
   - type: vertical-stack
     cards:
       - type: markdown
@@ -37,6 +39,7 @@ cards:
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
+      place-self: start stretch
     cards:
       - type: markdown
         content: '# Relays'
@@ -139,6 +142,8 @@ cards:
               font-family: Antonio
             }
   - type: vertical-stack
+    view_layout:
+      grid-area: main
     cards:
       - type: markdown
         content: '# Computer Cores'
@@ -481,12 +486,14 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:mushroom-entity-card
+      - type: custom:mini-graph-card
+        entities:
+          - sensor.office_kids_room_9_1min
+        name: Computer Core Power Usage
+        line_color: blue
         card_mod:
-          class: button-large
-        entity: sensor.office_kids_room_9_1mon
-        primary_info: state
-        secondary_info: name
-    view_layout:
-      grid-area: main
-  - !include ../includes/footer.yaml
+          class: middle-blank
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
