@@ -488,9 +488,9 @@ cards:
             }
       - type: custom:mini-graph-card
         entities:
-          - sensor.office_kids_room_9_1min
+          - entity: sensor.office_kids_room_9_1min
+            color: var(--lcars-card-top-color)
         name: Computer Core Power Usage
-        color: var(--lcars-card-top-color)
         card_mod:
           class: middle-blank
           style: |
