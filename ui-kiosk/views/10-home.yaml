@@ -248,7 +248,7 @@ cards:
             entity: vacuum.catbug
             show_state: true
             card_mod:
-              class: button-large
+              class: button-lozenge
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -261,7 +261,7 @@ cards:
             entity: vacuum.gurtrude
             show_state: true
             card_mod:
-              class: button-large
+              class: button-lozenge
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -274,7 +274,7 @@ cards:
             entity: vacuum.philoctetes
             show_state: true
             card_mod:
-              class: button-large
+              class: button-lozenge
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -288,7 +288,7 @@ cards:
             show_state: true
             name: Sprinkler Delay
             card_mod:
-              class: button-large
+              class: button-lozenge
               style: |
                 ha-card > * {
                   font-family: Antonio
