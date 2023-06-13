@@ -12,7 +12,8 @@ cards:
         .: |
           ha-card > * {
             font-family: Antonio
-            align-items: end
+            text-overflow: ellipsis;
+            overflow-wrap: unset;
           }
         ha-markdown:
           $: |
