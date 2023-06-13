@@ -33,8 +33,12 @@ cards:
         entity: sensor.fr24_aircraft
         lang: en
         sort: track
+        card_mod:
+          class: middle-blank
 
   - type: vertical-stack
+    view_layout:
+      grid-area: main
     cards:
       - type: markdown
         content: '# Viewscreen'
@@ -47,5 +51,4 @@ cards:
       - type: iframe
         url: https://cardinal.folden-nissen.com
         aspect_ratio: 50%
-        view_layout:
-          grid-area: main
+
