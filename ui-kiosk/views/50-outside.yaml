@@ -4,7 +4,7 @@ icon: mdi:flower
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: minmax(auto,26%) minmax(54%,auto) 20%
+  grid-template-columns: minmax(auto,26%) minmax(50%,auto) 24%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
