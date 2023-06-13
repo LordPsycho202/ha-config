@@ -12,14 +12,12 @@ cards:
         .: |
           ha-card > * {
             font-family: Antonio
-            text-overflow: ellipsis;
-            overflow-wrap: unset;
           }
         ha-markdown:
           $: |
             h1 {
               white-space: nowrap;
               overflow: hidden;
-              text-overflow: ellipsis;
-              overflow-wrap: unset;
+              text-overflow: ellipsis !important;
+              overflow-wrap: unset !important;
             }
