@@ -38,6 +38,7 @@ icloud/
 **secrets*
 **known_devices.yaml
 **google_calendars.yaml
+**govee_learning.yaml
 **ip_bans.yaml
 **.spotify-token-cache
 **zones.yaml
