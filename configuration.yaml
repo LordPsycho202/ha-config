@@ -52,7 +52,14 @@ frontend:
 http: !include http.yaml
 
 #### Command Line ##################################
-command_line: !include commandLine.yaml
+command_line:
+  - sensor:
+      name: CPU Temp
+      command: "cat /sys/class/thermal/thermal_zone0/temp"
+      unique_id: cpu_temp
+      unit_of_measurement: "°C"
+      value_template: >
+        {{ value | multiply(0.001) | round(1) }}
 
 #### Template Sensors #############################################
 template: !include template.yaml
