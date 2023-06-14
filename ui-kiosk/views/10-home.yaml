@@ -3,7 +3,7 @@ theme: LCARS Modern
 type: custom:grid-layout
 icon: "mdi:home"
 layout:
-  grid-template-columns: minmax(auto,26%) minmax(54%,auto) 17%
+  grid-template-columns: minmax(auto,24%) minmax(56%,auto) 18%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
