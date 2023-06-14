@@ -3,7 +3,7 @@ theme: LCARS Modern
 type: custom:grid-layout
 icon: "mdi:home"
 layout:
-  grid-template-columns: minmax(auto,24%) minmax(56%,auto) 18%
+  grid-template-columns: minmax(auto,21%) minmax(59%,auto) 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
@@ -16,11 +16,11 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/mailCluster.yaml
-  
+
   - type: vertical-stack
     cards:
       - type: markdown
-        content: '# Status Updates'
+        content: "# Status Updates"
         card_mod:
           class: middle
           style: |
@@ -92,7 +92,7 @@ cards:
           action: none
         entity: sensor.washer_washer_job_state
         name: Clothes Washer
-        icon: ''
+        icon: ""
         show_state: true
         card_mod:
           class: button-bullet
@@ -107,50 +107,7 @@ cards:
           action: none
         entity: sensor.dryer_dryer_job_state
         name: Clothes Dryer
-        icon: ''
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        entity: binary_sensor.internet_connection
-        name: Subspace Uplink
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        entity: sensor.speedtest_upload
-        name: Uplink Speed
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        entity: sensor.speedtest_download
-        name: Downlink Speed
-        icon: ''
+        icon: ""
         show_state: true
         card_mod:
           class: button-bullet
@@ -166,29 +123,29 @@ cards:
   - type: vertical-stack
     cards:
       - type: markdown
-        content: '# Deck A'
+        content: "# Deck A"
         card_mod:
           class: header-open
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/downstairsMap.yaml      
+      - !include ../includes/space_maps/downstairsMap.yaml
       - type: markdown
-        content: '# Deck B'
+        content: "# Deck B"
         card_mod:
           class: bar
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/upstairsMap.yaml 
+      - !include ../includes/space_maps/upstairsMap.yaml
     view_layout:
       grid-area: aux
   - type: vertical-stack
     cards:
       - type: markdown
-        content: '# Viewscreen'
+        content: "# Viewscreen"
         card_mod:
           class: header-open
           style: |
@@ -207,7 +164,7 @@ cards:
             image_top: previous,name,next
             image_bottom: motion,sound,signal,bell,battery|library,snapshot
       - type: markdown
-        content: '# Utility Usage'
+        content: "# Utility Usage"
         card_mod:
           class: bar
           style: |
@@ -231,7 +188,7 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: '# Worker Bees'
+        content: "# Worker Bees"
         card_mod:
           class: bar
           style: |
