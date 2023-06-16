@@ -186,6 +186,10 @@ cards:
         show_state: true
         type: glance
         entities:
+          - entity: sensor.temp_nexus_th_a
+            name: GH1 Temperature
+          - entity: sensor.rh_nexus_th_a
+            name: GH1 Humidity
           - entity: sensor.temp_nexus_th_b
             name: GH2 Temperature
           - entity: sensor.rh_nexus_th_b
