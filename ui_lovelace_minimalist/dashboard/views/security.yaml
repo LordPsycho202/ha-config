@@ -20,7 +20,7 @@ cards:
       - type: custom:aarlo-glance
         entity: camera.aarlo_doorbell
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
@@ -40,7 +40,7 @@ cards:
       - type: custom:aarlo-glance
         entity: camera.aarlo_driveway
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
@@ -57,7 +57,7 @@ cards:
       - type: custom:aarlo-glance
         entity: camera.aarlo_back_door
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
