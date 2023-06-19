@@ -187,13 +187,13 @@ cards:
         type: glance
         entities:
           - entity: sensor.temp_nexus_th_a
-            name: GH1 Temperature
+            name: GH1 Temp
           - entity: sensor.rh_nexus_th_a
-            name: GH1 Humidity
+            name: GH1 RH
           - entity: sensor.temp_nexus_th_b
-            name: GH2 Temperature
+            name: GH2 Temp
           - entity: sensor.rh_nexus_th_b
-            name: GH2 Humidity
+            name: GH2 RH
         columns: 2
         card_mod:
           class: middle-blank
