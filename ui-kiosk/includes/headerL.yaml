@@ -24,3 +24,9 @@ cards:
               text-overflow: ellipsis !important;
               overflow-wrap: unset !important;
             }
+            ha-card.type-markdown {
+              overflow-x: hidden;
+              text-overflow: ellipsis;
+              overflow-wrap: unset;
+              white-space: nowrap;
+            }
