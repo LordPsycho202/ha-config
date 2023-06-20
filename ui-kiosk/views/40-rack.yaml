@@ -96,7 +96,7 @@ cards:
         show_state: true
         hold_action:
           action: none
-        entity: sensor.ups01_battery_charge_2
+        entity: sensor.ups01_battery_charge
         card_mod:
           class: button-bullet
           style: |
