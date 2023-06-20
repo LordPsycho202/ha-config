@@ -16,17 +16,9 @@ cards:
           ha-card > * {
             font-family: Antonio;
           }
-        ha-markdown:
-          $: |
-            h1 {
-              white-space: nowrap;
-              overflow: hidden;
-              text-overflow: ellipsis !important;
-              overflow-wrap: unset !important;
-            }
-            ha-card.type-markdown {
-              overflow-x: hidden;
-              text-overflow: ellipsis;
-              overflow-wrap: unset;
-              white-space: nowrap;
-            }
+          ha-card.type-markdown {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: unset;
+            white-space: nowrap;
+          }
