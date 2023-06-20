@@ -14,10 +14,13 @@ cards:
         template: card_title
         name: Cameras
 
+      - type: "custom:button-card"
+        template: card_title
+        label: "Front Door"
       - type: custom:aarlo-glance
         entity: camera.aarlo_doorbell
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
@@ -31,18 +34,30 @@ cards:
         triggers_update:
           - "sensor.front_door_battery"
 
+      - type: "custom:button-card"
+        template: card_title
+        label: "Driveway"
       - type: custom:aarlo-glance
         entity: camera.aarlo_driveway
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
+      - type: "custom:button-card"
+        template: card_cover
+        entity: cover.garage_door_2
+        variables:
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_garage_large: true
 
+      - type: "custom:button-card"
+        template: card_title
+        label: "Back Door"
       - type: custom:aarlo-glance
         entity: camera.aarlo_back_door
         image_view: direct
-        image_top: name,date,status
+        image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2

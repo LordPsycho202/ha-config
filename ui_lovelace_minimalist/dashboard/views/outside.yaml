@@ -35,26 +35,7 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.temp_nexus_th_c
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-red)"
-              ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_c
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            entity: sensor.rh_nexus_th_c
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_c
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+
 
   - type: vertical-stack
     cards:
@@ -70,6 +51,44 @@ cards:
           ulm_card_graph_entity: sensor.soil_moisture_2
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.temp_nexus_th_a
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-red)"
+              ulm_card_graph_name: Temp
+              ulm_card_graph_entity: sensor.temp_nexus_th_a
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            entity: sensor.rh_nexus_th_a
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.rh_nexus_th_a
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: custom:mushroom-template-card
+        primary: GH1 Deltas
+        secondary: >-
+          Temp: {{ (states.sensor.temp_nexus_th_a.state | float -
+          states.sensor.temp_acurite_5n1_b.state | float) | round(2) }}F | RH: {{
+          (states.sensor.rh_nexus_th_a.state | float - 
+          states.sensor.rh_acurite_5n1_b.state | float) | round(2) }}
+        icon: mdi:greenhouse
+        icon_color: >-
+          {% set tempDelta = (states.sensor.temp_nexus_th_a.state | float -
+          states.sensor.temp_acurite_5n1_b.state | float) %}
+          {% if tempDelta > 10 %}
+            red
+          {% elif tempDelta > 5 %}
+            yellow
+          {% else %}
+            green
+          {% endif %}
 
 
   - type: vertical-stack
@@ -147,7 +166,7 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_c
+              ulm_card_graph_entity: sensor.temp_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
@@ -156,7 +175,7 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_c
+              ulm_card_graph_entity: sensor.rh_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
