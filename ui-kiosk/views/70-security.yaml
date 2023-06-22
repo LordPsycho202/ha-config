@@ -243,10 +243,9 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:stack-in-card
+      - type: vertical-stack
         cards:
-          - type: custom:stack-in-card
-            mode: horizontal
+          - type: horizontal-stack
             cards:
               - type: custom:aarlo-glance
                 entity: camera.aarlo_doorbell
@@ -262,8 +261,7 @@ cards:
                 image_bottom: motion,sound,signal,battery|library,snapshot
                 image_click: stream
                 library_sizes: 3,4,2
-          - type: custom:stack-in-card
-            mode: horizontal
+          - type: horizontal-stack
             cards:
               - type: custom:aarlo-glance
                 entity: camera.aarlo_driveway

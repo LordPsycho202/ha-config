@@ -103,6 +103,21 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: more-info
+        show_state: true
+        hold_action:
+          action: none
+        entity: sensor.ups01_load
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: markdown
         content: '# Core Temps'
         card_mod:
@@ -488,7 +503,7 @@ cards:
             }
       - type: custom:mini-graph-card
         entities:
-          - entity: sensor.office_kids_room_9_1min
+          - entity: sensor.ups01_current_real_power
             color: var(--lcars-card-top-color)
         name: Computer Core Power Usage
         card_mod:
