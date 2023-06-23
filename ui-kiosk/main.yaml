@@ -8,4 +8,4 @@ views:
   - !include views/70-security.yaml
   - !include views/80-blank.yaml
   #Psuedo-Popups
-  - !include views/wx_alert.yaml
+  - !include views/90-wxalert.yaml
