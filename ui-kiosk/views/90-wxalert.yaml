@@ -1,0 +1,254 @@
+title: Weather Alert
+path: wxalert
+icon: mdi:weather-tornado
+subview: true
+theme: LCARS Red Alert
+layout:
+  grid-template-columns: minmax(auto,21%) minmax(59%,auto) 20%
+  grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+  grid-template-areas: |
+    "headerL headerR headerR"
+    "sidebar main aux"
+    "footer footer footer"
+type: custom:grid-layout
+badges: []
+cards:
+  - !include ../includes/headerL.yaml
+  - !include ../includes/headerR.yaml
+  - !include ../includes/footer.yaml
+  
+  - type: vertical-stack
+    view_layout:
+      grid-area: aux
+    cards:
+      - type: markdown
+        content: "# Deck A"
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - !include ../includes/space_maps/downstairsMap.yaml
+      - type: markdown
+        content: "# Deck B"
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - !include ../includes/space_maps/upstairsMap.yaml
+
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: sidebar
+    cards:
+      - type: markdown
+        content: '# HOLD to Activate'
+        card_mod:
+          class: header
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: script.bedroom_flic_long_click
+        name: All Lights
+        show_state: false
+        hold_action:
+          action: call-service
+          service: script.turn_on
+          target:
+            entity_id: script.bedroom_flic_long_click
+          data: {}
+        icon: mdi:light-flood-down
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        entity: switch.aarlo_all_sirens
+        hold_action:
+          action: toggle
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: "# Motion Sensors"
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_driveway
+        name: Shuttle Bay Approach
+        icon: mdi:garage
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_doorbell
+        name: Front Airlock
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_back_door
+        name: Aft Airlock
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: "# Noise Detection"
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_sound_driveway
+        name: Shuttle Bay Approach
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_sound_back_door
+        name: Aft Airlock
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: "# Locks"
+        card_mod:
+          class: middle
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: lock.front_door
+        name: Forward Airlock
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: lock.back_door
+        name: Aft Airlock
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: cover.garage_door_2
+        name: Shuttle Bay Door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+    
+
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: main
+    cards:
+      - type: markdown
+        content: "# Viewscreen"
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: "# {{states.sensor.nws_alerts.attributes.display_desc}}"
+        card_mod:
+          class: button-large
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
