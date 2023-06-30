@@ -22,7 +22,7 @@ cards:
       grid-area: aux
     cards:
       - type: picture
-        image: /local/images/rack.png
+        image: /local/images/Red_Alert_Animation.gif
         tap_action:
           action: none
         hold_action:
