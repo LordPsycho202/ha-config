@@ -267,6 +267,5 @@ cards:
           class: footer-open
           style: |
             ha-card > * {
-              color: white;
               font-family: Antonio;
             }
