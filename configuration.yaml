@@ -194,11 +194,6 @@ sensor:
     max_age:
       hours: 24
 
-  - platform: weatheralerts
-    state: GA
-    county: 157
-    zone: 25
-
 binary_sensor:
   - platform: aarlo
     monitored_conditions:
