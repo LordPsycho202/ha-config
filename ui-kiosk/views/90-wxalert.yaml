@@ -21,24 +21,41 @@ cards:
     view_layout:
       grid-area: aux
     cards:
+      - type: picture
+        image: /local/images/rack.png
+        tap_action:
+          action: none
+        hold_action:
+          action: none
       - type: markdown
-        content: "# Deck A"
-        card_mod:
-          class: header-open
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - !include ../includes/space_maps/downstairsMap.yaml
-      - type: markdown
-        content: "# Deck B"
+        content: "# Radar"
         card_mod:
           class: bar
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/upstairsMap.yaml
+      - type: custom:weather-radar-card
+        card_title: Radar
+        data_source: RainViewer-Original
+        map_style: Voyager
+        zoom_level: 8
+        center_latitude: 34.0720728
+        center_longitude: -83.6917093
+        marker_latitude: 34.0720728
+        marker_longitude: -83.6917093
+        show_marker: true
+        static_map: false
+        show_scale: true
+        show_range: true
+        show_playback: true
+        show_zoom: true
+        square_map: true
+        show_recenter: true
+        frame_count: 5
+        frame_delay: 1000
+        restart_delay: 5000
+        extra_labels: true
 
 
   - type: vertical-stack
