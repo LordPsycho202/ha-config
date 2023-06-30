@@ -250,5 +250,6 @@ cards:
           class: button-large
           style: |
             ha-card > * {
-              font-family: Antonio
+              color: white;
+              font-family: Antonio;
             }
