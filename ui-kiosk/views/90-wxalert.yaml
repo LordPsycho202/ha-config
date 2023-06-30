@@ -264,6 +264,7 @@ cards:
       - type: markdown
         content: "# {{states.sensor.nws_alerts.attributes.display_desc}}"
         card_mod:
+          class: footer-open
           style: |
             ha-card > * {
               color: white;
