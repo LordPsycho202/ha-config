@@ -4,7 +4,7 @@ type: custom:grid-layout
 icon: "mdi:home"
 layout:
   grid-template-columns: minmax(auto,403px) minmax(1133px,auto) 384px
-  grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+  grid-template-rows: minmax(108px,auto) minmax(auto,648px) 108px
   grid-template-areas: |
     "headerL headerR headerR"
     "logistics main aux"
