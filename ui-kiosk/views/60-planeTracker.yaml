@@ -4,7 +4,7 @@ icon: mdi:airplane
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: minmax(auto,26%) minmax(74%,auto)
+  grid-template-columns: minmax(auto,500px) minmax(1420px,auto)
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR"
