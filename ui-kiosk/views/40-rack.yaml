@@ -1,3 +1,4 @@
+---
 title: Rack
 icon: "mdi:server"
 theme: LCARS Modern
@@ -79,7 +80,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }     
+            }
       - type: markdown
         content: '# Emergency Power'
         card_mod:
@@ -201,7 +202,6 @@ cards:
               states.sensor.rpi_monitor_cardinal.attributes.memory.size_mb|float
               )  * 100) %}
 
-
               RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
 
               CPU: {{ states.sensor.rpi_cpu_use_cardinal.state }}%
@@ -267,7 +267,6 @@ cards:
               states.sensor.rpi_monitor_artemis.attributes.memory.size_mb|float
               )  * 100) %}
 
-
               RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
 
               CPU: {{ states.sensor.rpi_cpu_use_artemis.state }}%
@@ -308,7 +307,6 @@ cards:
               /
               states.sensor.rpi_monitor_Apollo.attributes.memory.size_mb|float
               )  * 100) %}
-
 
               RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
 
@@ -352,7 +350,6 @@ cards:
               /
               states.sensor.rpi_monitor_charles.attributes.memory.size_mb|float
               )  * 100) %}
-
 
               RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
 
@@ -427,7 +424,7 @@ cards:
               class: button-large
             primary: >-
               {{states.sensor.speedtest_download.state | float}}
-              {{state_attr('sensor.speedtest_download','unit_of_measurement')}}   
+              {{state_attr('sensor.speedtest_download','unit_of_measurement')}} 
             secondary: Download Speed
             icon: mdi:arrow-down
             icon_color: |-
@@ -441,7 +438,7 @@ cards:
               class: button-large
             primary: >-
               {{states.sensor.speedtest_upload.state | float}}
-              {{state_attr('sensor.speedtest_upload','unit_of_measurement')}}   
+              {{state_attr('sensor.speedtest_upload','unit_of_measurement')}}
             secondary: Upload Speed
             icon: mdi:arrow-up
             icon_color: |-
@@ -484,7 +481,7 @@ cards:
               class: button-large
             primary: >-
               {{states.sensor.speedtest_ping.state | float}}
-              {{state_attr('sensor.speedtest_ping','unit_of_measurement')}}   
+              {{state_attr('sensor.speedtest_ping','unit_of_measurement')}}
             secondary: Ping
             icon: mdi:lan-pending
             icon_color: |-

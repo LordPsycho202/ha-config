@@ -168,4 +168,3 @@ cards:
         name: Maps
 
       - !include /config/ui-includes/downstairsMap.yaml
-      

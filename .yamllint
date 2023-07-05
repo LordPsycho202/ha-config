@@ -9,8 +9,10 @@ ignore: |
   notebooks/
   scenes.yaml
   scripts.yaml
-  themes/*.yaml
+  themes/
   govee_learning.yaml
+  blueprints/
+  dwains-dashboard/
 rules:
   line-length: disable
   braces:

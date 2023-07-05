@@ -1,3 +1,4 @@
+---
 title: Weather Alert
 path: wxalert
 icon: mdi:weather-tornado
@@ -16,7 +17,7 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/footer.yaml
-  
+
   - type: vertical-stack
     view_layout:
       grid-area: aux
@@ -56,7 +57,6 @@ cards:
         frame_delay: 1000
         restart_delay: 5000
         extra_labels: true
-
 
   - type: vertical-stack
     view_layout:
@@ -246,8 +246,6 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-    
-
 
   - type: vertical-stack
     view_layout:

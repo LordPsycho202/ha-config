@@ -1,325 +1,326 @@
-  type: picture-elements
-  image: /local/images/floorplan/theme/space/Ground-Floor/base.png
-  style: |
-    ha-card {
-      background: #1C1C1C;
-      mix-blend-mode: screen;
-    }
-    config-template-card {
-      position: absolute;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      transform: translate(0,0) !important;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-    hui-image-element {
-      position: absolute;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      transform: translate(0,0) !important;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
-  elements:
-    - type: custom:config-template-card
-      variables:
-        - states['sensor.sunlight_pct'].state
-        - states['sun.sun'].state
-      entities:
-        - sun.sun
-        - sensor.sunlight_opacity
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/base-day.png
+---
+type: picture-elements
+image: /local/images/floorplan/theme/space/Ground-Floor/base.png
+style: |
+  ha-card {
+    background: #1C1C1C;
+    mix-blend-mode: screen;
+  }
+  config-template-card {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transform: translate(0,0) !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+  hui-image-element {
+    position: absolute;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    transform: translate(0,0) !important;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+elements:
+  - type: custom:config-template-card
+    variables:
+      - states['sensor.sunlight_pct'].state
+      - states['sun.sun'].state
+    entities:
+      - sun.sun
+      - sensor.sunlight_opacity
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/base-day.png
+    style:
+      opacity: '${ vars[1] === ''above_horizon'' ? vars[0]/100 : ''0%'' }'
+  - type: custom:config-template-card
+    variables:
+      - states['light.dining_room'].attributes.brightness
+      - states['light.dining_room'].state
+    entities:
+      - light.dining_room
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-dining.png
+    style:
+      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+  - type: image
+    entity: vacuum.gurtrude
+    state_image:
+      cleaning: /local/images/roomba.gif
+      docked: /local/images/transparent.png
+      error: /local/images/transparent.png
+      idle: /local/images/transparent.png
+      paused: /local/images/transparent.png
+      returning: /local/images/roomba.gif
+      unavailable: /local/images/transparent.png
+      unknown: /local/images/transparent.png
+    style:
+      transform: scale(.1)
+      mix-blend-mode: unset
+      top: 20%
+      left: 58%
+      height: 10%
+      width: 10%
+  - type: custom:config-template-card
+    variables:
+      - states['light.master_overhead'].attributes.brightness
+      - states['light.master_overhead'].state
+    entities:
+      - light.master_overhead
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-bedroom-0.png
+    style:
+      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+  - type: custom:config-template-card
+    variables:
+      - states['light.master_ceiling_fan'].attributes.brightness
+      - states['light.master_ceiling_fan'].state
+    entities:
+      - light.master_ceiling_fan
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-bedroom-1.png
+    style:
+      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+  - type: custom:config-template-card
+    variables:
+      - states['light.living_room_overhead'].attributes.brightness
+      - states['light.living_room_overhead'].state
+    entities:
+      - light.living_room_overhead
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-livingroom-0.png
+    style:
+      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+  - type: custom:config-template-card
+    variables:
+      - >-
+        states['light.living_room_ceiling_fan'].attributes.brightness
+      - states['light.living_room_ceiling_fan'].state
+    entities:
+      - light.living_room_ceiling_fan
+    element:
+      type: image
+      image: >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-livingroom-1.png
+    style:
+      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+  - type: image
+    entity: light.foyer
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-foyer.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.garage
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-garage.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.stairway_lights
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-stairs.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.front_porch
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-front-porch.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.front_sconces
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-garage-scones.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.kitchen_overhead
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-kitchen-0.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.kitchen_hanging
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-kitchen-1.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.breakfast
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-breakfast.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.mud_room
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-mudroom.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.vanity
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-master-bath.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.toilet
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-master-toilet.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.shower
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-master-shower.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.master_closet
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-master-closet.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.laundry_room
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-laundry.png
+      'off': /local/images/transparent.png
+  - type: image
+    entity: light.back_porch
+    tap_action:
+      action: none
+    state_image:
+      'on': >-
+        /local/images/floorplan/theme/space/Ground-Floor/lit-back-porch.png
+      'off': /local/images/transparent.png
+  - type: state-icon
+    entity: fan.living_room_ceiling_fan
+    icon: mdi:fan
+    tap_action:
+      action: none
+    style:
+      top: 49%
+      left: 18.6%
+      transform: translate(-50%,-50%) scale(2,2)
+    card_mod:
       style:
-        opacity: '${ vars[1] === ''above_horizon'' ? vars[0]/100 : ''0%'' }'
-    - type: custom:config-template-card
-      variables:
-        - states['light.dining_room'].attributes.brightness
-        - states['light.dining_room'].state
-      entities:
-        - light.dining_room
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-dining.png
-      style:
-        opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
-    - type: image
-      entity: vacuum.gurtrude
-      state_image:
-        cleaning: /local/images/roomba.gif
-        docked: /local/images/transparent.png
-        error: /local/images/transparent.png
-        idle: /local/images/transparent.png
-        paused: /local/images/transparent.png
-        returning: /local/images/roomba.gif
-        unavailable: /local/images/transparent.png
-        unknown: /local/images/transparent.png
-      style:
-        transform: scale(.1)
-        mix-blend-mode: unset
-        top: 20%
-        left: 58%
-        height: 10%
-        width: 10%
-    - type: custom:config-template-card
-      variables:
-        - states['light.master_overhead'].attributes.brightness
-        - states['light.master_overhead'].state
-      entities:
-        - light.master_overhead
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-bedroom-0.png
-      style:
-        opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
-    - type: custom:config-template-card
-      variables:
-        - states['light.master_ceiling_fan'].attributes.brightness
-        - states['light.master_ceiling_fan'].state
-      entities:
-        - light.master_ceiling_fan
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-bedroom-1.png
-      style:
-        opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
-    - type: custom:config-template-card
-      variables:
-        - states['light.living_room_overhead'].attributes.brightness
-        - states['light.living_room_overhead'].state
-      entities:
-        - light.living_room_overhead
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-livingroom-0.png
-      style:
-        opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
-    - type: custom:config-template-card
-      variables:
-        - >-
-          states['light.living_room_ceiling_fan'].attributes.brightness
-        - states['light.living_room_ceiling_fan'].state
-      entities:
-        - light.living_room_ceiling_fan
-      element:
-        type: image
-        image: >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-livingroom-1.png
-      style:
-        opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
-    - type: image
-      entity: light.foyer
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-foyer.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.garage
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-garage.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.stairway_lights
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-stairs.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.front_porch
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-front-porch.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.front_sconces
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-garage-scones.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.kitchen_overhead
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-kitchen-0.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.kitchen_hanging
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-kitchen-1.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.breakfast
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-breakfast.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.mud_room
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-mudroom.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.vanity
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-master-bath.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.toilet
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-master-toilet.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.shower
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-master-shower.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.master_closet
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-master-closet.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.laundry_room
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-laundry.png
-        'off': /local/images/transparent.png
-    - type: image
-      entity: light.back_porch
-      tap_action:
-        action: none
-      state_image:
-        'on': >-
-          /local/images/floorplan/theme/space/Ground-Floor/lit-back-porch.png
-        'off': /local/images/transparent.png
-    - type: state-icon
-      entity: fan.living_room_ceiling_fan
-      icon: mdi:fan
-      tap_action:
-        action: none
-      style:
-        top: 49%
-        left: 18.6%
-        transform: translate(-50%,-50%) scale(2,2)
-      card_mod:
-        style:
-          state-badge:
-            $:
-              ha-state-icon:
-                $:
-                  ha-icon:
-                    $: |
-                      ha-svg-icon {
-                        color: {{ '#FDD835' if states('fan.living_room_ceiling_fan') == 'on' else '#44739E'}};
-                        animation:
-                          {% if states('fan.living_room_ceiling_fan') == 'on' -%}
-                            rotation 2s linear infinite;
-                          {% else %} null
-                          {% endif %}
+        state-badge:
+          $:
+            ha-state-icon:
+              $:
+                ha-icon:
+                  $: |
+                    ha-svg-icon {
+                      color: {{ '#FDD835' if states('fan.living_room_ceiling_fan') == 'on' else '#44739E'}};
+                      animation:
+                        {% if states('fan.living_room_ceiling_fan') == 'on' -%}
+                          rotation 2s linear infinite;
+                        {% else %} null
+                        {% endif %}
+                    }
+                    @keyframes rotation {
+                      0% {
+                        transform: rotate(0deg);
                       }
-                      @keyframes rotation {
-                        0% {
-                          transform: rotate(0deg);
-                        }
-                        100% {
-                          transform: rotate(360deg);
-                        }
+                      100% {
+                        transform: rotate(360deg);
                       }
-    - type: state-icon
-      entity: fan.master_bedroom_ceiling_fan
-      icon: mdi:fan
-      tap_action:
-        action: none
+                    }
+  - type: state-icon
+    entity: fan.master_bedroom_ceiling_fan
+    icon: mdi:fan
+    tap_action:
+      action: none
+    style:
+      top: 17%
+      left: 65.5%
+      transform: translate(-50%,-50%) scale(2,2)
+    card_mod:
       style:
-        top: 17%
-        left: 65.5%
-        transform: translate(-50%,-50%) scale(2,2)
-      card_mod:
-        style:
-          state-badge:
-            $:
-              ha-state-icon:
-                $:
-                  ha-icon:
-                    $: |
-                      ha-svg-icon {
-                        color: {{ '#FDD835' if states('fan.master_bedroom_ceiling_fan') == 'on' else '#44739E'}};
-                        animation:
-                          {% if states('fan.master_bedroom_ceiling_fan') == 'on' -%}
-                            rotation 2s linear infinite;
-                          {% else %} null
-                          {% endif %}
+        state-badge:
+          $:
+            ha-state-icon:
+              $:
+                ha-icon:
+                  $: |
+                    ha-svg-icon {
+                      color: {{ '#FDD835' if states('fan.master_bedroom_ceiling_fan') == 'on' else '#44739E'}};
+                      animation:
+                        {% if states('fan.master_bedroom_ceiling_fan') == 'on' -%}
+                          rotation 2s linear infinite;
+                        {% else %} null
+                        {% endif %}
+                    }
+                    @keyframes rotation {
+                      0% {
+                        transform: rotate(0deg);
                       }
-                      @keyframes rotation {
-                        0% {
-                          transform: rotate(0deg);
-                        }
-                        100% {
-                          transform: rotate(360deg);
-                        }
+                      100% {
+                        transform: rotate(360deg);
                       }
-    - type: state-icon
-      entity: weather.kwdr_daynight
-      style:
-        top: 4%
-        left: 4%
-        transform: translate(0%,0%) scale(2.5,2.5)
-    - type: state-icon
-      entity: vacuum.philoctetes
-      style:
-        top: 26%
-        left: 2%
-        transform: translate(0%,0%) scale(1.5,1.5)
-    - type: state-label
-      entity: sensor.sunlight_pct
-      prefix: 'Opacity: '
-      style:
-        transform: translate(0%,0%)
-        top: 94%
-        left: 1px
+                    }
+  - type: state-icon
+    entity: weather.kwdr_daynight
+    style:
+      top: 4%
+      left: 4%
+      transform: translate(0%,0%) scale(2.5,2.5)
+  - type: state-icon
+    entity: vacuum.philoctetes
+    style:
+      top: 26%
+      left: 2%
+      transform: translate(0%,0%) scale(1.5,1.5)
+  - type: state-label
+    entity: sensor.sunlight_pct
+    prefix: 'Opacity: '
+    style:
+      transform: translate(0%,0%)
+      top: 94%
+      left: 1px
