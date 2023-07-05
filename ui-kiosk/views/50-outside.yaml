@@ -37,7 +37,7 @@ cards:
           action: none
         name: Next Trash Pickup
         show_state: true
-        entity: sensor.trash
+        entity: sensor.next_trash
         card_mod:
           class: button-bullet
           style: |
@@ -51,7 +51,7 @@ cards:
           action: none
         name: Next Recycling Pickup
         show_state: true
-        entity: sensor.recycling
+        entity: sensor.next_recycling
         card_mod:
           class: button-bullet
           style: |

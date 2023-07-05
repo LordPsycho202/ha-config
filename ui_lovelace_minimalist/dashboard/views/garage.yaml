@@ -20,7 +20,7 @@ cards:
         library_sizes: 3,4,2
 
       - type: custom:mushroom-entity-card
-        entity: sensor.trash
+        entity: sensor.next_trash
         icon_color: brown
         tap_action:
           action: more-info
@@ -30,7 +30,7 @@ cards:
           action: none
 
       - type: custom:mushroom-entity-card
-        entity: sensor.recycling
+        entity: sensor.next_recycling
         icon_color: yellow
         tap_action:
           action: more-info

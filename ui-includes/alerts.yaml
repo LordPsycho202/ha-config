@@ -57,8 +57,8 @@ chips:
       icon: mdi:package-check
   - type: conditional
     conditions:
-      - entity: sensor.trash
-        state: today
+      - entity: calendar.trash_collection
+        state: on
     chip:
       type: template
       icon_color: white
@@ -66,8 +66,8 @@ chips:
       icon: mdi:delete
   - type: conditional
     conditions:
-      - entity: sensor.recycling
-        state: today
+      - entity: calendar.recycling_collection
+        state: on
     chip:
       type: template
       icon_color: white
