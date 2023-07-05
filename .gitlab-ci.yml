@@ -1,11 +1,11 @@
+---
 stages:
   - test
 
 lint-test-job:
-  stage: test 
+  stage: test
   tags:
     - core
   image: registry.gitlab.com/pipeline-components/yamllint:latest
   script:
     - yamllint .
-
