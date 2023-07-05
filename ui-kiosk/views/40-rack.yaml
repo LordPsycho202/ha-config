@@ -424,7 +424,7 @@ cards:
               class: button-large
             primary: >-
               {{states.sensor.speedtest_download.state | float}}
-              {{state_attr('sensor.speedtest_download','unit_of_measurement')}} 
+              {{state_attr('sensor.speedtest_download','unit_of_measurement')}}
             secondary: Download Speed
             icon: mdi:arrow-down
             icon_color: |-

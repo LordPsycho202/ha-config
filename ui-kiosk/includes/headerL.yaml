@@ -9,7 +9,7 @@ cards:
       ## Stardate: {{ states('sensor.stardate')}} &#149; {{ as_timestamp(now())
       | timestamp_custom( '%d %b %Y &#149; %H:%M' ) }}
 
-      #  {{ states('sensor.template_header_greet') }} 
+      #  {{ states('sensor.template_header_greet') }}
     card_mod:
       class: footer
       style:
