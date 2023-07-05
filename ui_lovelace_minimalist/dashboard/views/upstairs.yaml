@@ -1,3 +1,4 @@
+---
 title: "Upstairs"
 icon: "mdi:stairs-up"
 theme: "minimalist-mobile"
@@ -15,7 +16,7 @@ cards:
         name: Rooms
 
       - type: horizontal-stack
-        cards: 
+        cards:
           - type: "custom:button-card"
             template:
               - card_esh_room

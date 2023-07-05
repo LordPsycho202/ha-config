@@ -1,3 +1,4 @@
+---
 title: "Weather"
 icon: "mdi:cloud"
 theme: "minimalist-mobile"
@@ -19,13 +20,13 @@ cards:
           - entity: binary_sensor.wind_chill_active
             state: "on"
         card:
-            type: custom:mushroom-template-card
-            primary: >-
-              {{ states('sensor.wind_chill') | round(1) }}{{
-              state_attr('sensor.wind_chill','unit_of_measurement') }}
-            secondary: Wind Chill Warning
-            icon: mdi:thermometer-alert
-            icon_color: blue
+          type: custom:mushroom-template-card
+          primary: >-
+            {{ states('sensor.wind_chill') | round(1) }}{{
+            state_attr('sensor.wind_chill','unit_of_measurement') }}
+          secondary: Wind Chill Warning
+          icon: mdi:thermometer-alert
+          icon_color: blue
 
       - type: conditional
         conditions:

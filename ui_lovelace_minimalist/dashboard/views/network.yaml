@@ -1,9 +1,10 @@
+---
 title: "Net"
 icon: "mdi:web"
 theme: "minimalist-mobile"
 path: "network"
-#visible:
-#  - user: 829c75b162794808a699871056da2b93
+# visible:
+#   - user: 829c75b162794808a699871056da2b93
 cards:
   - type: vertical-stack
     cards:
@@ -29,7 +30,7 @@ cards:
 
       - type: custom:stack-in-card
         mode: horizontal
-        keep: 
+        keep:
           border_radius: true
           margin: true
         cards:
@@ -56,7 +57,7 @@ cards:
 
       - type: custom:stack-in-card
         mode: horizontal
-        keep: 
+        keep:
           border_radius: true
           margin: true
         cards:

@@ -1,3 +1,4 @@
+---
 title: "Batteries"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:battery
@@ -28,7 +29,6 @@ cards:
           ulm_card_battery_battery_level_danger: 15
           ulm_card_battery_battery_level_warning: 25
           ulm_card_battery_name: Driveway Camera
-
 
       - type: "custom:button-card"
         template: card_battery

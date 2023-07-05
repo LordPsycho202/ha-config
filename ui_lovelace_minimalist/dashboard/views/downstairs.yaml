@@ -1,3 +1,4 @@
+---
 title: "Downstairs"
 icon: "mdi:stairs-down"
 theme: "minimalist-mobile"
@@ -28,7 +29,7 @@ cards:
               navigation_path: "livingroom"
             variables:
               ulm_custom_card_esh_room_light_entity: light.living_room_2
-              ulm_card_dynamic_color: yes
+              ulm_card_dynamic_color: true
             label: '[[[ return states["sensor.main_floor_temperature"].state + "°F" ]]]'
           - type: "custom:button-card"
             template:
@@ -58,7 +59,7 @@ cards:
               navigation_path: "diningroom"
             variables:
               ulm_custom_card_esh_room_light_entity: light.dining_room
-              ulm_card_dynamic_color: yes
+              ulm_card_dynamic_color: true
             label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
           - type: "custom:button-card"
             template:
@@ -102,7 +103,7 @@ cards:
               navigation_path: "master_bed"
             variables:
               ulm_custom_card_esh_room_light_entity: light.master_bedroom
-              ulm_card_dynamic_color: yes
+              ulm_card_dynamic_color: true
             label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
 
       - type: horizontal-stack
@@ -167,3 +168,4 @@ cards:
         name: Maps
 
       - !include /config/ui-includes/downstairsMap.yaml
+      
