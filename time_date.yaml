@@ -1,4 +1,5 @@
+---
 sensor:
-- name: date
-  display_options:
-  - "date"
+  - name: date
+    display_options:
+      - "date"

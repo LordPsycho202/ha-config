@@ -1,3 +1,4 @@
+---
 binary_sensor:
   - name: Mail Card
     state: >
@@ -18,24 +19,23 @@ binary_sensor:
           off
         {% endif %}
       {% endif %}
-      
 
   - unique_id: water_front
     name: Water Front Planter
     state: >
       {% if states.sensor.soil_moisture_1.state | float < 30 %}
-      on 
+      on
       {% else %}
-      off 
+      off
       {% endif %}
 
   - unique_id: water_greenhouse
     name: Water Greenhouse
     state: >
       {% if states.sensor.soil_moisture_2.state | float < 25 %}
-      on 
+      on
       {% else %}
-      off 
+      off
       {% endif %}
 
   - name: Is Rain
@@ -60,8 +60,6 @@ binary_sensor:
       {%- set thanksgiving = temp + timedelta(weeks = week - 1) %}
       {%- set secondday = today.replace(month=1, day=2) %}
       {{ today < secondday or today > thanksgiving }}
-
-
 
   - unique_id: wind_chill_active
     name: Wind Chill Active
@@ -254,11 +252,11 @@ sensor:
         {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
         {% set sun = states.sun.sun.state %}
         {% if precip == 0 %}
-          {% if sun == 'above_horizon' %} {{forecast}}🌞              
+          {% if sun == 'above_horizon' %} {{forecast}}🌞        
           {% else %} {{forecast}}🌙
           {% endif %}
         {% else %} {{forecast}}{{'\u2614\uFE0F'}}
-        {% endif %}  
+        {% endif %}
       {% else %}
         Can't Load Weather...
       {% endif %}
@@ -489,7 +487,6 @@ sensor:
     state: >
       {% set sum = states.sensor.upstairs_air_conditioner_13_1mon.state|float %}
       {% set sum = sum|float + states.sensor.upstairs_furnace_15_1mon.state|float %}
-       
       {{sum|round(4)}}
 
   - name: "Upstairs Balance"
@@ -560,8 +557,8 @@ sensor:
       {% if states.sensor.washer_4_1min.state | float > 5 %}
         Running
       {% else %}
-        Done 
-      {% endif %}  
+        Done
+      {% endif %}
 
   - name: "Unifi Router Uptime"
     unique_id: unifi_router_uptime

@@ -4,7 +4,7 @@ custom_card_rnissen_weather:
   show_name: false
   show_label: false
   entity: >-
-    [[[ variables.ulm_custom_card_rnissen_weather_temperature_outside 
+    [[[ variables.ulm_custom_card_rnissen_weather_temperature_outside
     ]]]
   tap-action:
     action: more-info

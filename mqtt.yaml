@@ -1,3 +1,4 @@
+---
 sensor:
   - name: "Humidity"
     object_id: office_humidity
