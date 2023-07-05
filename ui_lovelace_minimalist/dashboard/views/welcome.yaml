@@ -1,3 +1,4 @@
+---
 type: "custom:button-card"
 template: "card_esh_welcome"
 triggers_update: "input_boolean.minimalist_dropdown"

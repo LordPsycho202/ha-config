@@ -1,3 +1,4 @@
+---
 title: Red Alert
 path: security
 icon: mdi:hazard-lights
@@ -15,7 +16,7 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/footer.yaml
-  
+
   - type: vertical-stack
     view_layout:
       grid-area: aux
@@ -38,7 +39,6 @@ cards:
               font-family: Antonio
             }
       - !include ../includes/space_maps/upstairsMap.yaml
-
 
   - type: vertical-stack
     view_layout:
@@ -228,8 +228,6 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-    
-
 
   - type: vertical-stack
     view_layout:

@@ -1,3 +1,4 @@
+---
 title: "Outside"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:tree
@@ -35,7 +36,6 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-
 
   - type: vertical-stack
     cards:
@@ -76,7 +76,7 @@ cards:
         secondary: >-
           Temp: {{ (states.sensor.temp_nexus_th_a.state | float -
           states.sensor.temp_acurite_5n1_b.state | float) | round(2) }}F | RH: {{
-          (states.sensor.rh_nexus_th_a.state | float - 
+          (states.sensor.rh_nexus_th_a.state | float -
           states.sensor.rh_acurite_5n1_b.state | float) | round(2) }}
         icon: mdi:greenhouse
         icon_color: >-
@@ -89,7 +89,6 @@ cards:
           {% else %}
             green
           {% endif %}
-
 
   - type: vertical-stack
     cards:
@@ -130,7 +129,7 @@ cards:
         secondary: >-
           Temp: {{ (states.sensor.temp_nexus_th_b.state | float -
           states.sensor.temp_acurite_5n1_b.state | float) | round(2) }}F | RH: {{
-          (states.sensor.rh_nexus_th_b.state | float - 
+          (states.sensor.rh_nexus_th_b.state | float -
           states.sensor.rh_acurite_5n1_b.state | float) | round(2) }}
         icon: mdi:greenhouse
         icon_color: >-

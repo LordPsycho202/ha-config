@@ -1,3 +1,4 @@
+---
 title: Plane Tracker
 path: plane
 icon: mdi:airplane
@@ -47,7 +48,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            } 
+            }
       - type: iframe
         url: https://cardinal.folden-nissen.com
         aspect_ratio: 50%

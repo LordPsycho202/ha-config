@@ -1,3 +1,4 @@
+---
 title: Outside
 path: out
 icon: mdi:flower
@@ -133,7 +134,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }      
+            }
       - show_state: true
         show_name: true
         camera_view: live
@@ -213,7 +214,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }    
+            }
       - show_current: false
         show_forecast: true
         type: weather-forecast

@@ -1,3 +1,4 @@
+---
 theme: Backend-selected
 title: blank
 path: blank
@@ -13,7 +14,7 @@ cards:
           {% if states('input_boolean.mail_present') == "on"%}
             Mail's Here!
             Arrived {{ relative_time(as_datetime(states.input_datetime.mail_delivered.state)) }} ago.
-          {% else %} 
+          {% else %}
             No Mail
           {% endif %}
         icon: >-

@@ -1,3 +1,4 @@
+---
 title: "Mail Alert"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:mailbox-open-up-outline
@@ -36,7 +37,7 @@ cards:
           {% endif %}
         icon_color: |-
           {% if states('sensor.mail_usps_mail')|int == 0  %} white
-          {% elif states('input_select.mail_status') == 'No Mail yet' %} black 
+          {% elif states('input_select.mail_status') == 'No Mail yet' %} black
           {% elif states('input_select.mail_status') == 'Mail Delivered' %} red
           {% elif states('input_select.mail_status') == 'Mail Picked Up' %} green
           {% else %} orange
@@ -67,7 +68,7 @@ cards:
           {% if states('input_boolean.package_present') == "on"%}
             Package's Here!
             Arrived {{ relative_time(as_datetime(states.input_datetime.package_delivered.state)) }} ago.
-          {% else %} 
+          {% else %}
             No Packages
           {% endif %}
         icon: mdi:package
