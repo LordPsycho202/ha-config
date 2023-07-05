@@ -252,7 +252,7 @@ sensor:
         {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
         {% set sun = states.sun.sun.state %}
         {% if precip == 0 %}
-          {% if sun == 'above_horizon' %} {{forecast}}🌞     
+          {% if sun == 'above_horizon' %} {{forecast}}🌞
           {% else %} {{forecast}}🌙
           {% endif %}
         {% else %} {{forecast}}{{'\u2614\uFE0F'}}
