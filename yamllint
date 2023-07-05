@@ -12,6 +12,7 @@ ignore: |
   themes/*.yaml
   govee_learning.yaml
 rules:
+  line-length: disable
   braces:
     level: error
     min-spaces-inside: 0
@@ -62,16 +63,6 @@ rules:
     check-multi-line-strings: false
   key-duplicates:
     level: error
-  line-length:
-    ignore: |
-      .github/support.yml
-      .github/settings.yml
-      rest.yaml
-      template.yaml
-    level: warning
-    max: 250
-    allow-non-breakable-words: true
-    allow-non-breakable-inline-mappings: true
   new-line-at-end-of-file:
     level: error
   new-lines:
