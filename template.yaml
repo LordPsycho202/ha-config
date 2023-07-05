@@ -252,7 +252,7 @@ sensor:
         {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
         {% set sun = states.sun.sun.state %}
         {% if precip == 0 %}
-          {% if sun == 'above_horizon' %} {{forecast}}🌞            
+          {% if sun == 'above_horizon' %} {{forecast}}🌞        
           {% else %} {{forecast}}🌙
           {% endif %}
         {% else %} {{forecast}}{{'\u2614\uFE0F'}}
@@ -477,7 +477,6 @@ sensor:
     state: >
       {% set sum = states.sensor.upstairs_air_conditioner_13_1mon.state|float %}
       {% set sum = sum|float + states.sensor.upstairs_furnace_15_1mon.state|float %}
-       
       {{sum|round(4)}}
 
   - name: "Upstairs Balance"

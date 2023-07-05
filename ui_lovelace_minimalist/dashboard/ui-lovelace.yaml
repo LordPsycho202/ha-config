@@ -4,7 +4,7 @@ button_card_templates: !include_dir_merge_named "../../custom_components/ui_love
 title: "Minimalist"
 background: "var(--background-image)"
 views:
-  #Downstairs
+  # Downstairs
   - !include views/downstairs.yaml
   - !include views/master_bath.yaml
   - !include views/master_bed.yaml
@@ -15,23 +15,23 @@ views:
   - !include views/garage.yaml
   - !include views/outside.yaml
   - !include views/laundry.yaml
-  #Upstairs
+  # Upstairs
   - !include views/upstairs.yaml
   - !include views/office.yaml
   - !include views/kids_room.yaml
   - !include views/upmisc.yaml
-  #Security
+  # Security
   - !include views/security.yaml
-  #Weather
+  # Weather
   - !include views/weather.yaml
-  #Network
+  # Network
   - !include views/network.yaml
-  #Admin
+  # Admin
   - !include views/admin.yaml
   - !include views/notifications.yaml
   - !include views/automations.yaml
   - !include views/routines.yaml
   - !include views/batteries.yaml
-  #Psuedo-Popups
+  # Psuedo-Popups
   - !include views/wx_alert.yaml
   - !include views/mail_alert.yaml
