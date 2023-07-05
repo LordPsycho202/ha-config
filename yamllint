@@ -10,6 +10,7 @@ ignore: |
   scenes.yaml
   scripts.yaml
   themes/*.yaml
+  govee_learning.yaml
 rules:
   braces:
     level: error
@@ -65,6 +66,8 @@ rules:
     ignore: |
       .github/support.yml
       .github/settings.yml
+      rest.yaml
+      template.yaml
     level: warning
     max: 250
     allow-non-breakable-words: true
