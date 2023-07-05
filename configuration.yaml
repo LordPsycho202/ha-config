@@ -1,5 +1,6 @@
 ### configuration.yaml
 # Configure a default setup of Home Assistant (frontend, api, etc)
+---
 default_config:
 
 #### Dashboards ##################################
@@ -74,17 +75,17 @@ rest: !include rest.yaml
 mqtt: !include mqtt.yaml
 
 #### Filter Sensors #############################################
-#filter: !include filter.yaml
+# filter: !include filter.yaml
 
 #### Workday Sensors #############################################
-#workday: !include workday.yaml
+# workday: !include workday.yaml
 
 #### Workday Sensors #############################################
-#time_date: !include time_date.yaml
+# time_date: !include time_date.yaml
 
 #### Arlo Integration #############################################
 aarlo:
-  #host: "https://my.arlo.com"
+  # host: "https://my.arlo.com"
   username: !secret arlo_username
   password: !secret arlo_password
   db_motion_time: 30
@@ -92,7 +93,7 @@ aarlo:
   recent_time: 10
   last_format: "%m-%d %H:%M"
   refresh_devices_every: 2
-  verbose_debug: True
+  verbose_debug: true
   backend: sse
   tfa_host: "imap.gmail.com"
   tfa_username: !secret arlo_2fa_username
@@ -100,10 +101,10 @@ aarlo:
 
 switch:
   - platform: aarlo
-    siren: True
-    all_sirens: True
-    snapshot: True
-    doorbell_silence: True
+    siren: true
+    all_sirens: true
+    snapshot: true
+    doorbell_silence: true
     siren_volume: 1
     siren_duration: 10
 
