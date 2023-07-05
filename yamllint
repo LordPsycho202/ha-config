@@ -1,15 +1,78 @@
 ---
 ignore: |
-  automations.yaml
-  blueprints/*/homeassistant/*.yaml
-  custom_components/
+
+  blueprints/*
+  dwains-dashboard/*
   esphomeyaml/*/
   esphome/.esphome/
   ip_bans.yaml
-  notebooks/
-  scenes.yaml
-  scripts.yaml
-  themes/*.yaml
+  themes/*.yaml  
+
+  # ignore hidden folders
+  .storage
+  .cloud
+  .aarlo
+  .google.token
+
+  # ignore some directories.
+  icloud/*
+  tts/*
+  deps/*
+  hadashboards/*
+  intents/*
+  themes/*
+  custom_components/*
+  deps
+  hacs
+  www/*
+
+  # ignore any of these files no matter where they are using double *
+  **.DS_Store
+  **._*
+  **.HA_VERSION
+  **.pyc
+  **.conf
+  **.uuid
+  **.txt
+  **.log
+  **.db
+  **.sqlite
+  **.xml
+  **secrets*
+  **known_devices.yaml
+  **google_calendars.yaml
+  **govee_learning.yaml
+  **ip_bans.yaml
+  **.spotify-token-cache
+  **zones.yaml
+  **test.yaml
+  **testing.yaml
+  **.homekit*
+  **.vscode
+  **.pid
+  **.xml
+  **.csr
+  **.crt
+  **.key
+  **core.*
+  **OZW_Log.txt
+  **home-assistant.log*
+  **home-assistant_v2.db*
+  **.db-journal
+  **.db-shm
+  **.db-wal
+  **.sqlite
+  **__pycache__
+  **phue.conf 
+  **ios.conf
+  **pyozw.sqlite
+  **ipchange.yaml
+  **production_auth.json
+  **automations.yaml
+  **scenes.yaml
+  **scripts.yaml
+  **govee_learning.yaml
+
 rules:
   braces:
     level: error
@@ -66,7 +129,7 @@ rules:
       .github/support.yml
       .github/settings.yml
     level: warning
-    max: 88
+    max: 250
     allow-non-breakable-words: true
     allow-non-breakable-inline-mappings: true
   new-line-at-end-of-file:
