@@ -5,7 +5,7 @@ icon: mdi:weather-tornado
 subview: true
 theme: LCARS Red Alert
 layout:
-  grid-template-columns: minmax(auto,403px) minmax(1133px,auto) 384px
+  grid-template-columns: 403px 1103px384px
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
