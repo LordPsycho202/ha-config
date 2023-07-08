@@ -22,16 +22,10 @@ cards:
     view_layout:
       grid-area: aux
     cards:
-      - type: picture
-        image: /local/images/Red_Alert_Animation.gif
-        tap_action:
-          action: none
-        hold_action:
-          action: none
       - type: markdown
         content: "# Radar"
         card_mod:
-          class: bar
+          class: header-open
           style: |
             ha-card > * {
               font-family: Antonio
@@ -57,13 +51,19 @@ cards:
         frame_delay: 1000
         restart_delay: 5000
         extra_labels: true
+      - type: picture
+        image: /local/images/Red_Alert_Animation.gif
+        tap_action:
+          action: none
+        hold_action:
+          action: none
 
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
     cards:
       - type: markdown
-        content: '# HOLD to Activate'
+        content: '# Conditions'
         card_mod:
           class: header
           style: |
@@ -75,16 +75,9 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: script.bedroom_flic_long_click
-        name: All Lights
-        show_state: false
-        hold_action:
-          action: call-service
-          service: script.turn_on
-          target:
-            entity_id: script.bedroom_flic_long_click
-          data: {}
-        icon: mdi:light-flood-down
+        name: Current Alerts
+        show_state: true
+        entity: sensor.nws_alerts
         card_mod:
           class: button-bullet
           style: |
@@ -96,32 +89,9 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: switch.aarlo_all_sirens
-        hold_action:
-          action: toggle
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: "# Motion Sensors"
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_motion_driveway
-        name: Shuttle Bay Approach
-        icon: mdi:garage
+        name: Rainfall Rate
         show_state: true
+        entity: sensor.rainfall_rate
         card_mod:
           class: button-bullet
           style: |
@@ -132,11 +102,10 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_motion_doorbell
-        name: Front Airlock
-        icon: mdi:door
+          action: none
+        name: Lightning
         show_state: true
+        entity: sensor.lightning_acurite_6045m_a
         card_mod:
           class: button-bullet
           style: |
@@ -146,34 +115,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_motion_back_door
-        name: Aft Airlock
-        icon: mdi:door
+        entity: sensor.wind_acurite_5n1_b
+        icon: ''
         show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: "# Noise Detection"
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_sound_driveway
-        name: Shuttle Bay Approach
-        show_state: true
+        name: Wind Speed
         card_mod:
           class: button-bullet
           style: |
@@ -183,34 +128,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_sound_back_door
-        name: Aft Airlock
+        entity: sensor.outside_temp
+        icon: ''
         show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: "# Locks"
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: lock.front_door
-        name: Forward Airlock
-        icon: mdi:door
-        show_state: true
+        name: Exterior Temp
         card_mod:
           class: button-bullet
           style: |
@@ -220,26 +141,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        tap_action:
-          action: toggle
-        entity: lock.back_door
-        name: Aft Airlock
-        icon: mdi:door
+        entity: sensor.relative_pressure
+        icon: ''
         show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: cover.garage_door_2
-        name: Shuttle Bay Door
-        show_state: true
+        name: Air Pressure
         card_mod:
           class: button-bullet
           style: |
