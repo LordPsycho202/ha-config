@@ -59,7 +59,7 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_light
-            entity: light.back_display
+            entity: light.hexagons
             variables:
               ulm_card_light_name: Hexagons
               ulm_card_light_enable_color: true
