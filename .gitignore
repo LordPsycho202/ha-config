@@ -2,6 +2,7 @@
 update_git.py
 transporter.py
 
+
 # ignore hidden folders
 .storage
 .cloud
@@ -13,6 +14,7 @@ icloud/
 
 /tts/
 /deps/
+/esphome/
 /hadashboards/
 /intents/
 /themes/
@@ -22,6 +24,8 @@ icloud/
 /www/community
 /www/mail_and_packages
 
+# ignore some specific files
+govee_learning.yaml
 
 # ignore any of these files no matter where they are using double *
 **.DS_Store
