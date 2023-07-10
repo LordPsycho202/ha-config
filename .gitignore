@@ -25,7 +25,6 @@ icloud/
 /www/mail_and_packages
 
 # ignore some specific files
-govee_learning.yaml
 
 # ignore any of these files no matter where they are using double *
 **.DS_Store
@@ -73,3 +72,5 @@ govee_learning.yaml
 **scenes.yaml
 **scripts.yaml
 **govee_learning.yaml
+govee_learning.yaml
+.gitconfig
