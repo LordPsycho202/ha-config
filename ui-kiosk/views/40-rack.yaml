@@ -216,24 +216,16 @@ cards:
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
-            icon_color: >-
-              {% if states.sensor.cpu_temp.state | int < 60 %}
-                green
-              {% elif states.sensor.cpu_temp.state | int >= 60 and
-              states.sensor.cpu_temp.state | int < 80 %}
-                orange
-              {% else %}
-                red
-              {% endif %}
+            icon_color: grey
             multiline_secondary: true
-            primary: hestia
+            primary: Empty Slot
             layout: vertical
             secondary: |-
-              RPi 4B 8GB
-              CPU: {{ states.sensor.processor_use.state }}%
-              RAM: {{ states.sensor.memory_use_percent.state }}%
-              SD: {{ states.sensor.disk_use_percent.state }}%
-            entity: sensor.cpu_temp
+              RPi ???
+              CPU: N/A%
+              RAM: N/A%
+              SD: N/A%
+            entity: sensor.rpi_temp_charles
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
@@ -318,6 +310,7 @@ cards:
             entity: sensor.rpi_temp_apollo
             tap_action:
               action: more-info
+
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
@@ -365,6 +358,30 @@ cards:
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
+            icon_color: >-
+              {% if states.sensor.cpu_temp.state | int < 60 %}
+                green
+              {% elif states.sensor.cpu_temp.state | int >= 60 and
+              states.sensor.cpu_temp.state | int < 80 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
+            multiline_secondary: true
+            primary: hestia
+            layout: vertical
+            secondary: |-
+              RPi 4B 8GB
+              CPU: {{ states.sensor.processor_use.state }}%
+              RAM: {{ states.sensor.memory_use_percent.state }}%
+              SD: {{ states.sensor.disk_use_percent.state }}%
+            entity: sensor.cpu_temp
+            tap_action:
+              action: more-info
+          - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
+            icon: mdi:raspberry-pi
             icon_color: white
             multiline_secondary: true
             primary: Unused
@@ -381,9 +398,9 @@ cards:
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
-            icon_color: grey
+            icon_color: white
             multiline_secondary: true
-            primary: Empty Slot
+            primary: Unused
             layout: vertical
             secondary: |-
               RPi ???
@@ -393,22 +410,7 @@ cards:
             entity: sensor.rpi_temp_charles
             tap_action:
               action: more-info
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            icon: mdi:raspberry-pi
-            icon_color: grey
-            multiline_secondary: true
-            primary: Empty Slot
-            layout: vertical
-            secondary: |-
-              RPi ???
-              CPU: N/A%
-              RAM: N/A%
-              SD: N/A%
-            entity: sensor.rpi_temp_charles
-            tap_action:
-              action: more-info
+
       - type: markdown
         content: '# Subspace Uplink'
         card_mod:
