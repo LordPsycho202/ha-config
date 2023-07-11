@@ -358,7 +358,7 @@ sensor:
   - name: "Next Recycling"
     state: "{{ as_timestamp(state_attr('calendar.recycling_collection','start_time'))| as_datetime }}"
     device_class: timestamp
-    icon: mdi:recycle    
+    icon: mdi:recycle
 
   - name: "Rain Delay Time"
     state: "{{ now().replace(minute=0) +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
