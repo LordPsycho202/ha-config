@@ -46,7 +46,7 @@ cards:
           ulm_card_battery_charger_type_entity_id: sensor.back_door_battery
           ulm_card_battery_battery_level_danger: 15
           ulm_card_battery_battery_level_warning: 25
-          ulm_card_battery_name: Front Door Lock
+          ulm_card_battery_name: Back Door Lock
 
   - type: vertical-stack
     cards:
@@ -108,13 +108,6 @@ cards:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: Greenhouse 2
         entity: binary_sensor.batt_nexus_th_b
-
-      - type: "custom:button-card"
-        template: card_binary_sensor_alert
-        variables:
-          ulm_card_binary_sensor_alert: true
-          ulm_card_binary_sensor_alert_name: Front Porch
-        entity: binary_sensor.batt_nexus_th_c
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
