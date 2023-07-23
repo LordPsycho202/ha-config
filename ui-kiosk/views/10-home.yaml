@@ -154,15 +154,17 @@ cards:
               font-family: Antonio
             }
       - type: custom:aarlo-glance
-        image_view: arlo-stream
         entities:
           - entity: camera.aarlo_driveway
+            image_view: arlo-stream
             image_top: previous,name,next
             image_bottom: motion,sound,signal,battery|library,snapshot
           - entity: camera.aarlo_back_door
+            image_view: arlo-stream
             image_top: previous,name,next
             image_bottom: motion,sound,signal,battery|library,snapshot
           - entity: camera.aarlo_doorbell
+            image_view: arlo-stream
             image_top: previous,name,next
             image_bottom: motion,sound,signal,bell|library,snapshot
       - type: markdown
