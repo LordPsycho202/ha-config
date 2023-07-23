@@ -154,6 +154,7 @@ cards:
               font-family: Antonio
             }
       - type: custom:aarlo-glance
+        image_view: arlo-stream
         entities:
           - entity: camera.aarlo_driveway
             image_top: previous,name,next
