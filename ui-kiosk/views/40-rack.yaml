@@ -216,16 +216,24 @@ cards:
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
-            icon_color: grey
+            icon_color: >-
+              {% if states.sensor.cpu_temp.state | int < 60 %}
+                green
+              {% elif states.sensor.cpu_temp.state | int >= 60 and
+              states.sensor.cpu_temp.state | int < 80 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
             multiline_secondary: true
-            primary: Empty Slot
+            primary: hestia
             layout: vertical
             secondary: |-
-              RPi ???
-              CPU: N/A%
-              RAM: N/A%
-              SD: N/A%
-            entity: sensor.rpi_temp_charles
+              RPi 4B 8GB
+              CPU: {{ states.sensor.processor_use.state }}%
+              RAM: {{ states.sensor.memory_use_percent.state }}%
+              SD: {{ states.sensor.disk_use_percent.state }}%
+            entity: sensor.cpu_temp
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
@@ -359,55 +367,122 @@ cards:
               class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
-              {% if states.sensor.cpu_temp.state | int < 60 %}
+              {% if states.sensor.rpi_temp_k3s_1.state | int < 140 %}
                 green
-              {% elif states.sensor.cpu_temp.state | int >= 60 and
-              states.sensor.cpu_temp.state | int < 80 %}
+              {% elif states.sensor.rpi_temp_k3s_1.state | int >= 140 and
+              states.sensor.rpi_temp_k3s_1.state | int < 176 %}
                 orange
               {% else %}
                 red
               {% endif %}
             multiline_secondary: true
-            primary: hestia
+            primary: '{{ states.sensor.rpi_monitor_k3s_1.attributes.host_name }}'
             layout: vertical
-            secondary: |-
-              RPi 4B 8GB
-              CPU: {{ states.sensor.processor_use.state }}%
-              RAM: {{ states.sensor.memory_use_percent.state }}%
-              SD: {{ states.sensor.disk_use_percent.state }}%
-            entity: sensor.cpu_temp
+            secondary: >-
+              {% set rpi_model =
+              states.sensor.rpi_monitor_k3s_1.attributes.rpi_model.split('
+              ') %}
+
+              {% set memMax =
+              (states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
+              +1 %}
+
+              {% set memUsed = '%0.1f' % ( 100- (
+              states.sensor.rpi_monitor_k3s_1.attributes.memory.free_mb|float
+              /
+              states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|float
+              )  * 100) %}
+
+              RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
+
+              CPU: {{ states.sensor.rpi_cpu_use_k3s_1.state }}%
+
+              RAM: {{ memUsed }}%
+
+              SD: {{ states.sensor.rpi_used_k3s_1.state }}%
+            entity: sensor.rpi_temp_k3s_1
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
-            icon_color: white
+            icon_color: >-
+              {% if states.sensor.rpi_temp_k3s_2.state | int < 140 %}
+                green
+              {% elif states.sensor.rpi_temp_k3s_2.state | int >= 140 and
+              states.sensor.rpi_temp_k3s_2.state | int < 176 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
             multiline_secondary: true
-            primary: Unused
+            primary: '{{ states.sensor.rpi_monitor_k3s_2.attributes.host_name }}'
             layout: vertical
-            secondary: |-
-              RPi ???
-              CPU: N/A%
-              RAM: N/A%
-              SD: N/A%
-            entity: sensor.rpi_temp_charles
+            secondary: >-
+              {% set rpi_model =
+              states.sensor.rpi_monitor_k3s_2.attributes.rpi_model.split('
+              ') %}
+
+              {% set memMax =
+              (states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|int/1024)|int
+              +1 %}
+
+              {% set memUsed = '%0.1f' % ( 100- (
+              states.sensor.rpi_monitor_k3s_2.attributes.memory.free_mb|float
+              /
+              states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|float
+              )  * 100) %}
+
+              RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
+
+              CPU: {{ states.sensor.rpi_cpu_use_k3s_2.state }}%
+
+              RAM: {{ memUsed }}%
+
+              SD: {{ states.sensor.rpi_used_k3s_2.state }}%
+            entity: sensor.rpi_temp_k3s_2
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
             card_mod:
               class: button-large
             icon: mdi:raspberry-pi
-            icon_color: white
+            icon_color: >-
+              {% if states.sensor.rpi_temp_k3s_3.state | int < 140 %}
+                green
+              {% elif states.sensor.rpi_temp_k3s_3.state | int >= 140 and
+              states.sensor.rpi_temp_k3s_3.state | int < 176 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
             multiline_secondary: true
-            primary: Unused
+            primary: '{{ states.sensor.rpi_monitor_k3s_3.attributes.host_name }}'
             layout: vertical
-            secondary: |-
-              RPi ???
-              CPU: N/A%
-              RAM: N/A%
-              SD: N/A%
-            entity: sensor.rpi_temp_charles
+            secondary: >-
+              {% set rpi_model =
+              states.sensor.rpi_monitor_k3s_3.attributes.rpi_model.split('
+              ') %}
+
+              {% set memMax =
+              (states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|int/1024)|int
+              +1 %}
+
+              {% set memUsed = '%0.1f' % ( 100- (
+              states.sensor.rpi_monitor_k3s_3.attributes.memory.free_mb|float
+              /
+              states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|float
+              )  * 100) %}
+
+              RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
+
+              CPU: {{ states.sensor.rpi_cpu_use_k3s_3.state }}%
+
+              RAM: {{ memUsed }}%
+
+              SD: {{ states.sensor.rpi_used_k3s_3.state }}%
+            entity: sensor.rpi_temp_k3s_3
             tap_action:
               action: more-info
 
