@@ -41,23 +41,6 @@ cards:
           icon: mdi:thermometer-alert
           icon_color: red
 
-      - type: conditional
-        conditions:
-          - entity: binary_sensor.drought_card
-            state: "on"
-        card:
-          type: custom:mushroom-template-card
-          primary: "{{ state_attr('counter.days_without_rain','friendly_name') }}"
-          secondary: "{{ states('counter.days_without_rain') }} Days"
-          icon: "{{ state_attr('counter.days_without_rain','icon') }}"
-          entity: counter.days_without_rain
-          icon_color: |
-            {% if states('counter.days_without_rain')|int > 0 %}
-            red
-            {% else %}
-            blue
-            {% endif %}
-
       - type: custom:button-card
         template: custom_card_rnissen_weather
         variables:
