@@ -2,7 +2,7 @@
 binary_sensor:
   - name: Drought Card
     state: >
-      {% if states.counter.days_without_rain.state|int > 6 %}
+      {% if states('counter.days_without_rain')|int > 6 %}
       on
       {% else %}
       off
