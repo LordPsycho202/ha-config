@@ -1,13 +1,5 @@
 ---
 binary_sensor:
-  - name: Drought Card
-    state: >
-      {% if states.counter.days_without_rain.state|int > 6 %}
-      on
-      {% else %}
-      off
-      {% endif %}
-
   - name: Mail Card
     state: >
       {% if states.input_boolean.mail_present.state == 'on' or states('sensor.mail_usps_mail')|int > 0 %}
