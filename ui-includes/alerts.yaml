@@ -31,7 +31,7 @@ chips:
         {% endif %}
       icon: "{{states.sensor.nws_alerts.attributes.icon}}"
   - type: conditional
-    conditions: 
+    conditions:
       - entity: binary_sensor.drought_card
         state: "on"
     chip:
@@ -39,7 +39,7 @@ chips:
       icon_color: white
       content: >-
         Days Without Rain: {{ states.counter.days_without_rain.state }}
-      icon: "{{ states.counter.days_without_rain.attributes.icon }}"  
+      icon: "{{ states.counter.days_without_rain.attributes.icon }}"
   - type: conditional
     conditions:
       - entity: binary_sensor.wind_chill_active
