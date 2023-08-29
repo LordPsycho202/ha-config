@@ -51,6 +51,16 @@ elements:
       opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
   - type: custom:config-template-card
     variables:
+      - states['light.office_closet'].state
+    entities:
+      - light.office_closet
+    element:
+      type: image
+      image: /local/images/floorplan/Ground-Floor/lit-office-closet.png
+    style:
+      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+  - type: custom:config-template-card
+    variables:
       - states['light.office_ceiling_fan'].attributes.brightness
       - states['light.office_ceiling_fan'].state
       - states['light.office_ceiling_fan'].attributes.hs_color
