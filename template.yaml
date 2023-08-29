@@ -1,5 +1,13 @@
 ---
 binary_sensor:
+  - name: Drought Card
+    state: >
+      {% if states('counter.days_without_rain')|int > 6 %}
+      on
+      {% else %}
+      off
+      {% endif %}
+
   - name: Mail Card
     state: >
       {% if states.input_boolean.mail_present.state == 'on' or states('sensor.mail_usps_mail')|int > 0 %}
@@ -43,7 +51,7 @@ binary_sensor:
     unique_id: is_rain
     icon: mdi:weather-rainy
     state: >
-      {% if as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600 %}
+      {% if (as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600) and states('sensor.rain_daily')|float > 0 %}
       on
       {% else %}
       off
@@ -231,6 +239,66 @@ sensor:
       +1 %}
       RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
 
+  - name: rpi_mem_use_k3s_1
+    unique_id: rpi_mem_use_k3s_1
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_k3s_1.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_k3s_1
+    unique_id: rpi_model_k3s_1
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_k3s_1.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - name: rpi_mem_use_k3s_2
+    unique_id: rpi_mem_use_k3s_2
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_k3s_2.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_k3s_2
+    unique_id: rpi_model_k3s_2
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_k3s_2.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
+  - name: rpi_mem_use_k3s_3
+    unique_id: rpi_mem_use_k3s_3
+    unit_of_measurement: "%"
+    state: >-
+      {% set memUsed = '%0.1f' % ( 100- (
+      states.sensor.rpi_monitor_k3s_3.attributes.memory.free_mb|float /
+      states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|float )  *
+      100) %}
+      {{memUsed}}
+
+  - name: rpi_model_k3s_3
+    unique_id: rpi_model_k3s_3
+    state: >-
+      {% set rpi_model =
+      states.sensor.rpi_monitor_k3s_3.attributes.rpi_model.split(' ') %}
+      {% set memMax =
+      (states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|int/1024)|int
+      +1 %}
+      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+
   - unique_id: wind_dir
     state: >
       {{states.sensor.wind_acurite_5n1_b.state | float }} {{states.sensor.wind_acurite_5n1_b.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1_b.attributes.compass | string }}
@@ -358,7 +426,7 @@ sensor:
   - name: "Next Recycling"
     state: "{{ as_timestamp(state_attr('calendar.recycling_collection','start_time'))| as_datetime }}"
     device_class: timestamp
-    icon: mdi:recycle    
+    icon: mdi:recycle
 
   - name: "Rain Delay Time"
     state: "{{ now().replace(minute=0) +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
