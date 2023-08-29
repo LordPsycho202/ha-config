@@ -51,7 +51,7 @@ binary_sensor:
     unique_id: is_rain
     icon: mdi:weather-rainy
     state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600) and states('sensor.rain_daily')|int != 0 %}
+      {% if (as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600) and states('sensor.rain_daily')|float > 0 %}
       on
       {% else %}
       off
