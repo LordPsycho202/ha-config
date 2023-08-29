@@ -56,7 +56,7 @@ elements:
       - light.office_closet
     element:
       type: image
-      image: /local/images/floorplan/Ground-Floor/lit-office-closet.png
+      image: /local/images/floorplan/Upper-Floor/lit-office-closet.png
     style:
       opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
   - type: custom:config-template-card
