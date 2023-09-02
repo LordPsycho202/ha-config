@@ -24,6 +24,111 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        label: "Devices"
+
+      - type: conditional
+        conditions:
+          - entity: vacuum.philoctetes
+            state: "docked"
+        card:
+          type: custom:stack-in-card
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: sensor.philoctetes_next_start
+              icon: mdi:robot-mower
+              icon_color: red
+              tap_action:
+                action: more-info
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+
+      - type: conditional
+        conditions:
+          - entity: vacuum.philoctetes
+            state_not: "docked"
+        card:
+          type: "custom:button-card"
+          template: card_vacuum
+          entity: vacuum.philoctetes
+          variables:
+            ulm_card_vacuum_camera: image.philoctetes_map
+            ulm_card_vacuum_camera_toggle: false
+
+      - type: conditional
+        conditions:
+          - entity: switch.waterbender_rain_delay
+            state: "off"
+        card:
+          type: custom:button-card
+          template: custom_card_rnissen_entities
+          variables:
+            ulm_custom_card_rnissen_entities_entity_1: switch.back_yard_zone
+            ulm_custom_card_rnissen_entities_entity_2: switch.front_yard_zone
+            ulm_custom_card_rnissen_entities_entity_3: switch.side_yard_zone
+            ulm_custom_card_rnissen_entities_entity_4: switch.flower_beds_zone
+            ulm_custom_card_rnissen_entities_name_1: Back
+            ulm_custom_card_rnissen_entities_name_2: Front
+            ulm_custom_card_rnissen_entities_name_3: Side
+            ulm_custom_card_rnissen_entities_name_4: Flowers
+            ulm_custom_card_rnissen_entities_icon: 💧
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['switch.back_yard_zone'].attributes.device_name+' Sprinkler System' ]]]"
+            ulm_custom_card_rnissen_entities: switch.waterbender_rain_delay
+
+      - type: conditional
+        conditions:
+          - entity: switch.waterbender_rain_delay
+            state: "on"
+        card:
+          type: custom:stack-in-card
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: sensor.rain_delay_time
+              name: Next Sprinkling
+              icon: mdi:sprinkler
+              icon_color: red
+              tap_action:
+                action: more-info
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.front_porch
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.front_sconces
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.flood_light
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.back_porch
+            variables:
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         label: Front Planter
       - type: horizontal-stack
         cards:
@@ -177,108 +282,3 @@ cards:
               ulm_card_graph_entity: sensor.rh_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-
-  - type: vertical-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_title
-        label: "Devices"
-
-      - type: conditional
-        conditions:
-          - entity: vacuum.philoctetes
-            state: "docked"
-        card:
-          type: custom:stack-in-card
-          cards:
-            - type: custom:mushroom-entity-card
-              entity: sensor.philoctetes_next_start
-              icon: mdi:robot-mower
-              icon_color: red
-              tap_action:
-                action: more-info
-              hold_action:
-                action: none
-              double_tap_action:
-                action: none
-
-      - type: conditional
-        conditions:
-          - entity: vacuum.philoctetes
-            state_not: "docked"
-        card:
-          type: "custom:button-card"
-          template: card_vacuum
-          entity: vacuum.philoctetes
-          variables:
-            ulm_card_vacuum_camera: camera.philoctetes_map
-            ulm_card_vacuum_camera_toggle: false
-
-      - type: conditional
-        conditions:
-          - entity: switch.waterbender_rain_delay
-            state: "off"
-        card:
-          type: custom:button-card
-          template: custom_card_rnissen_entities
-          variables:
-            ulm_custom_card_rnissen_entities_entity_1: switch.back_yard_zone
-            ulm_custom_card_rnissen_entities_entity_2: switch.front_yard_zone
-            ulm_custom_card_rnissen_entities_entity_3: switch.side_yard_zone
-            ulm_custom_card_rnissen_entities_entity_4: switch.flower_beds_zone
-            ulm_custom_card_rnissen_entities_name_1: Back
-            ulm_custom_card_rnissen_entities_name_2: Front
-            ulm_custom_card_rnissen_entities_name_3: Side
-            ulm_custom_card_rnissen_entities_name_4: Flowers
-            ulm_custom_card_rnissen_entities_icon: 💧
-            ulm_custom_card_rnissen_entities_name: "[[[ return states['switch.back_yard_zone'].attributes.device_name+' Sprinkler System' ]]]"
-            ulm_custom_card_rnissen_entities: switch.waterbender_rain_delay
-
-      - type: conditional
-        conditions:
-          - entity: switch.waterbender_rain_delay
-            state: "on"
-        card:
-          type: custom:stack-in-card
-          cards:
-            - type: custom:mushroom-entity-card
-              entity: sensor.rain_delay_time
-              name: Next Sprinkling
-              icon: mdi:sprinkler
-              icon_color: red
-              tap_action:
-                action: more-info
-              hold_action:
-                action: none
-              double_tap_action:
-                action: none
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.front_porch
-            variables:
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.front_sconces
-            variables:
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.flood_light
-            variables:
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.back_porch
-            variables:
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
