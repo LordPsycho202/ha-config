@@ -12,16 +12,6 @@ cards:
         template: card_title
         name: Kitchen
 
-      - type: "custom:button-card"
-        entity: sensor.monthly_water
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-blue)"
-          ulm_card_graph_name: Water Usage
-          ulm_card_graph_entity: sensor.monthly_water
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
-
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
@@ -112,3 +102,15 @@ cards:
             ulm_card_media_player_more_info: true
             ulm_card_media_player_power_button: true
             ulm_card_media_player_name: Living Room
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        entity: sensor.monthly_water
+        template: card_graph
+        variables:
+          ulm_card_graph_color: "var(--google-blue)"
+          ulm_card_graph_name: Water Usage
+          ulm_card_graph_entity: sensor.monthly_water
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
