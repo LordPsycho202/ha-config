@@ -135,14 +135,10 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - show_state: true
-        show_name: true
-        camera_view: live
-        type: picture-entity
-        entity: vacuum.philoctetes
-        image: image.philoctetes_map
+      - type: picture
+        image_entity: image.philoctetes_map
         tap_action:
-          action: more-info
+          action: none
         hold_action:
           action: none
       - type: conditional
