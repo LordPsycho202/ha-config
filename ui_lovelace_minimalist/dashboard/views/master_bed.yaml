@@ -70,7 +70,3 @@ cards:
           ulm_card_light_name: Overhead Lights
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
-
-      - type: "custom:button-card"
-        template: "card_vacuum"
-        entity: "vacuum.gurtrude"

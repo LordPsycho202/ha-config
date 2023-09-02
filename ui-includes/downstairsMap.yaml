@@ -50,24 +50,7 @@ elements:
       image: /local/images/floorplan/Ground-Floor/lit-dining.png
     style:
       opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
-  - type: image
-    entity: vacuum.gurtrude
-    state_image:
-      cleaning: /local/images/roomba.gif
-      docked: /local/images/transparent.png
-      error: /local/images/transparent.png
-      idle: /local/images/transparent.png
-      paused: /local/images/transparent.png
-      returning: /local/images/roomba.gif
-      unavailable: /local/images/transparent.png
-      unknown: /local/images/transparent.png
-    style:
-      transform: scale(.1)
-      mix-blend-mode: unset
-      top: 20%
-      left: 58%
-      height: 10%
-      width: 10%
+
   - type: custom:config-template-card
     variables:
       - states['light.master_overhead'].attributes.brightness
