@@ -140,8 +140,7 @@ cards:
         camera_view: live
         type: picture-entity
         entity: vacuum.philoctetes
-        camera_image: camera.philoctetes_map
-        image: /local/images/transparent.png
+        image: image.philoctetes_map
         tap_action:
           action: more-info
         hold_action:
