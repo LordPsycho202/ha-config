@@ -211,7 +211,7 @@ cards:
           template: card_vacuum
           entity: vacuum.philoctetes
           variables:
-            ulm_card_vacuum_camera: camera.philoctetes_map
+            ulm_card_vacuum_camera: image.philoctetes_map
             ulm_card_vacuum_camera_toggle: false
 
       - type: conditional
