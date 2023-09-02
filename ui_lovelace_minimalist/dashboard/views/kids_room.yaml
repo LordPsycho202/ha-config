@@ -12,16 +12,6 @@ cards:
         template: card_title
         name: Kid's Room
 
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.kids_room_temperature
-        variables:
-          ulm_card_graph_color: "var(--google-red)"
-          ulm_card_graph_name: Temperature
-          ulm_card_graph_entity: sensor.kids_room_temperature
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
-
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
@@ -35,3 +25,17 @@ cards:
           ulm_card_light_name: Lights
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.kids_room_temperature
+        variables:
+          ulm_card_graph_color: "var(--google-red)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.kids_room_temperature
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+
