@@ -219,19 +219,6 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: vacuum.gurtrude
-            show_state: true
-            card_mod:
-              class: button-lozenge
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            type: button
-            tap_action:
-              action: toggle
             entity: vacuum.philoctetes
             show_state: true
             card_mod:
