@@ -4,7 +4,7 @@ theme: LCARS Modern
 type: custom:grid-layout
 icon: "mdi:cloud"
 layout:
-  grid-template-columns: 403px 815px 672px
+  grid-template-columns: 403px 800px 687px
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
