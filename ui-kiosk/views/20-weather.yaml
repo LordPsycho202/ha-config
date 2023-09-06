@@ -195,7 +195,7 @@ cards:
                       font-family: Antonio
                     }
               - type: custom:windrose-card
-                title: Wind direction
+                title: ""
                 data_period:
                   hours_to_show: 4
                 max_width: 400
