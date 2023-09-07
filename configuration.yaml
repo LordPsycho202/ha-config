@@ -130,19 +130,19 @@ sensor:
       - humidity
       - air_quality
 
-  # - platform: unifigateway
-    # host: !secret unifi_ip
-    # port: !secret unifi_port
-    # username: !secret unifi_user
-    # password: !secret unifi_pass
-    # version: "UDMP-unifiOS"
-    # verify_ssl: false
-    # monitored_conditions:
-      # - www
-      # - wlan
-      # - lan
-      # - wan
-      # - firmware
+  - platform: unifigateway
+    host: !secret unifi_ip
+    port: !secret unifi_port
+    username: !secret unifi_user
+    password: !secret unifi_pass
+    version: "UDMP-unifiOS"
+    verify_ssl: false
+    monitored_conditions:
+      - www
+      - wlan
+      - lan
+      - wan
+      - firmware
 
   - platform: time_date
     display_options: "date"
