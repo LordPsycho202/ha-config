@@ -30,7 +30,22 @@ cards:
             variables:
               ulm_custom_card_esh_room_light_entity: light.office_ceiling_fan
             label: '[[[ return "🌡️ " + states["sensor.office_temperature"].state + "°F" ]]]'
+          - type: "custom:button-card"
+            template:
+              - card_esh_room
+              - yellow_on
+            name: Craft Room
+            entity: light.craft_room
+            icon: mdi:desk
+            tap_action:
+              action: navigate
+              navigation_path: "croom"
+            variables:
+              ulm_custom_card_esh_room_light_entity: light.craft_room
+            label: '[[[ return "🌡️ " + states["sensor.upstairs_temperature"].state + "°F" ]]]'
 
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
             template:
               - card_esh_room
@@ -45,23 +60,23 @@ cards:
               ulm_custom_card_esh_room_light_entity: light.kids_room
             label: '[[[ return "🌡️ " + states["sensor.kids_room_temperature"].state + "°F" ]]]'
 
-      - type: "custom:button-card"
-        template:
-          - card_esh_room
-          - yellow_on
-        name: Upstairs Misc
-        entity: light.upstairs_common
-        icon: mdi:image-frame
-        tap_action:
-          action: navigate
-          navigation_path: "upmisc"
-        variables:
-          ulm_custom_card_esh_room_light_entity: light.upstairs_common
-          ulm_custom_card_esh_room_climate_entity: climate.upstairs
-          ulm_card_thermostat_enable_popup: true
-          ulm_card_light_enable_popup: true
-          ulm_card_dynamic_color: true
-        label: '[[[ return "🌡️ " + states["sensor.upstairs_temperature"].state + "°F" ]]]'
+          - type: "custom:button-card"
+            template:
+              - card_esh_room
+              - yellow_on
+            name: Upstairs Misc
+            entity: light.upstairs_common
+            icon: mdi:image-frame
+            tap_action:
+              action: navigate
+              navigation_path: "upmisc"
+            variables:
+              ulm_custom_card_esh_room_light_entity: light.upstairs_common
+              ulm_custom_card_esh_room_climate_entity: climate.upstairs
+              ulm_card_thermostat_enable_popup: true
+              ulm_card_light_enable_popup: true
+              ulm_card_dynamic_color: true
+            label: '[[[ return "🌡️ " + states["sensor.upstairs_temperature"].state + "°F" ]]]'
 
       - type: "custom:button-card"
         template: card_thermostat
