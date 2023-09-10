@@ -151,6 +151,26 @@ elements:
         /local/images/floorplan/theme/space/Upper-Floor/lit-powderroom.png
     style:
       opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+  - type: custom:config-template-card
+    variables:
+      - states['light.craft_room_overhead'].state
+    entities:
+      - light.craft_room_overhead
+    element:
+      type: image
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-craft-0.png
+    style:
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
+  - type: custom:config-template-card
+    variables:
+      - states['light.craft_room_ceiling_fan'].state
+    entities:
+      - light.craft_room_ceiling_fan
+    element:
+      type: image
+      image: /local/images/floorplan/theme/space//Upper-Floor/lit-craft-1.png
+    style:
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: state-icon
     entity: fan.office_ceiling_fan
     icon: mdi:fan
@@ -172,6 +192,39 @@ elements:
                       color: {{ '#FDD835' if states('fan.office_ceiling_fan') == 'on' else '#44739E'}};
                       animation:
                         {% if states('fan.office_ceiling_fan') == 'on' -%}
+                          rotation 2s linear infinite;
+                        {% else %} null
+                        {% endif %}
+                    }
+                    @keyframes rotation {
+                      0% {
+                        transform: rotate(0deg);
+                      }
+                      100% {
+                        transform: rotate(360deg);
+                      }
+                    }
+  - type: state-icon
+    entity: fan.craft_room_fan
+    icon: mdi:fan
+    tap_action:
+      action: none
+    style:
+      top: 54%
+      left: 18%
+      transform: translate(-50%,-50%) scale(2,2)
+    card_mod:
+      style:
+        state-badge:
+          $:
+            ha-state-icon:
+              $:
+                ha-icon:
+                  $: |
+                    ha-svg-icon {
+                      color: {{ '#FDD835' if states('fan.craft_room_fan') == 'on' else '#44739E'}};
+                      animation:
+                        {% if states('fan.craft_room_fan') == 'on' -%}
                           rotation 2s linear infinite;
                         {% else %} null
                         {% endif %}
