@@ -19,6 +19,7 @@ views:
   - !include views/upstairs.yaml
   - !include views/office.yaml
   - !include views/kids_room.yaml
+  - !include views/craft_room.yaml
   - !include views/upmisc.yaml
   # Security
   - !include views/security.yaml
