@@ -204,7 +204,7 @@ elements:
       action: none
     style:
       top: 54%
-      left: 18%
+      left: 81%
       transform: translate(-50%,-50%) scale(2,2)
     card_mod:
       style:
