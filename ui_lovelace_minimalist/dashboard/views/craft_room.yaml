@@ -38,12 +38,12 @@ cards:
         variables:
           ulm_card_power_outlet_name: Ceiling Fan
           ulm_card_power_outlet_icon: mdi:fan
-        entity: fan.living_room_ceiling_fan
+        entity: fan.craft_room_fan
       - type: "custom:button-card"
-        template: card_media_player_chromecast_with_controls
+        template: card_media_player
+        entity: media_player.roku_ultra
         variables:
           ulm_card_media_player_with_controls_name: "Craft Room TV"
-          ulm_card_media_player_with_controls_entity: media_player.roku_ultra
 
   - type: vertical-stack
     cards:
