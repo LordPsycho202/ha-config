@@ -203,8 +203,8 @@ elements:
     tap_action:
       action: none
     style:
-      top: 55%
-      left: 79%
+      top: 56%
+      left: 78%
       transform: translate(-50%,-50%) scale(2,2)
     card_mod:
       style:
