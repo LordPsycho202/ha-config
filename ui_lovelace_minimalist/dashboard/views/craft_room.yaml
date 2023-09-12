@@ -56,5 +56,3 @@ cards:
           ulm_card_graph_entity: sensor.upstairs_temperature
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
-
-
