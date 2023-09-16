@@ -65,15 +65,6 @@ cards:
 
       - type: "custom:button-card"
         template: card_battery
-        entity: sensor.gurtrude_battery_level
-        variables:
-          ulm_card_battery_charger_type_entity_id: sensor.gurtrude_battery_level
-          ulm_card_battery_battery_level_danger: 5
-          ulm_card_battery_battery_level_warning: 10
-          ulm_card_battery_name: Gurtrude (Vacuum)
-
-      - type: "custom:button-card"
-        template: card_battery
         entity: sensor.philoctetes_battery_level
         variables:
           ulm_card_battery_charger_type_entity_id: sensor.philoctetes_battery_level
@@ -123,12 +114,47 @@ cards:
           ulm_card_binary_sensor_alert_name: Rack
         entity: binary_sensor.batt_acurite_606tx_a
 
+  - type: vertical-stack
+    cards:
       - type: "custom:button-card"
-        template: card_binary_sensor_alert
+        template: card_title
+        name: Zigbee Batteries
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_3
         variables:
-          ulm_card_binary_sensor_alert: true
-          ulm_card_binary_sensor_alert_name: Mailbox
-        entity: binary_sensor.batt_kerui_security_d
+          ulm_card_battery_charger_type_entity_id: sensor.lumi_lumi_sensor_magnet_aq2_battery_3
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Mailbox
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_2
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.lumi_lumi_sensor_magnet_aq2_battery_2
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Office Closet Door
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.lumi_lumi_sensor_magnet_aq2_battery
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.lumi_lumi_sensor_magnet_aq2_battery
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Dishwasher Door
+
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_4
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.lumi_lumi_sensor_magnet_aq2_battery_4
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Attic Door
 
   - type: vertical-stack
     cards:
