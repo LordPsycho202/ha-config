@@ -13,6 +13,17 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        name: Forecast
+      - show_current: false
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.weather_station
+        forecast_type: legacy
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         name: Conditions
 
       - type: conditional
