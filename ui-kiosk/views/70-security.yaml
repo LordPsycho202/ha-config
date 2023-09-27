@@ -47,6 +47,31 @@ cards:
       grid-area: sidebar
     cards:
       - type: markdown
+        content: '# Return'
+        card_mod:
+          class: header
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Home
+        icon: 'mdi:home-circle-outline'
+        tap_action:
+          action: navigate
+          navigation_path: /ui-kiosk/home
+        hold_action:
+          action: none
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
         content: '# HOLD to Activate'
         card_mod:
           class: header
