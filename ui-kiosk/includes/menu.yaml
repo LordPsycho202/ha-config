@@ -33,6 +33,24 @@ cards:
     show_icon: true
     show_state: false
     type: button
+    name: Security
+    icon: 'mdi:hazard-lights'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/security
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
     name: Weather
     icon: 'mdi:cloud-circle-outline'
     tap_action:
@@ -92,24 +110,6 @@ cards:
     tap_action:
       action: navigate
       navigation_path: /ui-kiosk/plane
-    hold_action:
-      action: none
-    card_mod:
-      class: button-bullet
-      style: |
-        ha-card > * {
-          font-family: Antonio
-        }
-
-  - show_name: true
-    show_icon: true
-    show_state: false
-    type: button
-    name: Security
-    icon: 'mdi:hazard-lights'
-    tap_action:
-      action: navigate
-      navigation_path: /ui-kiosk/security
     hold_action:
       action: none
     card_mod:
