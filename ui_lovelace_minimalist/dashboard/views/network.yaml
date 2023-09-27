@@ -116,20 +116,35 @@ cards:
         template: card_title
         name: Raspberry Pis
 
-      - type: custom:button-card
-        template: custom_card_rnissen_entities
-        variables:
-          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_cardinal
-          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_cardinal
-          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_cardinal
-          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_cardinal
-          ulm_custom_card_rnissen_entities_name_1: Temp
-          ulm_custom_card_rnissen_entities_name_2: CPU
-          ulm_custom_card_rnissen_entities_name_3: SD Card
-          ulm_custom_card_rnissen_entities_name_4: Memory
-          ulm_custom_card_rnissen_entities_icon: 🐦
-          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_cardinal'].attributes.host_name ]]]"
-          ulm_custom_card_rnissen_entities: sensor.uptimekuma_cardinal_https
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_cardinal
+            state_not: "unavailable"
+        card:
+          type: custom:button-card
+          template: custom_card_rnissen_entities
+          variables:
+            ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_cardinal
+            ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_cardinal
+            ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_cardinal
+            ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_cardinal
+            ulm_custom_card_rnissen_entities_name_1: Temp
+            ulm_custom_card_rnissen_entities_name_2: CPU
+            ulm_custom_card_rnissen_entities_name_3: SD Card
+            ulm_custom_card_rnissen_entities_name_4: Memory
+            ulm_custom_card_rnissen_entities_icon: 🐦
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_cardinal'].attributes.host_name ]]]"
+            ulm_custom_card_rnissen_entities: sensor.uptimekuma_cardinal_https
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_cardinal
+            state: "unavailable"
+        card:
+          type: custom:mushroom-template-card
+          primary: Error
+          secondary: RPi 'Cardinal' has failed to report
+          icon: mdi:alert
+          icon_color: red
 
       - type: custom:button-card
         template: custom_card_rnissen_entities
@@ -146,47 +161,93 @@ cards:
           ulm_custom_card_rnissen_entities_name: hestia
           ulm_custom_card_rnissen_entities: sensor.uptimekuma_hestia_https
 
-      - type: custom:button-card
-        template: custom_card_rnissen_entities
-        variables:
-          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_apollo
-          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_apollo
-          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_apollo
-          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_apollo
-          ulm_custom_card_rnissen_entities_name_1: Temp
-          ulm_custom_card_rnissen_entities_name_2: CPU
-          ulm_custom_card_rnissen_entities_name_3: SD Card
-          ulm_custom_card_rnissen_entities_name_4: Memory
-          ulm_custom_card_rnissen_entities_icon: ☀️
-          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_apollo'].attributes.host_name ]]]"
-          ulm_custom_card_rnissen_entities: sensor.uptimekuma_apollo_dns
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_apollo
+            state_not: "unavailable"
+        card:
+          type: custom:button-card
+          template: custom_card_rnissen_entities
+          variables:
+            ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_apollo
+            ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_apollo
+            ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_apollo
+            ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_apollo
+            ulm_custom_card_rnissen_entities_name_1: Temp
+            ulm_custom_card_rnissen_entities_name_2: CPU
+            ulm_custom_card_rnissen_entities_name_3: SD Card
+            ulm_custom_card_rnissen_entities_name_4: Memory
+            ulm_custom_card_rnissen_entities_icon: ☀️
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_apollo'].attributes.host_name ]]]"
+            ulm_custom_card_rnissen_entities: sensor.uptimekuma_apollo_dns
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_apollo
+            state: "unavailable"
+        card:
+          type: custom:mushroom-template-card
+          primary: Error
+          secondary: RPi 'Apollo' has failed to report
+          icon: mdi:alert
+          icon_color: red
 
-      - type: custom:button-card
-        template: custom_card_rnissen_entities
-        variables:
-          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_artemis
-          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_artemis
-          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_artemis
-          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_artemis
-          ulm_custom_card_rnissen_entities_name_1: Temp
-          ulm_custom_card_rnissen_entities_name_2: CPU
-          ulm_custom_card_rnissen_entities_name_3: SD Card
-          ulm_custom_card_rnissen_entities_name_4: Memory
-          ulm_custom_card_rnissen_entities_icon: 🌘
-          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_artemis'].attributes.host_name ]]]"
-          ulm_custom_card_rnissen_entities: sensor.uptimekuma_artemis_dns
 
-      - type: custom:button-card
-        template: custom_card_rnissen_entities
-        variables:
-          ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_charles
-          ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_charles
-          ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_charles
-          ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_charles
-          ulm_custom_card_rnissen_entities_name_1: Temp
-          ulm_custom_card_rnissen_entities_name_2: CPU
-          ulm_custom_card_rnissen_entities_name_3: SD Card
-          ulm_custom_card_rnissen_entities_name_4: Memory
-          ulm_custom_card_rnissen_entities_icon: ✈️
-          ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_charles'].attributes.host_name ]]]"
-          ulm_custom_card_rnissen_entities: sensor.uptimekuma_charles_http
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_artemis
+            state_not: "unavailable"
+        card:
+          type: custom:button-card
+          template: custom_card_rnissen_entities
+          variables:
+            ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_artemis
+            ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_artemis
+            ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_artemis
+            ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_artemis
+            ulm_custom_card_rnissen_entities_name_1: Temp
+            ulm_custom_card_rnissen_entities_name_2: CPU
+            ulm_custom_card_rnissen_entities_name_3: SD Card
+            ulm_custom_card_rnissen_entities_name_4: Memory
+            ulm_custom_card_rnissen_entities_icon: 🌘
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_artemis'].attributes.host_name ]]]"
+            ulm_custom_card_rnissen_entities: sensor.uptimekuma_artemis_dns
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_artemis
+            state: "unavailable"
+        card:
+          type: custom:mushroom-template-card
+          primary: Error
+          secondary: RPi 'Artemis' has failed to report
+          icon: mdi:alert
+          icon_color: red
+
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_charles
+            state_not: "unavailable"
+        card:
+          type: custom:button-card
+          template: custom_card_rnissen_entities
+          variables:
+            ulm_custom_card_rnissen_entities_entity_1: sensor.rpi_temp_charles
+            ulm_custom_card_rnissen_entities_entity_2: sensor.rpi_cpu_use_charles
+            ulm_custom_card_rnissen_entities_entity_3: sensor.rpi_used_charles
+            ulm_custom_card_rnissen_entities_entity_4: sensor.rpi_mem_use_charles
+            ulm_custom_card_rnissen_entities_name_1: Temp
+            ulm_custom_card_rnissen_entities_name_2: CPU
+            ulm_custom_card_rnissen_entities_name_3: SD Card
+            ulm_custom_card_rnissen_entities_name_4: Memory
+            ulm_custom_card_rnissen_entities_icon: ✈️
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['sensor.rpi_monitor_charles'].attributes.host_name ]]]"
+            ulm_custom_card_rnissen_entities: sensor.uptimekuma_charles_http
+      - type: conditional
+        conditions:
+          - entity: sensor.rpi_monitor_charles
+            state: "unavailable"
+        card:
+          type: custom:mushroom-template-card
+          primary: Error
+          secondary: RPi 'Charles' has failed to report
+          icon: mdi:alert
+          icon_color: red
