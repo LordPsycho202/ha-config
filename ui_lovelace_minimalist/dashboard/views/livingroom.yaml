@@ -73,18 +73,18 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: media_player.living_room_tv
+          - entity: media_player.living_room_tv_3
             state: playing
         card:
           type: "custom:button-card"
           template: card_media_player
-          entity: media_player.living_room_tv
+          entity: media_player.living_room_tv_3
           variables:
             ulm_card_media_player_with_controls_name: "Living Room"
 
       - type: conditional
         conditions:
-          - entity: media_player.living_room_tv
+          - entity: media_player.living_room_tv_3
             state: "off"
         card:
           type: "custom:button-card"
