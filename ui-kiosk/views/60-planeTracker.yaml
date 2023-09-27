@@ -9,14 +9,14 @@ layout:
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR"
-    "logistics main"
+    "menu main"
     "sidebar main"
     "footer footer"
 badges: []
 cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
-  - !include ../includes/mailCluster.yaml
+  - !include ../includes/menu.yaml
   - !include ../includes/footer.yaml
   - type: vertical-stack
     view_layout:

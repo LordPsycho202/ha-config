@@ -8,7 +8,7 @@ layout:
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
-    "logistics main aux"
+    "menu main aux"
     "sidebar main aux"
     "footer footer footer"
 path: rack
@@ -16,7 +16,7 @@ badges: []
 cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
-  - !include ../includes/mailCluster.yaml
+  - !include ../includes/menu.yaml
   - !include ../includes/footer.yaml
 
   - type: vertical-stack
