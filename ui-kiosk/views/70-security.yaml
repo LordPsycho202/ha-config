@@ -74,7 +74,7 @@ cards:
       - type: markdown
         content: '# HOLD to Activate'
         card_mod:
-          class: header
+          class: middle
           style: |
             ha-card > * {
               font-family: Antonio

@@ -86,36 +86,25 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+
       - show_name: true
         show_icon: true
+        show_state: false
         type: button
+        name: Navigate to Security Mode
+        icon: 'mdi:hazard-lights'
         tap_action:
+          action: navigate
+          navigation_path: /ui-kiosk/security
+        hold_action:
           action: none
-        entity: sensor.washer_washer_job_state
-        name: Clothes Washer
-        icon: ""
-        show_state: true
         card_mod:
           class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        entity: sensor.dryer_dryer_job_state
-        name: Clothes Dryer
-        icon: ""
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
+
     view_layout:
       grid-area: sidebar
     card_mod:
