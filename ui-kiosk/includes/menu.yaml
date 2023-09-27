@@ -1,0 +1,120 @@
+---
+type: vertical-stack
+view_layout:
+  grid-area: menu
+cards:
+  - type: markdown
+    content: '# Controls'
+    card_mod:
+      class: header
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Home
+    icon: 'mdi:home-circle-outline'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/home
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Weather
+    icon: 'mdi:cloud-circle-outline'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/weather
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Computer core
+    icon: 'mdi:server'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/rack
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Landscape Controls
+    icon: 'mdi:flower'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/out
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Air Traffic
+    icon: 'mdi:airplane'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/plane
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
+
+  - show_name: true
+    show_icon: true
+    show_state: false
+    type: button
+    name: Security
+    icon: 'mdi:hazard-lights'
+    tap_action:
+      action: navigate
+      navigation_path: /ui-kiosk/security
+    hold_action:
+      action: none
+    card_mod:
+      class: button-bullet
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
