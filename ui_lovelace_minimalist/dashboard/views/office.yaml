@@ -20,6 +20,45 @@ cards:
 
       - type: horizontal-stack
         cards:
+          - type: conditional
+            conditions:
+              - entity: light.office_ceiling_fan
+                state: "off"
+            card:
+              type: "custom:button-card"
+              template: card_script
+              entity: script.office_on
+              variables:
+                ulm_card_script_title: Turn Lights On
+                ulm_card_script_icon: "mdi:light-switch"
+              hold_action:
+                action: none
+              tap_action:
+                action: call-service
+                service: script.turn_on
+                service_data:
+                  entity_id: script.office_on
+          - type: conditional
+            conditions:
+              - entity: light.office_ceiling_fan
+                state: "on"
+            card:
+              type: "custom:button-card"
+              template: card_script
+              entity: script.office_off
+              variables:
+                ulm_card_script_title: Turn Lights Off
+                ulm_card_script_icon: "mdi:light-switch-off"
+              hold_action:
+                action: none
+              tap_action:
+                action: call-service
+                service: script.turn_on
+                service_data:
+                  entity_id: script.office_off
+
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
             template: card_light
             entity: light.office_ceiling_fan
