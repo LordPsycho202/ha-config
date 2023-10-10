@@ -260,7 +260,7 @@ cards:
       - type: conditional
         conditions:
           - entity: binary_sensor.new_plex_movie
-            state: "on"
+            state: 'on'
         card:
           type: custom:mushroom-template-card
           primary: >-
@@ -273,11 +273,11 @@ cards:
       - type: conditional
         conditions:
           - entity: binary_sensor.new_plex_show
-            state: "on"
+            state: 'on'
         card:
           type: custom:mushroom-template-card
           primary: >-
-            New Shows On Plex
+            New Show On Plex
           secondary: >-
             Now Available: {{ states.sensor.muse_library_tv_shows.attributes.last_added_item}}
           icon: mdi:television-shimmer
@@ -296,7 +296,7 @@ cards:
             secondary: >-
               TV Shows
             icon: mdi:television-classic
-            icon_color: "var(--google-blue)"
+            icon_color: blue
           - type: custom:mushroom-template-card
             layout: vertical
             primary: |-
@@ -304,7 +304,7 @@ cards:
             secondary: >-
               Movies
             icon: mdi:filmstrip-box-multiple
-            icon_color: "var(--google-yellow)"
+            icon_color: yellow
       - type: custom:stack-in-card
         mode: horizontal
         keep:
@@ -318,7 +318,7 @@ cards:
             secondary: >-
               Songs
             icon: mdi:music
-            icon_color: "var(--google-green)"
+            icon_color: green
           - type: custom:mushroom-template-card
             layout: vertical
             primary: |-
