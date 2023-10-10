@@ -260,7 +260,7 @@ cards:
       - type: conditional
         conditions:
           - entity: binary_sensor.new_plex_movie
-            state: "true"
+            state: "on"
         card:
           type: custom:mushroom-template-card
           primary: >-
@@ -273,7 +273,7 @@ cards:
       - type: conditional
         conditions:
           - entity: binary_sensor.new_plex_show
-            state: "true"
+            state: "on"
         card:
           type: custom:mushroom-template-card
           primary: >-
@@ -289,52 +289,44 @@ cards:
           border_radius: true
           margin: true
         cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.muse_library_tv_shows
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Total TV Shows
-              ulm_card_graph_entity: sensor.muse_library_tv_shows
-              ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-down
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.muse_library_movies
-            variables:
-              ulm_card_graph_color: "var(--google-yellow)"
-              ulm_card_graph_name: Total Movies
-              ulm_card_graph_entity: sensor.muse_library_movies
-              ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-up
-              ulm_card_graph_hours: 24
+          - type: custom:mushroom-template-card
+            layout: vertical
+            primary: |-
+              {{ states('sensor.muse_library_tv_shows') }}
+            secondary: >-
+              TV Shows
+            icon: mdi:television-classic
+            icon_color: "var(--google-blue)"
+          - type: custom:mushroom-template-card
+            layout: vertical
+            primary: |-
+              {{ states('sensor.muse_library_movies') }}
+            secondary: >-
+              Movies
+            icon: mdi:filmstrip-box-multiple
+            icon_color: "var(--google-yellow)"
       - type: custom:stack-in-card
         mode: horizontal
         keep:
           border_radius: true
           margin: true
         cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.muse_library_music
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Total Songs
-              ulm_card_graph_entity: sensor.muse_library_music
-              ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-down
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.muse_library_photos_2
-            variables:
-              ulm_card_graph_color: "var(--google-purple)"
-              ulm_card_graph_name: Total Pictures
-              ulm_card_graph_entity: sensor.muse_library_photos_2
-              ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-up
-              ulm_card_graph_hours: 24
+          - type: custom:mushroom-template-card
+            layout: vertical
+            primary: |-
+              {{ states('sensor.muse_library_music') }}
+            secondary: >-
+              Songs
+            icon: mdi:music
+            icon_color: "var(--google-green)"
+          - type: custom:mushroom-template-card
+            layout: vertical
+            primary: |-
+              {{ states('sensor.muse_library_photos_2') }}
+            secondary: >-
+              Pictures
+            icon: mdi:image-album
+            icon_color: "#e7d1ff"
       - type: "custom:button-card"
         template: card_graph
         entity: sensor.netshare_free
@@ -345,3 +337,4 @@ cards:
           ulm_card_graph_type: fill
           ulm_card_graph_icon: mdi:server
           ulm_card_graph_hours: 24
+
