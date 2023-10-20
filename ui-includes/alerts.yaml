@@ -109,7 +109,7 @@ chips:
       icon_color: white
       content: >-
         Now on Plex: {{
-        states.sensor.muse_library_tv_shows.attributes.last_added_item }}
+        states.sensor.muse_library_tv_shows.attributes.last_added_item.split("-")[0] }}
       tap_action:
         action: navigate
         navigation_path: network
