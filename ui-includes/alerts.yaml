@@ -94,7 +94,7 @@ chips:
       icon: mdi:movie-filter
       icon_color: white
       content: >-
-        Now on Plex: {{
+        New Plex Movie: {{
         states.sensor.muse_library_movies.attributes.last_added_item }}
       tap_action:
         action: navigate
@@ -108,7 +108,7 @@ chips:
       icon: mdi:television-shimmer
       icon_color: white
       content: >-
-        Now on Plex: {{
+        New Episode: {{
         states.sensor.muse_library_tv_shows.attributes.last_added_item.split("-")[0] }}
       tap_action:
         action: navigate
