@@ -148,7 +148,7 @@ cards:
     cards:
       - camera_view: auto
         type: picture-glance
-        image: https://511ga.org/map/Cctv/JKSN-CAM-013--1
+        image: https://511ga.org/map/Cctv/105619--2
         entities:
           - entity: sensor.waze_travel_time
           - entity: sensor.jennifer_time_to_home
