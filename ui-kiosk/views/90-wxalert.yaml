@@ -194,7 +194,7 @@ cards:
             * {{ where }}
             * {{ when }}
             * {{ impacts }}
-            # {{ instruction }}
+            {{ instruction }}
           {% endfor %}
         card_mod:
           class: footer-open
