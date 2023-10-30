@@ -180,9 +180,8 @@ cards:
       - type: markdown
         content: >-
           {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
-
           {%- for desc in description %}
-            {%- set bold= desc | replace("\n>\nHEADLINE: ","## ") %}
+            {%- set bold= desc | replace("\n>\nHeadline: ","## ") %}
             {%- set preamble = bold.split("*")[0] %}
             {%- set what = (bold.split("*")[1])|replace("\n"," ") %}
             {%- set where = (bold.split("*")[2])|replace("\n"," ") %}
