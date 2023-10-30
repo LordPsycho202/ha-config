@@ -178,7 +178,24 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: "# {{states.sensor.nws_alerts.attributes.display_desc}}"
+        content: >-
+          {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+
+          {%- for desc in description %}
+            {%- set bold= desc | replace("\n>\n","# ") %}
+            {%- set preamble = bold.split("*")[0] %}
+            {%- set what = (bold.split("*")[1])|replace("\n"," ") %}
+            {%- set where = (bold.split("*")[2])|replace("\n"," ") %}
+            {%- set when = (bold.split("*")[3])|replace("\n"," ") %}
+            {%- set impacts = (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
+            {%- set instruction = "Instruction" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
+            {{ preamble }}
+            * {{ what }}
+            * {{ where }}
+            * {{ when }}
+            * {{ impacts }}
+            # {{ instruction }}
+          {% endfor %}
         card_mod:
           class: footer-open
           style: |
