@@ -183,18 +183,17 @@ cards:
           {%- for desc in description %}
             {%- set bold= desc | replace("\n>\nHeadline: ","## ") %}
             {%- set preamble = bold.split("*")[0] %}
-            {%- set what = (bold.split("*")[1])|replace("\n"," ") %}
-            {%- set where = (bold.split("*")[2])|replace("\n"," ") %}
-            {%- set when = (bold.split("*")[3])|replace("\n"," ") %}
-            {%- set impacts = (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
-            {%- set instruction = "Instruction" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
+            {%- set what = "*" ~ ((bold.split("*")[1])|replace("\n"," ")) %}
+            {%- set where = "*" ~ (bold.split("*")[2])|replace("\n"," ") %}
+            {%- set when = "*" ~ (bold.split("*")[3])|replace("\n"," ") %}
+            {%- set impacts = "*" ~ (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
+            {%- set instruction = "* __Instruction__" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
             {{ preamble }}
-            * {{ what }}
-            * {{ where }}
-            * {{ when }}
-            * {{ impacts }}
+            {{ what }}
+            {{ where }}
+            {{ when }}
+            {{ impacts }}
             {{ instruction }}
-            ---
           {% endfor %}
         card_mod:
           class: footer-open
