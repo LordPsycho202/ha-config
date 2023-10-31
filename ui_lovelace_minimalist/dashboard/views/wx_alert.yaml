@@ -22,10 +22,8 @@ cards:
         # {{ns.count}} NWS Alerts
       {%- else %}
         # {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
-      {%- endif %}
+      {% endif %}
 
-  - type: markdown
-    content: >-
       {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
       {%- for desc in description %}
         {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
