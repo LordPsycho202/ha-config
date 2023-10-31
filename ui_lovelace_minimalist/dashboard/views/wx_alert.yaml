@@ -5,12 +5,24 @@ icon: mdi:weather-tornado
 subview: true
 path: wxalert
 cards:
-  - type: "custom:button-card"
-    template: card_title
-    label: >
-      [[[ return states['sensor.nws_alerts'].attributes.title; ]]]
-    icon: >
-      [[[ return states['sensor.nws_alerts'].attributes.icon; ]]]
+  - type: markdown
+    content: >-
+      {%- set ns = namespace(count = 0,index=0) %}
+      {%- if states.sensor.nws_alerts.state | int > 0 %}
+        {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+        {%- for desc in description %}
+          {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
+          {%- if as_timestamp(now()) < expires %}
+            {%- set ns.count = ns.count+1 %}
+            {%- set ns.index = loop.index0 %}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+      {%- if ns.count > 1 %}
+        # {{ns.count}} NWS Alerts
+      {%- else %}
+        # {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
+      {%- endif %}
 
   - type: markdown
     content: >-

@@ -73,20 +73,6 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        tap_action:
-          action: none
-        name: Current Alerts
-        show_state: true
-        entity: sensor.nws_alerts
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
         entity: sensor.rain_daily
         icon: ''
         show_state: true
