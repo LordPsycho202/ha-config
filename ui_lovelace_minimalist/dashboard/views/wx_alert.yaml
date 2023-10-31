@@ -32,14 +32,20 @@ cards:
           {%- set what = "*" ~ ((bold.split("*")[1])|replace("\n"," ")) %}
           {%- set where = "*" ~ (bold.split("*")[2])|replace("\n"," ") %}
           {%- set when = "*" ~ (bold.split("*")[3])|replace("\n"," ") %}
-          {%- set impacts = "*" ~ (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
-          {%- set instruction = "* __Instruction__" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
+          {%- if "Instruction" in bold.split("*")[4] %}
+            {%- set impacts = "*" ~ (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
+            {%- set instruction = "__Instruction__" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
+          {%- else %}
+            {%- set impacts = "*" ~ (bold.split("*")[4])|replace("\n"," ") %}
+          {%- endif %}
         {{ preamble }}
         {{ what }}
         {{ where }}
         {{ when }}
         {{ impacts }}
+        {%- if "Instruction" in bold.split("*")[4] %}
         {{ instruction }}
+        {%- endif %}
         {%- endif %}
       {% endfor %}
   - type: custom:weather-radar-card
