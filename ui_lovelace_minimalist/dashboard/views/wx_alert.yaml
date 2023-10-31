@@ -6,7 +6,7 @@ subview: true
 path: wxalert
 cards:
   - type: markdown
-    content: >-
+    title: >-
       {%- set ns = namespace(count = 0,index=0) %}
       {%- if states.sensor.nws_alerts.state | int > 0 %}
         {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
@@ -22,8 +22,8 @@ cards:
         # {{ns.count}} NWS Alerts
       {%- else %}
         # {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
-      {% endif %}
-
+      {%- endif %}
+    content: >-
       {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
       {%- for desc in description %}
         {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
@@ -35,12 +35,12 @@ cards:
           {%- set when = "*" ~ (bold.split("*")[3])|replace("\n"," ") %}
           {%- set impacts = "*" ~ (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
           {%- set instruction = "* __Instruction__" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
-          {{ preamble }}
-          {{ what }}
-          {{ where }}
-          {{ when }}
-          {{ impacts }}
-          {{ instruction }}
+      {{ preamble }}
+      {{ what }}
+      {{ where }}
+      {{ when }}
+      {{ impacts }}
+      {{ instruction }}
         {%- endif %}
       {% endfor %}
   - type: custom:weather-radar-card
