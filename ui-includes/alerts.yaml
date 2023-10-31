@@ -23,13 +23,40 @@ chips:
       tap_action:
         action: navigate
         navigation_path: wxalert
-      icon_color: white
+      icon_color: |-
+        {%- set ns = namespace(output="white") %}
+        {%- if states.sensor.nws_alerts.state | int > 0 %}
+          {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+          {%- for desc in description %}
+            {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
+            {%- if as_timestamp(now()) < expires %}
+              {% set severity = states.sensor.nws_alerts.attributes.event_severity.split(" - ")[loop.index0] %}
+              {%- if severity == "Extreme" %}
+                {%- set ns.output = "red" %}
+              {% elif severity == "Severe" %}
+                {%- set ns.output = "yellow" %}
+              {%- endif %}
+            {%- endif %}
+          {%- endfor %}
+        {%- endif %}
+        {{ ns.output }}
       content: |-
-        {% if states.sensor.nws_alerts.state | int > 1 %}
-          {{states.sensor.nws_alerts.state | int}} NWS Alerts
-        {% else %}
-          {{states.sensor.nws_alerts.attributes.title}}
-        {% endif %}
+        {%- set ns = namespace(count = 0,index=0) %}
+        {%- if states.sensor.nws_alerts.state | int > 0 %}
+          {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+          {%- for desc in description %}
+            {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
+            {%- if as_timestamp(now()) < expires %}
+              {%- set ns.count = ns.count+1 %}
+              {%- set ns.index = loop.index0 %}
+            {%- endif %}
+          {%- endfor %}
+        {%- endif %}
+        {%- if ns.count > 1 %}
+          {{ns.count}} NWS Alerts
+        {%- else %}
+          {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
+        {%- endif %}
       icon: "{{states.sensor.nws_alerts.attributes.icon}}"
   - type: conditional
     conditions:

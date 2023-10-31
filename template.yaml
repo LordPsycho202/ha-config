@@ -18,15 +18,20 @@ binary_sensor:
 
   - name: WX Card
     state: >
-      {% if states.sensor.nws_alerts.state | int == 0 %}
-      off
-      {% else %}
-        {% if 'Extreme' in states.sensor.nws_alerts.attributes.event_severity or 'Severe' in states.sensor.nws_alerts.attributes.event_severity %}
-          on
-        {% else %}
-          off
-        {% endif %}
-      {% endif %}
+      {%- set ns = namespace(output="off") %}
+      {%- if states.sensor.nws_alerts.state | int > 0 %}
+        {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+        {%- for desc in description %}
+          {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
+          {%- if as_timestamp(now()) < expires %}
+            {% set severity = states.sensor.nws_alerts.attributes.event_severity.split(" - ")[loop.index0] %}
+            {%- if severity == "Extreme" or severity == "Severe" %}
+              {%- set ns.output = "on" %}
+            {%- endif %}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+      {{ ns.output }}
 
   - unique_id: water_front
     name: Water Front Planter
