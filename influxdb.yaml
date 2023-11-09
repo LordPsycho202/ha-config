@@ -3,6 +3,6 @@ host: a0d7b954-influxdb
 port: 8086
 database: homeassistant
 username: homeassistant
-password: homeassistant
+password: z06EMB#@pNC^TVj6
 max_retries: 3
 default_measurement: state
