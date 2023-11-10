@@ -28,6 +28,12 @@ logbook:
       - sensor.template_wind_dir
       - sensor.brother_mfc_j995dw
       - sensor.rain_delay_time
+      - sensor.us_8_desk_uptime
+      - sensor.uap_iw_mbr_uptime
+      - sensor.unifi_router_uptime
+      - sensor.usw_flex_mini_uptime
+      - sensor.usw_flex_closet_uptime
+      - sensor.usw_24_poe_uptime
 
 #### Text to speech ##################################
 tts:
