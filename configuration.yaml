@@ -51,12 +51,6 @@ frontend:
 #### HTTPS ##################################
 http: !include http.yaml
 
-#### FFMPEG ##################################
-camera:
-  - name: Office
-    platform: ffmpeg
-    input: rtsp://hass:hassio@192.168.2.130:554/ch01/0
-
 #### Command Line ##################################
 command_line:
   - sensor:
