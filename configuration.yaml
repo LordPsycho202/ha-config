@@ -37,6 +37,7 @@ logbook:
       - sensor.usw_flex_mini_uptime
       - sensor.usw_flex_closet_uptime
       - sensor.usw_24_poe_uptime
+      - sensor.comcast_uptime
 
 #### Text to speech ##################################
 tts:
