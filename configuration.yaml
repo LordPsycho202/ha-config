@@ -51,6 +51,9 @@ frontend:
 #### HTTPS ##################################
 http: !include http.yaml
 
+#### FFMPEG ##################################
+ffmpeg: !include ffmpeg.yaml
+
 #### Command Line ##################################
 command_line:
   - sensor:
