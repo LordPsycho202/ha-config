@@ -20,7 +20,7 @@ logbook:
   exclude:
     entity_globs:
       - sensor.lastrx_*
-      - sensor.rpi_monitor_*
+      - sensor.rpi_*
     entities:
       - sensor.unifi_main_switch_uptime
       - sensor.fr24_aircraft
