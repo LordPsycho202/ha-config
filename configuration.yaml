@@ -52,7 +52,10 @@ frontend:
 http: !include http.yaml
 
 #### FFMPEG ##################################
-ffmpeg: !include ffmpeg.yaml
+camera:
+  - name: Office
+    platform: ffmpeg
+    input: rtsp://192.168.2.130:554/ch01/0
 
 #### Command Line ##################################
 command_line:
