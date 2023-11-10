@@ -91,7 +91,7 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-          
+
       - show_name: true
         show_icon: true
         type: button
