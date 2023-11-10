@@ -1,3 +1,0 @@
-camera:
-  - name: Office
-    input: rtsp://192.168.2.130:554/ch01/0
