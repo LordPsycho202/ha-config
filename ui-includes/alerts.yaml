@@ -113,7 +113,7 @@ chips:
         navigation_path: weather
   - type: spacer
   - type: conditional
-    conditions: 
+    conditions:
       - entity: binary_sensor.new_plex_movie
         state: 'on'
     chip:
@@ -127,7 +127,7 @@ chips:
         action: navigate
         navigation_path: network
   - type: conditional
-    conditions: 
+    conditions:
       - entity: binary_sensor.new_plex_show
         state: 'on'
     chip:

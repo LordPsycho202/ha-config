@@ -191,7 +191,6 @@ cards:
           icon: mdi:alert
           icon_color: red
 
-
       - type: conditional
         conditions:
           - entity: sensor.rpi_monitor_artemis
@@ -337,4 +336,3 @@ cards:
           ulm_card_graph_type: fill
           ulm_card_graph_icon: mdi:server
           ulm_card_graph_hours: 24
-
