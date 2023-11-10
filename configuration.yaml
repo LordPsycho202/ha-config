@@ -55,7 +55,8 @@ http: !include http.yaml
 camera:
   - name: Office
     platform: ffmpeg
-    input: rtsp://192.168.2.130:554/ch01/0
+    input: rtsp://hass:hassio@192.168.2.130:554/ch01/0
+    unique_id: 7f201b62-22bb-4944-bfd9-a6a7f6677224
 
 #### Command Line ##################################
 command_line:
