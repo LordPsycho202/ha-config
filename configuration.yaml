@@ -20,7 +20,7 @@ logbook:
   exclude:
     entity_globs:
       - sensor.lastrx_*
-      - sensor.rpi_monitor_*
+      - sensor.rpi_*
     entities:
       - sensor.unifi_main_switch_uptime
       - sensor.fr24_aircraft
@@ -28,6 +28,16 @@ logbook:
       - sensor.template_wind_dir
       - sensor.brother_mfc_j995dw
       - sensor.rain_delay_time
+      - sensor.us_8_desk_uptime
+      - sensor.uap_iw_mbr_uptime
+      - sensor.uap_iw_lr_uptime
+      - sensor.uap_ac_office_uptime
+      - sensor.u6_ext_crafts_uptime
+      - sensor.unifi_router_uptime
+      - sensor.usw_flex_mini_uptime
+      - sensor.usw_flex_closet_uptime
+      - sensor.usw_24_poe_uptime
+      - sensor.comcast_uptime
 
 #### Text to speech ##################################
 tts:
@@ -98,38 +108,10 @@ aarlo:
   tfa_username: !secret arlo_2fa_username
   tfa_password: !secret arlo_2fa_password
 
-switch:
-  - platform: aarlo
-    siren: true
-    all_sirens: true
-    snapshot: true
-    doorbell_silence: true
-    siren_volume: 1
-    siren_duration: 10
-
-camera:
-  - platform: aarlo
-
 light:
   - platform: blink1_status
-  - platform: aarlo
-
-media_player:
-  - platform: aarlo
 
 sensor:
-  - platform: aarlo
-    monitored_conditions:
-      - total_cameras
-      - last_capture
-      - recent_activity
-      - captured_today
-      - battery_level
-      - signal_strength
-      - temperature
-      - humidity
-      - air_quality
-
   - platform: unifigateway
     host: !secret unifi_ip
     port: !secret unifi_port
@@ -170,22 +152,6 @@ sensor:
       {{ 'Less than 1 min' if time < 60 else days + hours + minutes }}
 
   - platform: statistics
-    name: "Rainfall Sum"
-    unique_id: rainfall_sum
-    entity_id: sensor.rainfall_rate
-    state_characteristic: sum
-    max_age:
-      minutes: 5
-
-  - platform: statistics
-    name: "Rainfall mean"
-    unique_id: rainfall_mean
-    entity_id: sensor.rainfall_rate
-    state_characteristic: mean
-    max_age:
-      minutes: 5
-
-  - platform: statistics
     name: "Max Winds"
     unique_id: wind_max
     entity_id: sensor.wind_acurite_5n1
@@ -194,27 +160,11 @@ sensor:
       hours: 24
 
 binary_sensor:
-  - platform: aarlo
-    monitored_conditions:
-      - motion
-      - sound
-      - ding
-      - cry
-      - connectivity
-
   - platform: ping
     host: 1.1.1.1
     count: 2
     scan_interval: 60
     name: “Internet_Connection”
-
-alarm_control_panel:
-  - platform: aarlo
-    away_mode_name: armed
-    home_mode_name: home
-    night_mode_name: night
-    trigger_time: 30
-    alarm_volume: 8
 
 weather:
   - platform: template
