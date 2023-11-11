@@ -54,8 +54,9 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.drought_card
-            state: "on"
+          - condition: numeric_state
+            entity: counter.days_without_rain
+            above: 6
         card:
           type: custom:mushroom-template-card
           primary: >-
@@ -91,31 +92,17 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.is_rain_2
-            state: "on"
+          - condition: numeric_state
+            entity: sensor.rain_daily
+            above: 0
         card:
-          type: horizontal-stack
-          cards:
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.rainfall_rate
-              variables:
-                ulm_card_graph_color: blue
-                ulm_card_graph_name: Rainfall Rate
-                ulm_card_graph_entity: sensor.rainfall_rate
-                ulm_card_graph_type: fill
-                ulm_card_graph_icon: mdi:weather-rainy
-                ulm_card_graph_hours: 24
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.lightning_acurite_6045m_a
-              variables:
-                ulm_card_graph_color: yellow
-                ulm_card_graph_name: Lightning
-                ulm_card_graph_entity: sensor.lightning_acurite_6045m_a
-                ulm_card_graph_type: fill
-                ulm_card_graph_icon: mdi:flash-alert
-                ulm_card_graph_hours: 24
+          type: custom:rain-gauge-card
+          entity: sensor.rain_daily
+          is_imperial: true
+          language: en
+          hourly_rate_entity: sensor.rainfall_rate
+          show_warning: false
+          show_error: false
 
   - type: vertical-stack
     cards:
