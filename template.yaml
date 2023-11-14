@@ -55,7 +55,7 @@ binary_sensor:
     name: New Plex Movie
     icon: mdi:movie-filter
     state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_movies.attributes.last_added_timestamp)) <= 604800 %}
+      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_movies.attributes.last_added_timestamp)) <= 259200 %}
         true
       {% else %}
         false
@@ -65,7 +65,7 @@ binary_sensor:
     name: New Plex Show
     icon: mdi:television-shimmer
     state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_tv_shows.attributes.last_added_timestamp)) <= 604800 %}
+      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_tv_shows.attributes.last_added_timestamp)) <= 259200 %}
         true
       {% else %}
         false
@@ -117,14 +117,6 @@ binary_sensor:
       {% endif %}
 
 sensor:
-  - name: Dining Opacity
-    state: >
-      {% if states['light.dining_room'].state == 'on' %}
-        {{ ((states['light.dining_room'].attributes.brightness / 255)*100)| string ~ '%' }}
-      {% else %}
-        {{ '0%' }}
-      {% endif %}
-
   - name: sunlight pct
     unique_id: sunlight_pct
     unit_of_measurement: "%"
