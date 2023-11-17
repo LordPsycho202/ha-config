@@ -254,8 +254,8 @@ sensor:
     unit_of_measurement: "%"
     state: >-
       {% set memUsed = '%0.1f' % ( 100- (
-      states.sensor.rpi_monitor_k3s_1.attributes.memory.free_mb|float /
-      states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|float )  *
+      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.free_mb|float /
+      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|float )  *
       100) %}
       {{memUsed}}
 
@@ -263,9 +263,9 @@ sensor:
     unique_id: rpi_model_k3s_1
     state: >-
       {% set rpi_model =
-      states.sensor.rpi_monitor_k3s_1.attributes.rpi_model.split(' ') %}
+      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.rpi_model.split(' ') %}
       {% set memMax =
-      (states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
+      (states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
       +1 %}
       RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
 

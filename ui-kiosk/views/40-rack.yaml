@@ -367,30 +367,30 @@ cards:
               class: button-large
             icon: mdi:raspberry-pi
             icon_color: >-
-              {% if states.sensor.rpi_temp_k3s_1.state | int < 140 %}
+              {% if states.sensor.rpi_k3s_1_folden_nissen_com_rpi_temp_k3s_1.state | int < 140 %}
                 green
-              {% elif states.sensor.rpi_temp_k3s_1.state | int >= 140 and
-              states.sensor.rpi_temp_k3s_1.state | int < 176 %}
+              {% elif states.sensor.rpi_k3s_1_folden_nissen_com_rpi_temp_k3s_1.state | int >= 140 and
+              states.sensor.rpi_k3s_1_folden_nissen_com_rpi_temp_k3s_1.state | int < 176 %}
                 orange
               {% else %}
                 red
               {% endif %}
             multiline_secondary: true
-            primary: '{{ states.sensor.rpi_monitor_k3s_1.attributes.host_name }}'
+            primary: '{{ states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.host_name }}'
             layout: vertical
             secondary: >-
               {% set rpi_model =
-              states.sensor.rpi_monitor_k3s_1.attributes.rpi_model.split('
+              states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.rpi_model.split('
               ') %}
 
               {% set memMax =
-              (states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
+              (states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
               +1 %}
 
               {% set memUsed = '%0.1f' % ( 100- (
-              states.sensor.rpi_monitor_k3s_1.attributes.memory.free_mb|float
+              states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.free_mb|float
               /
-              states.sensor.rpi_monitor_k3s_1.attributes.memory.size_mb|float
+              states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|float
               )  * 100) %}
 
               RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
@@ -400,7 +400,7 @@ cards:
               RAM: {{ memUsed }}%
 
               SD: {{ states.sensor.rpi_used_k3s_1.state }}%
-            entity: sensor.rpi_temp_k3s_1
+            entity: sensor.rpi_k3s_1_folden_nissen_com_rpi_temp_k3s_1
             tap_action:
               action: more-info
           - type: custom:mushroom-template-card
