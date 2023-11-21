@@ -97,3 +97,6 @@ cards:
         name: Maps
 
       - !include /config/ui-includes/upstairsMap.yaml
+
+  - type: markdown
+    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'

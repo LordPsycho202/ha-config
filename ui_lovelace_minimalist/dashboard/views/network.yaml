@@ -336,3 +336,6 @@ cards:
           ulm_card_graph_type: fill
           ulm_card_graph_icon: mdi:server
           ulm_card_graph_hours: 24
+
+  - type: markdown
+    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
