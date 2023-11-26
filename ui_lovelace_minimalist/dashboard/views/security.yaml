@@ -104,3 +104,6 @@ cards:
               action: toggle
             tap_action:
               action: none
+
+  - type: markdown
+    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
