@@ -57,7 +57,7 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_light
-            entity: light.lamp_light
+            entity: light.bulb_lamp_light
             variables:
               ulm_card_light_name: Lamp
               ulm_card_light_force_background_color: true
