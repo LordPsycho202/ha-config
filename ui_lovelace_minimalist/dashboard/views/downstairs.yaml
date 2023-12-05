@@ -164,6 +164,21 @@ cards:
             ulm_card_light_force_background_color: true
             ulm_card_light_enable_collapse: true
 
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.christmas_season
+            state: 'on'
+        card:
+          type: "custom:button-card"
+          template: card_light
+          entity: light.outdoor_decoration
+          variables:
+            ulm_card_light_name: Outdoor Decorations
+            ulm_card_light_icon: mdi:string-lights
+            ulm_card_light_force_background_color: true
+            ulm_card_light_enable_collapse: true
+
       - type: "custom:button-card"
         template: card_thermostat
         entity: climate.main_floor
