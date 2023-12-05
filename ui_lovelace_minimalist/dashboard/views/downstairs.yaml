@@ -172,7 +172,7 @@ cards:
         card:
           type: "custom:button-card"
           template: card_light
-          entity: light.outdoor_decoration
+          entity: light.outdoor_decorations
           variables:
             ulm_card_light_name: Outdoor Decorations
             ulm_card_light_icon: mdi:string-lights
