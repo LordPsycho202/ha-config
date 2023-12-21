@@ -4,7 +4,7 @@ icon: "mdi:server"
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: 403px 1200px 287px
+  grid-template-columns: 350px 1200px 340px
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
@@ -191,6 +191,7 @@ cards:
         tap_action:
           action: more-info
         show_state: true
+        name: Rack Temperature
         hold_action:
           action: none
         entity: sensor.temp_acurite_606tx_a
