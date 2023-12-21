@@ -4,7 +4,7 @@ icon: "mdi:server"
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: 350px 1200px 340px
+  grid-template-columns: 340px 1200px 350px
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
