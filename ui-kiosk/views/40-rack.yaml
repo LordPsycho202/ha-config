@@ -4,7 +4,7 @@ icon: "mdi:server"
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: 403px 1200px 287px
+  grid-template-columns: 340px 1200px 350px
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
@@ -20,6 +20,8 @@ cards:
   - !include ../includes/footer.yaml
 
   - type: vertical-stack
+    view_layout:
+      grid-area: aux
     cards:
       - type: markdown
         content: '# Computer Rack Layout'
@@ -35,8 +37,64 @@ cards:
           action: none
         hold_action:
           action: none
-    view_layout:
-      grid-area: aux
+      - type: markdown
+        content: '# NAS Storage'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: custom:mushroom-template-card
+        card_mod:
+          class: button-large
+        primary: >-
+          {{ 100-(states('sensor.netshare_free')|float /
+          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round}}% • {{
+          states('sensor.netshare_free') | string }}
+          {{state_attr('sensor.netshare_free','unit_of_measurement') }} Free • {% if
+          states.binary_sensor.netshare_healthy.state == "on" %} Healthy {% else %}
+          Unhealthy {% endif %}
+        secondary: Network Share
+        icon: mdi:folder-network-outline
+        icon_color: >-
+          {% if states.binary_sensor.netshare_healthy.state == "off" %}
+          red
+          {% elif 100-(states('sensor.netshare_free')|float /
+          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round > 85 %}
+          red
+          {% elif 100-(states('sensor.netshare_free')|float /
+          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round > 70 %}
+          yellow
+          {% else %}
+          green
+          {% endif %}
+      - type: custom:mushroom-template-card
+        card_mod:
+          class: button-large
+        primary: >-
+           {% if states.binary_sensor.gitlab.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
+        secondary: Gitlab
+        icon: mdi:server-network
+        icon_color: >-
+          {% if states.binary_sensor.gitlab.state == "off" %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: custom:mushroom-template-card
+        card_mod:
+          class: button-large
+        primary: >-
+           {% if states.binary_sensor.plexserver.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
+        secondary: Plex
+        icon: mdi:server-network
+        icon_color: >-
+          {% if states.binary_sensor.plexserver.state == "off" %}
+          red
+          {% else %}
+          green
+          {% endif %}
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
@@ -133,6 +191,7 @@ cards:
         tap_action:
           action: more-info
         show_state: true
+        name: Rack Temperature
         hold_action:
           action: none
         entity: sensor.temp_acurite_606tx_a

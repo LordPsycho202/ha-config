@@ -163,11 +163,6 @@ sensor:
       hours: 24
 
 binary_sensor:
-  - platform: ping
-    host: 1.1.1.1
-    count: 2
-    scan_interval: 60
-    name: “Internet_Connection”
 
 weather:
   - platform: template
