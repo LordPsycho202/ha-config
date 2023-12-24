@@ -80,7 +80,7 @@ influxdb: !include influxdb.yaml
 #### Rest Sensors #############################################
 rest: !include rest.yaml
 
-#### Rest Sensors #############################################
+#### MQTT Sensors #############################################
 mqtt: !include mqtt.yaml
 
 #### Filter Sensors #############################################
@@ -91,6 +91,9 @@ mqtt: !include mqtt.yaml
 
 #### Workday Sensors #############################################
 # time_date: !include time_date.yaml
+
+#### Battery Notes #############################################
+battery_notes:
 
 #### Arlo Integration #############################################
 aarlo:
