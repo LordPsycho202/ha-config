@@ -173,7 +173,7 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_a
+              ulm_card_graph_entity: sensor.humidity_nexus_th_a
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
@@ -219,7 +219,7 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_b
+              ulm_card_graph_entity: sensor.humidity_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
