@@ -183,7 +183,7 @@ weather:
       {% else %}
         {{ state_attr('weather.main_floor','forecast') }}
       {% endif %}
-    pressure_template: "{{ states.sensor.office_pressure.state|float }}"
+    pressure_template: "{{ states.sensor.relative_pressure.state|float }}"
     pressure_unit: "hPa"
     wind_speed_template: "{{ states.sensor.wind_acurite_5n1_b.state|float }}"
     wind_speed_unit: "mph"
