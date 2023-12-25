@@ -277,7 +277,7 @@ chips:
     conditions:
       - condition: numeric_state
         entity: sensor.soil_moisture_2
-        above: 25
+        below: 25
     chip:
       type: template
       icon: mdi:watering-can-outline
