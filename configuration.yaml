@@ -172,7 +172,7 @@ weather:
       {% if has_value('weather.kwdr_daynight') %}
         {{ states('weather.kwdr_daynight') }}
       {% else %}
-        {{ states('weather.home') }}
+        {{ states('weather.main_floor') }}
       {% endif %}
     temperature_template: "{{ states.sensor.outdoor_temp.state|float }}"
     temperature_unit: "°F"
@@ -181,7 +181,7 @@ weather:
       {% if has_value('weather.kwdr_daynight') %}
         {{ state_attr('weather.kwdr_daynight', 'forecast') }}
       {% else %}
-        Unknown
+        {{ state_attr('weather.main_floor','forecast') }}
       {% endif %}
     pressure_template: "{{ states.sensor.office_pressure.state|float }}"
     pressure_unit: "hPa"
