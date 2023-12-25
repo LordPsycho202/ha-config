@@ -147,7 +147,7 @@ cards:
         tap_action:
           action: navigate
           navigation_path: "outside"
-        label: '[[[ return states["sensor.outside_temp"].state + "°F" ]]]'
+        label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
 
       - type: conditional
         conditions:
