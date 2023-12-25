@@ -172,9 +172,9 @@ weather:
       {% if has_value('weather.kwdr_daynight') %}
         {{ states('weather.kwdr_daynight') }}
       {% else %}
-        Unknown
+        {{ states('weather.home') }}
       {% endif %}
-    temperature_template: "{{ states.sensor.outside_temp.state|float }}"
+    temperature_template: "{{ states.sensor.outdoor_temp.state|float }}"
     temperature_unit: "°F"
     humidity_template: "{{ states.sensor.outdoor_humidity.state|float }}"
     forecast_template: >
