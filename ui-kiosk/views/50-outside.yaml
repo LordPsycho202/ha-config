@@ -59,70 +59,6 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: markdown
-        content: '# Soil Moisture'
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Front Planter
-        show_state: true
-        entity: sensor.soil_moisture_1
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Greenhouse 1
-        show_state: true
-        entity: sensor.soil_moisture_2
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }      - show_name: true
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Greenhouse 2
-        show_state: true
-        entity: sensor.soil_moisture_4
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }      - show_name: true
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Pineapples
-        show_state: true
-        entity: sensor.soil_moisture_3
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
   - type: vertical-stack
     view_layout:
       grid-area: main
@@ -227,7 +163,7 @@ cards:
       - type: markdown
         content: '# Irrigation Controls'
         card_mod:
-          class: bar
+          class: bar-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -304,6 +240,83 @@ cards:
           action: toggle
         entity: switch.flower_beds_zone
         show_state: true
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+      - type: markdown
+        content: '# Garden Sensors'
+        card_mod:
+          class: bar-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Pineapples
+        show_state: true
+        entity: sensor.soil_moisture_3
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Front Planter
+        show_state: true
+        entity: sensor.soil_moisture_1
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Planter 1
+        show_state: true
+        entity: sensor.soil_moisture_2
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }      
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Planter 2
+        show_state: true
+        entity: sensor.soil_moisture_4
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: none
+        name: Planter 2
+        show_state: true
+        entity: sensor.soil_temperature_1
         card_mod:
           class: button-capped-right
           style: |
