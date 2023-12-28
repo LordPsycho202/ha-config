@@ -308,7 +308,6 @@ sensor:
     state: >
       {% if has_value('weather.weather_station') %}
         {% set entity = 'weather.weather_station' %}
-        {{ state_attr(entity, 'forecast')[0] }}
         {% if has_value("state_attr(entity, 'forecast')[0]['detailed_description']") %}
           {% set forecast = state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
         {% else %}
