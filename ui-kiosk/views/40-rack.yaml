@@ -40,14 +40,14 @@ cards:
       - type: markdown
         content: '# NAS Storage'
         card_mod:
-          class: header-right
+          class: bar-right
           style: |
             ha-card > * {
               font-family: Antonio
             }
       - type: custom:mushroom-template-card
         card_mod:
-          class: button-bullet-right
+          class: button-large
         primary: >-
           {{ 100-(states('sensor.netshare_free')|float /
           (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round}}% • {{
@@ -71,7 +71,7 @@ cards:
           {% endif %}
       - type: custom:mushroom-template-card
         card_mod:
-          class: button-bullet-right
+          class: button-large
         primary: >-
            {% if states.binary_sensor.gitlab.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
         secondary: Gitlab
@@ -84,7 +84,7 @@ cards:
           {% endif %}
       - type: custom:mushroom-template-card
         card_mod:
-          class: button-bullet-right
+          class: button-large
         primary: >-
            {% if states.binary_sensor.plexserver.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
         secondary: Plex
