@@ -2,13 +2,17 @@
 pineapples:
   sensors:
     moisture: sensor.soil_moisture_3
+  min_moisture: 25
 front_planter:
   sensors:
     moisture: sensor.soil_moisture_1
+  min_moisture: 30
 planter_1:
   sensors:
     moisture: sensor.soil_moisture_2
+  min_moisture: 25
 planter_2:
   sensors:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
+  min_moisture: 25
