@@ -308,8 +308,18 @@ sensor:
     state: >
       {% if has_value('weather.weather_station') %}
         {% set entity = 'weather.weather_station' %}
-        {% set forecast= state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
-        {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
+        {{ state_attr(entity, 'forecast')[0] }}
+        {% if has_value("state_attr(entity, 'forecast')[0]['detailed_description']") %}
+          {% set forecast = state_attr(entity, 'forecast')[0]['detailed_description'] | string %}
+        {% else %}
+          {% set forecast = "Currently " + state_attr(entity, 'forecast')[0]['condition'] + ", " + state_attr(entity, 'forecast')[0]['temperature']|string + "°F " %}
+        {% endif %}
+        {% if has_value("state_attr(entity, 'forecast')[0]['precipitation_probability']") %}
+          {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
+        {% else %}
+          {% set precip = 0 %}
+        {% endif %}
+        {{ precip }}
         {% set sun = states.sun.sun.state %}
         {% if precip == 0 %}
           {% if sun == 'above_horizon' %} {{forecast}}🌞
