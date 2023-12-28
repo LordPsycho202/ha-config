@@ -205,9 +205,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
+        icon: mdi:fruit-pineapple
         tap_action:
-          action: none
-        name: Pineapples
+          action: more-info
+        name: Pineapple Pots
         show_state: true
         entity: plant.pineapples
         card_mod:
@@ -219,8 +220,9 @@ cards:
       - show_name: true
         show_icon: true
         type: button
+        icon: mdi:flower-outline
         tap_action:
-          action: none
+          action: more-info
         name: Front Planter
         show_state: true
         entity: plant.front_planter
@@ -233,9 +235,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
+        icon: mdi:chili-mild-outline
         tap_action:
-          action: none
-        name: Planter 1
+          action: more-info
+        name: Planter 1 (Herbs)
         show_state: true
         entity: plant.planter_1
         card_mod:
@@ -247,25 +250,12 @@ cards:
       - show_name: true
         show_icon: true
         type: button
+        icon: mdi:sprout-outline
         tap_action:
-          action: none
-        name: Planter 2
+          action: more-info
+        name: Planter 2 (Collards)
         show_state: true
         entity: plant.planter_2
-        card_mod:
-          class: button-capped-right
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Planter 2
-        show_state: true
-        entity: sensor.soil_temperature_1
         card_mod:
           class: button-capped-right
           style: |
