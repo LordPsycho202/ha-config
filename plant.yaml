@@ -1,18 +1,14 @@
 ---
 pineapples:
-  unique_id: 43b61823-a64e-4929-9bba-29418b35d610
   sensors:
     moisture: sensor.soil_moisture_3
 front_planter:
-  unique_id: c7e66415-206e-434f-996f-9e6adc1aa118
   sensors:
     moisture: sensor.soil_moisture_1
 planter_1:
-  unique_id: 0cb6afb8-e159-4d5d-bb5c-03279b9fccb7
   sensors:
     moisture: sensor.soil_moisture_2
 planter_2:
-  unique_id: 6dcc9b1e-95db-48e0-b48e-b15004a011c9
   sensors:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
