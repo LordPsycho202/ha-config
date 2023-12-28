@@ -209,7 +209,7 @@ cards:
           action: none
         name: Pineapples
         show_state: true
-        entity: sensor.soil_moisture_3
+        entity: plant.pineapples
         card_mod:
           class: button-capped-right
           style: |
@@ -223,7 +223,7 @@ cards:
           action: none
         name: Front Planter
         show_state: true
-        entity: sensor.soil_moisture_1
+        entity: plant.front_planter
         card_mod:
           class: button-capped-right
           style: |
@@ -237,7 +237,7 @@ cards:
           action: none
         name: Planter 1
         show_state: true
-        entity: sensor.soil_moisture_2
+        entity: plant.planter_1
         card_mod:
           class: button-capped-right
           style: |
@@ -251,7 +251,7 @@ cards:
           action: none
         name: Planter 2
         show_state: true
-        entity: sensor.soil_moisture_4
+        entity: plant.planter_2
         card_mod:
           class: button-capped-right
           style: |
