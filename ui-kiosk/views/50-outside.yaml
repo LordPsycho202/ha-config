@@ -114,7 +114,7 @@ cards:
         type: button
         tap_action:
           action: none
-        name: Backyard Crps
+        name: Pineapples
         show_state: true
         entity: sensor.soil_moisture_3
         card_mod:
@@ -186,11 +186,11 @@ cards:
         entities:
           - entity: sensor.temp_nexus_th_a
             name: GH1 Temp
-          - entity: sensor.rh_nexus_th_a
+          - entity: sensor.humidity_nexus_th_a
             name: GH1 RH
           - entity: sensor.temp_nexus_th_b
             name: GH2 Temp
-          - entity: sensor.rh_nexus_th_b
+          - entity: sensor.humidity_nexus_th_b
             name: GH2 RH
         columns: 2
         card_mod:
