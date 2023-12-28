@@ -83,6 +83,9 @@ rest: !include rest.yaml
 #### MQTT Sensors #############################################
 mqtt: !include mqtt.yaml
 
+#### Plant Sensors #############################################
+plant: !include plant.yaml
+
 #### Filter Sensors #############################################
 # filter: !include filter.yaml
 
