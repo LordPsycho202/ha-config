@@ -1,0 +1,14 @@
+---
+pineapples:
+  sensors:
+    moisture: sensor.soil_moisture_3
+front_planter:
+  sensors:
+    moisture: sensor.soil_moisture_1
+planter_1:
+  sensors:
+    moisture: sensor.soil_moisture_2
+planter_2:
+  sensors:
+    moisture: sensor.soil_moisture_4
+    temperature: sensor.soil_temperature_1
