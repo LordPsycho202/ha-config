@@ -58,6 +58,7 @@ chips:
           {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
         {%- endif %}
       icon: "{{states.sensor.nws_alerts.attributes.icon}}"
+
   - type: conditional
     conditions:
       - entity: binary_sensor.drought_card
@@ -68,6 +69,7 @@ chips:
       content: >-
         Days Without Rain: {{ states.counter.days_without_rain.state }}
       icon: "{{ states.counter.days_without_rain.attributes.icon }}"
+
   - type: conditional
     conditions:
       - entity: binary_sensor.wind_chill_active
@@ -79,6 +81,7 @@ chips:
         Wind Chill:
         {{states.sensor.wind_chill.state}}{{states.sensor.wind_chill.attributes.unit_of_measurement}}
       icon: "{{ states.sensor.wind_chill.attributes.icon }}"
+
   - type: conditional
     conditions:
       - entity: binary_sensor.heat_index_active
@@ -100,6 +103,7 @@ chips:
       type: template
       content: Snowing
       icon: mdi:weather-snowy
+
   - type: conditional
     conditions:
       - entity: binary_sensor.is_rain_2
@@ -111,35 +115,9 @@ chips:
       tap_action:
         action: navigate
         navigation_path: weather
+
   - type: spacer
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.new_plex_movie
-        state: 'on'
-    chip:
-      type: template
-      icon: mdi:movie-filter
-      icon_color: white
-      content: >-
-        New Plex Movie: {{
-        states.sensor.muse_library_movies.attributes.last_added_item }}
-      tap_action:
-        action: navigate
-        navigation_path: network
-  - type: conditional
-    conditions:
-      - entity: binary_sensor.new_plex_show
-        state: 'on'
-    chip:
-      type: template
-      icon: mdi:television-shimmer
-      icon_color: white
-      content: >-
-        New Episode: {{
-        states.sensor.muse_library_tv_shows.attributes.last_added_item.split("-")[0] }}
-      tap_action:
-        action: navigate
-        navigation_path: network
+
   - type: conditional
     conditions:
       - entity: input_select.mail_status
@@ -152,6 +130,7 @@ chips:
         action: navigate
         navigation_path: mailalert
       icon: mdi:mail
+
   - type: conditional
     conditions:
       - entity: input_boolean.package_present
@@ -164,6 +143,7 @@ chips:
         action: navigate
         navigation_path: mailalert
       icon: mdi:package-check
+
   - type: conditional
     conditions:
       - entity: calendar.trash_collection
@@ -173,6 +153,7 @@ chips:
       icon_color: white
       content: Trash
       icon: mdi:delete
+
   - type: conditional
     conditions:
       - entity: calendar.recycling_collection
@@ -182,6 +163,7 @@ chips:
       icon_color: white
       content: Recycling
       icon: mdi:recycle-variant
+
   - type: conditional
     conditions:
       - entity: input_boolean.vacation_mode
@@ -191,6 +173,7 @@ chips:
       icon_color: white
       content: Vacation Mode On
       icon: mdi:airplane-check
+
   - type: conditional
     conditions:
       - entity: input_boolean.guest_mode
@@ -200,6 +183,7 @@ chips:
       icon_color: white
       content: Guest Mode On
       icon: mdi:bed
+
   - type: conditional
     conditions:
       - entity: vacuum.philoctetes
@@ -209,6 +193,7 @@ chips:
       icon_color: white
       content: Philoctetes
       icon: mdi:alert
+
   - type: conditional
     conditions:
       - entity: vacuum.catbug
@@ -218,15 +203,7 @@ chips:
       icon_color: white
       content: Catbug
       icon: mdi:alert
-  - type: conditional
-    conditions:
-      - entity: vacuum.gurtrude
-        state: error
-    chip:
-      type: template
-      icon_color: white
-      content: Gurtrude
-      icon: mdi:alert
+
   - type: conditional
     conditions:
       - entity: input_select.dishwasher_state
@@ -246,72 +223,80 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: input_select.dryer_state
-        state: Dry
+      - condition: state
+        entity: plant.front_planter
+        state: ok
     chip:
       type: template
-      icon_color: white
-      content: Dryer Done
-      icon: mdi:tumble-dryer
-      tap_action:
-        action: call-service
-        service: input_select.select_option
-        target:
-          entity_id: input_select.dryer_state
-        data:
-          option: Empty
-  - type: conditional
-    conditions:
-      - condition: numeric_state
-        entity: sensor.soil_moisture_1
-        below: 30
-    chip:
-      type: template
-      icon: mdi:watering-can-outline
+      icon: |-
+        {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
+        mdi:watering-can-outline
+        {% else %}
+        mdi:flower-outline
+        {% endif %}
       content: Front Planter
-      entity: sensor.soil_moisture_1
+      entity: plant.front_planter
       tap_action:
         action: navigate
         navigation_path: outside
+
   - type: conditional
     conditions:
-      - condition: numeric_state
-        entity: sensor.soil_moisture_2
-        below: 25
+      - condition: state
+        entity: plant.planter_1
+        state: ok
     chip:
       type: template
-      icon: mdi:watering-can-outline
+      icon:  |-
+        {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
+        mdi:watering-can-outline
+        {% else %}
+        mdi:chili-mild-outline
+        {% endif %}
       content: Planter 1 (Herbs)
-      entity: sensor.soil_moisture_2
+      entity: plant.planter_1
       tap_action:
         action: navigate
         navigation_path: outside
+
   - type: conditional
     conditions:
-      - condition: numeric_state
-        entity: sensor.soil_moisture_3
-        below: 25
+      - condition: state
+        entity: plant.planter_2
+        state: ok
     chip:
       type: template
-      entity: sensor.soil_moisture_3
-      icon: mdi:watering-can-outline
-      content: Pineapples
-      tap_action:
-        action: navigate
-        navigation_path: outside
-  - type: conditional
-    conditions:
-      - condition: numeric_state
-        entity: sensor.soil_moisture_4
-        below: 25
-    chip:
-      type: template
-      entity: sensor.soil_moisture_4
-      icon: mdi:watering-can-outline
+      entity: plant.planter_2
+      icon: |-
+        {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
+        mdi:watering-can-outline
+        {% else %}
+        mdi:sprout-outline
+        {% endif %}
       content: Planter 2 (Collards)
       tap_action:
         action: navigate
         navigation_path: outside
+
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: plant.pineapples
+        state: ok
+    chip:
+      type: template
+      entity: plant.pineapples
+      icon: |-
+        {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
+        mdi:watering-can-outline
+        {% else %}
+        mdi:fruit-pineapple
+        {% endif %}
+      content: Pineapple Pots
+      tap_action:
+        action: navigate
+        navigation_path: outside
+
   - type: conditional
     conditions:
       - entity: input_select.cat_litter_full_clean
