@@ -36,7 +36,7 @@ cards:
           action: none
         name: Conditions
         show_state: true
-        entity: weather.kwdr_daynight
+        entity: weather.weather_station
         card_mod:
           class: button-bullet
           style: |
@@ -46,7 +46,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        entity: sensor.outside_temp
+        entity: sensor.outdoor_temp
         icon: ''
         show_state: true
         name: Exterior Heat
@@ -176,7 +176,7 @@ cards:
               - show_current: false
                 show_forecast: true
                 type: weather-forecast
-                entity: weather.kwdr_daynight
+                entity: weather.weather_station
                 theme: ios-dark-mode
                 secondary_info_attribute: pressure
                 card_mod:

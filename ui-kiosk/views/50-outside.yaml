@@ -215,7 +215,7 @@ cards:
       - show_current: false
         show_forecast: true
         type: weather-forecast
-        entity: weather.kwdr_daynight
+        entity: weather.weather_station
         theme: ios-dark-mode
         secondary_info_attribute: pressure
         card_mod:
