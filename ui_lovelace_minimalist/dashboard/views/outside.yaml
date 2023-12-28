@@ -146,13 +146,13 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Greenhouse 1
+        label: Planter 1 (Herbs)
       - type: "custom:button-card"
         entity: sensor.soil_moisture_2
         template: card_graph
         variables:
           ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: GH1 Soil Moisture
+          ulm_card_graph_name: Soil Moisture
           ulm_card_graph_entity: sensor.soil_moisture_2
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
@@ -168,47 +168,40 @@ cards:
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
-            entity: sensor.rh_nexus_th_a
+            entity: sensor.humidity_nexus_th_a
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_a
+              ulm_card_graph_entity: sensor.humidity_nexus_th_a
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: custom:mushroom-template-card
-        primary: GH1 Deltas
-        secondary: >-
-          Temp: {{ (states.sensor.temp_nexus_th_a.state | float -
-          states.sensor.temp_acurite_5n1_b.state | float) | round(2) }}F | RH: {{
-          (states.sensor.rh_nexus_th_a.state | float -
-          states.sensor.rh_acurite_5n1_b.state | float) | round(2) }}
-        icon: mdi:greenhouse
-        icon_color: >-
-          {% set tempDelta = (states.sensor.temp_nexus_th_a.state | float -
-          states.sensor.temp_acurite_5n1_b.state | float) %}
-          {% if tempDelta > 10 %}
-            red
-          {% elif tempDelta > 5 %}
-            yellow
-          {% else %}
-            green
-          {% endif %}
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Greenhouse 2
-      - type: "custom:button-card"
-        entity: sensor.soil_moisture_4
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: GH2 Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_4
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
+        label: Planter 2 (Collards)
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            entity: sensor.soil_moisture_4
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_4
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            entity: sensor.soil_temperature_1
+            template: card_graph
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Temperature
+              ulm_card_graph_entity: sensor.soil_temperature_1
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -221,38 +214,20 @@ cards:
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
-            entity: sensor.rh_nexus_th_b
+            entity: sensor.humidity_nexus_th_b
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_b
+              ulm_card_graph_entity: sensor.humidity_nexus_th_b
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: custom:mushroom-template-card
-        primary: GH2 Deltas
-        secondary: >-
-          Temp: {{ (states.sensor.temp_nexus_th_b.state | float -
-          states.sensor.temp_acurite_5n1_b.state | float) | round(2) }}F | RH: {{
-          (states.sensor.rh_nexus_th_b.state | float -
-          states.sensor.rh_acurite_5n1_b.state | float) | round(2) }}
-        icon: mdi:greenhouse
-        icon_color: >-
-          {% set tempDelta = (states.sensor.temp_nexus_th_b.state | float -
-          states.sensor.temp_acurite_5n1_b.state | float) %}
-          {% if tempDelta > 10 %}
-            red
-          {% elif tempDelta > 5 %}
-            yellow
-          {% else %}
-            green
-          {% endif %}
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Backyard Crops
+        label: Pineapple Pots
       - type: "custom:button-card"
         entity: sensor.soil_moisture_3
         template: card_graph
@@ -262,23 +237,3 @@ cards:
           ulm_card_graph_entity: sensor.soil_moisture_3
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.temp_acurite_5n1_b
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-red)"
-              ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_b
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            entity: sensor.rh_acurite_5n1_b
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.rh_nexus_th_b
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24

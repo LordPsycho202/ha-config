@@ -26,24 +26,6 @@ binary_sensor:
       {%- endif %}
       {{ ns.output }}
 
-  - unique_id: water_front
-    name: Water Front Planter
-    state: >
-      {% if states.sensor.soil_moisture_1.state | float < 30 %}
-      on
-      {% else %}
-      off
-      {% endif %}
-
-  - unique_id: water_greenhouse
-    name: Water Greenhouse
-    state: >
-      {% if states.sensor.soil_moisture_2.state | float < 25 %}
-      on
-      {% else %}
-      off
-      {% endif %}
-
   - unique_id: new_movie
     name: New Plex Movie
     icon: mdi:movie-filter
@@ -90,7 +72,7 @@ binary_sensor:
   - unique_id: wind_chill_active
     name: Wind Chill Active
     state: >
-      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set temp = states.sensor.outdoor_temp.state|float %}
       {% set wc = states.sensor.wind_chill.state|float%}
       {% if (temp-wc) > 5 and wc < 40 %}
         on
@@ -101,7 +83,7 @@ binary_sensor:
   - unique_id: heat_index_active
     name: Heat Index Active
     state: >
-      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set temp = states.sensor.outdoor_temp.state|float %}
       {% set hi = states.sensor.heat_index.state|float%}
       {% if (hi-temp) > 5 and hi > 80 %}
         on
@@ -599,7 +581,7 @@ sensor:
     unit_of_measurement: °F
     icon: mdi:windsock
     state: >
-      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set temp = states.sensor.outdoor_temp.state|float %}
       {% set wind = states.sensor.wind_acurite_5n1_b.state|float %}
       {% if temp > 50 or wind < 3 %}
         {{ temp }}
@@ -612,7 +594,7 @@ sensor:
     unit_of_measurement: °F
     icon: mdi:thermometer-alert
     state: >
-      {% set temp = states.sensor.outside_temp.state|float %}
+      {% set temp = states.sensor.outdoor_temp.state|float %}
       {% set rh = states.sensor.outdoor_humidity.state|float %}
       {% set adjustment = 0 %}
       {% set hi = 0.5 * (temp + 61.0 + ((temp-68.0)*1.2) + (rh*0.094)) %}

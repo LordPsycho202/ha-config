@@ -80,7 +80,7 @@ influxdb: !include influxdb.yaml
 #### Rest Sensors #############################################
 rest: !include rest.yaml
 
-#### Rest Sensors #############################################
+#### MQTT Sensors #############################################
 mqtt: !include mqtt.yaml
 
 #### Filter Sensors #############################################
@@ -91,6 +91,9 @@ mqtt: !include mqtt.yaml
 
 #### Workday Sensors #############################################
 # time_date: !include time_date.yaml
+
+#### Battery Notes #############################################
+battery_notes:
 
 #### Arlo Integration #############################################
 aarlo:
@@ -169,18 +172,18 @@ weather:
       {% if has_value('weather.kwdr_daynight') %}
         {{ states('weather.kwdr_daynight') }}
       {% else %}
-        Unknown
+        {{ states('weather.main_floor') }}
       {% endif %}
-    temperature_template: "{{ states.sensor.outside_temp.state|float }}"
+    temperature_template: "{{ states.sensor.outdoor_temp.state|float }}"
     temperature_unit: "°F"
     humidity_template: "{{ states.sensor.outdoor_humidity.state|float }}"
     forecast_template: >
       {% if has_value('weather.kwdr_daynight') %}
         {{ state_attr('weather.kwdr_daynight', 'forecast') }}
       {% else %}
-        Unknown
+        {{ state_attr('weather.main_floor','forecast') }}
       {% endif %}
-    pressure_template: "{{ states.sensor.office_pressure.state|float }}"
+    pressure_template: "{{ states.sensor.relative_pressure.state|float }}"
     pressure_unit: "hPa"
     wind_speed_template: "{{ states.sensor.wind_acurite_5n1_b.state|float }}"
     wind_speed_unit: "mph"

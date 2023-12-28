@@ -260,28 +260,55 @@ chips:
           entity_id: input_select.dryer_state
         data:
           option: Empty
-
   - type: conditional
     conditions:
-      - entity: binary_sensor.water_front_planter
-        state: "on"
+      - condition: numeric_state
+        entity: sensor.soil_moisture_1
+        below: 30
     chip:
       type: template
-      icon_color: white
-      content: Front Planter
       icon: mdi:watering-can-outline
+      content: Front Planter
+      entity: sensor.soil_moisture_1
       tap_action:
         action: navigate
         navigation_path: outside
   - type: conditional
     conditions:
-      - entity: binary_sensor.water_greenhouse
-        state: "on"
+      - condition: numeric_state
+        entity: sensor.soil_moisture_2
+        below: 25
     chip:
       type: template
-      icon_color: white
-      content: Greenhouse
       icon: mdi:watering-can-outline
+      content: Planter 1 (Herbs)
+      entity: sensor.soil_moisture_2
+      tap_action:
+        action: navigate
+        navigation_path: outside
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.soil_moisture_3
+        below: 25
+    chip:
+      type: template
+      entity: sensor.soil_moisture_3
+      icon: mdi:watering-can-outline
+      content: Pineapples
+      tap_action:
+        action: navigate
+        navigation_path: outside
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.soil_moisture_4
+        below: 25
+    chip:
+      type: template
+      entity: sensor.soil_moisture_4
+      icon: mdi:watering-can-outline
+      content: Planter 2 (Collards)
       tap_action:
         action: navigate
         navigation_path: outside
