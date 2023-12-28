@@ -225,7 +225,7 @@ chips:
     conditions:
       - condition: state
         entity: plant.front_planter
-        state: ok
+        state_not: ok
     chip:
       type: template
       icon: |-
@@ -244,7 +244,7 @@ chips:
     conditions:
       - condition: state
         entity: plant.planter_1
-        state: ok
+        state_not: ok
     chip:
       type: template
       icon:  |-
@@ -263,7 +263,7 @@ chips:
     conditions:
       - condition: state
         entity: plant.planter_2
-        state: ok
+        state_not: ok
     chip:
       type: template
       entity: plant.planter_2
@@ -282,7 +282,7 @@ chips:
     conditions:
       - condition: state
         entity: plant.pineapples
-        state: ok
+        state_not: ok
     chip:
       type: template
       entity: plant.pineapples
