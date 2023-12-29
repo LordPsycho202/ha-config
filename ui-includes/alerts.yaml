@@ -247,7 +247,7 @@ chips:
         state_not: ok
     chip:
       type: template
-      icon:  |-
+      icon: |-
         {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
         mdi:watering-can-outline
         {% else %}
