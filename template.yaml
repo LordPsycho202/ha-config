@@ -318,7 +318,6 @@ sensor:
         {% else %}
           {% set precip = 0 %}
         {% endif %}
-        {{ precip }}
         {% set sun = states.sun.sun.state %}
         {% if precip == 0 %}
           {% if sun == 'above_horizon' %} {{forecast}}🌞
