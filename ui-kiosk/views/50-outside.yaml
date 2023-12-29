@@ -142,7 +142,6 @@ cards:
           card_mod:
             class: button-lozenge
 
-
   - type: vertical-stack
     view_layout:
       grid-area: aux
@@ -219,7 +218,8 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-            }      
+            }
+
       - show_name: true
         show_icon: true
         type: button
