@@ -1,0 +1,267 @@
+---
+title: "Gardens"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:bee-flower
+path: garden
+cards:
+  - type: vertical-stack
+    cards:
+      - !include /config/ui-includes/alerts.yaml
+      - !include welcome.yaml
+  
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Indoor Greenhouse
+      - type: custom:mushroom-template-card
+        primary: Seed Trays
+        secondary: |-
+          {% if states('plant.seeds') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.seeds','problem') }}
+          {% endif %}
+        icon: |-
+          {% if state_attr('plant.seeds','problem') == 'moisture low' %}
+          mdi:watering-can-outline
+          {% elif state_attr('plant.seeds','problem') == 'moisture high' %}
+          mdi:water-alert
+          {% elif state_attr('plant.seeds','problem') == 'temperature low' %}
+          mdi:snowflake-thermometer
+          {% elif state_attr('plant.seeds','problem') == 'temperature high' %}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:sprouts-outline
+          {% endif %}
+        icon_color: |-
+          {% if state_attr('plant.seeds','problem') == 'moisture low' %}
+          brown
+          {% elif state_attr('plant.seeds','problem') == 'moisture high' %}
+          blue
+          {% elif state_attr('plant.seeds','problem') == 'temperature low' %}
+          cyan
+          {% elif state_attr('plant.seeds','problem') == 'temperature high' %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_moisture_5
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_5
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Pineapple Pots
+      - type: custom:mushroom-template-card
+        primary: Pineapples
+        secondary: |-
+          {% if states('plant.pineapples') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.pineapples','problem') }}
+          {% endif %}
+        icon: |-
+          {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
+          mdi:watering-can-outline
+          {% elif state_attr('plant.pineapples','problem') == 'moisture high' %}
+          mdi:water-alert
+          {% elif state_attr('plant.pineapples','problem') == 'temperature low' %}
+          mdi:snowflake-thermometer
+          {% elif state_attr('plant.pineapples','problem') == 'temperature high' %}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:fruit-pineapple
+          {% endif %}
+        icon_color: |-
+          {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
+          brown
+          {% elif state_attr('plant.pineapples','problem') == 'moisture high' %}
+          blue
+          {% elif state_attr('plant.pineapples','problem') == 'temperature low' %}
+          cyan
+          {% elif state_attr('plant.pineapples','problem') == 'temperature high' %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_moisture_3
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_3
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Front Planter
+      - type: custom:mushroom-template-card
+        primary: Flowers
+        secondary: |-
+          {% if states('plant.front_planter') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.front_planter','problem') }}
+          {% endif %}
+        icon: |-
+          {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
+          mdi:watering-can-outline
+          {% elif state_attr('plant.front_planter','problem') == 'moisture high' %}
+          mdi:water-alert
+          {% elif state_attr('plant.front_planter','problem') == 'temperature low' %}
+          mdi:snowflake-thermometer
+          {% elif state_attr('plant.front_planter','problem') == 'temperature high' %}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:flower
+          {% endif %}
+        icon_color: |-
+          {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
+          brown
+          {% elif state_attr('plant.front_planter','problem') == 'moisture high' %}
+          blue
+          {% elif state_attr('plant.front_planter','problem') == 'temperature low' %}
+          cyan
+          {% elif state_attr('plant.front_planter','problem') == 'temperature high' %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_moisture_1
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_1
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Planter 1 (Herbs)
+      - type: custom:mushroom-template-card
+        primary: Herbs
+        secondary: |-
+          {% if states('plant.planter_1') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.planter_1','problem') }}
+          {% endif %}
+        icon: |-
+          {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
+          mdi:watering-can-outline
+          {% elif state_attr('plant.planter_1','problem') == 'moisture high' %}
+          mdi:water-alert
+          {% elif state_attr('plant.planter_1','problem') == 'temperature low' %}
+          mdi:snowflake-thermometer
+          {% elif state_attr('plant.planter_1','problem') == 'temperature high' %}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:fruit-pineapple
+          {% endif %}
+        icon_color: |-
+          {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
+          brown
+          {% elif state_attr('plant.planter_1','problem') == 'moisture high' %}
+          blue
+          {% elif state_attr('plant.planter_1','problem') == 'temperature low' %}
+          cyan
+          {% elif state_attr('plant.planter_1','problem') == 'temperature high' %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_2
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_2
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.temp_nexus_th_a
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.temp_nexus_th_a
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Planter 2 (Collards)
+      - type: custom:mushroom-template-card
+        primary: Collards
+        secondary: |-
+          {% if states('plant.planter_2') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.planter_2','problem') }}
+          {% endif %}
+        icon: |-
+          {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
+          mdi:watering-can-outline
+          {% elif state_attr('plant.planter_2','problem') == 'moisture high' %}
+          mdi:water-alert
+          {% elif state_attr('plant.planter_2','problem') == 'temperature low' %}
+          mdi:snowflake-thermometer
+          {% elif state_attr('plant.planter_2','problem') == 'temperature high' %}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:fruit-pineapple
+          {% endif %}
+        icon_color: |-
+          {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
+          brown
+          {% elif state_attr('plant.planter_2','problem') == 'moisture high' %}
+          blue
+          {% elif state_attr('plant.planter_2','problem') == 'temperature low' %}
+          cyan
+          {% elif state_attr('plant.planter_2','problem') == 'temperature high' %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_4
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_4
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_temperature_1
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.soil_temperature_1
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24

@@ -9,23 +9,28 @@ variables:
     nav: "downstairs"
     icon: "mdi:stairs-down"
     name: Downstairs
-    color: "green"
+    color: "orange"
   entity_2:
     nav: "upstairs"
     icon: "mdi:stairs-up"
     name: Upstairs
     color: "red"
   entity_3:
+    nav: "garden"
+    icon: "mdi:bee-flower"
+    name: Gardens
+    color: "green"
+  entity_4:
     nav: "security"
     icon: "mdi:shield"
     name: "Security"
     color: "purple"
-  entity_4:
+  entity_5:
     nav: "weather"
     icon: "mdi:cloud"
     name: Weather
     color: "yellow"
-  entity_5:
+  entity_6:
     nav: "network"
     icon: "mdi:web"
     name: Net

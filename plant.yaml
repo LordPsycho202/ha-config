@@ -19,7 +19,10 @@ planter_2:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
   min_moisture: 25
+  min_temperature: 50
+  max_temperature: 90
 seeds:
   sensors:
     moisture: sensor.soil_moisture_5
   min_moisture: 25
+  max_moisture: 60
