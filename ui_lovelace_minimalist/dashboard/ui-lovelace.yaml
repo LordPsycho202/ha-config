@@ -21,6 +21,8 @@ views:
   - !include views/kids_room.yaml
   - !include views/craft_room.yaml
   - !include views/upmisc.yaml
+  # Garden
+  - !include views/garden.yaml
   # Security
   - !include views/security.yaml
   # Weather
