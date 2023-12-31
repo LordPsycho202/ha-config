@@ -20,7 +20,7 @@ cards:
           {% if states('plant.seeds') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.seeds','problem') }}
+          {{ state_attr('plant.seeds','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if state_attr('plant.seeds','problem') == 'moisture low' %}
@@ -32,7 +32,7 @@ cards:
           {% elif state_attr('plant.seeds','problem') == 'temperature high' %}
           mdi:sun-thermometer-outline
           {% else %}
-          mdi:sprouts-outline
+          mdi:sprout-outline
           {% endif %}
         icon_color: |-
           {% if state_attr('plant.seeds','problem') == 'moisture low' %}
@@ -67,7 +67,7 @@ cards:
           {% if states('plant.pineapples') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.pineapples','problem') }}
+          {{ state_attr('plant.pineapples','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
@@ -114,7 +114,7 @@ cards:
           {% if states('plant.front_planter') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.front_planter','problem') }}
+          {{ state_attr('plant.front_planter','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
@@ -161,7 +161,7 @@ cards:
           {% if states('plant.planter_1') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.planter_1','problem') }}
+          {{ state_attr('plant.planter_1','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
@@ -219,7 +219,7 @@ cards:
           {% if states('plant.planter_2') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.planter_2','problem') }}
+          {{ state_attr('plant.planter_2','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
@@ -231,7 +231,7 @@ cards:
           {% elif state_attr('plant.planter_2','problem') == 'temperature high' %}
           mdi:sun-thermometer-outline
           {% else %}
-          mdi:fruit-pineapple
+          mdi:sprout-outline
           {% endif %}
         icon_color: |-
           {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
@@ -261,7 +261,7 @@ cards:
             entity: sensor.soil_temperature_1
             variables:
               ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Temperature
+              ulm_card_graph_name: Soil Temperature
               ulm_card_graph_entity: sensor.soil_temperature_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
