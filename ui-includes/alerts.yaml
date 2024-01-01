@@ -292,7 +292,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.planter_2','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:leaf
         {% endif %}
       content: Planter 2 (Collards)
       tap_action:
