@@ -4,11 +4,13 @@ pineapples:
     moisture: sensor.soil_moisture_3
     battery: sensor.soil_moisture_3_batt
   min_moisture: 25
+  min_battery: 35
 front_planter:
   sensors:
     moisture: sensor.soil_moisture_1
     battery: sensor.soil_moisture_1_batt
   min_moisture: 30
+  min_battery: 35
 planter_1:
   sensors:
     moisture: sensor.soil_moisture_2
@@ -17,6 +19,7 @@ planter_1:
   min_moisture: 25
   min_temperature: 40
   max_temperature: 85
+  min_battery: 35
 planter_2:
   sensors:
     moisture: sensor.soil_moisture_4
@@ -25,9 +28,11 @@ planter_2:
   min_moisture: 25
   min_temperature: 50
   max_temperature: 90
+  min_battery: 35
 seeds:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
   min_moisture: 25
   max_moisture: 60
+  min_battery: 35
