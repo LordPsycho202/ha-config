@@ -49,24 +49,22 @@ cards:
           {% else %}
           green
           {% endif %}
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_5
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_5
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.plant_lights
-            variables:
-              ulm_card_light_name: Plant Light
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_light
+        entity: light.plant_lights
+        variables:
+          ulm_card_light_name: Plant Light
+          ulm_card_light_force_background_color: true
+          ulm_card_light_enable_collapse: true
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_moisture_5
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_5
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
