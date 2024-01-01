@@ -192,7 +192,7 @@ cards:
           {% elif state_attr('plant.planter_1','problem') == 'temperature high' %}
           mdi:sun-thermometer-outline
           {% else %}
-          mdi:fruit-pineapple
+          mdi:chili-mild-outline
           {% endif %}
         icon_color: |-
           {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
