@@ -16,6 +16,9 @@ cards:
         name: Indoor Greenhouse
       - type: custom:mushroom-template-card
         primary: Seed Trays
+        entity: plant.seeds
+        tap_action:
+          action: more-info
         secondary: |-
           {% if states('plant.seeds') == 'ok' %}
           We Good!
@@ -63,6 +66,9 @@ cards:
         name: Pineapple Pots
       - type: custom:mushroom-template-card
         primary: Pineapples
+        entity: plant.pineapples
+        tap_action:
+          action: more-info
         secondary: |-
           {% if states('plant.pineapples') == 'ok' %}
           We Good!
@@ -110,6 +116,9 @@ cards:
         name: Front Planter
       - type: custom:mushroom-template-card
         primary: Flowers
+        entity: plant.front_planter
+        tap_action:
+          action: more-info
         secondary: |-
           {% if states('plant.front_planter') == 'ok' %}
           We Good!
@@ -157,6 +166,9 @@ cards:
         name: Planter 1 (Herbs)
       - type: custom:mushroom-template-card
         primary: Herbs
+        entity: plant.planter_1
+        tap_action:
+          action: more-info
         secondary: |-
           {% if states('plant.planter_1') == 'ok' %}
           We Good!
@@ -214,6 +226,9 @@ cards:
         template: card_title
         name: Planter 2 (Collards)
       - type: custom:mushroom-template-card
+        entity: plant.planter_2
+        tap_action:
+          action: more-info
         primary: Collards
         secondary: |-
           {% if states('plant.planter_2') == 'ok' %}
