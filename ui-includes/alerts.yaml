@@ -228,6 +228,7 @@ chips:
         state_not: ok
     chip:
       type: template
+      icon_color: white
       icon: |-
         {% if 'moisture low' in state_attr('plant.front_planter','problem') %}
         mdi:watering-can-outline
@@ -253,6 +254,7 @@ chips:
         state_not: ok
     chip:
       type: template
+      icon_color: white
       icon: |-
         {% if 'moisture low' in state_attr('plant.planter_1','problem') %}
         mdi:watering-can-outline
@@ -279,6 +281,7 @@ chips:
     chip:
       type: template
       entity: plant.planter_2
+      icon_color: white
       icon: |-
         {% if 'moisture low' in state_attr('plant.planter_2','problem') %}
         mdi:watering-can-outline
@@ -329,6 +332,7 @@ chips:
     chip:
       type: template
       entity: plant.seeds
+      icon_color: white
       icon: |-
         {% if 'moisture low' in state_attr('plant.seeds','problem') %}
         mdi:watering-can-outline

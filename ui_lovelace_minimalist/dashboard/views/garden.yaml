@@ -133,7 +133,7 @@ cards:
           {{ state_attr('plant.front_planter','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low'in state_attr('plant.front_planter','problem')} %}
+          {% if 'moisture low'in state_attr('plant.front_planter','problem') %}
           mdi:watering-can-outline
           {% elif 'moisture high' in state_attr('plant.front_planter','problem') %}
           mdi:water-alert
