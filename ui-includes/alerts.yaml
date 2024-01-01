@@ -229,13 +229,13 @@ chips:
     chip:
       type: template
       icon: |-
-        {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
+        {% if 'moisture low' in state_attr('plant.front_planter','problem') %}
         mdi:watering-can-outline
-        {% elif state_attr('plant.front_planter','problem') == 'moisture high' %}
+        {% elif 'moisture high' in state_attr('plant.front_planter','problem') %}
         mdi:water-alert
-        {% elif state_attr('plant.front_planter','problem') == 'temperature low' %}
+        {% elif 'temperature low' in state_attr('plant.front_planter','problem') %}
         mdi:snowflake-thermometer
-        {% elif state_attr('plant.front_planter','problem') == 'temperature high' %}
+        {% elif 'temperature high' in state_attr('plant.front_planter','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
@@ -254,16 +254,16 @@ chips:
     chip:
       type: template
       icon: |-
-        {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
+        {% if 'moisture low' in state_attr('plant.planter_1','problem') %}
         mdi:watering-can-outline
-        {% elif state_attr('plant.planter_1','problem') == 'moisture high' %}
+        {% elif 'moisture high' in state_attr('plant.planter_1','problem') %}
         mdi:water-alert
-        {% elif state_attr('plant.planter_1','problem') == 'temperature low' %}
+        {% elif 'temperature low' in state_attr('plant.planter_1','problem') %}
         mdi:snowflake-thermometer
-        {% elif state_attr('plant.planter_1','problem') == 'temperature high' %}
+        {% elif 'temperature high' in state_attr('plant.planter_1','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:chili-mild-outline
+        mdi:sprout-outline
         {% endif %}
       content: Planter 1 (Herbs)
       entity: plant.planter_1
@@ -280,13 +280,13 @@ chips:
       type: template
       entity: plant.planter_2
       icon: |-
-        {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
+        {% if 'moisture low' in state_attr('plant.planter_2','problem') %}
         mdi:watering-can-outline
-        {% elif state_attr('plant.planter_2','problem') == 'moisture high' %}
+        {% elif 'moisture high' in state_attr('plant.planter_2','problem') %}
         mdi:water-alert
-        {% elif state_attr('plant.planter_2','problem') == 'temperature low' %}
+        {% elif 'temperature low' in state_attr('plant.planter_2','problem') %}
         mdi:snowflake-thermometer
-        {% elif state_attr('plant.planter_2','problem') == 'temperature high' %}
+        {% elif 'temperature high' in state_attr('plant.planter_2','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
@@ -305,13 +305,13 @@ chips:
       type: template
       entity: plant.pineapples
       icon: |-
-        {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
+        {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
         mdi:watering-can-outline
-        {% elif state_attr('plant.pineapples','problem') == 'moisture high' %}
+        {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
         mdi:water-alert
-        {% elif state_attr('plant.pineapples','problem') == 'temperature low' %}
+        {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
         mdi:snowflake-thermometer
-        {% elif state_attr('plant.pineapples','problem') == 'temperature high' %}
+        {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
@@ -330,13 +330,13 @@ chips:
       type: template
       entity: plant.seeds
       icon: |-
-        {% if state_attr('plant.seeds','problem') == 'moisture low' %}
+        {% if 'moisture low' in state_attr('plant.seeds','problem') %}
         mdi:watering-can-outline
-        {% elif state_attr('plant.seeds','problem') == 'moisture high' %}
+        {% elif 'moisture high' in state_attr('plant.seeds','problem') %}
         mdi:water-alert
-        {% elif state_attr('plant.seeds','problem') == 'temperature low' %}
+        {% elif 'temperature low' in state_attr('plant.seeds','problem') %}
         mdi:snowflake-thermometer
-        {% elif state_attr('plant.seeds','problem') == 'temperature high' %}
+        {% elif 'temperature high' in state_attr('plant.seeds','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
