@@ -231,14 +231,20 @@ chips:
       icon: |-
         {% if state_attr('plant.front_planter','problem') == 'moisture low' %}
         mdi:watering-can-outline
+        {% elif state_attr('plant.front_planter','problem') == 'moisture high' %}
+        mdi:water-alert
+        {% elif state_attr('plant.front_planter','problem') == 'temperature low' %}
+        mdi:snowflake-thermometer
+        {% elif state_attr('plant.front_planter','problem') == 'temperature high' %}
+        mdi:sun-thermometer-outline
         {% else %}
-        mdi:flower-outline
+        mdi:sprout-outline
         {% endif %}
       content: Front Planter
       entity: plant.front_planter
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -250,14 +256,20 @@ chips:
       icon: |-
         {% if state_attr('plant.planter_1','problem') == 'moisture low' %}
         mdi:watering-can-outline
+        {% elif state_attr('plant.planter_1','problem') == 'moisture high' %}
+        mdi:water-alert
+        {% elif state_attr('plant.planter_1','problem') == 'temperature low' %}
+        mdi:snowflake-thermometer
+        {% elif state_attr('plant.planter_1','problem') == 'temperature high' %}
+        mdi:sun-thermometer-outline
         {% else %}
-        mdi:chili-mild-outline
+        mdi:sprout-outline
         {% endif %}
       content: Planter 1 (Herbs)
       entity: plant.planter_1
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -270,13 +282,19 @@ chips:
       icon: |-
         {% if state_attr('plant.planter_2','problem') == 'moisture low' %}
         mdi:watering-can-outline
+        {% elif state_attr('plant.planter_2','problem') == 'moisture high' %}
+        mdi:water-alert
+        {% elif state_attr('plant.planter_2','problem') == 'temperature low' %}
+        mdi:snowflake-thermometer
+        {% elif state_attr('plant.planter_2','problem') == 'temperature high' %}
+        mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
         {% endif %}
       content: Planter 2 (Collards)
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -289,13 +307,19 @@ chips:
       icon: |-
         {% if state_attr('plant.pineapples','problem') == 'moisture low' %}
         mdi:watering-can-outline
+        {% elif state_attr('plant.pineapples','problem') == 'moisture high' %}
+        mdi:water-alert
+        {% elif state_attr('plant.pineapples','problem') == 'temperature low' %}
+        mdi:snowflake-thermometer
+        {% elif state_attr('plant.pineapples','problem') == 'temperature high' %}
+        mdi:sun-thermometer-outline
         {% else %}
-        mdi:fruit-pineapple
+        mdi:sprout-outline
         {% endif %}
       content: Pineapple Pots
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -308,13 +332,19 @@ chips:
       icon: |-
         {% if state_attr('plant.seeds','problem') == 'moisture low' %}
         mdi:watering-can-outline
+        {% elif state_attr('plant.seeds','problem') == 'moisture high' %}
+        mdi:water-alert
+        {% elif state_attr('plant.seeds','problem') == 'temperature low' %}
+        mdi:snowflake-thermometer
+        {% elif state_attr('plant.seeds','problem') == 'temperature high' %}
+        mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
         {% endif %}
       content: Seed Trays
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
