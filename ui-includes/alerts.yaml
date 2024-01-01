@@ -244,7 +244,7 @@ chips:
       entity: plant.front_planter
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -269,7 +269,7 @@ chips:
       entity: plant.planter_1
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -294,7 +294,7 @@ chips:
       content: Planter 2 (Collards)
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -319,7 +319,7 @@ chips:
       content: Pineapple Pots
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
@@ -344,7 +344,7 @@ chips:
       content: Seed Trays
       tap_action:
         action: navigate
-        navigation_path: outside
+        navigation_path: garden
 
   - type: conditional
     conditions:
