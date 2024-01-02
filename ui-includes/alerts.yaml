@@ -223,9 +223,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.front_planter
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.front_planter
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       icon_color: white
@@ -249,9 +254,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.planter_1
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.planter_1
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       icon_color: white
@@ -275,9 +285,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.planter_2
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.planter_2
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       entity: plant.planter_2
