@@ -8,7 +8,7 @@ cards:
     cards:
       - !include /config/ui-includes/alerts.yaml
       - !include welcome.yaml
-  
+
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
