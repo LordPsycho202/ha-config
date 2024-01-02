@@ -1,31 +1,32 @@
 ---
 type: picture-elements
 image: /local/images/floorplan/Ground-Floor/base.png
-style: |
-  ha-card {
-    background: #1C1C1C;
-    mix-blend-mode: screen;
-  }
-  config-template-card {
-    position: absolute;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    transform: translate(0,0) !important;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  hui-image-element {
-    position: absolute;
-    pointer-events: none;
-    mix-blend-mode: screen;
-    transform: translate(0,0) !important;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
+card_mod:
+  style: |
+    ha-card {
+      background: #1C1C1C;
+      mix-blend-mode: screen;
+    }
+    config-template-card {
+      position: absolute;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      transform: translate(0,0) !important;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+    hui-image-element {
+      position: absolute;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      transform: translate(0,0) !important;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
 elements:
   - type: custom:config-template-card
     variables:
