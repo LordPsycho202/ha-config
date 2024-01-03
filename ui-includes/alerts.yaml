@@ -71,6 +71,9 @@ chips:
         Days Without Rain: {{ states.counter.days_without_rain.state }}
       icon: "{{ states.counter.days_without_rain.attributes.icon }}"
       entity: counter.days_without_rain
+      tap_action:
+        action: navigate
+        navigation_path: weather
 
   - type: conditional
     conditions:
@@ -83,6 +86,9 @@ chips:
         Wind Chill:
         {{states.sensor.wind_chill.state}}{{states.sensor.wind_chill.attributes.unit_of_measurement}}
       icon: "{{ states.sensor.wind_chill.attributes.icon }}"
+      tap_action:
+        action: navigate
+        navigation_path: weather
 
   - type: conditional
     conditions:
@@ -105,6 +111,9 @@ chips:
       type: template
       content: Snowing
       icon: mdi:weather-snowy
+      tap_action:
+        action: navigate
+        navigation_path: weather
 
   - type: conditional
     conditions:
