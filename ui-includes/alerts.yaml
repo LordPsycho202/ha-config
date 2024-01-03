@@ -61,14 +61,16 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: binary_sensor.drought_card
-        state: "on"
+      - condition: numeric_state
+        entity: counter.days_without_rain
+        above: 6
     chip:
       type: template
       icon_color: white
       content: >-
         Days Without Rain: {{ states.counter.days_without_rain.state }}
       icon: "{{ states.counter.days_without_rain.attributes.icon }}"
+      entity: counter.days_without_rain
 
   - type: conditional
     conditions:
