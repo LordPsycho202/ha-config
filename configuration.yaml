@@ -135,13 +135,6 @@ sensor:
   - platform: time_date
     display_options: "date"
 
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /
-      - type: memory_use_percent
-      - type: processor_use
-
   - platform: snmp
     host: 192.168.1.143
     name: Unifi Main Switch Uptime

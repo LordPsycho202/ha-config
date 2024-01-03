@@ -4,7 +4,7 @@ template: "card_esh_welcome"
 triggers_update: "input_boolean.minimalist_dropdown"
 variables:
   ulm_card_esh_welcome_collapse: input_boolean.minimalist_dropdown
-  ulm_weather: "weather.kwdr_daynight"
+  ulm_weather: "weather.weather_station"
   entity_1:
     nav: "downstairs"
     icon: "mdi:stairs-down"
@@ -30,8 +30,4 @@ variables:
     icon: "mdi:cloud"
     name: Weather
     color: "yellow"
-  entity_6:
-    nav: "network"
-    icon: "mdi:web"
-    name: Net
-    color: "blue"
+
