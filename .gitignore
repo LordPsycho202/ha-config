@@ -11,7 +11,7 @@ transporter.py
 
 # ignore some directories.
 icloud/
-
+/zha_updates/
 /tts/
 /deps/
 /esphome/
