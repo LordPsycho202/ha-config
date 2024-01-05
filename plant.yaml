@@ -14,7 +14,7 @@ front_planter:
 planter_1:
   sensors:
     moisture: sensor.soil_moisture_2
-    temperature: sensor.temp_nexus_th_a
+    temperature: sensor.temp_nexus_th
     battery: sensor.soil_moisture_2_batt
   min_moisture: 25
   min_temperature: 40

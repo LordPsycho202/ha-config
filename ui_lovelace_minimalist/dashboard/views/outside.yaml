@@ -159,21 +159,21 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            entity: sensor.temp_nexus_th_a
+            entity: sensor.temp_nexus_th_125
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_a
+              ulm_card_graph_entity: sensor.temp_nexus_th
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
-            entity: sensor.humidity_nexus_th_a
+            entity: sensor.humidity_nexus_th_125
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.humidity_nexus_th_a
+              ulm_card_graph_entity: sensor.humidity_nexus_th
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
@@ -205,21 +205,21 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            entity: sensor.temp_nexus_th_b
+            entity: sensor.temp_nexus_th_61
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_b
+              ulm_card_graph_entity: sensor.temp_nexus_th_2
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
-            entity: sensor.humidity_nexus_th_b
+            entity: sensor.humidity_nexus_th_61
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.humidity_nexus_th_b
+              ulm_card_graph_entity: sensor.humidity_nexus_th_2
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 

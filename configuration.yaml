@@ -86,6 +86,9 @@ mqtt: !include mqtt.yaml
 #### Plant Sensors #############################################
 plant: !include plant.yaml
 
+#### ZHA Sensors #############################################
+zha: !include zha.yaml
+
 #### Filter Sensors #############################################
 # filter: !include filter.yaml
 
@@ -181,6 +184,6 @@ weather:
       {% endif %}
     pressure_template: "{{ states.sensor.relative_pressure.state|float }}"
     pressure_unit: "hPa"
-    wind_speed_template: "{{ states.sensor.wind_acurite_5n1_b.state|float }}"
+    wind_speed_template: "{{ states.sensor.wind_acurite_5n1.state|float }}"
     wind_speed_unit: "mph"
-    wind_bearing_template: "{{ states.sensor.wind_dir_acurite_5n1_b.state }}"
+    wind_bearing_template: "{{ states.sensor.wind_dir_acurite_5n1.state }}"

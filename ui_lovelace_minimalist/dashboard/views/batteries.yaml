@@ -84,35 +84,35 @@ cards:
         variables:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: "Backyard"
-        entity: binary_sensor.batt_acurite_5n1_b
+        entity: binary_sensor.batt_acurite_5n1
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: Greenhouse 1
-        entity: binary_sensor.batt_nexus_th_a
+        entity: binary_sensor.batt_nexus_th
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: Greenhouse 2
-        entity: binary_sensor.batt_nexus_th_b
+        entity: binary_sensor.batt_nexus_th_2
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: Garage
-        entity: binary_sensor.batt_acurite_6045m_a
+        entity: binary_sensor.batt_acurite_6045m
 
       - type: "custom:button-card"
         template: card_binary_sensor_alert
         variables:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_alert_name: Rack
-        entity: binary_sensor.batt_acurite_606tx_a
+        entity: binary_sensor.batt_acurite_606tx
 
   - type: vertical-stack
     cards:
