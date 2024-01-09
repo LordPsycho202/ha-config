@@ -81,7 +81,7 @@ cards:
           ulm_custom_card_rnissen_weather: weather.weather_station
           ulm_custom_card_rnissen_weather_entity_1: sensor.rain_daily
           ulm_custom_card_rnissen_weather_entity_2: sensor.outdoor_humidity
-          ulm_custom_card_rnissen_weather_entity_3: sensor.wind_acurite_5n1_b
+          ulm_custom_card_rnissen_weather_entity_3: sensor.wind_acurite_5n1
           ulm_custom_card_rnissen_weather_entity_4: sensor.relative_pressure
           ulm_custom_card_rnissen_weather_name_1: Rain
           ulm_custom_card_rnissen_weather_name_2: Humidity
@@ -115,12 +115,12 @@ cards:
         windspeed_bar_location: right
         windspeed_bar_full: false
         wind_direction_entity:
-          entity: sensor.wind_dir_acurite_5n1_b
+          entity: sensor.wind_dir_acurite_5n1
           direction_unit: degrees
           use_statistics: false
           direction_compensation: 0
         windspeed_entities:
-          - entity: sensor.wind_acurite_5n1_b
+          - entity: sensor.wind_acurite_5n1
             name: Wind Speed
             speed_unit: auto
             use_statistics: false
