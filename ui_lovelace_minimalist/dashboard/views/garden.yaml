@@ -219,7 +219,7 @@ cards:
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.temp_nexus_th_a
+            entity: sensor.temp_nexus_th
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Temperature
