@@ -17,6 +17,7 @@ cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/menu.yaml
+  - !include ../includes/footer.yaml
 
   - type: vertical-stack
     cards:
@@ -125,7 +126,7 @@ cards:
       grid-area: sidebar
     card_mod:
       class: middle
-  - !include ../includes/footer.yaml
+
   - type: vertical-stack
     cards:
       - type: markdown
