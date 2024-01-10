@@ -89,39 +89,9 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: sensor.netshare_free
-        name: "Data Modules Available"
-        icon: mdi:database
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.netshare_healthy
-        name: "Data Module Health"
-        icon: mdi:door
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
         entity: sensor.uptimekuma_dns
         name: "DNS Health"
-        icon: mdi:door
+        icon: mdi:crosshairs
         show_state: true
         card_mod:
           class: button-bullet
@@ -136,7 +106,7 @@ cards:
           action: toggle
         entity: sensor.uptimekuma_hestia_https
         name: "Home Automation Health"
-        icon: mdi:door
+        icon: mdi:home-automation
         show_state: true
         card_mod:
           class: button-bullet
@@ -151,7 +121,7 @@ cards:
           action: toggle
         entity: sensor.uptimekuma_k3s_api
         name: "Orchestration Health"
-        icon: mdi:door
+        icon: mdi:server-outline
         show_state: true
         card_mod:
           class: button-bullet
@@ -159,7 +129,36 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.uptimekuma_truenas_https
+        name: "Storage Health"
+        icon: mdi:nas
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.netshare_free
+        name: "Storage Available"
+        icon: mdi:database
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
 
   - type: vertical-stack
     view_layout:
@@ -489,7 +488,31 @@ cards:
             entity: sensor.rpi_temp_k3s_3
             tap_action:
               action: more-info
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            icon: mdi:server-network
+            icon_color: >-
+              {% if states.sensor.temperature.state | int < 60 %}
+                green
+              {% elif states.sensor.temperature.state | int >= 60 and
+              states.sensor.temperature.state | int < 80 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
+            multiline_secondary: true
+            primary: TrueNAS
+            layout: horizontal
+            secondary: >-
+              Dell r510 64GB
 
+              CPU: {{ states.sensor.cpu_usage.state }}% • RAM: {{
+              states.sensor.memory_usage.state }}%
+            entity: update.update
+            tap_action:
+              action: more-info
+            fill_container: true
       - type: markdown
         content: '# Subspace Uplink'
         card_mod:
@@ -507,6 +530,7 @@ cards:
           - entity: sensor.speedtest_upload
           - entity: sensor.speedtest_ping
           - entity: binary_sensor.internet_connection
+            name: ISP Uplink
         columns: 4
         card_mod:
           class: middle-blank
@@ -515,7 +539,7 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: "# Work Conditions"
+        content: "# Emergency Power"
         card_mod:
           class: bar
           style: |
@@ -529,7 +553,7 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: sensor.office_temperature
+            entity: sensor.ups01_battery_charge
             show_state: true
             card_mod:
               class: button-lozenge
@@ -542,8 +566,7 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: sensor.temp_acurite_606tx
-            name: "Rack Temperature"
+            entity: sensor.ups01_load
             show_state: true
             card_mod:
               class: button-lozenge
