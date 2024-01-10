@@ -104,7 +104,7 @@ cards:
           action: none
         name: Lightning
         show_state: true
-        entity: sensor.lightning_acurite_6045m_a
+        entity: sensor.lightning_acurite_6045m
         card_mod:
           class: button-bullet
           style: |
@@ -114,7 +114,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        entity: sensor.wind_acurite_5n1_b
+        entity: sensor.wind_acurite_5n1
         icon: ''
         show_state: true
         name: Wind Speed
@@ -127,7 +127,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        entity: sensor.outside_temp
+        entity: sensor.outdoor_temp
         icon: ''
         show_state: true
         name: Exterior Temp
