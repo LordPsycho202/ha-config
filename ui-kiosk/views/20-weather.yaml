@@ -5,7 +5,7 @@ type: custom:grid-layout
 icon: "mdi:cloud"
 layout:
   grid-template-columns: 22% 41% 37%
-  grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+  grid-template-rows: 15% 75% 10%
   grid-template-areas: |
     "headerL headerR headerR"
     "menu main aux"
@@ -71,7 +71,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        entity: sensor.wind_acurite_5n1_b
+        entity: sensor.wind_acurite_5n1
         show_state: true
         name: Exterior Winds
         card_mod:
@@ -115,7 +115,7 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: sensor.lightning_acurite_6045m_a
+        entity: sensor.lightning_acurite_6045m
         show_state: true
         name: Lightning
         card_mod:
@@ -203,12 +203,12 @@ cards:
                 windspeed_bar_location: right
                 windspeed_bar_full: false
                 wind_direction_entity:
-                  entity: sensor.wind_dir_acurite_5n1_b
+                  entity: sensor.wind_dir_acurite_5n1
                   direction_unit: degrees
                   use_statistics: false
                   direction_compensation: 0
                 windspeed_entities:
-                  - entity: sensor.wind_acurite_5n1_b
+                  - entity: sensor.wind_acurite_5n1
                     name: Windspeed
                     speed_unit: auto
                     use_statistics: false
