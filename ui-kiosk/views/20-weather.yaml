@@ -170,7 +170,7 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: "# Worker Bees"
+        content: "# Work Conditions"
         card_mod:
           class: bar
           style: |
