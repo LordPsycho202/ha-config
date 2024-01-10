@@ -9,6 +9,7 @@ layout:
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
+    "menu main aux"
     "sidebar main aux"
     "footer footer footer"
 type: custom:grid-layout
