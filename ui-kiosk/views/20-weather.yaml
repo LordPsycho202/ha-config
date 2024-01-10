@@ -155,11 +155,6 @@ cards:
         frame_delay: 1000
         restart_delay: 5000
         extra_labels: true
-        card_mod:
-          style: |
-            ha-card {
-              height: 75%
-            }
     view_layout:
       grid-area: main
   - type: vertical-stack
