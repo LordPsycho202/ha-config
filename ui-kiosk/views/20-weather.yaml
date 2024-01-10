@@ -158,7 +158,7 @@ cards:
         card_mod:
           style: |
             ha-card {
-              width: 400px
+              width: 50%
             }
     view_layout:
       grid-area: main
