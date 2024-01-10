@@ -77,7 +77,7 @@ cards:
         tap_action:
           action: toggle
         entity: binary_sensor.aarlo_motion_driveway
-        name: "Motion Sensor: Shuttle Bay Approach"
+        name: "Motion Sensor: Shuttle Bay Door"
         icon: mdi:garage
         show_state: true
         card_mod:
@@ -108,7 +108,7 @@ cards:
         tap_action:
           action: toggle
         entity: binary_sensor.aarlo_motion_doorbell
-        name: "Motion Sensor: Front Airlock"
+        name: "Motion Sensor: Forward Airlock"
         icon: mdi:door
         show_state: true
         card_mod:
@@ -195,6 +195,30 @@ cards:
                 image_bottom: motion,sound,signal|library,snapshot
                 image_click: stream
                 library_sizes: 3,4,2
+          - type: markdown
+            content: "# Utility Usage"
+            card_mod:
+              class: bar
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: false
+            show_state: true
+            type: glance
+            entities:
+              - entity: input_select.mail_status
+              - entity: input_boolean.guest_mode
+              - entity: input_boolean.vacation_mode
+              - entity: sensor.nws_alerts
+            columns: 4
+            card_mod:
+              class: middle-blank
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
 
           - type: markdown
             content: "# Hold to activate"
@@ -222,7 +246,7 @@ cards:
                   data: {}
                 icon: mdi:light-flood-down
                 card_mod:
-                  class: button-bullet
+                  class: button-lozenge
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -236,7 +260,7 @@ cards:
                 hold_action:
                   action: toggle
                 card_mod:
-                  class: button-bullet
+                  class: button-lozenge
                   style: |
                     ha-card > * {
                       font-family: Antonio
