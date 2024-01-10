@@ -37,25 +37,6 @@ cards:
           action: none
         hold_action:
           action: none
-      - type: markdown
-        content: '# Power Usage'
-        card_mod:
-          class: bar
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: custom:mini-graph-card
-        entities:
-          - entity: sensor.ups01_current_real_power
-            color: var(--lcars-card-top-color)
-        name: Computer Core Power Usage
-        card_mod:
-          class: middle-blank
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
 
   - type: vertical-stack
     view_layout:
