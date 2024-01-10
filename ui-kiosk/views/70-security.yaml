@@ -168,42 +168,6 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: "# Noise Detection"
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_sound_driveway
-        name: Shuttle Bay Approach
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: binary_sensor.aarlo_sound_back_door
-        name: Aft Airlock
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
         content: "# Locks"
         card_mod:
           class: middle

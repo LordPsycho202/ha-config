@@ -121,21 +121,6 @@ cards:
             ha-card > * {
               font-family: Antonio
 
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: input_boolean.guest_mode
-        name: Guest Mode
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-
     view_layout:
       grid-area: sidebar
     card_mod:
