@@ -136,7 +136,7 @@ cards:
             }
       - type: custom:weather-radar-card
         card_title: Radar
-        data_source: RainViewer-Original
+        data_source: RainViewer-NEXRAD
         map_style: Voyager
         zoom_level: 8
         center_latitude: 34.0720728
@@ -149,7 +149,7 @@ cards:
         show_range: true
         show_playback: true
         show_zoom: true
-        square_map: true
+        square_map: false
         show_recenter: true
         frame_count: 5
         frame_delay: 1000
