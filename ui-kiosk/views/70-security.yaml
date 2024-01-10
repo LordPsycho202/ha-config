@@ -196,7 +196,7 @@ cards:
                 image_click: stream
                 library_sizes: 3,4,2
           - type: markdown
-            content: "# Utility Usage"
+            content: "# Information"
             card_mod:
               class: bar
               style: |
