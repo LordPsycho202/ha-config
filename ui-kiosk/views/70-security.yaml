@@ -6,7 +6,7 @@ theme: LCARS Red Alert
 subview: true
 back_path: /ui-kiosk/home
 layout:
-  grid-template-columns: 403px 1103px 384px
+  grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
