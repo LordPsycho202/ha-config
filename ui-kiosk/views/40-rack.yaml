@@ -4,7 +4,7 @@ icon: "mdi:server"
 theme: LCARS Modern
 type: custom:grid-layout
 layout:
-  grid-template-columns: 22% 63% 15%
+  grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
@@ -38,70 +38,32 @@ cards:
         hold_action:
           action: none
       - type: markdown
-        content: '# NAS Storage'
+        content: '# Power Usage'
         card_mod:
-          class: bar-right
+          class: bar
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:mushroom-template-card
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.ups01_current_real_power
+            color: var(--lcars-card-top-color)
+        name: Computer Core Power Usage
         card_mod:
-          class: button-large
-        primary: >-
-          {{ 100-(states('sensor.netshare_free')|float /
-          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round}}% • {{
-          states('sensor.netshare_free') | string }}
-          {{state_attr('sensor.netshare_free','unit_of_measurement') }} Free • {% if
-          states.binary_sensor.netshare_healthy.state == "on" %} Healthy {% else %}
-          Unhealthy {% endif %}
-        secondary: Network Share
-        icon: mdi:folder-network-outline
-        icon_color: >-
-          {% if states.binary_sensor.netshare_healthy.state == "off" %}
-          red
-          {% elif 100-(states('sensor.netshare_free')|float /
-          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round > 85 %}
-          red
-          {% elif 100-(states('sensor.netshare_free')|float /
-          (state_attr('sensor.netshare_free','Total GiB')|float)*100)|round > 70 %}
-          yellow
-          {% else %}
-          green
-          {% endif %}
-      - type: custom:mushroom-template-card
-        card_mod:
-          class: button-large
-        primary: >-
-           {% if states.binary_sensor.gitlab.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
-        secondary: Gitlab
-        icon: mdi:server-network
-        icon_color: >-
-          {% if states.binary_sensor.gitlab.state == "off" %}
-          red
-          {% else %}
-          green
-          {% endif %}
-      - type: custom:mushroom-template-card
-        card_mod:
-          class: button-large
-        primary: >-
-           {% if states.binary_sensor.plexserver.state == "on" %} Healthy {% else %} Unhealthy {% endif %}
-        secondary: Plex
-        icon: mdi:server-network
-        icon_color: >-
-          {% if states.binary_sensor.plexserver.state == "off" %}
-          red
-          {% else %}
-          green
-          {% endif %}
+          class: middle-blank
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
-      place-self: start stretch
     cards:
+ 
       - type: markdown
-        content: '# Relays'
+        content: "# Computer Bank"
         card_mod:
           class: middle
           style: |
@@ -112,12 +74,10 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: more-info
+          action: toggle
+        entity: sensor.temp_acurite_606tx
+        name: "Computer Core Temp"
         show_state: true
-        hold_action:
-          action: none
-        entity: sensor.unifi_main_switch_uptime
-        icon: mdi:lan
         card_mod:
           class: button-bullet
           style: |
@@ -128,34 +88,11 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: more-info
+          action: toggle
+        entity: sensor.netshare_free
+        name: "Data Modules Available"
+        icon: mdi:database
         show_state: true
-        hold_action:
-          action: none
-        entity: sensor.unifi_router_uptime
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: '# Emergency Power'
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: more-info
-        show_state: true
-        hold_action:
-          action: none
-        entity: sensor.ups01_battery_charge
         card_mod:
           class: button-bullet
           style: |
@@ -166,35 +103,11 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: more-info
+          action: toggle
+        entity: binary_sensor.netshare_healthy
+        name: "Data Module Health"
+        icon: mdi:door
         show_state: true
-        hold_action:
-          action: none
-        entity: sensor.ups01_load
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: '# Core Temps'
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: more-info
-        show_state: true
-        name: Rack Temperature
-        hold_action:
-          action: none
-        entity: sensor.temp_acurite_606tx_a
         card_mod:
           class: button-bullet
           style: |
@@ -205,17 +118,49 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: more-info
+          action: toggle
+        entity: sensor.uptimekuma_dns
+        name: "DNS Health"
+        icon: mdi:door
         show_state: true
-        hold_action:
-          action: none
-        entity: sensor.office_temperature
         card_mod:
           class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
             }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.uptimekuma_hestia_https
+        name: "Home Automation Health"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.uptimekuma_k3s_api
+        name: "Orchestration Health"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+
   - type: vertical-stack
     view_layout:
       grid-area: main
@@ -450,7 +395,7 @@ cards:
               /
               states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|float
               )  * 100) %}
-              
+
               RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
 
               CPU: {{ states.sensor.rpi_k3s_1_folden_nissen_com_rpi_cpu_use_k3s_1.state }}%
@@ -553,95 +498,58 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            primary: >-
-              {{states.sensor.speedtest_download.state | float}}
-              {{state_attr('sensor.speedtest_download','unit_of_measurement')}}
-            secondary: Download Speed
-            icon: mdi:arrow-down
-            icon_color: |-
-              {% if states.sensor.speedtest_download.state | float < 100 %}
-                red
-              {% else %}
-                green
-              {% endif %}
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            primary: >-
-              {{states.sensor.speedtest_upload.state | float}}
-              {{state_attr('sensor.speedtest_upload','unit_of_measurement')}}
-            secondary: Upload Speed
-            icon: mdi:arrow-up
-            icon_color: |-
-              {% if states.sensor.speedtest_upload.state | float < 15 %}
-                red
-              {% else %}
-                green
-              {% endif %}
-      - type: horizontal-stack
-        cards:
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            primary: >-
-              {% if states.binary_sensor.internet_connection.state == 'on'
-              %}
-                Internet Connection: Up
-              {% else %}
-                Internet Connection: Down
-              {% endif %}
-            secondary: >-
-              Uptime: {{ relative_time(now() - timedelta( seconds =
-              state_attr('sensor.unifi_gateway_www', 'uptime') | int))  }}
-            icon: >-
-              {% if states.binary_sensor.internet_connection.state == 'on'
-              %}
-                mdi:network
-              {% else %}
-                mdi:network-off
-              {% endif %}
-            icon_color: >-
-              {% if states.binary_sensor.internet_connection.state == 'on'
-              %}
-                green
-              {% else %}
-                red
-              {% endif %}
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            primary: >-
-              {{states.sensor.speedtest_ping.state | float}}
-              {{state_attr('sensor.speedtest_ping','unit_of_measurement')}}
-            secondary: Ping
-            icon: mdi:lan-pending
-            icon_color: |-
-              {% if states.sensor.speedtest_ping.state | float > 50 %}
-                red
-              {% else %}
-                green
-              {% endif %}
-      - type: markdown
-        content: '# Computer Core Power Usage'
-        card_mod:
-          class: bar
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: custom:mini-graph-card
+      - show_name: true
+        show_icon: false
+        show_state: true
+        type: glance
         entities:
-          - entity: sensor.ups01_current_real_power
-            color: var(--lcars-card-top-color)
-        name: Computer Core Power Usage
+          - entity: sensor.speedtest_download
+          - entity: sensor.speedtest_upload
+          - entity: sensor.speedtest_ping
+          - entity: binary_sensor.internet_connection
+        columns: 4
         card_mod:
           class: middle-blank
           style: |
             ha-card > * {
               font-family: Antonio
             }
+      - type: markdown
+        content: "# Work Conditions"
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.office_temperature
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.temp_acurite_606tx
+            name: "Rack Temperature"
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+
+
