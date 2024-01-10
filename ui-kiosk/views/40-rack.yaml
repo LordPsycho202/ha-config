@@ -450,9 +450,13 @@ cards:
               /
               states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|float
               )  * 100) %}
+              
               RPi {{ rpi_model[1] }}B+ {{ memMax }}GB
+
               CPU: {{ states.sensor.rpi_k3s_1_folden_nissen_com_rpi_cpu_use_k3s_1.state }}%
+
               RAM: {{ memUsed }}%
+
               SD: {{ states.sensor.rpi_k3s_1_folden_nissen_com_rpi_disk_used_k3s_1.state }}%
             entity: sensor.rpi_k3s_1_folden_nissen_com_rpi_temp_k3s_1
             tap_action:
