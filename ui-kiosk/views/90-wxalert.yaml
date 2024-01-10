@@ -235,10 +235,10 @@ cards:
             {%- endif %}
           {% endfor %}
         card_mod:
-          class: footer-open
           style: |
             ha-card > * {
               font-family: Antonio;
+              height: 587
             }
       - type: markdown
         content: "# Cumulative Stats"
