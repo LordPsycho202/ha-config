@@ -5,7 +5,7 @@ type: custom:grid-layout
 icon: "mdi:cloud"
 layout:
   grid-template-columns: 22% 41% 37%
-  grid-template-rows: 15% 65% 10%
+  grid-template-rows: 15% 40% 10%
   grid-template-areas: |
     "headerL headerR headerR"
     "menu main aux"
