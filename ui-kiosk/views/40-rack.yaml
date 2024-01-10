@@ -491,6 +491,8 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
             icon: mdi:server-network
             icon_color: >-
               {% if states.sensor.temperature.state | int < 60 %}
@@ -509,6 +511,31 @@ cards:
 
               CPU: {{ states.sensor.cpu_usage.state }}% • RAM: {{
               states.sensor.memory_usage.state }}%
+            entity: update.update
+            tap_action:
+              action: more-info
+            fill_container: true
+          - type: custom:mushroom-template-card
+            card_mod:
+              class: button-large
+            icon: mdi:server-network
+            icon_color: >-
+              {% if states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 140 %}
+                green
+              {% elif states.sensor.net_folden_nissen_com_cpu_temperature.state | int >= 140 and
+              states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 176 %}
+                orange
+              {% else %}
+                red
+              {% endif %}
+            multiline_secondary: true
+            primary: Router
+            layout: horizontal
+            secondary: >-
+              Unifi Dream Machine SE • Uptime: {{sensor.unifi_router_uptime}}
+
+              CPU: {{ states.sensor.net_folden_nissen_com_cpu_utilization.state }}% • RAM: {{
+              states.sensor.net_folden_nissen_com_memory_utilization.state }}%
             entity: update.update
             tap_action:
               action: more-info
