@@ -20,6 +20,10 @@ cards:
   - !include ../includes/footer.yaml
 
   - type: vertical-stack
+    view_layout:
+      grid-area: sidebar
+    card_mod:
+      class: middle
     cards:
       - type: markdown
         content: "# Status Updates"
@@ -121,11 +125,6 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
-
-    view_layout:
-      grid-area: sidebar
-    card_mod:
-      class: middle
 
   - type: vertical-stack
     cards:
