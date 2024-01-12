@@ -169,6 +169,6 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Rack
-              ulm_card_graph_entity: sensor.temp_acurite_606tx_a
+              ulm_card_graph_entity: sensor.temp_acurite_606tx
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
