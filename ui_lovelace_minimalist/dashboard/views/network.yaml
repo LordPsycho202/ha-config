@@ -19,7 +19,7 @@ cards:
 
       - type: "custom:button-card"
         template: card_graph
-        entity: sensor.temp_acurite_606tx_120
+        entity: sensor.temp_acurite_606tx
         variables:
           ulm_card_graph_color: "var(--google-red)"
           ulm_card_graph_name: Rack Temp
