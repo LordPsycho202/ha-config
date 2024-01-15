@@ -471,31 +471,46 @@ cards:
               action: more-info
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            icon: mdi:server-network
-            icon_color: >-
-              {% if states.sensor.temperature.state | int < 60 %}
-                green
-              {% elif states.sensor.temperature.state | int >= 60 and
-              states.sensor.temperature.state | int < 80 %}
-                orange
-              {% else %}
-                red
-              {% endif %}
-            multiline_secondary: true
-            primary: TrueNAS
-            layout: horizontal
-            secondary: >-
-              Dell r510 64GB
-
-              CPU: {{ states.sensor.cpu_usage.state }}% • RAM: {{
-              states.sensor.memory_usage.state }}%
-            entity: update.update
-            tap_action:
-              action: more-info
-            fill_container: true
+          - type: custom:stack-in-card
+            cards:
+              - type: custom:mushroom-template-card
+                card_mod:
+                  class: button-large
+                icon: mdi:server-network
+                icon_color: >-
+                  {% if states.sensor.temperature.state | int < 60 %}
+                    green
+                  {% elif states.sensor.temperature.state | int >= 60 and
+                  states.sensor.temperature.state | int < 80 %}
+                    orange
+                  {% else %}
+                    red
+                  {% endif %}
+                multiline_secondary: true
+                primary: TrueNAS
+                layout: horizontal
+                secondary: >-
+                  Dell r510 64GB
+                
+                  CPU: {{ states.sensor.cpu_usage.state }}% • RAM: {{
+                  states.sensor.memory_usage.state }}%
+                entity: update.update
+                tap_action:
+                  action: more-info
+                fill_container: true
+              - type: horizontal-stack
+                cards:
+                - type: gauge
+                  entity: sensor.fanspeed_r510
+                  name: Fan
+                  unit: rpm
+                  min: 0
+                  max: 10000
+                - type: gauge
+                  entity: sensor.temp_r510
+                  name: Temp
+                  min: 0
+                  max: 140
           - type: custom:mushroom-template-card
             card_mod:
               class: button-large
