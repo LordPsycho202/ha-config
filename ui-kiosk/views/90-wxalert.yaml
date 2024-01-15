@@ -149,51 +149,21 @@ cards:
         extra_labels: true
       - type: vertical-stack
         cards:
-          - type: conditional
-            conditions:
-              - condition: state
-                entity: binary_sensor.wx_card
-                state: 'off'
-            card:
-              type: vertical-stack
-              cards:
-                - type: markdown
-                  content: '# Probe Image'
-                  card_mod:
-                    class: bar
-                    style: |
-                      ha-card > * {
-                        font-family: Antonio
-                      }
-                - camera_view: auto
-                  type: picture-glance
-                  image: https://511ga.org/map/Cctv/105619--2
-                  entities:
-                    - entity: sensor.waze_travel_time
-                    - entity: sensor.jennifer_time_to_home
-          - type: conditional
-            conditions:
-              - condition: state
-                entity: binary_sensor.wx_card
-                state: 'on'
-            card:
-              type: vertical-stack
-              cards:
-                - type: markdown
-                  content: '# Active Alert'
-                  card_mod:
-                    class: bar
-                    style: |
-                      ha-card > * {
-                        font-family: Antonio
-                      }
-                - type: picture
-                  image: /local/images/Red_Alert_Animation.gif
-                  tap_action:
-                    action: navigate
-                    navigation_path: /ui-kiosk/wxalert
-                  hold_action:
-                    action: none
+          - type: markdown
+            content: '# Active Alert'
+            card_mod:
+              class: bar
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - type: picture
+            image: /local/images/Red_Alert_Animation.gif
+            tap_action:
+              action: navigate
+              navigation_path: /ui-kiosk/wxalert
+            hold_action:
+              action: none
 
   - type: vertical-stack
     view_layout:
