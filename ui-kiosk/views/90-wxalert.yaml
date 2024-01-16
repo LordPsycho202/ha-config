@@ -229,7 +229,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio;
-              height: 572px
+              height: 587px
             }
       - type: markdown
         content: "# Cumulative Stats"

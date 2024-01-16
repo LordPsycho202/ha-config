@@ -146,6 +146,12 @@ cards:
         frame_delay: 1000
         restart_delay: 5000
         extra_labels: true
+        card_mod:
+          style: |
+            ha-card > * {
+              font-family: Antonio;
+              height: 587px
+            }
       - type: markdown
         content: "# Cumulative Stats"
         card_mod:
