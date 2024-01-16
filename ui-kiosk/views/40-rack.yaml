@@ -469,6 +469,14 @@ cards:
             entity: sensor.rpi_temp_k3s_3
             tap_action:
               action: more-info
+      - type: markdown
+        content: '# Controller Cores'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: horizontal-stack
         cards:
           - type: custom:stack-in-card
