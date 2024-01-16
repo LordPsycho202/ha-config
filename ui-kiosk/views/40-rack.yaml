@@ -37,6 +37,21 @@ cards:
           action: none
         hold_action:
           action: none
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: sensor.office_kids_room_9_1d
+        show_state: true
+        name: Power Draw
+        card_mod:
+          class: button-lozenge
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
 
   - type: vertical-stack
     view_layout:
