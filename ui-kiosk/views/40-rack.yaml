@@ -42,7 +42,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: sensor.office_kids_room_9_1d
+        entity: ups01_current_real_power
         show_state: true
         name: Power Draw
         card_mod:
