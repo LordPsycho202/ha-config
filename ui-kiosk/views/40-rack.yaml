@@ -511,31 +511,45 @@ cards:
                   name: Temp
                   min: 0
                   max: 140
-          - type: custom:mushroom-template-card
-            card_mod:
-              class: button-large
-            icon: mdi:server-network
-            icon_color: >-
-              {% if states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 140 %}
-                green
-              {% elif states.sensor.net_folden_nissen_com_cpu_temperature.state | int >= 140 and
-              states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 176 %}
-                orange
-              {% else %}
-                red
-              {% endif %}
-            multiline_secondary: true
-            primary: Router
-            layout: horizontal
-            secondary: >-
-              Unifi Dream Machine SE • Uptime: {{states('sensor.unifi_router_uptime')}}
+          - type: custom:stack-in-card
+            cards:
+              - type: custom:mushroom-template-card
+                card_mod:
+                  class: button-large
+                icon: mdi:server-network
+                icon_color: >-
+                  {% if states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 140 %}
+                    green
+                  {% elif states.sensor.net_folden_nissen_com_cpu_temperature.state | int >= 140 and
+                  states.sensor.net_folden_nissen_com_cpu_temperature.state | int < 176 %}
+                    orange
+                  {% else %}
+                    red
+                  {% endif %}
+                multiline_secondary: true
+                primary: Router
+                layout: horizontal
+                secondary: >-
+                  Unifi Dream Machine SE • Uptime: {{states('sensor.unifi_router_uptime')}}
 
-              CPU: {{ states('sensor.net_folden_nissen_com_cpu_utilization') }}% • RAM: {{
-              states('sensor.net_folden_nissen_com_memory_utilization') }}%
-            entity: update.update
-            tap_action:
-              action: more-info
-            fill_container: true
+                  CPU: {{ states('sensor.net_folden_nissen_com_cpu_utilization') }}% • RAM: {{
+                  states('sensor.net_folden_nissen_com_memory_utilization') }}%
+                entity: update.update
+                tap_action:
+                  action: more-info
+                fill_container: true
+              - type: horizontal-stack
+                cards:
+                - type: gauge
+                  entity: sensor.network_users
+                  name: Clients
+                  min: 0
+                  max: 200
+                - type: gauge
+                  entity: sensor.net_folden_nissen_com_cpu_temperature
+                  name: Temp
+                  min: 0
+                  max: 140
       - type: markdown
         content: '# Subspace Uplink'
         card_mod:
