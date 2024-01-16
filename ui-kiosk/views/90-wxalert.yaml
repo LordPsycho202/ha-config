@@ -164,6 +164,27 @@ cards:
               navigation_path: /ui-kiosk/wxalert
             hold_action:
               action: none
+          - type: markdown
+            content: '# Number of Alert'
+            card_mod:
+              class: bar
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.nws_alerts
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
 
   - type: vertical-stack
     view_layout:
@@ -243,29 +264,41 @@ cards:
             }
       - type: horizontal-stack
         cards:
-          - show_name: true
-            show_icon: true
-            type: button
-            tap_action:
-              action: toggle
-            entity: sensor.heat_index
-            show_state: true
-            card_mod:
-              class: button-lozenge
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            type: button
-            tap_action:
-              action: toggle
-            entity: sensor.wind_chill
-            show_state: true
-            card_mod:
-              class: button-lozenge
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
+          - type: conditional
+            conditions:
+              - condition: state_not
+                entity: sensor.heat_index
+                state: unavailable
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: sensor.heat_index
+              show_state: true
+              card_mod:
+                class: button-lozenge
+                style: |
+                  ha-card > * {
+                    font-family: Antonio
+                  }
+          - type: conditional
+            conditions:
+              - condition: state_not
+                entity: sensor.wind_chill
+                state: unavailable
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: sensor.wind_chill
+              show_state: true
+              card_mod:
+                class: button-lozenge
+                style: |
+                  ha-card > * {
+                    font-family: Antonio
+                  }
