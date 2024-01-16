@@ -591,7 +591,7 @@ sensor:
     icon: mdi:windsock
     state: >
       {% set temp = states.sensor.outdoor_temp.state|float %}
-      {% set wind = states.sensor.wind_acurite_5n1_b.state|float %}
+      {% set wind = states.sensor.wind_acurite_5n1.state|float %}
       {% if temp > 50 or wind < 3 %}
         {{ temp }}
       {% else %}
