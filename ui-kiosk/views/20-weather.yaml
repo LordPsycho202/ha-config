@@ -148,7 +148,7 @@ cards:
         extra_labels: true
         card_mod:
           style: |
-            ha-card > * {
+            weather-radar-card > * {
               font-family: Antonio;
               height: 587px
             }
