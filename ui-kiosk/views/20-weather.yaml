@@ -1,6 +1,11 @@
 ---
 title: Weather
-theme: LCARS Modern
+theme: |-
+  {%- if states('sensor.outdoor_temp') <= 32 %}
+  LCARS Nemesis Blue
+  {%- else %}
+  LCARS Modern
+  {% endif %}
 type: custom:grid-layout
 icon: "mdi:cloud"
 layout:
