@@ -77,6 +77,21 @@ chips:
 
   - type: conditional
     conditions:
+      - condition: numeric_state
+        entity: sensor.outdoor_temp
+        below: 32
+    chip:
+      type: template
+      icon_color: white
+      content: Freezing
+      icon: mdi:snowflake-thermometer
+      entity: weather.weather_station
+      tap_action:
+        action: navigate
+        navigation_path: weather
+
+  - type: conditional
+    conditions:
       - entity: binary_sensor.wind_chill_active
         state: "on"
     chip:
