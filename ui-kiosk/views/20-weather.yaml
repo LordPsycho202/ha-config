@@ -1,7 +1,6 @@
 ---
 title: Weather
-theme: LCARS Nemesis Blue
-type: custom:grid-layout
+theme: LCARS Modern
 icon: "mdi:cloud"
 layout:
   grid-template-columns: 22% 58% 20%
