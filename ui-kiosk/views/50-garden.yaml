@@ -224,7 +224,7 @@ cards:
       grid-area: aux
     cards:
       - type: markdown
-        content: '# Weather Modeling'
+        content: '# Forecast Modeling'
         card_mod:
           class: header-open
           style: |
