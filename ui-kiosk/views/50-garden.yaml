@@ -26,7 +26,7 @@ cards:
       - type: markdown
         content: '# Plant Sensors'
         card_mod:
-          class: bar-right
+          class: middle
           style: |
             ha-card > * {
               font-family: Antonio
@@ -198,6 +198,20 @@ cards:
               action: more-info
             entity: sensor.last_watering
             name: Last Run
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: more-info
+            entity: counter.days_without_rain
+            name: Last Rainfall
             show_state: true
             card_mod:
               class: button-lozenge
