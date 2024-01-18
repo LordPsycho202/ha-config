@@ -1,6 +1,6 @@
 ---
 title: Outside
-path: out
+path: garden
 icon: mdi:flower
 theme: LCARS Modern
 type: custom:grid-layout
@@ -24,152 +24,24 @@ cards:
       grid-area: sidebar
     cards:
       - type: markdown
-        content: '# Waste Disposal'
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Next Trash Pickup
-        show_state: true
-        entity: sensor.next_trash
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: none
-        name: Next Recycling Pickup
-        show_state: true
-        entity: sensor.next_recycling
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - type: markdown
-        content: '# Irrigation Controls'
-        card_mod:
-          class: middle
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: sensor.last_watering
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
-        entity: switch.waterbender_rain_delay
-        show_state: true
-        card_mod:
-          class: button-bullet
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-  - type: vertical-stack
-    view_layout:
-      grid-area: main
-    cards:
-      - type: markdown
-        content: '# Viewscreen'
-        card_mod:
-          class: header-open
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - camera_view: auto
-        type: picture-glance
-        entities:
-          - entity: vacuum.philoctetes
-        image_entity: image.philoctetes_map
-        title: 'Philoctetes '
-        entity: vacuum.philoctetes
-        show_state: true
-      - type: conditional
-        conditions:
-          - entity: vacuum.philoctetes
-            state: docked
-        card:
-          show_name: true
-          show_icon: true
-          type: button
-          tap_action:
-            action: toggle
-          entity: sensor.philoctetes_next_start
-          show_state: true
-          card_mod:
-            class: button-lozenge
-      - type: conditional
-        conditions:
-          - entity: vacuum.philoctetes
-            state_not: docked
-        card:
-          show_name: true
-          show_icon: true
-          type: button
-          tap_action:
-            action: toggle
-          entity: vacuum.philoctetes
-          show_state: true
-          card_mod:
-            class: button-lozenge
-
-  - type: vertical-stack
-    view_layout:
-      grid-area: aux
-    cards:
-      - type: markdown
-        content: '# Weather Modeling'
-        card_mod:
-          class: header-open
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_current: false
-        show_forecast: true
-        type: weather-forecast
-        entity: weather.weather_station
-        theme: ios-dark-mode
-        secondary_info_attribute: pressure
-        card_mod:
-          style: |
-            ha-card > * {
-              height:215px !important;
-              font-family: Antonio;
-            }
-      - type: markdown
-        content: '# Garden Sensors'
+        content: '# Plant Sensors'
         card_mod:
           class: bar-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        icon: mdi:sprout-outline
+        tap_action:
+          action: more-info
+        name: Seed Tray
+        show_state: true
+        entity: plant.seeds
+        card_mod:
+          class: button-capped-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -219,11 +91,10 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:sprout-outline
+        icon: mdi:leaf
         tap_action:
           action: more-info
         name: Planter 2 (Collards)
@@ -235,6 +106,129 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+      - show_name: true
+        show_icon: true
+        type: button
+        icon: mdi:sprinkler-variant
+        tap_action:
+          action: more-info
+        name: Sprinkler Delay
+        show_state: true
+        entity: switch.waterbender_rain_delay
+        card_mod:
+          class: button-capped-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: main
+    cards:
+      - type: markdown
+        content: '# Viewscreen'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - camera_view: auto
+        type: picture-glance
+        entities:
+          - entity: vacuum.philoctetes
+          - entity: sensor.philoctetes_next_start
+        image_entity: image.philoctetes_map
+        title: 'Philoctetes '
+        entity: vacuum.philoctetes
+        show_state: true
+      - type: markdown
+        content: "# Rain Stats"
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: false
+        show_state: true
+        type: glance
+        entities:
+          - entity: sensor.rain_daily
+          - entity: sensor.total_rain_monthly
+          - entity: sensor.total_rain_annual
+        columns: 3
+        card_mod:
+          class: middle-blank
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: "# Irrigation"
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.waterbender_rain_delay
+            name: Sprinkler Delay
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: sensor.last_watering
+            name: Last Run
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+  - type: vertical-stack
+    view_layout:
+      grid-area: aux
+    cards:
+      - type: markdown
+        content: '# Weather Modeling'
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_current: false
+        show_forecast: true
+        type: weather-forecast
+        entity: weather.weather_station
+        theme: ios-dark-mode
+        secondary_info_attribute: pressure
+        card_mod:
+          style: |
+            ha-card > * {
+              height:215px !important;
+              font-family: Antonio;
+            }
+  
       - type: markdown
         content: '# Green Houses'
         card_mod:
@@ -248,13 +242,13 @@ cards:
         show_state: true
         type: glance
         entities:
-          - entity: sensor.temp_nexus_th_a
+          - entity: sensor.temp_nexus_th
             name: Planter 1 Temp
-          - entity: sensor.humidity_nexus_th_a
+          - entity: sensor.humidity_nexus_th
             name: RH%
-          - entity: sensor.temp_nexus_th_b
+          - entity: sensor.temp_nexus_th_2
             name: Planter 2 Temp
-          - entity: sensor.humidity_nexus_th_b
+          - entity: sensor.humidity_nexus_th_2
             name: RH%
         columns: 2
         card_mod:
