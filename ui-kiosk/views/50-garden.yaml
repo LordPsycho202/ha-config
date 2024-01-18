@@ -1,17 +1,17 @@
 ---
 title: Outside
-path: garden
-icon: mdi:flower
 theme: LCARS Modern
 type: custom:grid-layout
+icon: mdi:flower
 layout:
-  grid-template-columns: 22% 54% 24%
+  grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
     "headerL headerR headerR"
     "menu main aux"
     "sidebar main aux"
     "footer footer footer"
+path: garden
 badges: []
 cards:
   - !include ../includes/headerL.yaml
