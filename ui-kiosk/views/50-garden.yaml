@@ -254,6 +254,7 @@ cards:
             }
       - type: custom:horizon-card
         card_mod:
+          class: middle-blank
           style: |
             ha-card > * {
               font-family: Antonio
