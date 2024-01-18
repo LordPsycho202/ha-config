@@ -26,7 +26,7 @@ cards:
       - type: markdown
         content: '# Plant Sensors'
         card_mod:
-          class: bar-right
+          class: middle
           style: |
             ha-card > * {
               font-family: Antonio
