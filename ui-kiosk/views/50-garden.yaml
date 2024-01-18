@@ -41,7 +41,7 @@ cards:
         show_state: true
         entity: plant.seeds
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -56,7 +56,7 @@ cards:
         show_state: true
         entity: plant.pineapples
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -71,7 +71,7 @@ cards:
         show_state: true
         entity: plant.front_planter
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -86,7 +86,7 @@ cards:
         show_state: true
         entity: plant.planter_1
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -101,7 +101,7 @@ cards:
         show_state: true
         entity: plant.planter_2
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -112,11 +112,11 @@ cards:
         icon: mdi:sprinkler-variant
         tap_action:
           action: more-info
-        name: Sprinkler Delay
+        name: Water Usage
         show_state: true
-        entity: switch.waterbender_rain_delay
+        entity: sensor.monthly_water
         card_mod:
-          class: button-capped-right
+          class: button-bullet
           style: |
             ha-card > * {
               font-family: Antonio
@@ -179,6 +179,7 @@ cards:
           - show_name: true
             show_icon: true
             type: button
+            icon: mdi:sprinkler-varient
             tap_action:
               action: toggle
             entity: switch.waterbender_rain_delay
