@@ -179,9 +179,9 @@ cards:
           - show_name: true
             show_icon: true
             type: button
-            icon: mdi:sprinkler-varient
+            icon: mdi:sprinkler-variant
             tap_action:
-              action: toggle
+              action: more-info
             entity: switch.waterbender_rain_delay
             name: Sprinkler Delay
             show_state: true
@@ -195,7 +195,7 @@ cards:
             show_icon: true
             type: button
             tap_action:
-              action: toggle
+              action: more-info
             entity: sensor.last_watering
             name: Last Run
             show_state: true
