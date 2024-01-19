@@ -259,3 +259,42 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+
+      - type: markdown
+        content: '# Waste Collection'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        icon: mdi:trash-can-outline
+        tap_action:
+          action: more-info
+        name: Trash
+        show_state: true
+        entity: sensor.next_trash
+        card_mod:
+          class: button-lozenge-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        icon: mdi:recycle-variant
+        tap_action:
+          action: more-info
+        name: Recycling
+        show_state: true
+        entity: sensor.next_recycling
+        card_mod:
+          class: button-lozenge-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
