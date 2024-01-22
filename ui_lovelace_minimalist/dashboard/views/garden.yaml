@@ -61,7 +61,7 @@ cards:
           - type: "custom:button-card"
             template: card_power_outlet
             variables:
-              ulm_card_power_outlet_name: Shower Vent
+              ulm_card_power_outlet_name: Seedling Fan
               ulm_card_power_outlet_icon: mdi:fan
             entity: fan.greenhouse
       - type: "custom:button-card"
