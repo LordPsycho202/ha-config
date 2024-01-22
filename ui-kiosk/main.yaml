@@ -3,10 +3,9 @@ views:
   # Main Views
   - !include views/10-home.yaml
   - !include views/20-weather.yaml
-  - !include views/40-rack.yaml
-  - !include views/50-garden.yaml
-  - !include views/60-planeTracker.yaml
-  - !include views/70-security.yaml
-  - !include views/80-blank.yaml
+  - !include views/30-rack.yaml
+  - !include views/40-garden.yaml
+  - !include views/50-planeTracker.yaml
   # Psuedo-Popups
-  - !include views/90-wxalert.yaml
+  - !include views/15-security.yaml
+  - !include views/25-wxalert.yaml

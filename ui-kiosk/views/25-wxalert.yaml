@@ -4,6 +4,7 @@ path: wxalert
 icon: mdi:weather-tornado
 subview: true
 theme: LCARS Red Alert
+back_path: /ui-kiosk/weather
 layout:
   grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
