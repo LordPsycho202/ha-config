@@ -39,7 +39,7 @@ elements:
       type: image
       image: /local/images/floorplan/theme/space/Upper-Floor/base-day.png
     style:
-      opacity: '${ vars[1] === ''above_horizon'' ? vars[0]/100 : ''0%'' }'
+      opacity: "${ vars[1] === 'above_horizon' ? vars[0]/100 : '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.front_sconces'].state
@@ -49,7 +49,7 @@ elements:
       type: image
       image: /local/images/floorplan/Ground-Floor/lit-garage-scones.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.office_closet'].state
@@ -59,7 +59,7 @@ elements:
       type: image
       image: /local/images/floorplan/Upper-Floor/lit-office-closet.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.office_ceiling_fan'].attributes.brightness
@@ -69,13 +69,12 @@ elements:
       - llight.office_ceiling_fan
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-office-0.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-office-0.png
     style:
-      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+      opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
       filter: >-
-        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg)
-        saturate(" + (vars[2] ? vars[2][1] : 100)+ "%)"}
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
   - type: custom:config-template-card
     variables:
       - states['light.rack'].attributes.brightness
@@ -85,13 +84,12 @@ elements:
       - light.rack
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-office-1.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-office-1.png
     style:
-      opacity: '${ vars[1] === ''on'' ? vars[0]/255 : ''0%'' }'
+      opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
       filter: >-
-        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg)
-        saturate(" + (vars[2] ? vars[2][1] : 100)+ "%)"}
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
   - type: custom:config-template-card
     variables:
       - states['light.elgato_key_light'].attributes.brightness
@@ -101,13 +99,12 @@ elements:
       - light.elgato_key_light
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-office-2.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-office-2.png
     style:
-      opacity: '${ vars[1] === ''on'' ? vars[0]/25 : ''0%'' }'
+      opacity: "${ vars[1] === 'on' ? vars[0]/25 : '0%' }"
       filter: >-
-        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg)
-        saturate(" + (vars[2] ? vars[2][1] : 100)+ "%)"}
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
   - type: custom:config-template-card
     variables:
       - states['light.stairway_lights'].state
@@ -115,10 +112,9 @@ elements:
       - light.stairway_lights
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-stairs.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-stairs.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.kitty_loft'].state
@@ -126,10 +122,9 @@ elements:
       - light.kitty_loft
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-catloft.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-catloft.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.upstairs_hall'].state
@@ -137,10 +132,9 @@ elements:
       - light.upstairs_hall
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-hallway.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-hallway.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.guest_bathroom'].state
@@ -148,10 +142,9 @@ elements:
       - light.guest_bathroom
     element:
       type: image
-      image: >-
-        /local/images/floorplan/theme/space/Upper-Floor/lit-powderroom.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-powderroom.png
     style:
-      opacity: '${ vars[0] === ''on'' ? ''100%'': ''0%'' }'
+      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: custom:config-template-card
     variables:
       - states['light.craft_room_overhead'].state
@@ -169,7 +162,7 @@ elements:
       - light.craft_room_ceiling_fan
     element:
       type: image
-      image: /local/images/floorplan/theme/space//Upper-Floor/lit-craft-1.png
+      image: /local/images/floorplan/theme/space/Upper-Floor/lit-craft-1.png
     style:
       opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
   - type: state-icon
@@ -238,6 +231,7 @@ elements:
                         transform: rotate(360deg);
                       }
                     }
+
   - type: state-icon
     entity: weather.kwdr_daynight
     style:
@@ -270,7 +264,7 @@ elements:
       width: 10%
   - type: state-label
     entity: sensor.sunlight_pct
-    prefix: 'Opacity: '
+    prefix: "Opacity: "
     style:
       transform: translate(0%,0%)
       top: 94%
