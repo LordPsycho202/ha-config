@@ -262,10 +262,3 @@ elements:
       left: 21%
       height: 10%
       width: 10%
-  - type: state-label
-    entity: sensor.sunlight_pct
-    prefix: "Opacity: "
-    style:
-      transform: translate(0%,0%)
-      top: 94%
-      left: 1px

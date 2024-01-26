@@ -279,10 +279,3 @@ elements:
       top: 26%
       left: 2%
       transform: translate(0%,0%) scale(1.5,1.5)
-  - type: state-label
-    entity: sensor.sunlight_pct
-    prefix: "Opacity: "
-    style:
-      transform: translate(0%,0%)
-      top: 94%
-      left: 1px
