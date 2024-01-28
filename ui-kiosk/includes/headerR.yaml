@@ -8,7 +8,7 @@ cards:
   - type: markdown
     content: '# Weather: {{ states(''sensor.template_header_weather'') }}'
     card_mod:
-      class: footer-open
+      class: footer
       style:
         .: |
           ha-card > * {
