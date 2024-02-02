@@ -5,3 +5,11 @@ view_layout:
   place-self: end stretch
 cards:
   - !include /config/ui-includes/alerts.yaml
+  - type: markdown
+    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
+    card_mod:
+      class: footer
+      style: |
+        ha-card > * {
+          font-family: Antonio
+        }
