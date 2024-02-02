@@ -1,0 +1,26 @@
+title: Home
+theme: LCARS Modern
+type: custom:grid-layout
+icon: "mdi:home"
+path: home
+badges: []
+layout:
+  grid-template-columns: 33% 66%
+  grid-template-rows: auto
+  grid-template-areas: |
+    "header headerR"
+    "menu sidebar"
+    "main main"
+    "aux aux"
+    "footer footer"
+  mediaquery:
+      "(max-width: 905px)":
+        grid-template-columns: 100%
+        grid-template-areas: |
+          "header"
+          "main"
+          "sidebar"
+          "headerR"
+cards:
+  - !include ../includes/header.yaml
+  - !include ../includes/headerR.yaml
