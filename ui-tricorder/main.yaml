@@ -1,4 +1,4 @@
 ---
 views:
   # Main Views
-  - !include views/10-home.yaml
+  - !include views/10-downstairs.yaml

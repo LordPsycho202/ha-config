@@ -8,7 +8,7 @@ cards:
   - type: markdown
     content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
     card_mod:
-      class: header-open
+      class: footer-open
       style: |
         ha-card > * {
           font-family: Antonio
