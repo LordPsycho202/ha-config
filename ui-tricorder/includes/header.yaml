@@ -1,7 +1,7 @@
 ---
 type: vertical-stack
 view_layout:
-  grid-area: headerL
+  grid-area: header
   place-self: end stretch
 cards:
   - type: markdown
