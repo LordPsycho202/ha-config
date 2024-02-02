@@ -143,7 +143,7 @@ cards:
       - type: custom:layout-card
         layout_type: custom:grid-layout
         layout:
-          grid-template-columns: auto auto auto
+          grid-template-columns: auto 250px; auto
           grid-template-rows: 264px;
           grid-template-areas: |
             "mr mc ml"
