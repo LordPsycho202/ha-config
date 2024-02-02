@@ -14,6 +14,12 @@ lovelace:
       icon: mdi:monitor-dashboard
       show_in_sidebar: true
       filename: ui-kiosk/main.yaml
+    ui-tricorder:
+      mode: yaml
+      title: Tricorder
+      icon: mdi:cellphone-information
+      show_in_sidebar: false
+      filename: ui-tricorder/main.yaml
 
 #### Logbook ##################################
 logbook:
