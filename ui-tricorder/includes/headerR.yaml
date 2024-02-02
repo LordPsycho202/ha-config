@@ -8,8 +8,14 @@ cards:
   - type: markdown
     content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
     card_mod:
-      class: footer
+      class: header-open
       style: |
         ha-card > * {
           font-family: Antonio
         }
+          ha-card.type-markdown {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: unset;
+            white-space: nowrap;
+          }
