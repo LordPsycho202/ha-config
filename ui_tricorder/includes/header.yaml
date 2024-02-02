@@ -1,0 +1,25 @@
+---
+type: vertical-stack
+view_layout:
+  grid-area: headerL
+  place-self: end stretch
+cards:
+  - type: markdown
+    content: >-
+      ## Stardate: {{ states('sensor.stardate')}} &#149; {{ as_timestamp(now())
+      | timestamp_custom( '%d %b %Y &#149; %H:%M' ) }}
+
+      #  {{ states('sensor.template_header_greet') }}
+    card_mod:
+      class: footer
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio;
+          }
+          ha-card.type-markdown {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: unset;
+            white-space: nowrap;
+          }

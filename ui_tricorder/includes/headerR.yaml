@@ -1,0 +1,7 @@
+---
+type: vertical-stack
+view_layout:
+  grid-area: headerR
+  place-self: end stretch
+cards:
+  - !include /config/ui-includes/alerts.yaml
