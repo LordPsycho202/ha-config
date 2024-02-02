@@ -216,7 +216,7 @@ cards:
                     ha-card > * {
                       font-family: Antonio
                     }
-          - !include /config/ui-includes/space_maps/downstairsMap.yaml
+          
           - type: vertical-stack
             cards:
               - show_name: true

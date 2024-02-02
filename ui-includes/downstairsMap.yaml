@@ -27,6 +27,7 @@ card_mod:
       bottom: 0;
       right: 0;
     }
+
 elements:
   - type: custom:config-template-card
     variables:
