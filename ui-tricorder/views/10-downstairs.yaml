@@ -147,6 +147,7 @@ cards:
             show_state: false
             type: button
             name: Living room
+            icon: mdi:sofa
             entity: light.living_room_2
             tap_action:
               action: toggle
@@ -164,6 +165,7 @@ cards:
             show_state: false
             type: button
             name: Kitchen
+            icon: mdi:knife
             entity: light.kitchen
             tap_action:
               action: toggle
@@ -183,6 +185,7 @@ cards:
             show_state: false
             type: button
             name: Dining Room
+            icon: mdi:silverware
             entity: light.dining_room
             tap_action:
               action: toggle
@@ -199,7 +202,8 @@ cards:
             show_icon: true
             show_state: false
             type: button
-            name: Kitchen
+            name: Foyer
+            icon: mdi:door-closed
             entity: light.foyer
             tap_action:
               action: toggle
@@ -219,6 +223,7 @@ cards:
             show_state: false
             type: button
             name: Master Bedroom
+            icon: mdi:bed-double
             entity: light.master_bedroom
             tap_action:
               action: toggle
@@ -236,6 +241,7 @@ cards:
             show_state: false
             type: button
             name: Master Bathroom
+            icon: mdi:shower-head
             entity: light.master_bathroom
             tap_action:
               action: toggle
@@ -255,6 +261,7 @@ cards:
             show_state: false
             type: button
             name: Laundry/Closet
+            icon: mdi:tumble-dryer
             entity: light.laundry_room
             tap_action:
               action: toggle
@@ -272,6 +279,7 @@ cards:
             show_state: false
             type: button
             name: Garage
+            icon: mdi:garage
             entity: light.garage
             tap_action:
               action: toggle
@@ -289,7 +297,8 @@ cards:
         show_state: false
         type: button
         name: Outside
-        entity: light.garage
+        icon: mdi:tree
+        entity: light.outside
         tap_action:
           action: toggle
         hold_action:
