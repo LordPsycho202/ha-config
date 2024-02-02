@@ -142,156 +142,155 @@ cards:
             }
       - type: horizontal-stack
         cards:
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Living room
-            icon: mdi:sofa
-            entity: light.living_room_2
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: living
-            card_mod:
-              class: button-bullet
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Kitchen
-            icon: mdi:knife
-            entity: light.kitchen
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: kitchen
-            card_mod:
-              class: button-bullet-right
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-      - type: horizontal-stack
-        cards:
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Dining Room
-            icon: mdi:silverware
-            entity: light.dining_room
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: dining
-            card_mod:
-              class: button-bullet
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Foyer
-            icon: mdi:door-closed
-            entity: light.foyer
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: foyer
-            card_mod:
-              class: button-bullet-right
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }  
-      - type: horizontal-stack
-        cards:
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Master Bedroom
-            icon: mdi:bed-double
-            entity: light.master_bedroom
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: master_bed
-            card_mod:
-              class: button-bullet
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Master Bathroom
-            icon: mdi:shower-head
-            entity: light.master_bathroom
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: master_bath
-            card_mod:
-              class: button-bullet-right
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-      - type: horizontal-stack
-        cards:
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Laundry/Closet
-            icon: mdi:tumble-dryer
-            entity: light.laundry_room
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: laundry
-            card_mod:
-              class: button-bullet
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-          - show_name: true
-            show_icon: true
-            show_state: false
-            type: button
-            name: Garage
-            icon: mdi:garage
-            entity: light.garage
-            tap_action:
-              action: toggle
-            hold_action:
-              action: navigate
-              navigation_path: garage
-            card_mod:
-              class: button-bullet-right
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
+          - type: vertical-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Living room
+                icon: mdi:sofa
+                entity: light.living_room_2
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: living
+                card_mod:
+                  class: button-bullet
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Dining Room
+                icon: mdi:silverware
+                entity: light.dining_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: dining
+                card_mod:
+                  class: button-bullet
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Master Bedroom
+                icon: mdi:bed-double
+                entity: light.master_bedroom
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: master_bed
+                card_mod:
+                  class: button-bullet
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Laundry/Closet
+                icon: mdi:tumble-dryer
+                entity: light.laundry_room
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: laundry
+                card_mod:
+                  class: button-bullet
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+          - !include /config/ui-includes/space_maps/downstairsMap.yaml
+          - type: vertical-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Kitchen
+                icon: mdi:knife
+                entity: light.kitchen
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: kitchen
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Foyer
+                icon: mdi:door-closed
+                entity: light.foyer
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: foyer
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }  
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Master Bathroom
+                icon: mdi:shower-head
+                entity: light.master_bathroom
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: master_bath
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Garage
+                icon: mdi:garage
+                entity: light.garage
+                tap_action:
+                  action: toggle
+                hold_action:
+                  action: navigate
+                  navigation_path: garage
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
       - show_name: true
         show_icon: true
         show_state: false
