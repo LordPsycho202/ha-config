@@ -13,9 +13,3 @@ cards:
         ha-card > * {
           font-family: Antonio
         }
-          ha-card.type-markdown {
-            overflow-x: hidden;
-            text-overflow: ellipsis;
-            overflow-wrap: unset;
-            white-space: nowrap;
-          }
