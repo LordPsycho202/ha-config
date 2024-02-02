@@ -1,0 +1,285 @@
+title: Home
+theme: LCARS Modern
+type: custom:grid-layout
+icon: "mdi:stairs-down"
+path: downstairs
+badges: []
+layout:
+  grid-template-columns: 33% 66%
+  grid-template-rows: auto
+  grid-template-areas: |
+    "header headerR"
+    "menu sidebar"
+    "main main"
+    "aux aux"
+    "footer footer"
+  mediaquery:
+      "(max-width: 905px)":
+        grid-template-columns: 100%
+        grid-template-areas: |
+          "header"
+          "main"
+          "sidebar"
+          "headerR"
+cards:
+  - !include ../includes/header.yaml
+  - !include ../includes/headerR.yaml
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: menu
+    cards:
+      - type: markdown
+        content: '# Controls'
+        card_mod:
+          class: header-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Home
+        icon: 'mdi:stairs-down'
+        tap_action:
+          action: none
+        hold_action:
+          action: none
+        theme: LCARS Classic
+        card_mod:
+          class: button-bullet-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Weather
+        icon: 'mdi:cloud-circle-outline'
+        tap_action:
+          action: navigate
+          navigation_path: weather
+        hold_action:
+          action: none
+        card_mod:
+          class: button-bullet-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Computer core
+        icon: 'mdi:server'
+        tap_action:
+          action: navigate
+          navigation_path: rack
+        hold_action:
+          action: none
+        card_mod:
+          class: button-bullet-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Landscape Controls
+        icon: 'mdi:flower'
+        tap_action:
+          action: navigate
+          navigation_path: garden
+        hold_action:
+          action: none
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: main
+    cards:
+      - type: markdown
+        content: "# Downstairs"
+        card_mod:
+          class: header
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Living room
+            entity: light.living_room_2
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: living
+            card_mod:
+              class: button-bullet
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Kitchen
+            entity: light.kitchen
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: kitchen
+            card_mod:
+              class: button-bullet-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Dining Room
+            entity: light.dining_room
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: dining
+            card_mod:
+              class: button-bullet
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Kitchen
+            entity: light.foyer
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: foyer
+            card_mod:
+              class: button-bullet-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }  
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Master Bedroom
+            entity: light.master_bedroom
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: master_bed
+            card_mod:
+              class: button-bullet
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Master Bathroom
+            entity: light.master_bathroom
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: master_bath
+            card_mod:
+              class: button-bullet-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Laundry/Closet
+            entity: light.laundry_room
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: laundry
+            card_mod:
+              class: button-bullet
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            show_state: false
+            type: button
+            name: Garage
+            entity: light.garage
+            tap_action:
+              action: toggle
+            hold_action:
+              action: navigate
+              navigation_path: garage
+            card_mod:
+              class: button-bullet-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Outside
+        entity: light.garage
+        tap_action:
+          action: toggle
+        hold_action:
+          action: navigate
+          navigation_path: outside
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
