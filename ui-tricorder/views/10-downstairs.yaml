@@ -324,3 +324,11 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+      - type: markdown
+        content: "R: {{states('person.rodney_nissen')}} : J: {{states('person.jfoldennissen')}}"
+        card_mod:
+          class: footer
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
