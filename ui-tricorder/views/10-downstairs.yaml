@@ -9,8 +9,8 @@ layout:
   grid-template-rows: auto
   grid-template-areas: |
     "header headerR"
-    "menu sidebar"
-    "main main"
+    "menu main"
+    "sidebar main"
     "aux aux"
     "footer footer"
   mediaquery:
@@ -42,13 +42,31 @@ cards:
         show_icon: true
         show_state: false
         type: button
-        name: Home
+        name: Downstairs
         icon: 'mdi:stairs-down'
         tap_action:
           action: none
         hold_action:
           action: none
         theme: LCARS Classic
+        card_mod:
+          class: button-bullet-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Upstairs
+        icon: 'mdi:stairs-up'
+        tap_action:
+          action: navigate
+          navigation_path: upstairs
+        hold_action:
+          action: none
         card_mod:
           class: button-bullet-right
           style: |
@@ -104,7 +122,7 @@ cards:
         hold_action:
           action: none
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
