@@ -114,7 +114,7 @@ cards:
               - yellow_on
             name: Laundry/Closet
             entity: light.laundry_room
-            icon: mdi:tree
+            icon: mdi:tumble-dryer
             variables:
               ulm_custom_card_esh_room_light_entity: light.laundry_room
             tap_action:

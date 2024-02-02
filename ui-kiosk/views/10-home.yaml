@@ -136,7 +136,7 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/downstairsMap.yaml
+      - !include /config/ui-includes/space_maps/downstairsMap.yaml
       - type: markdown
         content: "# Deck B"
         card_mod:
@@ -145,7 +145,7 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/upstairsMap.yaml
+      - !include /config/ui-includes/space_maps/upstairsMap.yaml
     view_layout:
       grid-area: aux
   - type: vertical-stack
