@@ -14,7 +14,7 @@ layout:
     "aux aux"
     "footer footer"
   mediaquery:
-    '(max-width: 800px)':
+    '(min-resolution: 380dpi)':
       grid-template-columns: 95%
       grid-template-areas: |
           "header"
