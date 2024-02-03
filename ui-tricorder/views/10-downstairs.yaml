@@ -28,6 +28,8 @@ cards:
   - type: vertical-stack
     view_layout:
       grid-area: menu
+      show:
+        mediaquery: '(min-width: 800px)'
     cards:
       - type: markdown
         content: '# Controls'
