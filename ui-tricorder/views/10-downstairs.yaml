@@ -5,7 +5,7 @@ icon: "mdi:stairs-down"
 path: downstairs
 badges: []
 layout:
-  grid-template-columns: 33% 66%
+  grid-template-columns: 38% 62%
   grid-template-rows: auto
   grid-template-areas: |
     "header headerR"
