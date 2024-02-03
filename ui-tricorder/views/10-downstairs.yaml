@@ -140,22 +140,9 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:layout-card
-        layout_type: custom:grid-layout
-        layout:
-          grid-template-columns: auto 250px; auto
-          grid-template-rows: 264px;
-          grid-template-areas: |
-            "mr mc ml"
-          mediaquery:
-            "(max-width: 905px)":
-              grid-template-columns: 50% 50%
-              grid-template-areas: |
-                "mr ml"
+      - type: horizontal-stack
         cards:
           - type: vertical-stack
-            view_layout:
-              grid_area: mr
             cards:
               - show_name: true
                 show_icon: true
@@ -230,13 +217,6 @@ cards:
                       font-family: Antonio
                     }
           - type: vertical-stack
-            view_layout:
-              grid_area: mc
-            cards:
-              - !include /config/ui-includes/space_maps/downstairsMap.yaml
-          - type: vertical-stack
-            view_layout:
-              grid_area: ml
             cards:
               - show_name: true
                 show_icon: true
