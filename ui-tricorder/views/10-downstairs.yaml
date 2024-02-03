@@ -147,6 +147,11 @@ cards:
           grid-template-rows: 264px;
           grid-template-areas: |
             "mr mc ml"
+          mediaquery:
+            "(max-width: 905px)":
+              grid-template-columns: 50% 50%
+              grid-template-areas: |
+                "mr ml"
         cards:
           - type: vertical-stack
             view_layout:
@@ -228,15 +233,7 @@ cards:
             view_layout:
               grid_area: mc
             cards:
-              #- !include /config/ui-includes/space_maps/downstairsMap.yaml
-              - type: picture
-                image: /local/images/Red_Alert_Animation.gif
-                tap_action:
-                  action: navigate
-                  navigation_path: /ui-kiosk/wxalert
-                hold_action:
-                  action: none
-
+              - !include /config/ui-includes/space_maps/downstairsMap.yaml
           - type: vertical-stack
             view_layout:
               grid_area: ml
