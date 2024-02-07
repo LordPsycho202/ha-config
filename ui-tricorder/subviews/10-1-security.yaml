@@ -50,7 +50,7 @@ cards:
         name: "Lock: Shuttle Bay Door"
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -65,7 +65,7 @@ cards:
         icon: mdi:garage
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -81,7 +81,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -96,7 +96,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -112,7 +112,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -127,7 +127,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
