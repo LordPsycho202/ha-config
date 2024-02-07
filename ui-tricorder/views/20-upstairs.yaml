@@ -5,13 +5,11 @@ icon: "mdi:stairs-up"
 path: upstairs
 badges: []
 layout:
-  grid-template-columns: 38% 62%
+  grid-template-columns: 40% 60%
   grid-template-rows: auto
   grid-template-areas: |
     "header headerR"
     "menu main"
-    "sidebar main"
-    "aux aux"
     "footer footer"
   mediaquery:
     '(max-width: 600px)':
@@ -19,8 +17,8 @@ layout:
       grid-template-areas: |
           "header"
           "main"
-          "sidebar"
           "headerR"
+          "aux"
 cards:
   - !include ../includes/header.yaml
   - !include ../includes/headerR.yaml
@@ -376,3 +374,36 @@ cards:
                 ha-card > * {
                   font-family: Antonio
                 }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: aux
+      show:
+        mediaquery: '(max-width: 600px)'
+    cards:
+      - type: markdown
+        content: "   "
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        show_state: false
+        type: button
+        name: Navigate to Security Mode
+        icon: 'mdi:hazard-lights'
+        theme: LCARS Red Alert
+        tap_action:
+          action: none
+        hold_action:
+          action: navigate
+          navigation_path: security
+        card_mod:
+          class: button-lozenge
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }

@@ -383,6 +383,14 @@ cards:
       show:
         mediaquery: '(max-width: 600px)'
     cards:
+      - type: markdown
+        content: "   "
+        card_mod:
+          class: header-open
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
       - show_name: true
         show_icon: true
         show_state: false
@@ -394,7 +402,7 @@ cards:
           action: none
         hold_action:
           action: navigate
-          navigation_path: /ui-kiosk/security
+          navigation_path: security
         card_mod:
           class: button-lozenge
           style: |
