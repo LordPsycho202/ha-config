@@ -146,6 +146,8 @@ cards:
               font-family: Antonio
             }
       - type: custom:aarlo-glance
+        card_mod:
+          class: middle
         entities:
           - entity: camera.aarlo_driveway
             image_view: arlo-stream
@@ -185,7 +187,7 @@ cards:
               data: {}
             icon: mdi:light-flood-down
             card_mod:
-              class: button-lozenge
+              class: button-bullet
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -199,7 +201,7 @@ cards:
             hold_action:
               action: toggle
             card_mod:
-              class: button-lozenge
+              class: button-bullet-right
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -215,7 +217,7 @@ cards:
           - entity: sensor.nws_alerts
         columns: 4
         card_mod:
-          class: middle-blank
+          class: middle
           style: |
             ha-card > * {
               font-family: Antonio
