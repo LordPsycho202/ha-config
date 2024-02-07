@@ -2,7 +2,7 @@ title: Home
 theme: LCARS Modern
 type: custom:grid-layout
 icon: "mdi:stairs-up"
-path: uptairs
+path: upstairs
 badges: []
 layout:
   grid-template-columns: 38% 62%
