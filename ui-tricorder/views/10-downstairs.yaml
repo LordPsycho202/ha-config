@@ -14,7 +14,7 @@ layout:
     "aux aux"
     "footer footer"
   mediaquery:
-    '(max-width: 700px)':
+    '(max-width: 600px)':
       grid-template-columns: 95%
       grid-template-areas: |
           "header"
@@ -29,7 +29,7 @@ cards:
     view_layout:
       grid-area: menu
       show:
-        mediaquery: '(min-width: 700px)'
+        mediaquery: '(min-width: 600px)'
     cards:
       - type: markdown
         content: '# Controls'
