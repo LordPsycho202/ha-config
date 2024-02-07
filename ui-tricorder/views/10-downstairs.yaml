@@ -327,3 +327,52 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: footer
+      show:
+        mediaquery: '(min-width: 600px)'
+    cards:
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: vacuum.catbug
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: vacuum.philoctetes
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: switch.waterbender_rain_delay
+            show_state: true
+            name: Sprinkler Delay
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
