@@ -123,9 +123,6 @@ aarlo:
   tfa_username: !secret arlo_2fa_username
   tfa_password: !secret arlo_2fa_password
 
-light:
-  - platform: blink1_status
-
 sensor:
   - platform: unifigateway
     host: !secret unifi_ip
