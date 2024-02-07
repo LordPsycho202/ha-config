@@ -247,7 +247,7 @@ cards:
             }
       - type: markdown
         view_layout:
-          grid-area: left
+          grid-area: right
         content: "# R: {{states('person.rodney_nissen')}} | J: {{states('person.jfoldennissen')}}"
         card_mod:
           class: footer
