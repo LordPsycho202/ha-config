@@ -36,7 +36,7 @@ cards:
               - yellow_on
             name: Craft Room
             entity: light.craft_room
-            icon: mdi:desk
+            icon: mdi:puzzle-edit-outline
             tap_action:
               action: navigate
               navigation_path: "croom"
@@ -52,7 +52,7 @@ cards:
               - yellow_on
             name: Kid's Room
             entity: light.kids_room
-            icon: mdi:desk
+            icon: mdi:bed-single-outline
             tap_action:
               action: navigate
               navigation_path: "kroom"

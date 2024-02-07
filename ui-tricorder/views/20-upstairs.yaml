@@ -1,8 +1,8 @@
 title: Home
 theme: LCARS Modern
 type: custom:grid-layout
-icon: "mdi:stairs-down"
-path: downstairs
+icon: "mdi:stairs-up"
+path: uptairs
 badges: []
 layout:
   grid-template-columns: 38% 62%
@@ -47,10 +47,10 @@ cards:
         name: Downstairs
         icon: 'mdi:stairs-down'
         tap_action:
-          action: none
+          action: navigate
+          navigation_path: downstairs
         hold_action:
           action: none
-        theme: LCARS Classic
         card_mod:
           class: button-bullet-right
           style: |
@@ -65,10 +65,10 @@ cards:
         name: Upstairs
         icon: 'mdi:stairs-up'
         tap_action:
-          action: navigate
-          navigation_path: upstairs
+          action: none
         hold_action:
           action: none
+        theme: LCARS Classic
         card_mod:
           class: button-bullet-right
           style: |
@@ -143,7 +143,7 @@ cards:
       grid-area: main
     cards:
       - type: markdown
-        content: "# Downstairs"
+        content: "# Upstairs"
         card_mod:
           class: header
           style: |
@@ -159,13 +159,13 @@ cards:
                 show_state: false
                 type: button
                 name: Living room
-                icon: mdi:sofa
-                entity: light.living_room_2
+                icon: mdi:desk
+                entity: light.office_2
                 tap_action:
                   action: toggle
                 hold_action:
                   action: navigate
-                  navigation_path: living
+                  navigation_path: office
                 card_mod:
                   class: button-bullet
                   style: |
@@ -176,14 +176,14 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Dining
-                icon: mdi:silverware
-                entity: light.dining_room
+                name: Empty Room
+                icon: mdi:bed-single-outline
+                entity: light.kids_room
                 tap_action:
                   action: toggle
                 hold_action:
                   action: navigate
-                  navigation_path: dining
+                  navigation_path: kroom
                 card_mod:
                   class: button-bullet
                   style: |
@@ -194,14 +194,14 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Bedroom
-                icon: mdi:bed-double
-                entity: light.master_bedroom
+                name: Crafts
+                icon: mdi:puzzle-edit-outline
+                entity: light.craft_room
                 tap_action:
                   action: toggle
                 hold_action:
                   action: navigate
-                  navigation_path: master_bed
+                  navigation_path: croom
                 card_mod:
                   class: button-bullet
                   style: |
@@ -212,14 +212,14 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Laundry
-                icon: mdi:tumble-dryer
-                entity: light.laundry_room
+                name: Hallway
+                icon: mdi:image-frame
+                entity: light.upstairs_common
                 tap_action:
                   action: toggle
                 hold_action:
                   action: navigate
-                  navigation_path: laundry
+                  navigation_path: upmisc
                 card_mod:
                   class: button-bullet
                   style: |
