@@ -50,7 +50,8 @@ cards:
           action: navigate
           navigation_path: downstairs
         hold_action:
-          action: none
+          action: navigate
+          navigation_path: security
         card_mod:
           class: button-bullet-right
           style: |
@@ -67,7 +68,8 @@ cards:
         tap_action:
           action: none
         hold_action:
-          action: none
+          action: navigate
+          navigation_path: security
         theme: LCARS Classic
         card_mod:
           class: button-bullet-right

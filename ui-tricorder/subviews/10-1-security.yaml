@@ -1,0 +1,177 @@
+---
+title: Red Alert
+path: security
+icon: mdi:hazard-lights
+theme: LCARS Red Alert
+subview: true
+back_path: downstairs
+badges: []
+layout:
+  grid-template-columns: 40% 60%
+  grid-template-rows: auto
+  grid-template-areas: |
+    "header headerR"
+    "menu main"
+    "footer footer"
+  mediaquery:
+    '(max-width: 600px)':
+      grid-template-columns: 95%
+      grid-template-areas: |
+          "header"
+          "main"
+          "headerR"
+cards:
+  - !include ../includes/header.yaml
+  - !include ../includes/headerR.yaml
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: menu
+      show:
+        mediaquery: '(min-width: 600px)'
+    cards:
+      - type: markdown
+        content: '# Locks'
+        card_mod:
+          class: header-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:garage
+        name: "Lock: Shuttle Bay Door"
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_driveway
+        name: "Motion Sensor: Shuttle Bay Door"
+        icon: mdi:garage
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: lock.front_door
+        name: "Lock: Forward Airlock"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_doorbell
+        name: "Motion Sensor: Forward Airlock"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: lock.back_door
+        name: "Lock: Aft Airlock"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: binary_sensor.aarlo_motion_back_door
+        name: "Motion Sensor: Aft Airlock"
+        icon: mdi:door
+        show_state: true
+        card_mod:
+          class: button-bullet
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+      - type: markdown
+        content: "# {{ as_timestamp(now()) | timestamp_custom( '%H:%M' ) }}"
+        card_mod:
+          class: footer-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: main
+    cards:
+      - type: markdown
+        content: "# Downstairs"
+        card_mod:
+          class: header
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: custom:aarlo-glance
+        entities:
+          - entity: camera.aarlo_driveway
+            image_view: arlo-stream
+            image_top: previous,name,next
+            image_bottom: motion,sound,signal,battery|library,snapshot
+          - entity: camera.aarlo_back_door
+            image_view: arlo-stream
+            image_top: previous,name,next
+            image_bottom: motion,sound,signal,battery|library,snapshot
+          - entity: camera.aarlo_doorbell
+            image_view: arlo-stream
+            image_top: previous,name,next
+            image_bottom: motion,sound,signal,bell|library,snapshot
+
+      - type: markdown
+        content: "# R: {{states('person.rodney_nissen')}} | J: {{states('person.jfoldennissen')}}"
+        card_mod:
+          class: footer
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
