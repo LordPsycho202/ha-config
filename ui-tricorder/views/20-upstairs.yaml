@@ -158,7 +158,7 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Living room
+                name: Office
                 icon: mdi:desk
                 entity: light.office_2
                 tap_action:
@@ -233,14 +233,14 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Kitchen
-                icon: mdi:knife
-                entity: light.kitchen
+                name: Vanity
+                icon: mdi:mirror-rectangle
+                entity: light.guest_bathroom
                 tap_action:
                   action: toggle
                 hold_action:
                   action: navigate
-                  navigation_path: kitchen
+                  navigation_path: guest_bath
                 card_mod:
                   class: button-bullet-right
                   style: |
@@ -251,14 +251,13 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Foyer
-                icon: mdi:door-closed
-                entity: light.foyer
+                name: Bathroom
+                icon: mdi:shower
                 tap_action:
-                  action: toggle
+                  action: none
                 hold_action:
                   action: navigate
-                  navigation_path: foyer
+                  navigation_path: guest_bath
                 card_mod:
                   class: button-bullet-right
                   style: |
@@ -269,14 +268,13 @@ cards:
                 show_icon: true
                 show_state: false
                 type: button
-                name: Bathroom
-                icon: mdi:shower-head
-                entity: light.master_bathroom
+                name: Guest Room
+                icon: mdi:bed-outline
                 tap_action:
-                  action: toggle
+                  action: none
                 hold_action:
                   action: navigate
-                  navigation_path: master_bath
+                  navigation_path: guest
                 card_mod:
                   class: button-bullet-right
                   style: |
