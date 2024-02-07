@@ -1,8 +1,9 @@
 ---
 title: Red Alert
-path: security
-icon: mdi:hazard-lights
 theme: LCARS Red Alert
+type: custom:grid-layout
+icon: mdi:hazard-lights
+path: security
 subview: true
 back_path: downstairs
 badges: []
