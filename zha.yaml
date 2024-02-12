@@ -1,5 +1,7 @@
 ---
 zigpy_config:
+  ezsp_policies:
+    TRUST_CENTER_POLICY: 0x0002
   ota:
     ikea_provider: true                        # Auto update Trådfri devices
     ikea_update_url: http://fw.test.ota.homesmart.ikea.net/feed/version_info.json
