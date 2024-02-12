@@ -61,7 +61,8 @@ cards:
         show_icon: true
         type: button
         tap_action:
-          action: toggle
+          action: none
+        entity: binary_sensor.garage_door
         icon: mdi:garage
         name: "Lock: Shuttle Bay Door"
         show_state: true

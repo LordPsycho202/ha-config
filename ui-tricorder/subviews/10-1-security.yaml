@@ -48,6 +48,7 @@ cards:
           action: none
         icon: mdi:garage
         name: "Lock: Shuttle Bay Door"
+        entity: binary_sensor.garage_door
         show_state: true
         card_mod:
           class: button-bullet-right
