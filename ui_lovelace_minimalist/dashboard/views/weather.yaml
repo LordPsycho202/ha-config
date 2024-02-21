@@ -106,30 +106,36 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: custom:windrose-card
-        title: Wind direction
-        data_period:
-          hours_to_show: 4
-        max_width: 400
-        refresh_interval: 300
-        windspeed_bar_location: right
-        windspeed_bar_full: false
-        wind_direction_entity:
-          entity: sensor.wind_dir_acurite_5n1
-          direction_unit: degrees
-          use_statistics: false
-          direction_compensation: 0
-        windspeed_entities:
-          - entity: sensor.wind_acurite_5n1
-            name: Wind Speed
-            speed_unit: auto
+      - type: conditional
+        conditions:
+          - condition: numeric_state
+            entity: sensor.wind_daily_hi_acurite_5n1
+            above: 0
+        card:
+          type: custom:windrose-card
+          title: Wind direction
+          data_period:
+            hours_to_show: 4
+          max_width: 400
+          refresh_interval: 300
+          windspeed_bar_location: right
+          windspeed_bar_full: false
+          wind_direction_entity:
+            entity: sensor.wind_dir_acurite_5n1
+            direction_unit: degrees
             use_statistics: false
-        output_speed_unit: mph
-        speed_range_beaufort: true
-        windrose_draw_north_offset: 0
-        cardinal_direction_letters: NESW
-        matching_strategy: direction-first
-        center_calm_percentage: true
+            direction_compensation: 0
+          windspeed_entities:
+            - entity: sensor.wind_acurite_5n1
+              name: Wind Speed
+              speed_unit: auto
+              use_statistics: false
+          output_speed_unit: mph
+          speed_range_beaufort: true
+          windrose_draw_north_offset: 0
+          cardinal_direction_letters: NESW
+          matching_strategy: direction-first
+          center_calm_percentage: true
 
   - type: vertical-stack
     cards:
