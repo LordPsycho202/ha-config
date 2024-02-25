@@ -144,19 +144,12 @@ cards:
                   entity: sensor.wind_gust_acurite_5n1
                   above: 0
               card:
-                type: custom:mushroom-template-card
-                primary: >-
-                  {{ states('sensor.wind_gust_acurite_5n1') | round(1) }}{{
-                  state_attr('sensor.wind_gust_acurite_5n1','unit_of_measurement') }}
-                secondary: Wind Gusts
-                icon: mdi:weather-windy
-                icon_color: blue
-            - type: custom:mushroom-template-card
-              primary: >-
-                {{ states('sensor.wind_daily_hi_acurite_5n1') | round(1) }}{{
-                state_attr('sensor.wind_daily_hi_acurite_5n1','unit_of_measurement') }}
-              secondary: Highest Winds Today
-              icon: mdi:weather-windy
+                type: custom:mushroom-entity-card
+                entity: sensor.wind_gust_acurite_5n1
+                name: Wind Gust
+            - type: custom:mushroom-entity-card
+              entity: sensor.wind_daily_hi_acurite_5n1
+              name: High Winds Today
               icon_color: red
 
   - type: vertical-stack
