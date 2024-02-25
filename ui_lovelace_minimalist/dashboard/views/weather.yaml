@@ -104,15 +104,15 @@ cards:
           show_warning: false
           show_error: false
 
-  - type: vertical-stack
-    cards:
-      - type: conditional
-        conditions:
-          - condition: numeric_state
-            entity: sensor.wind_daily_hi_acurite_5n1
-            above: 0
-        card:
-          type: custom:windrose-card
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.wind_daily_hi_acurite_5n1
+        above: 0
+    card:
+      type: vertical-stack
+      cards:
+        - type: custom:windrose-card
           title: Wind direction
           data_period:
             hours_to_show: 4
@@ -136,6 +136,28 @@ cards:
           cardinal_direction_letters: NESW
           matching_strategy: direction-first
           center_calm_percentage: true
+        - type: horizontal-stack
+          cards:
+            - type: conditional
+              conditions:
+                - condition: numeric_state
+                  entity: sensor.wind_gust_acurite_5n1
+                  above: 0
+              card:
+                type: custom:mushroom-template-card
+                primary: >-
+                  {{ states('sensor.wind_gust_acurite_5n1') | round(1) }}{{
+                  state_attr('sensor.wind_gust_acurite_5n1','unit_of_measurement') }}
+                secondary: Wind Gusts
+                icon: mdi:weather-windy
+                icon_color: blue
+            - type: custom:mushroom-template-card
+              primary: >-
+                {{ states('sensor.wind_daily_hi_acurite_5n1') | round(1) }}{{
+                state_attr('sensor.wind_daily_hi_acurite_5n1','unit_of_measurement') }}
+              secondary: Highest Winds Today
+              icon: mdi:weather-windy
+              icon_color: red
 
   - type: vertical-stack
     cards:
