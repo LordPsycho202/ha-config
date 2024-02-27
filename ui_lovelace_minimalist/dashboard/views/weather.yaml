@@ -104,6 +104,17 @@ cards:
           show_warning: false
           show_error: false
 
+<<<<<<< HEAD
+  - type: vertical-stack
+    cards:
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: binary_sensor.wind_show_card_acurite_5n1
+            state: 'on'
+        card:
+          type: custom:windrose-card
+=======
   - type: conditional
     conditions:
       - condition: numeric_state
@@ -113,6 +124,7 @@ cards:
       type: vertical-stack
       cards:
         - type: custom:windrose-card
+>>>>>>> aedef475ea4e8fbd8e337b5e63428ab75a25af7f
           title: Wind direction
           data_period:
             hours_to_show: 4
@@ -127,15 +139,40 @@ cards:
             direction_compensation: 0
           windspeed_entities:
             - entity: sensor.wind_acurite_5n1
-              name: Wind Speed
+              name: Winds
               speed_unit: auto
               use_statistics: false
           output_speed_unit: mph
-          speed_range_beaufort: true
+          speed_range_max: 30
+          speed_range_step: 2
+          speed_range_beaufort: false
           windrose_draw_north_offset: 0
           cardinal_direction_letters: NESW
           matching_strategy: direction-first
           center_calm_percentage: true
+<<<<<<< HEAD
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.wind_gust_acurite_5n1
+                above: 0
+            card:
+              type: custom:mushroom-entity-card
+              entity: sensor.wind_gust_acurite_5n1
+              name: Gusts
+          - type: conditional
+            conditions:
+              - condition: numeric_state
+                entity: sensor.wind_daily_hi_acurite_5n1
+                above: 0
+            card:
+              type: custom:mushroom-entity-card
+              entity: sensor.wind_daily_hi_acurite_5n1
+              icon_color: red
+              name: Highest Today
+=======
         - type: horizontal-stack
           cards:
             - type: conditional
@@ -151,6 +188,7 @@ cards:
               entity: sensor.wind_daily_hi_acurite_5n1
               name: High Winds Today
               icon_color: red
+>>>>>>> aedef475ea4e8fbd8e337b5e63428ab75a25af7f
 
   - type: vertical-stack
     cards:
