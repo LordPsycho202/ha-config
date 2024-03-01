@@ -104,6 +104,22 @@ cards:
           show_warning: false
           show_error: false
 
+      - type: conditional
+        conditions:
+          - condition: numeric_state
+            entity: sensor.blitzortung_lightning_counter
+            above: 0
+        card:
+          show_name: true
+          show_icon: true
+          show_state: true
+          type: glance
+          entities:
+            - entity: sensor.blitzortung_lightning_counter
+            - entity: sensor.blitzortung_lightning_distance
+            - entity: sensor.blitzortung_lightning_azimuth
+          state_color: true
+
   - type: vertical-stack
     cards:
       - type: conditional
