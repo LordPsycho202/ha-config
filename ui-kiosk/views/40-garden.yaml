@@ -144,7 +144,7 @@ cards:
         entity: vacuum.philoctetes
         show_state: true
       - type: markdown
-        content: "# Rain Stats"
+        content: '# Soil Moisture'
         card_mod:
           class: bar
           style: |
@@ -156,10 +156,17 @@ cards:
         show_state: true
         type: glance
         entities:
-          - entity: sensor.rain_daily
-          - entity: sensor.total_rain_monthly
-          - entity: sensor.total_rain_annual
-        columns: 3
+          - entity: sensor.soil_moisture_5
+            name: Seeds
+          - entity: sensor.soil_moisture_4
+            name: Collards
+          - entity: sensor.soil_moisture_2
+            name: Herbs
+          - entity: sensor.soil_moisture_1
+            name: Flowers
+          - entity: sensor.soil_moisture_3
+            name: Pineapples
+        columns: 5
         card_mod:
           class: middle-blank
           style: |
@@ -167,7 +174,7 @@ cards:
               font-family: Antonio
             }
       - type: markdown
-        content: "# Irrigation"
+        content: '# Irrigation'
         card_mod:
           class: bar
           style: |
@@ -219,12 +226,13 @@ cards:
                 ha-card > * {
                   font-family: Antonio
                 }
+
   - type: vertical-stack
     view_layout:
       grid-area: aux
     cards:
       - type: markdown
-        content: '# Forecast Modeling'
+        content: '# Forecast Model'
         card_mod:
           class: header-open
           style: |
@@ -237,13 +245,13 @@ cards:
         entity: weather.weather_station
         theme: ios-dark-mode
         secondary_info_attribute: pressure
+        forecast_type: legacy
         card_mod:
           style: |
             ha-card > * {
               height:215px !important;
               font-family: Antonio;
             }
-  
       - type: markdown
         content: '# Solar Cycle'
         card_mod:
@@ -259,7 +267,37 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-
+      - type: markdown
+        content: '# Rain Stats'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.rain_daily
+            card_mod:
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - type: gauge
+            entity: sensor.total_rain_monthly
+            card_mod:
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - type: gauge
+            entity: sensor.total_rain_annual
+            card_mod:
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
       - type: markdown
         content: '# Waste Collection'
         card_mod:
