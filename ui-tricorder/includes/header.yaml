@@ -6,7 +6,7 @@ view_layout:
 cards:
   - type: markdown
     content: >-
-      ## Stardate: {{ states('sensor.stardate')}} 
+      ## Stardate: {{ states('sensor.stardate')}}
 
       #  {{ states('sensor.template_header_greet') }}
     card_mod:

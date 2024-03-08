@@ -52,12 +52,11 @@ cards:
               font-family: Antonio
             }
 
-
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
     cards:
- 
+
       - type: markdown
         content: "# Computer Bank"
         card_mod:
@@ -514,7 +513,7 @@ cards:
                 layout: horizontal
                 secondary: >-
                   Dell r510 64GB
-                
+
                   CPU: {{ states.sensor.cpu_usage.state }}% • RAM: {{
                   states.sensor.memory_usage.state }}%
                 entity: update.update
@@ -523,17 +522,17 @@ cards:
                 fill_container: true
               - type: horizontal-stack
                 cards:
-                - type: gauge
-                  entity: sensor.fanspeed_r510
-                  name: Fan
-                  unit: rpm
-                  min: 0
-                  max: 10000
-                - type: gauge
-                  entity: sensor.temp_r510
-                  name: Temp
-                  min: 0
-                  max: 140
+                  - type: gauge
+                    entity: sensor.fanspeed_r510
+                    name: Fan
+                    unit: rpm
+                    min: 0
+                    max: 10000
+                  - type: gauge
+                    entity: sensor.temp_r510
+                    name: Temp
+                    min: 0
+                    max: 140
           - type: custom:stack-in-card
             cards:
               - type: custom:mushroom-template-card
@@ -563,16 +562,16 @@ cards:
                 fill_container: true
               - type: horizontal-stack
                 cards:
-                - type: gauge
-                  entity: sensor.network_users
-                  name: Clients
-                  min: 0
-                  max: 200
-                - type: gauge
-                  entity: sensor.net_folden_nissen_com_cpu_temperature
-                  name: Temp
-                  min: 0
-                  max: 140
+                  - type: gauge
+                    entity: sensor.network_users
+                    name: Clients
+                    min: 0
+                    max: 200
+                  - type: gauge
+                    entity: sensor.net_folden_nissen_com_cpu_temperature
+                    name: Temp
+                    min: 0
+                    max: 140
       - type: markdown
         content: '# Subspace Uplink'
         card_mod:
