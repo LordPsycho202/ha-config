@@ -7,7 +7,7 @@ cards:
   - type: vertical-stack
     cards:
       - !include /config/ui-includes/alerts.yaml
-      - !include welcome.yaml
+      - !include ../includes/1-welcome.yaml
 
   - type: vertical-stack
     cards:
