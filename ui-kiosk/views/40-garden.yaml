@@ -39,7 +39,7 @@ cards:
           action: more-info
         name: Seed Tray
         show_state: true
-        entity: plant.seeds
+        entity: plant.tomatoes
         card_mod:
           class: button-bullet
           style: |
@@ -49,7 +49,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:fruit-pineapple
+        icon: mdi:fruit-pineapples
         tap_action:
           action: more-info
         name: Pineapple Pots
@@ -69,7 +69,7 @@ cards:
           action: more-info
         name: Front Planter
         show_state: true
-        entity: plant.front_planter
+        entity: plant.front_flowers
         card_mod:
           class: button-bullet
           style: |
@@ -84,7 +84,7 @@ cards:
           action: more-info
         name: Planter 1 (Herbs)
         show_state: true
-        entity: plant.planter_1
+        entity: plant.herbs
         card_mod:
           class: button-bullet
           style: |
@@ -99,7 +99,7 @@ cards:
           action: more-info
         name: Planter 2 (Collards)
         show_state: true
-        entity: plant.planter_2
+        entity: plant.collards
         card_mod:
           class: button-bullet
           style: |

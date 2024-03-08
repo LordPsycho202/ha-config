@@ -252,7 +252,7 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.front_planter
+            entity: plant.front_flowers
             state_not: ok
           - condition: state
             entity: sensor.season
@@ -261,19 +261,19 @@ chips:
       type: template
       icon_color: white
       icon: |-
-        {% if 'moisture low' in state_attr('plant.front_planter','problem') %}
+        {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.front_planter','problem') %}
+        {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.front_planter','problem') %}
+        {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.front_planter','problem') %}
+        {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
         {% endif %}
       content: Front Planter
-      entity: plant.front_planter
+      entity: plant.front_flowers
       tap_action:
         action: navigate
         navigation_path: garden
@@ -283,7 +283,7 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.planter_1
+            entity: plant.herbs
             state_not: ok
           - condition: state
             entity: sensor.season
@@ -292,19 +292,19 @@ chips:
       type: template
       icon_color: white
       icon: |-
-        {% if 'moisture low' in state_attr('plant.planter_1','problem') %}
+        {% if 'moisture low' in state_attr('plant.herbs','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.planter_1','problem') %}
+        {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.planter_1','problem') %}
+        {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.planter_1','problem') %}
+        {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
         {% endif %}
       content: Planter 1 (Herbs)
-      entity: plant.planter_1
+      entity: plant.herbs
       tap_action:
         action: navigate
         navigation_path: garden
@@ -314,23 +314,23 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.planter_2
+            entity: plant.collards
             state_not: ok
           - condition: state
             entity: sensor.season
             state_not: winter
     chip:
       type: template
-      entity: plant.planter_2
+      entity: plant.collards
       icon_color: white
       icon: |-
-        {% if 'moisture low' in state_attr('plant.planter_2','problem') %}
+        {% if 'moisture low' in state_attr('plant.collards','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.planter_2','problem') %}
+        {% elif 'moisture high' in state_attr('plant.collards','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.planter_2','problem') %}
+        {% elif 'temperature low' in state_attr('plant.collards','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.planter_2','problem') %}
+        {% elif 'temperature high' in state_attr('plant.collards','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:leaf

@@ -131,35 +131,35 @@ cards:
         name: Front Planter
       - type: custom:mushroom-template-card
         primary: Flowers
-        entity: plant.front_planter
+        entity: plant.front_flowers
         tap_action:
           action: more-info
         secondary: |-
-          {% if states('plant.front_planter') == 'ok' %}
+          {% if states('plant.front_flowers') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.front_planter','problem')|capitalize }}
+          {{ state_attr('plant.front_flowers','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low'in state_attr('plant.front_planter','problem') %}
+          {% if 'moisture low'in state_attr('plant.front_flowers','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.front_planter','problem') %}
+          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.front_planter','problem') %}
+          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.front_planter','problem') %}
+          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
           mdi:sun-thermometer-outline
           {% else %}
           mdi:flower
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.front_planter','problem') %}
+          {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.front_planter','problem') %}
+          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.front_planter','problem') %}
+          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.front_planter','problem') %}
+          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
           red
           {% else %}
           green
@@ -181,35 +181,35 @@ cards:
         name: Planter 1 (Herbs)
       - type: custom:mushroom-template-card
         primary: Herbs
-        entity: plant.planter_1
+        entity: plant.herbs
         tap_action:
           action: more-info
         secondary: |-
-          {% if states('plant.planter_1') == 'ok' %}
+          {% if states('plant.herbs') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.planter_1','problem')|capitalize }}
+          {{ state_attr('plant.herbs','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low' in state_attr('plant.planter_1','problem') %}
+          {% if 'moisture low' in state_attr('plant.herbs','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.planter_1','problem') %}
+          {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.planter_1','problem') %}
+          {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.planter_1','problem') %}
+          {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
           mdi:sun-thermometer-outline
           {% else %}
           mdi:chili-mild-outline
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.planter_1','problem') %}
+          {% if 'moisture low' in state_attr('plant.herbs','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.planter_1','problem') %}
+          {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.planter_1','problem') %}
+          {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.planter_1','problem') %}
+          {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
           red
           {% else %}
           green
@@ -241,36 +241,36 @@ cards:
         template: card_title
         name: Planter 2 (Collards)
       - type: custom:mushroom-template-card
-        entity: plant.planter_2
+        entity: plant.collards
         tap_action:
           action: more-info
         primary: Collards
         secondary: |-
-          {% if states('plant.planter_2') == 'ok' %}
+          {% if states('plant.collards') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.planter_2','problem')|capitalize }}
+          {{ state_attr('plant.collards','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low' in state_attr('plant.planter_2','problem') %}
+          {% if 'moisture low' in state_attr('plant.collards','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.planter_2','problem') %}
+          {% elif 'moisture high' in state_attr('plant.collards','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.planter_2','problem') %}
+          {% elif 'temperature low' in state_attr('plant.collards','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.planter_2','problem') %}
+          {% elif 'temperature high' in state_attr('plant.collards','problem') %}
           mdi:sun-thermometer-outline
           {% else %}
           mdi:leaf
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.planter_2','problem') %}
+          {% if 'moisture low' in state_attr('plant.collards','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.planter_2','problem') %}
+          {% elif 'moisture high' in state_attr('plant.collards','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.planter_2','problem') %}
+          {% elif 'temperature low' in state_attr('plant.collards','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.planter_2','problem') %}
+          {% elif 'temperature high' in state_attr('plant.collards','problem') %}
           red
           {% else %}
           green
