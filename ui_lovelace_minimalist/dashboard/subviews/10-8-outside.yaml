@@ -156,16 +156,16 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            entity: sensor.temp_nexus_th_125
+            entity: sensor.temp_nexus_th
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th
+              ulm_card_graph_entity: sensor.temp
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
-            entity: sensor.humidity_nexus_th_125
+            entity: sensor.humidity_nexus_th
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-blue)"
