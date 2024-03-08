@@ -41,25 +41,25 @@ cards:
           {{ state_attr('plant.tomatoes','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low' in state_attr('plant.seeds','problem') %}
+          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.seeds','problem') %}
+          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.seeds','problem') %}
+          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.seeds','problem')%}
+          {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
           mdi:sun-thermometer-outline
           {% else %}
           mdi:sprout-outline
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.seeds','problem') %}
+          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.seeds','problem') %}
+          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.seeds','problem') %}
+          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.seeds','problem') %}
+          {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
           red
           {% else %}
           green
