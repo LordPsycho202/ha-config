@@ -275,7 +275,7 @@ elements:
       left: 4%
       transform: translate(0%,0%) scale(2.5,2.5)
   - type: state-icon
-    entity: vacuum.philoctetes
+    entity: lawn_mower.philoctetes
     style:
       top: 26%
       left: 2%
