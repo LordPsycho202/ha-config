@@ -303,7 +303,7 @@ chips:
         {% else %}
         mdi:sprout-outline
         {% endif %}
-      content: Planter 1 (Herbs)
+      content: Herbs
       entity: plant.herbs
       tap_action:
         action: navigate
@@ -335,7 +335,7 @@ chips:
         {% else %}
         mdi:leaf
         {% endif %}
-      content: Planter 2 (Collards)
+      content: Collards
       tap_action:
         action: navigate
         navigation_path: garden
