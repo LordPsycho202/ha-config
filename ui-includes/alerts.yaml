@@ -368,25 +368,25 @@ chips:
   - type: conditional
     conditions:
       - condition: state
-        entity: plant.seeds
+        entity: plant.tomatoes
         state_not: ok
     chip:
       type: template
-      entity: plant.seeds
+      entity: plant.tomatoes
       icon_color: white
       icon: |-
-        {% if 'moisture low' in state_attr('plant.seeds','problem') %}
+        {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.seeds','problem') %}
+        {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.seeds','problem') %}
+        {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.seeds','problem') %}
+        {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
         mdi:sprout-outline
         {% endif %}
-      content: Seed Trays
+      content: Tomatoes
       tap_action:
         action: navigate
         navigation_path: garden
