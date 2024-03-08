@@ -29,7 +29,7 @@ planter_2:
   min_temperature: 50
   max_temperature: 90
   min_battery: 35
-seeds:
+tomatoes:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt

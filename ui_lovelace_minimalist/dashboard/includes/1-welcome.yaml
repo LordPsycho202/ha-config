@@ -17,7 +17,7 @@ variables:
     color: "red"
   entity_3:
     nav: "garden"
-    icon: "mdi:bee-flower"
+    icon: "mdi:greenhouse"
     name: Gardens
     color: "green"
   entity_4:

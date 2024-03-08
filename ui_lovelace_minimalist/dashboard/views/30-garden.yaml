@@ -1,7 +1,7 @@
 ---
 title: "Gardens"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:bee-flower
+icon: mdi:greenhouse
 path: garden
 cards:
   - type: vertical-stack
@@ -14,16 +14,31 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Indoor Greenhouse
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.greenhouse
+            variables:
+              ulm_card_light_name: Plant Light
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+          - type: "custom:button-card"
+            template: card_power_outlet
+            variables:
+              ulm_card_power_outlet_name: Seedling Fan
+              ulm_card_power_outlet_icon: mdi:fan
+            entity: fan.greenhouse
       - type: custom:mushroom-template-card
-        primary: Seed Trays
-        entity: plant.seeds
+        primary: Tomatoes
+        entity: plant.tomatoes
         tap_action:
           action: more-info
         secondary: |-
-          {% if states('plant.seeds') == 'ok' %}
+          {% if states('plant.tomatoes') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.seeds','problem')|capitalize }}
+          {{ state_attr('plant.tomatoes','problem')|capitalize }}
           {% endif %}
         icon: |-
           {% if 'moisture low' in state_attr('plant.seeds','problem') %}
@@ -49,21 +64,6 @@ cards:
           {% else %}
           green
           {% endif %}
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_light
-            entity: light.greenhouse
-            variables:
-              ulm_card_light_name: Plant Light
-              ulm_card_light_force_background_color: true
-              ulm_card_light_enable_collapse: true
-          - type: "custom:button-card"
-            template: card_power_outlet
-            variables:
-              ulm_card_power_outlet_name: Seedling Fan
-              ulm_card_power_outlet_icon: mdi:fan
-            entity: fan.greenhouse
       - type: "custom:button-card"
         template: card_graph
         entity: sensor.soil_moisture_5
