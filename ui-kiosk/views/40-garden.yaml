@@ -37,7 +37,7 @@ cards:
         icon: mdi:sprout-outline
         tap_action:
           action: more-info
-        name: Seed Tray
+        name: Tomatoes
         show_state: true
         entity: plant.tomatoes
         card_mod:
@@ -49,10 +49,10 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:fruit-pineapples
+        icon: mdi:fruit-pineapple
         tap_action:
           action: more-info
-        name: Pineapple Pots
+        name: Pineapples
         show_state: true
         entity: plant.pineapples
         card_mod:
@@ -67,7 +67,7 @@ cards:
         icon: mdi:flower-outline
         tap_action:
           action: more-info
-        name: Front Planter
+        name: Front Flowers
         show_state: true
         entity: plant.front_flowers
         card_mod:
@@ -82,7 +82,7 @@ cards:
         icon: mdi:chili-mild-outline
         tap_action:
           action: more-info
-        name: Planter 1 (Herbs)
+        name: Herbs
         show_state: true
         entity: plant.herbs
         card_mod:
@@ -97,7 +97,7 @@ cards:
         icon: mdi:leaf
         tap_action:
           action: more-info
-        name: Planter 2 (Collards)
+        name: Collards
         show_state: true
         entity: plant.collards
         card_mod:
@@ -157,7 +157,7 @@ cards:
         type: glance
         entities:
           - entity: sensor.soil_moisture_5
-            name: Seeds
+            name: Tomatoes
           - entity: sensor.soil_moisture_4
             name: Collards
           - entity: sensor.soil_moisture_2
