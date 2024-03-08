@@ -33,6 +33,6 @@ tomatoes:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
-  min_moisture: 25
+  min_moisture: 30
   max_moisture: 60
   min_battery: 35
