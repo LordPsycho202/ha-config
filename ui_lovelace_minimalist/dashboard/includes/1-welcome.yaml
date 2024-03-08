@@ -21,13 +21,12 @@ variables:
     name: Gardens
     color: "green"
   entity_4:
-    nav: "security"
-    icon: "mdi:shield"
-    name: "Security"
-    color: "purple"
-  entity_5:
     nav: "weather"
     icon: "mdi:cloud"
     name: Weather
     color: "yellow"
-
+  entity_5:
+    nav: "security"
+    icon: "mdi:shield"
+    name: "Security"
+    color: "purple"

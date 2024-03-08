@@ -5,36 +5,36 @@ title: "Minimalist"
 background: "var(--background-image)"
 views:
   # Downstairs
-  - !include views/downstairs.yaml
-  - !include views/master_bath.yaml
-  - !include views/master_bed.yaml
-  - !include views/livingroom.yaml
-  - !include views/kitchen.yaml
-  - !include views/diningroom.yaml
-  - !include views/foyer.yaml
-  - !include views/garage.yaml
-  - !include views/outside.yaml
-  - !include views/laundry.yaml
+  - !include views/10-downstairs.yaml
+  - !include subviews/10-1-master_bath.yaml
+  - !include subviews/10-2-master_bed.yaml
+  - !include subviews/10-3-livingroom.yaml
+  - !include subviews/10-4-kitchen.yaml
+  - !include subviews/10-5-diningroom.yaml
+  - !include subviews/10-6-foyer.yaml
+  - !include subviews/10-7-garage.yaml
+  - !include subviews/10-8-outside.yaml
+  - !include subviews/10-9-laundry.yaml
   # Upstairs
-  - !include views/upstairs.yaml
-  - !include views/office.yaml
-  - !include views/kids_room.yaml
-  - !include views/craft_room.yaml
-  - !include views/upmisc.yaml
+  - !include views/20-upstairs.yaml
+  - !include subviews/20-1-office.yaml
+  - !include subviews/20-2-kids_room.yaml
+  - !include subviews/20-3-craft_room.yaml
+  - !include subviews/20-4-upmisc.yaml
   # Garden
-  - !include views/garden.yaml
-  # Security
-  - !include views/security.yaml
+  - !include views/30-garden.yaml
   # Weather
-  - !include views/weather.yaml
+  - !include views/40-weather.yaml
+   # Security
+  - !include views/50-security.yaml
   # Network
-  - !include views/network.yaml
+  - !include views/60-network.yaml
   # Admin
-  - !include views/admin.yaml
-  - !include views/notifications.yaml
-  - !include views/automations.yaml
-  - !include views/routines.yaml
-  - !include views/batteries.yaml
+  - !include views/70-admin.yaml
+  - !include subviews/70-1-notifications.yaml
+  - !include subviews/70-2-automation.yaml
+  - !include subviews/70-3-routines.yaml
+  - !include subviews/70-4-batteries.yaml
   # Psuedo-Popups
-  - !include views/wx_alert.yaml
-  - !include views/mail_alert.yaml
+  - !include alert-panels/wx_alert.yaml
+  - !include alert-panels/mail_alert.yaml
