@@ -25,7 +25,7 @@ views:
   - !include views/30-garden.yaml
   # Weather
   - !include views/40-weather.yaml
-   # Security
+  # Security
   - !include views/50-security.yaml
   # Network
   - !include views/60-network.yaml

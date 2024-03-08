@@ -48,7 +48,7 @@ cards:
     view_layout:
       grid-area: sidebar
     cards:
- 
+
       - type: markdown
         content: "# Locks"
         card_mod:
