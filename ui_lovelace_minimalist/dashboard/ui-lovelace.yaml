@@ -36,5 +36,5 @@ views:
   - !include subviews/70-3-routines.yaml
   - !include subviews/70-4-batteries.yaml
   # Psuedo-Popups
-  - !include alert-panels/wx_alert.yaml
-  - !include alert-panels/mail_alert.yaml
+  - !include alert-panels/80-mail_alert.yaml
+  - !include alert-panels/90-wx_alert.yaml
