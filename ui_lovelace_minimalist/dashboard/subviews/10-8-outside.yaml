@@ -28,7 +28,7 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: vacuum.philoctetes
+          - entity: lawn_mower.philoctetes
             state: "docked"
         card:
           type: custom:stack-in-card
@@ -46,15 +46,12 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: vacuum.philoctetes
+          - entity: lawn_mower.philoctetes
             state_not: "docked"
         card:
           type: "custom:button-card"
           template: card_vacuum
-          entity: vacuum.philoctetes
-          variables:
-            ulm_card_vacuum_camera: image.philoctetes_map
-            ulm_card_vacuum_camera_toggle: false
+          entity: lawn_mower.philoctetes
 
       - type: conditional
         conditions:
@@ -129,7 +126,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Front Planter
+        label: Front Flowers
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -146,7 +143,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Planter 1 (Herbs)
+        label: Herbs
       - type: "custom:button-card"
         entity: sensor.soil_moisture_2
         template: card_graph
@@ -181,7 +178,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: Planter 2 (Collards)
+        label: Collards
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -202,26 +199,7 @@ cards:
               ulm_card_graph_entity: sensor.soil_temperature_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            entity: sensor.temp_nexus_th_61
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-red)"
-              ulm_card_graph_name: Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_2
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            entity: sensor.humidity_nexus_th_61
-            template: card_graph
-            variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Humidity
-              ulm_card_graph_entity: sensor.humidity_nexus_th_2
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+
 
   - type: vertical-stack
     cards:
