@@ -29,193 +29,212 @@ cards:
               ulm_card_power_outlet_name: Seedling Fan
               ulm_card_power_outlet_icon: mdi:fan
             entity: fan.greenhouse
-      - type: custom:mushroom-template-card
-        primary: Tomatoes
-        entity: plant.tomatoes
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.tomatoes') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.tomatoes','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:sprout-outline
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.soil_moisture_5
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_5
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Tomatoes
+            entity: plant.tomatoes
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.tomatoes') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.tomatoes','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:sprout-outline
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_5
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_5
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Pineapple Pots
-      - type: custom:mushroom-template-card
-        primary: Pineapples
-        entity: plant.pineapples
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.pineapples') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.pineapples','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:fruit-pineapple
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.soil_moisture_3
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_3
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Pineapples
+            entity: plant.pineapples
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.pineapples') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.pineapples','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:fruit-pineapple
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_3
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_3
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Front Planter
-      - type: custom:mushroom-template-card
-        primary: Flowers
-        entity: plant.front_flowers
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.front_flowers') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.front_flowers','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low'in state_attr('plant.front_flowers','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:flower
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.soil_moisture_1
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_1
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Flowers
+            entity: plant.front_flowers
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.front_flowers') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.front_flowers','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low'in state_attr('plant.front_flowers','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:flower
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_1
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_1
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Planter 1 (Herbs)
-      - type: custom:mushroom-template-card
-        primary: Herbs
-        entity: plant.herbs
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.herbs') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.herbs','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.herbs','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:chili-mild-outline
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.herbs','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.temp_nexus_th
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Temperature
+          ulm_card_graph_entity: sensor.temp_nexus_th
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
+          - type: custom:mushroom-template-card
+            primary: Herbs
+            entity: plant.herbs
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.herbs') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.herbs','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:chili-mild-outline
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_2
@@ -225,58 +244,59 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_2
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.temp_nexus_th
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.temp_nexus_th
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Planter 2 (Collards)
-      - type: custom:mushroom-template-card
-        entity: plant.collards
-        tap_action:
-          action: more-info
-        primary: Collards
-        secondary: |-
-          {% if states('plant.collards') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.collards','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.collards','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.collards','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.collards','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.collards','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:leaf
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.collards','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.collards','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.collards','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.collards','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_temperature_1
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Temperature
+          ulm_card_graph_entity: sensor.soil_temperature_1
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
+          - type: custom:mushroom-template-card
+            entity: plant.collards
+            layout: vertical
+            tap_action:
+              action: more-info
+            primary: Collards
+            secondary: |-
+              {% if states('plant.collards') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.collards','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.collards','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.collards','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.collards','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.collards','problem') %}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:leaf
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.collards','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.collards','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.collards','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.collards','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_4
@@ -286,12 +306,4 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_4
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_temperature_1
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Temperature
-              ulm_card_graph_entity: sensor.soil_temperature_1
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+
