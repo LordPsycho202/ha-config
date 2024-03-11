@@ -46,7 +46,7 @@ Cucumbers:
 Okra:
   sensors:
     moisture: sensor.soil_moisture_8
-    battry: sensor.soil_moisture_8_batt
+    battery: sensor.soil_moisture_8_batt
   min_moisture: 25
   max_moisture: 60
-  min_battry: 35
+  min_battery: 35
