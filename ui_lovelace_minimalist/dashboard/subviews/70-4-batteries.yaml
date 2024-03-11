@@ -12,7 +12,7 @@ cards:
         template: card_title
         name: Security Batteries
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -31,7 +31,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Driveway Camera
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -80,7 +80,7 @@ cards:
         template: card_title
         name: Sensor Batteries
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -99,7 +99,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Herbs Soil Moisture    
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -118,7 +118,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Collards Soil Moisture
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -137,7 +137,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Cucumbers Soil Moisture
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -156,7 +156,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Soil Temperature
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template:
@@ -172,7 +172,7 @@ cards:
               ulm_card_binary_sensor_alert_name: Greenhouse
             entity: binary_sensor.batt_nexus_th
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_binary_sensor_alert
@@ -187,7 +187,7 @@ cards:
               ulm_card_binary_sensor_alert_name: Garage
             entity: binary_sensor.batt_acurite_6045m
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_binary_sensor_alert
@@ -202,7 +202,7 @@ cards:
         template: card_title
         name: Zigbee Batteries
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -221,7 +221,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Garage Motion
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -240,7 +240,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Attic Door
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -257,7 +257,7 @@ cards:
         template: card_title
         name: Office Batteries
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
@@ -276,7 +276,7 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Blinds
 
-      - type: horizontal_stack
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_battery
