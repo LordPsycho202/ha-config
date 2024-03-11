@@ -1,5 +1,5 @@
 ---
-pineapples:
+Pineapples:
   sensors:
     moisture: sensor.soil_moisture_3
     battery: sensor.soil_moisture_3_batt
@@ -11,16 +11,17 @@ front_flowers:
     battery: sensor.soil_moisture_1_batt
   min_moisture: 20
   min_battery: 35
-herbs:
+Herbs:
   sensors:
     moisture: sensor.soil_moisture_2
     temperature: sensor.temp_nexus_th
     battery: sensor.soil_moisture_2_batt
   min_moisture: 20
+  max_moisture: 80
   min_temperature: 40
   max_temperature: 85
   min_battery: 35
-collards:
+Collards:
   sensors:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
@@ -28,10 +29,24 @@ collards:
   min_moisture: 20
   min_temperature: 50
   min_battery: 35
-tomatoes:
+Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
   min_moisture: 30
   max_moisture: 60
   min_battery: 35
+Cucumbers:
+  sensors:
+    moisture: sensor.soil_moisture_6
+    battery: sensor.soil_moisture_6_batt
+  min_moisture: 30
+  max_moisture: 60
+  min_battery: 35
+Okra:
+  sensors:
+    moisture: sensor.soil_moisture_8
+    battry: sensor.soil_moisture_8_batt
+  min_moisture: 25
+  max_moisture: 60
+  min_battry: 35
