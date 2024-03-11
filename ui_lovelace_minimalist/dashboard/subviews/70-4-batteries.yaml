@@ -261,9 +261,9 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_battery
-            entity: sensor.office_remote_battery
+            entity: sensor.remote_office_battery
             variables:
-              ulm_card_battery_charger_type_entity_id: sensor.hue_dimmer_switch_1_battery_level
+              ulm_card_battery_charger_type_entity_id: sensor.remote_office_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Dimmer Switch
@@ -280,9 +280,9 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_battery
-            entity: sensor.office_motion_sensor_battery
+            entity: sensor.motion_office_battery
             variables:
-              ulm_card_battery_charger_type_entity_id: sensor.hue_motion_sensor_1_battery
+              ulm_card_battery_charger_type_entity_id: sensor.motion_office_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Motion Sensor
