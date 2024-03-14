@@ -192,6 +192,23 @@ chips:
 
   - type: conditional
     conditions:
+      - entity: input_select.cat_litter_full_clean
+        state_not: Done
+    chip:
+      type: template
+      icon: mdi:cat
+      icon_color: white
+      content: "Empty: {{ states.input_select.cat_litter_full_clean.state }}"
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.cat_litter_full_clean
+        data:
+          option: Done
+
+  - type: conditional
+    conditions:
       - entity: input_boolean.vacation_mode
         state: "on"
     chip:
@@ -393,17 +410,52 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: input_select.cat_litter_full_clean
-        state_not: Done
+      - condition: state
+        entity: plant.cucumbers
+        state_not: ok
     chip:
       type: template
-      icon: mdi:cat
+      entity: plant.cucumbers
       icon_color: white
-      content: "Empty: {{ states.input_select.cat_litter_full_clean.state }}"
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.cucumbers','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.cucumbers','problem') %}
+        mdi:water-alert
+        {% elif 'temperature low' in state_attr('plant.cucumbers','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.cucumbers','problem') %}
+        mdi:sun-thermometer-outline
+        {% else %}
+        mdi:sprout-outline
+        {% endif %}
+      content: Cucumbers
       tap_action:
-        action: call-service
-        service: input_select.select_option
-        target:
-          entity_id: input_select.cat_litter_full_clean
-        data:
-          option: Done
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: plant.okra
+        state_not: ok
+    chip:
+      type: template
+      entity: plant.okra
+      icon_color: white
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.okra','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.okra','problem') %}
+        mdi:water-alert
+        {% elif 'temperature low' in state_attr('plant.okra','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.okra','problem') %}
+        mdi:sun-thermometer-outline
+        {% else %}
+        mdi:sprout-outline
+        {% endif %}
+      content: Okra
+      tap_action:
+        action: navigate
+        navigation_path: garden

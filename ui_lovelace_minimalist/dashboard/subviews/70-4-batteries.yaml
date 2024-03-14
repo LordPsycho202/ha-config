@@ -178,7 +178,7 @@ cards:
             variables:
               ulm_card_binary_sensor_alert: true
               ulm_card_binary_sensor_alert_name: Greenhouse
-            entity: binary_sensor.batt_nexus_th
+            entity: binary_sensor.batt_nexus_th_2
 
       - type: horizontal-stack
         cards:
@@ -187,7 +187,7 @@ cards:
             variables:
               ulm_card_binary_sensor_alert: true
               ulm_card_binary_sensor_alert_name: Front Porch
-            entity: binary_sensor.batt_front_porch_2
+            entity: binary_sensor.batt_nexus_th
           - type: "custom:button-card"
             template: card_binary_sensor_alert
             variables:
