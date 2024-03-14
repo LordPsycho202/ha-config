@@ -459,3 +459,29 @@ chips:
       tap_action:
         action: navigate
         navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: plant.squash
+        state_not: ok
+    chip:
+      type: template
+      entity: plant.squash
+      icon_color: white
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.squash','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.squash','problem') %}
+        mdi:water-alert
+        {% elif 'temperature low' in state_attr('plant.squash','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.squash','problem') %}
+        mdi:sun-thermometer-outline
+        {% else %}
+        mdi:peanut-outline
+        {% endif %}
+      content: Squash
+      tap_action:
+        action: navigate
+        navigation_path: garden
