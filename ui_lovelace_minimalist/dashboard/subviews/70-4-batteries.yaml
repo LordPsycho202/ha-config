@@ -149,12 +149,20 @@ cards:
               ulm_card_battery_name: Okras Soil Moisture
           - type: "custom:button-card"
             template: card_battery
-            entity: sensor.soil_temperature_1_batt
+            entity: sensor.soil_moisture_7_batt
             variables:
               ulm_card_battery_charger_type_entity_id: sensor.soil_temperature_1_batt
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Soil Temperature
+              ulm_card_battery_name: Squash Soil Moisture
+      - type: "custom:button-card"
+        template: card_battery
+        entity: sensor.soil_temperature_1_batt
+        variables:
+          ulm_card_battery_charger_type_entity_id: sensor.soil_temperature_1_batt
+          ulm_card_battery_battery_level_danger: 15
+          ulm_card_battery_battery_level_warning: 25
+          ulm_card_battery_name: Soil Temperature
 
       - type: horizontal-stack
         cards:

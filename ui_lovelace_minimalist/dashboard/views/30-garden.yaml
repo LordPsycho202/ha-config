@@ -170,6 +170,100 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_8
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Cucumbers
+            entity: plant.cucumbers
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.cucumbers') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.cucumbers','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.cucumbers','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.cucumbers','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.cucumbers','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.cucumbers','problem')%}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:sprout-outline
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.cucumbers','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.cucumbers','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.cucumbers','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.cucumbers','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_6
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_6
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Okra
+            entity: plant.squash
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.squash') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.squash','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.squash','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.squash','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.squash','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.squash','problem')%}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:peanut-outline
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.squash','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.squash','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.squash','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.squash','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_7
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_7
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
