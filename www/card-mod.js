@@ -1,0 +1,1 @@
+/config/www/community/lovelace-card-mod/card-mod.js
