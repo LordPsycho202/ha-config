@@ -223,7 +223,7 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: vacuum.philoctetes
+            entity: lawn_mower.philoctetes
             show_state: true
             card_mod:
               class: button-lozenge
