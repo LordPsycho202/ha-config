@@ -173,8 +173,6 @@ cards:
             name: Tomatoes
           - entity: sensor.soil_moisture_6
             name: Cucumbers
-          - entity: sensor.soil_moisture_6
-            name: Cucumbers
           - entity: sensor.soil_moisture_7
             name: Squash
           - entity: sensor.soil_moisture_8
