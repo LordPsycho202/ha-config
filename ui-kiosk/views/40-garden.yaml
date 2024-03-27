@@ -109,12 +109,12 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:sprinkler-variant
+        icon: mdi:sprout-outline
         tap_action:
           action: more-info
-        name: Water Usage
+        name: Cucumbers
         show_state: true
-        entity: sensor.monthly_water
+        entity: plant.cucumbers
         card_mod:
           class: button-bullet
           style: |
@@ -161,17 +161,25 @@ cards:
         show_state: true
         type: glance
         entities:
-          - entity: sensor.soil_moisture_5
-            name: Tomatoes
-          - entity: sensor.soil_moisture_4
-            name: Collards
-          - entity: sensor.soil_moisture_2
-            name: Herbs
           - entity: sensor.soil_moisture_1
             name: Flowers
+          - entity: sensor.soil_moisture_2
+            name: Herbs
           - entity: sensor.soil_moisture_3
             name: Pineapples
-        columns: 5
+          - entity: sensor.soil_moisture_4
+            name: Collards
+          - entity: sensor.soil_moisture_5
+            name: Tomatoes
+          - entity: sensor.soil_moisture_6
+            name: Cucumbers
+          - entity: sensor.soil_moisture_6
+            name: Cucumbers
+          - entity: sensor.soil_moisture_7
+            name: Squash
+          - entity: sensor.soil_moisture_8
+            name: Okra
+        columns: 8
         card_mod:
           class: middle-blank
           style: |
