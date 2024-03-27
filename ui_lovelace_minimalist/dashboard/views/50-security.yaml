@@ -79,7 +79,6 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Alarms (Hold to activate)
-
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
