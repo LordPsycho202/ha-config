@@ -136,12 +136,17 @@ cards:
             }
       - camera_view: auto
         type: picture-glance
+        title: Drought Monitor
         entities:
-          - entity: vacuum.philoctetes
-          - entity: sensor.philoctetes_next_start
-        image_entity: image.philoctetes_map
-        title: 'Philoctetes '
-        entity: vacuum.philoctetes
+          - entity: counter.days_without_rain
+          - entity: switch.waterbender_rain_delay
+        camera_image: camera.droughtmonitor_unl_edu
+        aspect_ratio: '16:9'
+        entity: switch.waterbender_rain_delay
+        tap_action:
+          action: more-info
+        hold_action:
+          action: toggle
         show_state: true
       - type: markdown
         content: '# Soil Moisture'
