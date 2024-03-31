@@ -126,64 +126,69 @@ cards:
     view_layout:
       grid-area: main
     cards:
-      - type: markdown
-        content: '# Viewscreen'
-        card_mod:
-          class: header-open
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - camera_view: auto
-        type: picture-glance
-        title: Drought Monitor
-        entities:
-          - entity: counter.days_without_rain
-          - entity: switch.waterbender_rain_delay
-        camera_image: camera.droughtmonitor_unl_edu
-        aspect_ratio: '16:9'
-        entity: switch.waterbender_rain_delay
-        tap_action:
-          action: more-info
-        hold_action:
-          action: toggle
-        show_state: true
-      - type: markdown
-        content: '# Soil Moisture'
-        card_mod:
-          class: bar
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: false
-        show_state: true
-        type: glance
-        entities:
-          - entity: sensor.soil_moisture_1
-            name: Flowers
-          - entity: sensor.soil_moisture_2
-            name: Blackberries
-          - entity: sensor.soil_moisture_3
-            name: Pineapples
-          - entity: sensor.soil_moisture_4
-            name: Collards
-          - entity: sensor.soil_moisture_5
-            name: Tomatoes
-          - entity: sensor.soil_moisture_6
-            name: Cucumbers
-          - entity: sensor.soil_moisture_7
-            name: Squash
-          - entity: sensor.soil_moisture_8
-            name: Okra
-        columns: 8
-        card_mod:
-          class: middle-blank
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
+      - type: hortizonal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: '# Viewscreen'
+                card_mod:
+                  class: header-open
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - camera_view: auto
+                type: picture-glance
+                title: Drought Monitor
+                entities:
+                  - entity: counter.days_without_rain
+                  - entity: switch.waterbender_rain_delay
+                camera_image: camera.droughtmonitor_unl_edu
+                entity: camera.droughtmonitor_unl_edu
+                tap_action:
+                  action: more-info
+                hold_action:
+                  action: none
+                show_state: true
+          - type: vertical-stack
+            cards:
+              - type: markdown
+                content: '# Soil Moisture'
+                card_mod:
+                  class: header-open
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.soil_moisture_1
+                    name: Flowers
+                  - entity: sensor.soil_moisture_2
+                    name: Blackberries
+                  - entity: sensor.soil_moisture_3
+                    name: Pineapples
+                  - entity: sensor.soil_moisture_4
+                    name: Collards
+                  - entity: sensor.soil_moisture_5
+                    name: Tomatoes
+                  - entity: sensor.soil_moisture_6
+                    name: Cucumbers
+                  - entity: sensor.soil_moisture_7
+                    name: Squash
+                  - entity: sensor.soil_moisture_8
+                    name: Okra
+                columns: 1
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
       - type: markdown
         content: '# Irrigation'
         card_mod:
