@@ -341,7 +341,7 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
-            primary: Herbs
+            primary: Blackberries
             entity: plant.blackberries
             layout: vertical
             tap_action:
