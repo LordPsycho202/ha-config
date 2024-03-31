@@ -300,28 +300,25 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.herbs
+            entity: plant.blackberries
             state_not: ok
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       icon_color: white
       icon: |-
-        {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+        {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+        {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+        {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+        {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:fruit-grapes
         {% endif %}
-      content: Herbs
-      entity: plant.herbs
+      content: Blackberries
+      entity: plant.blackberries
       tap_action:
         action: navigate
         navigation_path: garden

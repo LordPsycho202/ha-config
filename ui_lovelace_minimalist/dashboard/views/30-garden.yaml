@@ -328,13 +328,13 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Planter 1 (Herbs)
+        name: Backyard
       - type: "custom:button-card"
         template: card_graph
         entity: sensor.temp_nexus_th
         variables:
           ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Temperature
+          ulm_card_graph_name: Planter 1 (Herbs)
           ulm_card_graph_entity: sensor.temp_nexus_th
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
@@ -342,36 +342,36 @@ cards:
         cards:
           - type: custom:mushroom-template-card
             primary: Herbs
-            entity: plant.herbs
+            entity: plant.blackberries
             layout: vertical
             tap_action:
               action: more-info
             secondary: |-
-              {% if states('plant.herbs') == 'ok' %}
+              {% if states('plant.blackberries') == 'ok' %}
               We Good!
               {% else %}
-              {{ state_attr('plant.herbs','problem')|capitalize }}
+              {{ state_attr('plant.blackberries','problem')|capitalize }}
               {% endif %}
             icon: |-
-              {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+              {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
               mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+              {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
               mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+              {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
               mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+              {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:chili-mild-outline
+              mdi:fruit-grapes
               {% endif %}
             icon_color: |-
-              {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+              {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
               brown
-              {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+              {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
               blue
-              {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+              {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
               cyan
-              {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+              {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
               red
               {% else %}
               green
@@ -385,18 +385,12 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_2
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-
-  - type: vertical-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_title
-        name: Planter 2 (Collards)
       - type: "custom:button-card"
         template: card_graph
         entity: sensor.soil_temperature_1
         variables:
           ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Soil Temperature
+          ulm_card_graph_name: Planter 2 (Collards) Soil Temperature
           ulm_card_graph_entity: sensor.soil_temperature_1
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24

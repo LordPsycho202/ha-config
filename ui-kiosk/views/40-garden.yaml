@@ -79,12 +79,12 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:chili-mild-outline
+        icon: mdi:fruit-grapes
         tap_action:
           action: more-info
-        name: Herbs
+        name: Blackberries
         show_state: true
-        entity: plant.herbs
+        entity: plant.blackberries
         card_mod:
           class: button-bullet
           style: |
@@ -164,7 +164,7 @@ cards:
           - entity: sensor.soil_moisture_1
             name: Flowers
           - entity: sensor.soil_moisture_2
-            name: Herbs
+            name: Blackberries
           - entity: sensor.soil_moisture_3
             name: Pineapples
           - entity: sensor.soil_moisture_4
