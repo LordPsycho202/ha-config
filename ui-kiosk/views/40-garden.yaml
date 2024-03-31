@@ -126,7 +126,7 @@ cards:
     view_layout:
       grid-area: main
     cards:
-      - type: hortizonal-stack
+      - type: horizontal-stack
         cards:
           - type: vertical-stack
             cards:
