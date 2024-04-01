@@ -155,7 +155,7 @@ cards:
             name: Squash
           - entity: sensor.soil_moisture_8
             name: Okra
-        columns: 3=1
+        columns: 1
         card_mod:
           class: middle-blank
           style: |
