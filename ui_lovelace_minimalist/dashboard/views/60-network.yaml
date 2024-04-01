@@ -255,6 +255,232 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        name: System Status
+      - type: custom:uptime-card
+        entity: binary_sensor.internet_connection
+        title_adaptive_color: true
+        color:
+          half: '#FF0000'
+        ok: 'on'
+        ko: 'off'
+        none: unknown
+        icon: mdi:check-network-outline
+        ko-icon: mdi:close-network-outline
+        none-icon: mdi:help-network-outline
+        bar:
+          spacing: 4
+          height: 10
+          round: 4
+        title_template: Subspace Uplink
+        status_adaptive_color: true
+        icon_adaptive_color: true
+        tooltip_adaptive_color: false
+        init: {}
+        show:
+          header: true
+          title: true
+          icon: true
+          status: true
+          timeline: true
+          footer: true
+        alias:
+          ok: Online
+          ko: Offline
+        tooltip:
+          hour24: true
+        tap_action: {}
+        alignment:
+          icon_first: false
+          tooltip_first: false
+        blink: {}
+        clip: {}
+        hours_to_show: 24
+        card_mod:
+          style: |
+            ha-card {
+              background: none;
+            }
+      - type: custom:uptime-card
+        entity: sensor.uptimekuma_dns
+        title_adaptive_color: true
+        color:
+          half: '#FF0000'
+        ok: up
+        ko: down
+        none: unknown
+        icon: mdi:crosshairs
+        ko-icon: mdi:close-network-outline
+        none-icon: mdi:help-network-outline
+        bar:
+          spacing: 4
+          height: 10
+          round: 4
+        title_template: DNS
+        status_adaptive_color: true
+        icon_adaptive_color: true
+        tooltip_adaptive_color: false
+        init: {}
+        show:
+          header: true
+          title: true
+          icon: true
+          status: true
+          timeline: true
+          footer: true
+        alias:
+          ok: Online
+          ko: Offline
+        tooltip:
+          hour24: true
+        tap_action: {}
+        alignment:
+          icon_first: false
+          tooltip_first: false
+        blink: {}
+        clip: {}
+        hours_to_show: 24
+        card_mod:
+          style: |
+            ha-card {
+              background: none;
+            }
+      - type: custom:uptime-card
+        entity: sensor.uptimekuma_hestia_https
+        title_adaptive_color: true
+        color:
+          half: '#FF0000'
+        ok: up
+        ko: down
+        none: unknown
+        icon: mdi:home-automation
+        ko-icon: mdi:close-network-outline
+        none-icon: mdi:help-network-outline
+        bar:
+          spacing: 4
+          height: 10
+          round: 4
+        title_template: Home Automation
+        status_adaptive_color: true
+        icon_adaptive_color: true
+        tooltip_adaptive_color: false
+        init: {}
+        show:
+          header: true
+          title: true
+          icon: true
+          status: true
+          timeline: true
+          footer: true
+        alias:
+          ok: Online
+          ko: Offline
+        tooltip:
+          hour24: true
+        tap_action: {}
+        alignment:
+          icon_first: false
+          tooltip_first: false
+        blink: {}
+        clip: {}
+        hours_to_show: 24
+        card_mod:
+          style: |
+            ha-card {
+              background: none;
+            }
+      - type: custom:uptime-card
+        entity: sensor.uptimekuma_k3s_api
+        title_adaptive_color: true
+        color:
+          half: '#FF0000'
+        ok: up
+        ko: down
+        none: unknown
+        icon: mdi:server-outline
+        ko-icon: mdi:close-network-outline
+        none-icon: mdi:help-network-outline
+        bar:
+          spacing: 4
+          height: 10
+          round: 4
+        title_template: Orchestration
+        status_adaptive_color: true
+        icon_adaptive_color: true
+        tooltip_adaptive_color: false
+        init: {}
+        show:
+          header: true
+          title: true
+          icon: true
+          status: true
+          timeline: true
+          footer: true
+        alias:
+          ok: Online
+          ko: Offline
+        tooltip:
+          hour24: true
+        tap_action: {}
+        alignment:
+          icon_first: false
+          tooltip_first: false
+        blink: {}
+        clip: {}
+        hours_to_show: 24
+        card_mod:
+          style: |
+            ha-card {
+              background: none;
+            }
+      - type: custom:uptime-card
+        entity: sensor.uptimekuma_truenas_https
+        title_adaptive_color: true
+        color:
+          half: '#FF0000'
+        ok: up
+        ko: down
+        none: unknown
+        icon: mdi:nas
+        ko-icon: mdi:close-network-outline
+        none-icon: mdi:help-network-outline
+        bar:
+          spacing: 4
+          height: 10
+          round: 4
+        title_template: Storage
+        status_adaptive_color: true
+        icon_adaptive_color: true
+        tooltip_adaptive_color: false
+        init: {}
+        show:
+          header: true
+          title: true
+          icon: true
+          status: true
+          timeline: true
+          footer: true
+        alias:
+          ok: Online
+          ko: Offline
+        tooltip:
+          hour24: true
+        tap_action: {}
+        alignment:
+          icon_first: false
+          tooltip_first: false
+        blink: {}
+        clip: {}
+        hours_to_show: 24
+        card_mod:
+          style: |
+            ha-card {
+              background: none;
+            }
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         name: On Plex
       - type: conditional
         conditions:
