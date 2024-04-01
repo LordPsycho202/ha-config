@@ -1,5 +1,5 @@
 ---
-front_flowers:
+Front Flowers:
   sensors:
     moisture: sensor.soil_moisture_1
     battery: sensor.soil_moisture_1_batt
