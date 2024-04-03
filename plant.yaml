@@ -16,41 +16,43 @@ Pineapples:
   sensors:
     moisture: sensor.soil_moisture_3
     battery: sensor.soil_moisture_3_batt
-  min_moisture: 30
+  min_moisture: 20
+  max_moisture: 50
   min_battery: 35
 Collards:
   sensors:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
     battery: sensor.soil_moisture_4_batt
-  min_moisture: 20
+  min_moisture: 40
+  max_moisture: 80
   min_temperature: 50
   min_battery: 35
 Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
-  min_moisture: 30
-  max_moisture: 60
+  min_moisture: 40
+  max_moisture: 80
   min_battery: 35
 Cucumbers:
   sensors:
     moisture: sensor.soil_moisture_6
     battery: sensor.soil_moisture_6_batt
-  min_moisture: 30
-  max_moisture: 60
+  min_moisture: 40
+  max_moisture: 80
   min_battery: 35
 Squash:
   sensors:
     moisture: sensor.soil_moisture_7
     battery: sensor.soil_moisture_7_batt
-  min_moisture: 25
-  max_moisture: 60
+  min_moisture: 40
+  max_moisture: 80
   min_battery: 35
 Okra:
   sensors:
     moisture: sensor.soil_moisture_8
     battery: sensor.soil_moisture_8_batt
-  min_moisture: 25
-  max_moisture: 60
+  min_moisture: 40
+  max_moisture: 80
   min_battery: 35
