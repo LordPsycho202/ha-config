@@ -306,29 +306,19 @@ sensor:
 
   - unique_id: header_weather
     state: >
-      {% if has_value('weather.weather_station') %}
-        {% set entity = 'weather.weather_station' %}
-        {% set forecastAttr = state_attr(entity, 'forecast')[0] %}
-        {% if forecastAttr.detailed_description != none %}
-          {% set forecast = forecastAttr.detailed_description | string %}
-        {% else %}
-          {% set forecast = "Currently " + state_attr(entity, 'forecast')[0]['condition'] + ", " + state_attr(entity, 'forecast')[0]['temperature']|string + "°F " %}
-        {% endif %}
-        {% if has_value("state_attr(entity, 'forecast')[0]['precipitation_probability']") %}
-          {% set precip = state_attr(entity, 'forecast')[0]['precipitation_probability'] | float %}
-        {% else %}
-          {% set precip = 0 %}
-        {% endif %}
-        {% set sun = states.sun.sun.state %}
-        {% if precip == 0 %}
-          {% if sun == 'above_horizon' %} {{forecast}}🌞
-          {% else %} {{forecast}}🌙
-          {% endif %}
-        {% else %} {{forecast}}{{'\u2614\uFE0F'}}
-        {% endif %}
-      {% else %}
+      {%- if has_value('weather.weather_station') %}
+        {%- set entity = 'weather.weather_station' %}
+        {%- set Condition = states(entity) %}
+        {%- set Temp = state_attr(entity, 'temperature') %}
+        {%- set Unit = state_attr(entity, 'temperature_unit') %}
+        {%- set forecast = "Currently " + Condition|replace("-"," & ")|capitalize + ", " + Temp|string + Unit|string %}
+        {%- set sun = states.sun.sun.state %}
+        {%- if sun == 'above_horizon' %} {{forecast}} 🌞
+        {%- else %} {{forecast}} 🌙
+        {%- endif %}
+      {%- else %}
         Can't Load Weather...
-      {% endif %}
+      {%- endif %}
 
   - name: Water Meter m3
     unique_id: water_meter_m3
