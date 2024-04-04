@@ -179,12 +179,6 @@ weather:
     temperature_template: "{{ states.sensor.outdoor_temp.state|float }}"
     temperature_unit: "°F"
     humidity_template: "{{ states.sensor.outdoor_humidity.state|float }}"
-    forecast_template: >
-      {% if has_value('weather.kwdr_daynight') %}
-        {{ state_attr('weather.kwdr_daynight', 'forecast') }}
-      {% else %}
-        {{ state_attr('weather.main_floor','forecast') }}
-      {% endif %}
     pressure_template: "{{ states.sensor.relative_pressure.state|float }}"
     pressure_unit: "hPa"
     wind_speed_template: "{{ states.sensor.wind_acurite_5n1.state|float }}"
