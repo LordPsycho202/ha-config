@@ -376,7 +376,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:leaf
+              mdi:pig
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}

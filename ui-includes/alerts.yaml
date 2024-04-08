@@ -434,7 +434,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:leaf
+        mdi:pig
         {% endif %}
       content: Tomatoes
       tap_action:
