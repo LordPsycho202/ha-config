@@ -53,7 +53,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.standing_container','problem')%}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:peanut-outline
+              mdi:leaf
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
@@ -159,7 +159,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:flower
+              mdi:flower-outline
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
@@ -280,7 +280,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:leaf
+              mdi:carrot
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
@@ -328,7 +328,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem')%}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:sprout-outline
+              mdi:chili-mild
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
@@ -376,7 +376,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:sprout-outline
+              mdi:leaf
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
@@ -424,7 +424,7 @@ cards:
               {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem')%}
               mdi:sun-thermometer-outline
               {% else %}
-              mdi:chili-mild
+              mdi:leaf
               {% endif %}
             icon_color: |-
               {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}

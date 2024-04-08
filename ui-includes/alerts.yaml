@@ -287,7 +287,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:flower-outline
         {% endif %}
       content: Front Planter
       entity: plant.front_flowers
@@ -341,7 +341,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:fruit-pineapple
         {% endif %}
       content: Pineapple Pots
       tap_action:
@@ -372,7 +372,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:leaf
+        mdi:carrot
         {% endif %}
       content: Greenhouse
       tap_action:
@@ -403,7 +403,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:chili-mild
         {% endif %}
       content: Tobasco & Tomato
       tap_action:
@@ -412,9 +412,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.tomatoes
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.tomatoes
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       entity: plant.tomatoes
@@ -429,7 +434,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:leaf
         {% endif %}
       content: Tomatoes
       tap_action:
@@ -438,9 +443,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.standing_container
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.standing_container
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       entity: plant.standing_container
@@ -455,7 +465,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.standing_container','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:sprout-outline
+        mdi:leaf
         {% endif %}
       content: Standing Container
       tap_action:
@@ -464,9 +474,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.okra_and_tomato
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.okra_and_tomato
+            state_not: ok
+          - condition: state
+            entity: sensor.season
+            state_not: winter
     chip:
       type: template
       entity: plant.okra_and_tomato
@@ -481,7 +496,7 @@ chips:
         {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem') %}
         mdi:sun-thermometer-outline
         {% else %}
-        mdi:peanut-outline
+        mdi:leaf
         {% endif %}
       content: Okra & Tomato
       tap_action:
