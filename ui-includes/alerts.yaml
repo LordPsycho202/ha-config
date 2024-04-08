@@ -177,7 +177,7 @@ chips:
     chip:
       type: template
       icon_color: white
-      content: Trash
+      content: Trash Day
       icon: mdi:delete
 
   - type: conditional
@@ -187,7 +187,7 @@ chips:
     chip:
       type: template
       icon_color: white
-      content: Recycling
+      content: Recycling Day
       icon: mdi:recycle-variant
 
   - type: conditional
