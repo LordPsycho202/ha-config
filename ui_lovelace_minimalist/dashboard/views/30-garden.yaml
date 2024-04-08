@@ -259,37 +259,37 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
-            entity: plant.greenhouses_plants
+            entity: plant.greenhouse_plants
             layout: vertical
             tap_action:
               action: more-info
             primary: Greenhouse
             secondary: |-
-              {% if states('plant.greenhouses_plants') == 'ok' %}
+              {% if states('plant.greenhouse_plants') == 'ok' %}
               We Good!
               {% else %}
-              {{ state_attr('plant.greenhouses_plants','problem')|capitalize }}
+              {{ state_attr('plant.greenhouse_plants','problem')|capitalize }}
               {% endif %}
             icon: |-
-              {% if 'moisture low' in state_attr('plant.greenhouses_plants','problem') %}
+              {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:sun-thermometer-outline
               {% else %}
               mdi:leaf
               {% endif %}
             icon_color: |-
-              {% if 'moisture low' in state_attr('plant.greenhouses_plants','problem') %}
+              {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
               brown
-              {% elif 'moisture high' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
               blue
-              {% elif 'temperature low' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
               cyan
-              {% elif 'temperature high' in state_attr('plant.greenhouses_plants','problem') %}
+              {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
               red
               {% else %}
               green
