@@ -19,7 +19,7 @@ Pineapples:
   min_moisture: 20
   max_moisture: 50
   min_battery: 35
-Collards:
+Greenhouse Plants:
   sensors:
     moisture: sensor.soil_moisture_4
     temperature: sensor.soil_temperature_1
@@ -28,28 +28,28 @@ Collards:
   max_moisture: 80
   min_temperature: 50
   min_battery: 35
-Tomatoes:
+Tobasco and Tomato:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
   min_moisture: 40
   max_moisture: 80
   min_battery: 35
-Cucumbers:
+Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_6
     battery: sensor.soil_moisture_6_batt
   min_moisture: 40
   max_moisture: 80
   min_battery: 35
-Squash:
+Standing Container:
   sensors:
     moisture: sensor.soil_moisture_7
     battery: sensor.soil_moisture_7_batt
   min_moisture: 40
   max_moisture: 80
   min_battery: 35
-Okra:
+Okra and Tomato:
   sensors:
     moisture: sensor.soil_moisture_8
     battery: sensor.soil_moisture_8_batt
