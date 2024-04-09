@@ -162,6 +162,50 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
+      - type: markdown
+        content: '# Sensors'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - show_name: true
+        show_icon: false
+        show_state: true
+        type: glance
+        entities:
+          - entity: sensor.soil_temperature_1
+            name: Soil Tempreature
+          - entity: sensor.humidity_acurite_5n1
+            name: Humidity
+        columns: 1
+        card_mod:
+          class: middle-blank
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: markdown
+        content: '# Water Usage'
+        card_mod:
+          class: bar
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+      - type: gauge
+        entity: sensor.monthly_water
+        unit: gal
+        name: Water Usage
+        max: 8000
+        min: 0
+        card_mod:
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
   - type: vertical-stack
     view_layout:
       grid-area: main
