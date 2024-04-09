@@ -34,7 +34,7 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:sprout-outline
+        icon: mdi:pig
         tap_action:
           action: more-info
         name: Tomatoes
@@ -94,12 +94,12 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:leaf
+        icon: mdi:chili-mild
         tap_action:
           action: more-info
-        name: Collards
+        name: Tobasco Peppers
         show_state: true
-        entity: plant.collards
+        entity: plant.tobasco_and_tomato
         card_mod:
           class: button-bullet
           style: |
@@ -109,12 +109,12 @@ cards:
       - show_name: true
         show_icon: true
         type: button
-        icon: mdi:sprout-outline
+        icon: mdi:leaf
         tap_action:
           action: more-info
-        name: Cucumbers
+        name: Okra & Tomato
         show_state: true
-        entity: plant.cucumbers
+        entity: plant.okra_and_tomato
         card_mod:
           class: button-bullet
           style: |
@@ -146,15 +146,15 @@ cards:
           - entity: sensor.soil_moisture_3
             name: Pineapples
           - entity: sensor.soil_moisture_4
-            name: Collards
+            name: Greenhouse
           - entity: sensor.soil_moisture_5
-            name: Tomatoes
+            name: Tobasco Pepper
           - entity: sensor.soil_moisture_6
-            name: Cucumbers
+            name: Tomatoes
           - entity: sensor.soil_moisture_7
-            name: Squash
+            name: Standing Container
           - entity: sensor.soil_moisture_8
-            name: Okra
+            name: Okra & Tomato
         columns: 1
         card_mod:
           class: middle-blank
