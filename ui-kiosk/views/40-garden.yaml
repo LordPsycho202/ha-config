@@ -313,8 +313,6 @@ cards:
                   font-family: Antonio
                 }
 
-
-
   - type: vertical-stack
     view_layout:
       grid-area: aux

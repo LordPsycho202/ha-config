@@ -100,7 +100,6 @@ cards:
             icon_color: red
             name: Observed High
 
-
       - type: conditional
         conditions:
           - condition: numeric_state

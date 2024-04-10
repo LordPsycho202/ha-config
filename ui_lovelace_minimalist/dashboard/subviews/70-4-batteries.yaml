@@ -97,7 +97,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.soil_moisture_2_batt
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Herbs Soil Moisture    
+              ulm_card_battery_name: Herbs Soil Moisture
 
       - type: horizontal-stack
         cards:
