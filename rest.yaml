@@ -109,3 +109,15 @@
       name: quote_author
       icon: mdi:chat
       value_template: '{{ value_json[0].a}}'
+
+- scan_interval: 86400
+  resource: https://usdmdataservices.unl.edu/api/CountyStatistics/GetDSCI?aoi=13157&startdate=4/3/2024&enddate=4/10/2024&statisticsType=2
+  method: GET
+  headers:
+    Accept: >
+      application/json
+  sensor:
+    - unique_id: dsci
+      name: Jackson County, GA DSCI
+      icon: mdi:cloud-cancel-outline
+      value_template: '{{ value_json[0].DSCI}}'
