@@ -121,23 +121,3 @@
       name: Jackson County, GA DSCI
       icon: mdi:cloud-cancel-outline
       value_template: '{{ value_json[0].DSCI}}'
-    - unique_id: level
-      name: Jackson County, GA Drought Level
-      icon: mdi:heat-wave
-      value_templdate: >
-        {%- set DSCI=(value_json[0].DSCI)|int %}
-        {%- if DSCI < 100 %}
-          None
-        {%- elif DSCI >= 100 and DSCI < 200 %}
-          D0
-        {%- elif DSCI >= 200 and DSCI < 300 %}
-          D1
-        {%- elif DSCI >= 300 and DSCI < 400 %}
-          D2
-        {%- elif DSCI >= 400 and DSCI < 500 %}
-          D3
-        {%- elif DSCI == 500 %}
-          D4
-        {% else %}
-          ERROR
-        {% endif %}
