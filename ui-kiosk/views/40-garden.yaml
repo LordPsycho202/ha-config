@@ -223,14 +223,24 @@ cards:
         title: Drought Monitor
         entities:
           - entity: counter.days_without_rain
+          - entity: sensor.jackson_county_ga_dsci
           - entity: switch.waterbender_rain_delay
+          - entity: sensor.jc_ga_drought_level
         camera_image: camera.droughtmonitor_unl_edu
-        entity: camera.droughtmonitor_unl_edu
+        entity: sensor.jc_ga_drought_level
         tap_action:
           action: more-info
         hold_action:
           action: none
         show_state: true
+        card_mod:
+          style: |
+            :host {
+                filter: invert(1) hue-rotate(180deg);;
+              }
+            ha-card > * {
+              font-family: Antonio
+            }
       - type: markdown
         content: '# Irrigation'
         card_mod:
@@ -284,6 +294,22 @@ cards:
                 ha-card > * {
                   font-family: Antonio
                 }
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: more-info
+            entity: sensor.jc_ga_drought_level
+            name: Drought Level
+            show_state: true
+            card_mod:
+              class: button-lozenge
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+
+
 
   - type: vertical-stack
     view_layout:
