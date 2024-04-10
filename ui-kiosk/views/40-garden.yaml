@@ -200,6 +200,10 @@ cards:
         name: Water Usage
         max: 8000
         min: 0
+        severity:
+          green: 0
+          yellow: 5000
+          red: 7000
         card_mod:
           style: |
             ha-card > * {
