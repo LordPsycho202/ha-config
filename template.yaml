@@ -333,13 +333,13 @@ sensor:
     unit_of_measurement: USD
     device_class: monetary
     state: >
-      {% set sewer_base=24.48 %}
-      {% set water_base=12.60 %}
+      {% set sewer_base=26.28 %}
+      {% set water_base=12.98 %}
       {% set sum = sewer_base + water_base %}
-      {% set sum = sum + ((([states('sensor.monthly_water') | float , 5700 ] | min ) /1000 ) * 7.01) %}
-      {% set sum = sum + (([[ states('sensor.monthly_water') | float - 5700, 0 ] | max, 7500] | min / 1000 )* 10.64) %}
-      {% set sum = sum + (([ states('sensor.monthly_water') | float - 7500 , 0 ] | max / 1000 ) * 13.98) %}
-      {% set sum = sum + (([ states('sensor.monthly_water') | float - 1500 , 0 ] | max / 1000 ) * 9.86 )%}
+      {% set sum = sum + ((([states('sensor.monthly_water') | float , 5700 ] | min ) /1000 ) * 7.36) %}
+      {% set sum = sum + (([[ states('sensor.monthly_water') | float - 5700, 0 ] | max, 7500] | min / 1000 )* 11.17) %}
+      {% set sum = sum + (([ states('sensor.monthly_water') | float - 7500 , 0 ] | max / 1000 ) * 14.68) %}
+      {% set sum = sum + (([ states('sensor.monthly_water') | float - 1500 , 0 ] | max / 1000 ) * 10.35 )%}
 
       {{ sum|float|round(2) }}
 

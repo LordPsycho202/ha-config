@@ -198,12 +198,12 @@ cards:
         entity: sensor.monthly_water
         unit: gal
         name: Water Usage
-        max: 8000
+        max: 10000
         min: 0
         severity:
           green: 0
-          yellow: 5000
-          red: 7000
+          yellow: 5700
+          red: 7500
         card_mod:
           style: |
             ha-card > * {

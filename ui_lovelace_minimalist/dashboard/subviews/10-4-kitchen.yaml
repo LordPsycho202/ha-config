@@ -105,12 +105,13 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: "custom:button-card"
+      - type: gauge
         entity: sensor.monthly_water
-        template: card_graph
-        variables:
-          ulm_card_graph_color: "var(--google-blue)"
-          ulm_card_graph_name: Water Usage
-          ulm_card_graph_entity: sensor.monthly_water
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
+        unit: gal
+        name: Water Usage
+        max: 10000
+        min: 0
+        severity:
+          green: 0
+          yellow: 5700
+          red: 7500
