@@ -379,10 +379,10 @@ sensor:
     icon: mdi:currency-usd
     unit_of_measurement: USD/gal
     state: >-
-      {% if states('sensor.monthly_water') | float  < 1500 %} 0.00701
-      {% elif states('sensor.monthly_water') | float < 5700 %} 0.01687
-      {% elif states('sensor.monthly_water') | float < 7500 %} 0.02050
-      {% else %} 0.02384
+      {% if states('sensor.monthly_water') | float  < 1500 %} 0.00736
+      {% elif states('sensor.monthly_water') | float < 5700 %} 0.01771
+      {% elif states('sensor.monthly_water') | float < 7500 %} 0.02152
+      {% else %} 0.02503
       {% endif %}
 
   - name: "Next Sunrise"
