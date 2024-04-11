@@ -115,3 +115,9 @@ cards:
           green: 0
           yellow: 5700
           red: 7500
+
+      - type: "custom:button-card"
+        template: card_generic_swap
+        entity: sensor.water_bill
+        tap_action:
+          action: none
