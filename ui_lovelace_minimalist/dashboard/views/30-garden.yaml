@@ -139,11 +139,11 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.temp_nexus_th
+            entity: sensor.temp_nexus_th_2
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Greenhouse Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th
+              ulm_card_graph_entity: sensor.temp_nexus_th_2
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
