@@ -17,8 +17,10 @@ cards:
       - show_current: false
         show_forecast: true
         type: weather-forecast
-        entity: weather.weather_station
-        forecast_type: legacy
+        entity: weather.kwdr_daynight
+        theme: ios-dark-mode
+        secondary_info_attribute: pressure
+        forecast_type: twice_daily
 
   - type: vertical-stack
     cards:
