@@ -9,6 +9,43 @@ cards:
       - !include /config/ui-includes/alerts.yaml
       - !include ../includes/1-welcome.yaml
 
+      - type: conditional
+        conditions:
+          - entity: binary_sensor.heat_index_active
+            state: "on"
+        card:
+          type: custom:mushroom-template-card
+          primary: >-
+            {{ states('sensor.heat_index') | round(1) }}{{
+            state_attr('sensor.heat_index','unit_of_measurement') }}
+          secondary: Heat Index Warning
+          icon: mdi:thermometer-alert
+          icon_color: red
+
+      - type: conditional
+        conditions:
+          - condition: numeric_state
+            entity: counter.days_without_rain
+            above: 6
+        card:
+          type: custom:mushroom-template-card
+          primary: >-
+            {{ states('counter.days_without_rain') }} {{
+            state_attr('counter.days_without_rain','friendly_name') }}
+          secondary: >-
+            Rain Chance: {{
+            state_attr('weather.kwdr_daynight','forecast')[0].precipitation_probability
+            }}%
+          icon: '{{ state_attr(''counter.days_without_rain'',''icon'') }}'
+          entity: counter.days_without_rain
+          icon_color: |
+            {% if states('counter.days_without_rain')|int > 0 %}
+            red
+            {% else %}
+            blue
+            {% endif %}
+
+
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
