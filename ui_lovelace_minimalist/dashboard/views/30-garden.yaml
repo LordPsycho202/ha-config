@@ -24,6 +24,23 @@ cards:
 
       - type: conditional
         conditions:
+          - entity: switch.sprinklers
+            state: "on"
+        card:
+          type: custom:mushroom-entity-card
+          entity: switch.sprinklers
+          icon: mdi:sprinkler-variant
+          icon_color: light-blue
+          fill_container: false
+          tap_action:
+            action: none
+          hold_action:
+            action: more-info
+          double_tap_action:
+            action: none
+
+      - type: conditional
+        conditions:
           - condition: numeric_state
             entity: counter.days_without_rain
             above: 6

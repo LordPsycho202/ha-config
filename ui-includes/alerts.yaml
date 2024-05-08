@@ -132,8 +132,14 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: binary_sensor.is_rain_2
-        state: "on"
+      - condition: and
+        conditions:
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'on'
+          - condition: state
+            entity: switch.sprinklers
+            state: 'off'
     chip:
       type: template
       content: Raining
@@ -143,6 +149,18 @@ chips:
         navigation_path: weather
 
   - type: spacer
+
+  - type: conditional
+    conditions:
+      - entity: switch.sprinklers
+        state: 'off'
+    chip:
+      type: template
+      content: Sprinklers
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
 
   - type: conditional
     conditions:

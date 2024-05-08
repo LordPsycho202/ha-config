@@ -1,6 +1,6 @@
 ---
 server_port: 443
-ssl_certificate: /ssl/star_folden-nissen_com.pem
+ssl_certificate: /ssl/folden-nissen.com.pem
 ssl_key: /ssl/folden-nissen.key
 cors_allowed_origins:
   - https://cardinal.folden-nissen.com
