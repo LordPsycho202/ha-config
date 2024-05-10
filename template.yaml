@@ -298,11 +298,7 @@ sensor:
   - unique_id: stardate
     name: Stardate
     state: >
-      {% set century=(now().year / 100 - 19) | int %}
-      {% set today = as_timestamp(now()) %}
-      {% set startdate = as_timestamp('2000-1-1 00:00:00.00000') %}
-      {% set daysgone = ((today-startdate)/86400)|round(1) %}
-      {{century}}{{daysgone}}
+      {{ (((as_timestamp(states('sensor.date_time_iso')) - (as_timestamp("1987-07-15 00:00:00"))) // 3155.76 ) + 410000 ) / 10 }}
 
   - unique_id: header_weather
     state: >
