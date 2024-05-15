@@ -191,15 +191,21 @@ cards:
         name: Backyard Garden
       - type: horizontal-stack
         cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.temp_nexus_th_2
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Greenhouse Temp
-              ulm_card_graph_entity: sensor.temp_nexus_th_2
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.temp_nexus_th_2
+                state_not: unavailable
+            card:
+              type: "custom:button-card"
+              template: card_graph
+              entity: sensor.temp_nexus_th_2
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Greenhouse Temp
+                ulm_card_graph_entity: sensor.temp_nexus_th_2
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_temperature_1
