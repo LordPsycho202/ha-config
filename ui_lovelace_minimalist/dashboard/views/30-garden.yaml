@@ -280,6 +280,8 @@ cards:
               mdi:snowflake-thermometer
               {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
               mdi:sun-thermometer-outline
+              {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
+              mdi:thermometer-off
               {% else %}
               mdi:carrot
               {% endif %}
@@ -292,6 +294,8 @@ cards:
               cyan
               {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
               red
+              {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
+              yellow
               {% else %}
               green
               {% endif %}
