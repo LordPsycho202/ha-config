@@ -62,7 +62,6 @@ cards:
             blue
             {% endif %}
 
-
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
