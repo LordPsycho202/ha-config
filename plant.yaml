@@ -22,7 +22,6 @@ Pineapples:
 Greenhouse Plants:
   sensors:
     moisture: sensor.soil_moisture_4
-    temperature: sensor.temp_nexus_th_2
     battery: sensor.soil_moisture_4_batt
   min_moisture: 40
   max_moisture: 80
