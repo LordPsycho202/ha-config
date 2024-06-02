@@ -148,9 +148,9 @@ cards:
           - entity: sensor.soil_moisture_4
             name: Greenhouse
           - entity: sensor.soil_moisture_5
-            name: Tobasco Pepper
-          - entity: sensor.soil_moisture_6
             name: Tomatoes
+          - entity: sensor.soil_moisture_6
+            name: Tobasco Peppers
           - entity: sensor.soil_moisture_7
             name: Standing Container
           - entity: sensor.soil_moisture_8
