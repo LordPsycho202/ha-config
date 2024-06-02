@@ -29,15 +29,15 @@ Greenhouse Plants:
   min_battery: 35
 Tobasco and Tomato:
   sensors:
-    moisture: sensor.soil_moisture_5
-    battery: sensor.soil_moisture_5_batt
+    moisture: sensor.soil_moisture_6
+    battery: sensor.soil_moisture_6_batt
   min_moisture: 40
   max_moisture: 80
   min_battery: 35
 Tomatoes:
   sensors:
-    moisture: sensor.soil_moisture_6
-    battery: sensor.soil_moisture_6_batt
+    moisture: sensor.soil_moisture_5
+    battery: sensor.soil_moisture_5_batt
   min_moisture: 40
   max_moisture: 80
   min_battery: 35
