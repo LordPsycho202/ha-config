@@ -354,7 +354,7 @@ cards:
               {% endif %}
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_6
+            entity: sensor.soil_moisture_5
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
