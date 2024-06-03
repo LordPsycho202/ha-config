@@ -130,8 +130,8 @@ cards:
         camera_view: auto
         type: picture-entity
         entity: weather.weather_station
-        image: https://radar.weather.gov/ridge/standard/KFFC_loop.gif
-        aspect_ratio: '16:9'
+        camera_image: camera.radar_weather_gov
+        aspect_ratio: '16:9'  
         card_mod:
           style: |
             weather-radar-card > * {
@@ -286,7 +286,7 @@ cards:
                       }
                 - camera_view: auto
                   type: picture-glance
-                  image: https://511ga.org/map/Cctv/105619--2
+                  camera_image: camera.511ga_org
                   entities:
                     - entity: sensor.waze_travel_time
                     - entity: sensor.jennifer_time_to_home
