@@ -156,13 +156,9 @@ sensor:
       {%- set days = '{}d '.format(days) if days > 0 else '' %}
       {{ 'Less than 1 min' if time < 60 else days + hours + minutes }}
 
-  - platform: statistics
-    name: "Max Winds"
-    unique_id: wind_max
-    entity_id: sensor.wind_acurite_5n1
-    state_characteristic: value_max
-    max_age:
-      hours: 24
+  - platform: marta
+    friendly_name: Rodney's Card
+    card_number: 01640221816660476163
 
 binary_sensor:
 
