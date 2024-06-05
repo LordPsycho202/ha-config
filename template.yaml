@@ -621,7 +621,7 @@ sensor:
 
   - name: "Watering Messages"
     unique_id: watering_messages
-    state: >
+    state: |
       ["Without your care I am but a withering soul in need of hydration!", 
       "Oh woe is me! Withering away in this arid wasteland!",  
       "Sorrow drowns my soul as surely as drought drains my strength.",
