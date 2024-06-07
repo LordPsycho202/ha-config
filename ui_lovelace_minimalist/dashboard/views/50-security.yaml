@@ -76,6 +76,7 @@ cards:
               entity: alarm_control_panel.aarlo_garage
               states:
                 - armed_away
+              name: Garage Camera
 
       - type: "custom:button-card"
         template: card_title
