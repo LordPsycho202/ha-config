@@ -149,6 +149,23 @@ chips:
         navigation_path: weather
 
   - type: spacer
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: alarm_control_panel.aarlo_garage
+        state_not: disarmed
+    chip:
+      type: alarm-control-panel
+      entity: alarm_control_panel.aarlo_garage
+      tap_action:
+        action: more-info
+      hold_action:
+        action: call-service
+        service: alarm_control_panel.alarm_disarm
+        target:
+          entity_id: alarm_control_panel.aarlo_garage
+      name: Garage Camera
+      icon: mdi:cctv
 
   - type: conditional
     conditions:
