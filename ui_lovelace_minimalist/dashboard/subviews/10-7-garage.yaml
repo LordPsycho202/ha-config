@@ -19,6 +19,13 @@ cards:
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_garage
+        image_view: direct
+        image_top: name,date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
 
   - type: vertical-stack
     cards:
@@ -43,12 +50,11 @@ cards:
           ulm_card_light_enable_collapse: true
 
       - type: "custom:button-card"
-        template:
-          - card_binary_sensor_alert
+        template: card_cover
+        entity: cover.garage_door
         variables:
-          ulm_card_binary_sensor_alert: true
-          ulm_card_binary_sensor_alert_name: "Garage Door"
-        entity: binary_sensor.garage_door
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_garage_large: true
 
   - type: vertical-stack
     cards:

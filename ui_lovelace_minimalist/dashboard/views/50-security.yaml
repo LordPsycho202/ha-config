@@ -45,12 +45,19 @@ cards:
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
-      - type: 'custom:button-card'
-        template: card_binary_sensor_alert
+      - type: "custom:button-card"
+        template: card_cover
+        entity: cover.garage_door
         variables:
-          ulm_card_binary_sensor_alert: true
-          ulm_show_last_changed: true
-        entity: binary_sensor.garage_door
+          ulm_card_cover_enable_controls: true
+          ulm_card_cover_garage_large: true
+      - type: custom:aarlo-glance
+        entity: camera.aarlo_garage
+        image_view: arlo-stream
+        image_top: date,status
+        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_click: stream
+        library_sizes: 3,4,2
 
       - type: "custom:button-card"
         template: card_title
