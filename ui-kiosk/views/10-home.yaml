@@ -84,7 +84,7 @@ cards:
             }
       - show_name: true
         show_icon: true
-        entity: binary_sensor.garage_door
+        entity: cover.garage_door
         type: button
         icon: mdi:garage
         name: Shuttle Bay Door
@@ -171,6 +171,10 @@ cards:
             image_view: arlo-stream
             image_top: previous,name,next
             image_bottom: motion,sound,signal,bell|library,snapshot
+          - entity: camera.aarlo_garage
+            image_view: arlo-stream
+            image_top: previous,name,next
+            image_bottom: motion,sound,signal,onoff|library,snapshot
       - type: markdown
         content: "# Utility Usage"
         card_mod:

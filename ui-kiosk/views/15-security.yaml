@@ -62,7 +62,7 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: binary_sensor.garage_door
+        entity: cover.garage_door
         icon: mdi:garage
         name: "Lock: Shuttle Bay Door"
         show_state: true
@@ -190,10 +190,10 @@ cards:
                 image_click: stream
                 library_sizes: 3,4,2
               - type: custom:aarlo-glance
-                entity: camera.aarlo_kitty_loft
+                entity: camera.aarlo_garage
                 image_view: arlo-stream
                 image_top: name|date
-                image_bottom: motion,sound,signal|library,snapshot
+                image_bottom: motion,sound,signal,onoff|library,snapshot
                 image_click: stream
                 library_sizes: 3,4,2
           - type: markdown
