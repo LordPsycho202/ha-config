@@ -130,7 +130,7 @@ cards:
             icon: mdi:garage
             variables:
               ulm_custom_card_rnissen_room_light_entity: light.garage
-              ulm_custom_card_rnissen_room_garage_entity: cover.garage
+              ulm_custom_card_rnissen_room_garage_entity: cover.garage_door
             tap_action:
               action: navigate
               navigation_path: "garage"

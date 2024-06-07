@@ -55,7 +55,7 @@ cards:
         entity: camera.aarlo_garage
         image_view: arlo-stream
         image_top: date,status
-        image_bottom: motion,sound,signal,battery|library,snapshot
+        image_bottom: motion,sound,signal,onoff|library,snapshot
         image_click: stream
         library_sizes: 3,4,2
 

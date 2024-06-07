@@ -149,6 +149,7 @@ chips:
         navigation_path: weather
 
   - type: spacer
+
   - type: conditional
     conditions:
       - condition: state
@@ -298,6 +299,8 @@ chips:
           entity_id: input_select.dishwasher_state
         data:
           option: Dirty
+
+  - type: spacer
 
   - type: conditional
     conditions:
