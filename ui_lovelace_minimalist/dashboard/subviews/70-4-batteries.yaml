@@ -267,7 +267,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.motion_garage_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Dishwasher Door
+              ulm_card_battery_name: Garage Motion Sensor
           - type: "custom:button-card"
             template: card_battery
             entity: sensor.motion_garden_battery
@@ -275,7 +275,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.motion_garden_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Attic Door
+              ulm_card_battery_name: Garden Motion Sensor
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
