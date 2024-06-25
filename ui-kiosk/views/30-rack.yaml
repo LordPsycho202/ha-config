@@ -42,7 +42,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: sensor.ups01_current_real_power
+        entity: sensor.ups01_nominal_real_power
         show_state: true
         name: Power Draw
         card_mod:
@@ -70,7 +70,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: sensor.temp_acurite_606tx
+        entity: sensor.temp_rack_2
         name: "Computer Core Temp"
         show_state: true
         card_mod:
@@ -612,7 +612,7 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: sensor.ups01_battery_charge
+            entity: sensor.ups01_battery_charge_2
             show_state: true
             card_mod:
               class: button-lozenge
@@ -625,7 +625,7 @@ cards:
             type: button
             tap_action:
               action: toggle
-            entity: sensor.ups01_load
+            entity: sensor.ups01_load_2
             show_state: true
             card_mod:
               class: button-lozenge

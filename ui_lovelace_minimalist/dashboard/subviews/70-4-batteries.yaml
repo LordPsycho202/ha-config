@@ -177,8 +177,8 @@ cards:
             template: card_binary_sensor_alert
             variables:
               ulm_card_binary_sensor_alert: true
-              ulm_card_binary_sensor_alert_name: Greenhouse
-            entity: binary_sensor.batt_nexus_th_2
+              ulm_card_binary_sensor_alert_name: Garden
+            entity: binary_sensor.wh26_battery
 
       - type: horizontal-stack
         cards:
@@ -202,7 +202,7 @@ cards:
             variables:
               ulm_card_binary_sensor_alert: true
               ulm_card_binary_sensor_alert_name: Rack
-            entity: binary_sensor.batt_acurite_606tx
+            entity: binary_sensor.batt_rack_2
 
   - type: vertical-stack
     cards:
@@ -258,7 +258,24 @@ cards:
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Mailbox Door
-
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.motion_garage_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.motion_garage_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Dishwasher Door
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.motion_garden_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.motion_garden_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Attic Door
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
