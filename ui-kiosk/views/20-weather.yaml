@@ -202,35 +202,41 @@ cards:
       grid-area: aux
     cards:
       - type: markdown
-        content: '# Forecast Modeling'
+        content: '# Forecast Model'
         card_mod:
           class: header-open
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - show_current: true
-        show_forecast: false
-        type: weather-forecast
-        entity: weather.weather_station
-        secondary_info_attribute: pressure
-        theme: ios-dark-mode
+      - type: custom:clock-weather-card
+        entity: weather.main_floor
+        sun_entity: sun.sun
+        temperature_sensor: sensor.outdoor_temp
+        humidity_sensor: sensor.outdoor_humidity
+        weather_icon_type: line
+        animated_icon: true
+        forecast_rows: 5
+        locale: en-US
+        time_pattern: HH:mm
+        time_format: 24
+        date_pattern: yyyy.MM.dd ccc
+        hide_today_section: false
+        hide_forecast_section: false
+        show_humidity: true
+        hide_clock: true
+        hide_date: true
+        hourly_forecast: false
+        use_browser_time: false
+        time_zone: America/New_York
+        show_decimal: true
+        apparent_sensor: null
+        aqi_sensor: sensor.gainesville_georgia_usa_air_quality_index
         card_mod:
+          class: middle-blank
           style: |
             ha-card > * {
-              font-family: Antonio;
-            }
-      - show_current: false
-        show_forecast: true
-        type: weather-forecast
-        entity: weather.kwdr_daynight
-        theme: ios-dark-mode
-        secondary_info_attribute: pressure
-        forecast_type: twice_daily
-        card_mod:
-          style: |
-            ha-card > * {
-              font-family: Antonio;
+              font-family: Antonio
             }
       - type: markdown
         content: '# Wind Direction'
@@ -241,7 +247,7 @@ cards:
               font-family: Antonio
             }
       - type: custom:windrose-card
-        title: ""
+        title: ''
         data_period:
           hours_to_show: 4
         max_width: 400
@@ -286,7 +292,7 @@ cards:
                       }
                 - camera_view: auto
                   type: picture-glance
-                  camera_image: camera.511ga_org
+                  image: https://511ga.org/map/Cctv/105619--2
                   entities:
                     - entity: sensor.waze_travel_time
                     - entity: sensor.jennifer_time_to_home
@@ -313,4 +319,3 @@ cards:
                     navigation_path: /ui-kiosk/wxalert
                   hold_action:
                     action: none
-

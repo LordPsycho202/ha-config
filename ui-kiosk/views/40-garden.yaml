@@ -325,28 +325,34 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - show_current: true
-        show_forecast: false
-        type: weather-forecast
-        entity: weather.weather_station
-        secondary_info_attribute: pressure
-        theme: ios-dark-mode
+      - type: custom:clock-weather-card
+        entity: weather.main_floor
+        sun_entity: sun.sun
+        temperature_sensor: sensor.outdoor_temp
+        humidity_sensor: sensor.outdoor_humidity
+        weather_icon_type: line
+        animated_icon: true
+        forecast_rows: 5
+        locale: en-US
+        time_pattern: HH:mm
+        time_format: 24
+        date_pattern: yyyy.MM.dd ccc
+        hide_today_section: false
+        hide_forecast_section: false
+        show_humidity: true
+        hide_clock: true
+        hide_date: true
+        hourly_forecast: false
+        use_browser_time: false
+        time_zone: America/New_York
+        show_decimal: true
+        apparent_sensor: null
+        aqi_sensor: sensor.gainesville_georgia_usa_air_quality_index
         card_mod:
+          class: middle-blank
           style: |
             ha-card > * {
-              font-family: Antonio;
-            }
-      - show_current: false
-        show_forecast: true
-        type: weather-forecast
-        entity: weather.kwdr_daynight
-        theme: ios-dark-mode
-        secondary_info_attribute: pressure
-        forecast_type: twice_daily
-        card_mod:
-          style: |
-            ha-card > * {
-              font-family: Antonio;
+              font-family: Antonio
             }
       - type: markdown
         content: '# Solar Cycle'
@@ -375,6 +381,7 @@ cards:
         cards:
           - type: gauge
             entity: sensor.rain_daily
+            name: Daily
             card_mod:
               style: |
                 ha-card > * {
@@ -382,6 +389,7 @@ cards:
                 }
           - type: gauge
             entity: sensor.total_rain_monthly
+            name: Monthly
             card_mod:
               style: |
                 ha-card > * {
@@ -389,6 +397,7 @@ cards:
                 }
           - type: gauge
             entity: sensor.total_rain_annual
+            name: Yearly
             card_mod:
               style: |
                 ha-card > * {
@@ -402,33 +411,35 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - show_name: true
-        show_icon: true
-        type: button
-        icon: mdi:trash-can-outline
-        tap_action:
-          action: more-info
-        name: Trash
-        show_state: true
-        entity: sensor.next_trash
-        card_mod:
-          class: button-lozenge-right
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - show_name: true
-        show_icon: true
-        type: button
-        icon: mdi:recycle-variant
-        tap_action:
-          action: more-info
-        name: Recycling
-        show_state: true
-        entity: sensor.next_recycling
-        card_mod:
-          class: button-lozenge-right
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
+      - type: horizontal-stack
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            icon: mdi:trash-can-outline
+            tap_action:
+              action: more-info
+            name: Trash
+            show_state: true
+            entity: sensor.next_trash
+            card_mod:
+              class: button-lozenge-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+          - show_name: true
+            show_icon: true
+            type: button
+            icon: mdi:recycle-variant
+            tap_action:
+              action: more-info
+            name: Recycling
+            show_state: true
+            entity: sensor.next_recycling
+            card_mod:
+              class: button-lozenge-right
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
