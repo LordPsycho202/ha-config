@@ -134,8 +134,11 @@ cards:
         aspect_ratio: '16:9'  
         card_mod:
           style: |
-            weather-radar-card > * {
-              font-family: Antonio;\
+            :host {
+                filter: invert(1) hue-rotate(180deg);;
+              }
+            ha-card > * {
+              font-family: Antonio
             }
       - type: markdown
         content: "# Cumulative Stats"
