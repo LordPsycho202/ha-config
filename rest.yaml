@@ -125,3 +125,9 @@
       name: Jackson County, GA DSCI
       icon: mdi:cloud-cancel-outline
       value_template: '{{ value_json[0].DSCI}}'
+      json_attributes_path: ArrayOfCountyDSCI[0].CountyDSCI
+      json_attributes:
+        - FIPS
+        - County
+        - State
+        - MapDATE
