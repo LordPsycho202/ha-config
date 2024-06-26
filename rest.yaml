@@ -111,7 +111,11 @@
       value_template: '{{ value_json[0].a}}'
 
 - scan_interval: 86400
-  resource: https://usdmdataservices.unl.edu/api/CountyStatistics/GetDSCI?aoi=13157&startdate=4/3/2024&enddate=4/10/2024&statisticsType=2
+  resource: >
+    {%- set finish = today_at(now().hour ~ ':00') %}
+    {%- set start = finish + timedelta(days=-7) %}
+    {%- set format = "%m/%d/%Y" %}
+    https://usdmdataservices.unl.edu/api/CountyStatistics/GetDSCI?aoi=13157&startdate={{start.strftime(format)}}&enddate={{finish.strftime(format)}}&statisticsType=2
   method: GET
   headers:
     Accept: >
