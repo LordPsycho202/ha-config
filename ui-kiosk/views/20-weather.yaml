@@ -216,7 +216,7 @@ cards:
         humidity_sensor: sensor.outdoor_humidity
         weather_icon_type: line
         animated_icon: true
-        forecast_rows: 5
+        forecast_rows: 3
         locale: en-US
         time_pattern: HH:mm
         time_format: 24

@@ -14,13 +14,29 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Forecast
-      - show_current: false
-        show_forecast: true
-        type: weather-forecast
-        entity: weather.kwdr_daynight
-        theme: ios-dark-mode
-        secondary_info_attribute: pressure
-        forecast_type: twice_daily
+      - type: custom:clock-weather-card
+        entity: weather.main_floor
+        sun_entity: sun.sun
+        temperature_sensor: sensor.outdoor_temp
+        humidity_sensor: sensor.outdoor_humidity
+        weather_icon_type: line
+        animated_icon: false
+        forecast_rows: 5
+        locale: en-US
+        time_pattern: HH:mm
+        time_format: 24
+        date_pattern: yyyy.MM.dd ccc
+        hide_today_section: true
+        hide_forecast_section: false
+        show_humidity: true
+        hide_clock: true
+        hide_date: true
+        hourly_forecast: false
+        use_browser_time: false
+        time_zone: America/New_York
+        show_decimal: true
+        apparent_sensor: null
+        aqi_sensor: sensor.gainesville_georgia_usa_air_quality_index
 
   - type: vertical-stack
     cards:
