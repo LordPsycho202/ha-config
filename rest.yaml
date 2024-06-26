@@ -111,7 +111,7 @@
       value_template: '{{ value_json[0].a}}'
 
 - scan_interval: 86400
-  resource: >
+  resource_template: >
     {%- set finish = today_at(now().hour ~ ':00') %}
     {%- set start = finish + timedelta(days=-7) %}
     {%- set format = "%m/%d/%Y" %}
