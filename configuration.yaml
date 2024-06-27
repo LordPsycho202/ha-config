@@ -125,11 +125,11 @@ aarlo:
 
 camera:
   - platform: ffmpeg
-    input: rtsp://192.168.2.130:554/ch01/1
+    input: rtsp://admin:Chargers1990@192.168.2.130:554/ch01/1
     name: Office 1080
 
   - platform: ffmpeg
-    input: rtsp://192.168.2.130:554/ch01/0
+    input: rtsp://admin:Chargers1990@192.168.2.130:554/ch01/0
     name: Office 4k
 
 sensor:
