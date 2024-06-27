@@ -124,9 +124,6 @@
     - unique_id: dsci
       name: Jackson County, GA DSCI
       icon: mdi:cloud-cancel-outline
-      value_template: '{{ value_json[0].DSCI}}'
-      json_attributes:
-        - $[0].FIPS
-        - $[0].County
-        - $[0].State
-        - $[0].MapDate
+      value_template: >
+        {%- set lst == value_json|last %}
+        {{ lst.DSCI}}
