@@ -133,7 +133,7 @@ cards:
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.humidity_indoor_greenhousee
+            entity: sensor.humidity_indoor_greenhouse
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Humidity
