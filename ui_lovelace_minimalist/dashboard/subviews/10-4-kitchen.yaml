@@ -105,6 +105,41 @@ cards:
 
   - type: vertical-stack
     cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Indoor Greenhouse
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.greenhouse
+            variables:
+              ulm_card_light_name: Plant Light
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.temp_indoor_greenhouse
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.temp_indoor_greenhouse
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.humidity_indoor_greenhouse
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24 
+
+  - type: vertical-stack
+    cards:
       - type: gauge
         entity: sensor.monthly_water
         unit: gal
