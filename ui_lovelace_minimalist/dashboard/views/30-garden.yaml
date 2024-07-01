@@ -280,6 +280,75 @@ cards:
               ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
+          - type: conditional
+            conditions:
+              - condition: and
+                conditions:
+                  - condition: or
+                    conditions:
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_5
+                        below: 40
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_6
+                        below: 40
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_7
+                        below: 50
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_8
+                        below: 40
+                  - condition: state
+                    entity: timer.garden_watering
+                    state: idle
+            card:
+              type: custom:mushroom-template-card
+              primary: Water Garden
+              secondary: >-
+                Last run: {{
+                as_datetime(states('sensor.zone_1_zone_history')).strftime('%Y.%m.%d
+                %H:%M') }}
+                Hold to start
+              icon: mdi:sprinkler
+              entity: script.garden_watering_2
+              icon_color: grey
+              hold_action:
+                action: none
+              double_tap_action:
+                action: call-service
+                service: script.garden_watering_2
+                target: {}
+              tap_action:
+                action: none
+              multiline_secondary: true
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: timer.garden_watering
+                state: active
+            card:
+              type: custom:mushroom-template-card
+              primary: Garden is being Watered
+              secondary: |-
+                {%- set f = state_attr('timer.garden_watering', 'finishes_at') %}
+                Finishes in {{ '00:00:00' if f == None else 
+                  (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
+                Hold to Stop
+              icon: mdi:sprinkler
+              entity: timer.garden_watering
+              icon_color: blue
+              tap_action:
+                action: none
+              hold_action:
+                action: call-service
+                service: timer.finish
+                target:
+                  entity_id: timer.garden_watering
+              double_tap_action:
+                action: none
+              multiline_secondary: true
+      - type: horizontal-stack
+        cards:
           - type: custom:mushroom-template-card
             primary: Blackberries
             entity: plant.blackberries
