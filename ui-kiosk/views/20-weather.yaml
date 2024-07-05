@@ -131,7 +131,7 @@ cards:
         type: picture-entity
         entity: weather.weather_station
         camera_image: camera.radar_weather_gov
-        aspect_ratio: '16:9'  
+        aspect_ratio: '16:9'
         card_mod:
           style: |
             :host {

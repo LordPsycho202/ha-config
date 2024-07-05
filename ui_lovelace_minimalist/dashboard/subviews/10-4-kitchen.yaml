@@ -136,7 +136,7 @@ cards:
               ulm_card_graph_name: Humidity
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24 
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:

@@ -139,7 +139,7 @@ cards:
               ulm_card_graph_name: Humidity
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24         
+              ulm_card_graph_hours: 24     
 
   - type: vertical-stack
     cards:
@@ -305,7 +305,7 @@ cards:
               primary: Garden is being Watered
               secondary: |-
                 {%- set f = state_attr('timer.garden_watering', 'finishes_at') %}
-                Finishes in {{ '00:00:00' if f == None else 
+                Finishes in {{ '00:00:00' if f == None else
                   (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
                 Hold to Stop
               icon: mdi:sprinkler
