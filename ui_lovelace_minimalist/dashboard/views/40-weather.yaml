@@ -73,7 +73,7 @@ cards:
               icon_color: red
             - type: custom:mushroom-template-card
               primary: |-
-                {{ states('ssensor.kwdr_wet_bulb_temperature') | round(1) }}{{
+                {{ states('sensor.kwdr_wet_bulb_temperature') | round(1) }}{{
                 state_attr('sensor.kwdr_wet_bulb_temperature','unit_of_measurement') }}
               secondary: Wet Bulb tempreature
               icon: mdi:thermometer-alert
