@@ -432,7 +432,7 @@ chips:
     chip:
       type: template
       entity: plant.tobasco_and_tomato
-      icon_color: white
+      icon_color: gray
       icon: |-
         {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:watering-can-outline
@@ -494,7 +494,7 @@ chips:
     chip:
       type: template
       entity: plant.standing_container
-      icon_color: white
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
         mdi:watering-can-outline
