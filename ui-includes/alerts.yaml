@@ -24,7 +24,7 @@ chips:
         action: navigate
         navigation_path: wxalert
       icon_color: |-
-        {%- set ns = namespace(output="gray") %}
+        {%- set ns = namespace(output="grey") %}
         {%- if states.sensor.nws_alerts.state | int > 0 %}
           {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
           {%- for desc in description %}
@@ -66,7 +66,7 @@ chips:
         above: 6
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: >-
         Days Without Rain: {{ states.counter.days_without_rain.state }}
       icon: "{{ states.counter.days_without_rain.attributes.icon }}"
@@ -82,7 +82,7 @@ chips:
         below: 32
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Freezing
       icon: mdi:snowflake-thermometer
       entity: weather.weather_station
@@ -96,7 +96,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: >-
         Wind Chill:
         {{states.sensor.wind_chill.state}}{{states.sensor.wind_chill.attributes.unit_of_measurement}}
@@ -111,7 +111,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: "Heat Index: {{states.sensor.heat_index.state}}F"
       icon: "{{states.sensor.heat_index.attributes.icon}}"
       tap_action:
@@ -186,7 +186,7 @@ chips:
         state: "Mail Delivered"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Mail
       tap_action:
         action: navigate
@@ -199,7 +199,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Packages
       tap_action:
         action: navigate
@@ -212,7 +212,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Trash Day
       icon: mdi:delete
 
@@ -222,7 +222,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Recycling Day
       icon: mdi:recycle-variant
 
@@ -233,7 +233,7 @@ chips:
     chip:
       type: template
       icon: mdi:cat
-      icon_color: gray
+      icon_color: grey
       content: "Empty: {{ states.input_select.cat_litter_full_clean.state }}"
       tap_action:
         action: call-service
@@ -249,7 +249,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Vacation Mode On
       icon: mdi:airplane-check
 
@@ -259,7 +259,7 @@ chips:
         state: "on"
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Guest Mode On
       icon: mdi:bed
 
@@ -269,7 +269,7 @@ chips:
         state: error
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Philoctetes
       icon: mdi:alert
 
@@ -279,7 +279,7 @@ chips:
         state: error
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Catbug
       icon: mdi:alert
 
@@ -289,7 +289,7 @@ chips:
         state: Clean
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       content: Dishwasher Done
       icon: mdi:dishwasher
       tap_action:
@@ -314,7 +314,7 @@ chips:
             state_not: winter
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
         mdi:watering-can-outline
@@ -342,7 +342,7 @@ chips:
             state_not: ok
     chip:
       type: template
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
         mdi:watering-can-outline
@@ -399,7 +399,7 @@ chips:
     chip:
       type: template
       entity: plant.greenhouse_plants
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:watering-can-outline
@@ -432,7 +432,7 @@ chips:
     chip:
       type: template
       entity: plant.tobasco_and_tomato
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:watering-can-outline
@@ -463,7 +463,7 @@ chips:
     chip:
       type: template
       entity: plant.tomatoes
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
         mdi:watering-can-outline
@@ -525,7 +525,7 @@ chips:
     chip:
       type: template
       entity: plant.okra_and_tomato
-      icon_color: gray
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
         mdi:watering-can-outline
