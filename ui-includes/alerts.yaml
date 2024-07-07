@@ -369,6 +369,7 @@ chips:
     chip:
       type: template
       entity: plant.pineapples
+      icon_color: grey
       icon: |-
         {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
         mdi:watering-can-outline
