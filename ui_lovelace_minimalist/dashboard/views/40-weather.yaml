@@ -77,6 +77,7 @@ cards:
             - type: horizontal-stack
               cards:
                 - type: custom:mushroom-template-card
+                  entity: sensor.kwdr_wet_bulb_temperature
                   primary: Moderate
                   secondary: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
@@ -100,7 +101,7 @@ cards:
                   icon_color: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
                     {%- if wbgt <= 76.9 %}
-                      lightgrey
+                      grey
                     {%- elif wbgt <= 81.9 %}
                       lime
                     {%- elif wbgt <= 84.9 %}
@@ -112,6 +113,7 @@ cards:
                     {%- endif %}
                   multiline_secondary: true
                 - type: custom:mushroom-template-card
+                  entity: sensor.kwdr_wet_bulb_temperature
                   primary: Heavy
                   secondary: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
@@ -135,7 +137,7 @@ cards:
                   icon_color: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
                     {%- if wbgt <= 76.9 %}
-                      lightgrey
+                      grey
                     {%- elif wbgt <= 81.9 %}
                       lime
                     {%- elif wbgt <= 84.9 %}
