@@ -272,6 +272,10 @@ chips:
       icon_color: grey
       content: Philoctetes
       icon: mdi:alert
+      tap_action:
+        action: navigate
+        navigation_path: outside
+
 
   - type: conditional
     conditions:
@@ -282,6 +286,9 @@ chips:
       icon_color: grey
       content: Catbug
       icon: mdi:alert
+      tap_action:
+        action: navigate
+        navigation_path: upmisc
 
   - type: conditional
     conditions:
