@@ -265,7 +265,7 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: vacuum.philoctetes
+      - entity: lawn_mower.philoctetes
         state: error
     chip:
       type: template
