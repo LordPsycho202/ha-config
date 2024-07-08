@@ -287,11 +287,11 @@ cards:
               entity: script.garden_watering_2
               icon_color: grey
               hold_action:
-                action: none
-              double_tap_action:
                 action: call-service
                 service: script.garden_watering_2
                 target: {}
+              double_tap_action:
+                action: none
               tap_action:
                 action: none
               multiline_secondary: true

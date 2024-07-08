@@ -62,13 +62,90 @@ cards:
           - entity: binary_sensor.heat_index_active
             state: "on"
         card:
-          type: custom:mushroom-template-card
-          primary: >-
-            {{ states('sensor.heat_index') | round(1) }}{{
-            state_attr('sensor.heat_index','unit_of_measurement') }}
-          secondary: Heat Index Warning
-          icon: mdi:thermometer-alert
-          icon_color: red
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: >-
+                {{ states('sensor.heat_index') | round(1) }}{{
+                state_attr('sensor.heat_index','unit_of_measurement') }}
+              secondary: Heat Index Warning
+              icon: mdi:thermometer-alert
+              icon_color: red
+            - type: "custom:button-card"
+              template: card_title
+              label: Exercise Limits
+            - type: horizontal-stack
+              cards:
+                - type: custom:mushroom-template-card
+                  primary: Moderate
+                  secondary: |-
+                    {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
+                    {%- if wbgt <= 76.9 %}
+                    Work/Rest: 60/15 Minutes
+                    Water Intake: 300 ml/hr
+                    {%- elif wbgt <= 81.9 %}
+                    Work/Rest: 60/15 Minutes
+                    Water Intake: 750 ml/hr
+                    {%- elif wbgt <= 84.9 %}
+                    Work/Rest: 40/20 Minutes
+                    Water Intake: 1000 ml/hr
+                    {%- elif wbgt <= 88.9 %}
+                    Work/Rest: 30/30 Minutes
+                    Water Intake: 1000 ml/hr
+                    {%- else %}
+                    Exercise Forbidden
+                    Very High Risk of Heat Casualties
+                    {%- endif %}
+                  icon: mdi:water-thermometer
+                  icon_color: |-
+                    {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
+                    {%- if wbgt <= 76.9 %}
+                      white
+                    {%- elif wbgt <= 81.9 %}
+                      lime
+                    {%- elif wbgt <= 84.9 %}
+                      yellow
+                    {%- elif wbgt <= 88.9 %}
+                      red
+                    {%- else %}
+                      black
+                    {%- endif %}
+                  multiline_secondary: true
+                - type: custom:mushroom-template-card
+                  primary: Heavy
+                  secondary: |-
+                    {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
+                    {%- if wbgt <= 76.9 %}
+                    Work/Rest: 40/20 Minutes
+                    Water Intake: 500 ml/hr
+                    {%- elif wbgt <= 81.9 %}
+                    Work/Rest: 40/20 Minutes
+                    Water Intake: 1000 ml/hr
+                    {%- elif wbgt <= 84.9 %}
+                    Work/Rest: 30/30 Minutes
+                    Water Intake: 1000 ml/hr
+                    {%- elif wbgt <= 88.9 %}
+                    Exercise Forbidden
+                    Very high risk of Heat Casualties
+                    {%- else %}
+                    Exercise Forbidden
+                    Very high risk of Heat Casualties
+                    {%- endif %}
+                  icon: mdi:water-thermometer
+                  icon_color: |-
+                    {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
+                    {%- if wbgt <= 76.9 %}
+                      white
+                    {%- elif wbgt <= 81.9 %}
+                      lime
+                    {%- elif wbgt <= 84.9 %}
+                      yellow
+                    {%- elif wbgt <= 88.9 %}
+                      red
+                    {%- else %}
+                      black
+                    {%- endif %}
+                  multiline_secondary: true
 
       - type: conditional
         conditions:
