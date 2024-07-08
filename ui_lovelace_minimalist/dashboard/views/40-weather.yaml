@@ -100,7 +100,7 @@ cards:
                   icon_color: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
                     {%- if wbgt <= 76.9 %}
-                      white
+                      lightgrey
                     {%- elif wbgt <= 81.9 %}
                       lime
                     {%- elif wbgt <= 84.9 %}
@@ -135,7 +135,7 @@ cards:
                   icon_color: |-
                     {%- set wbgt = states('sensor.kwdr_wet_bulb_temperature') | float %}
                     {%- if wbgt <= 76.9 %}
-                      white
+                      lightgrey
                     {%- elif wbgt <= 81.9 %}
                       lime
                     {%- elif wbgt <= 84.9 %}
