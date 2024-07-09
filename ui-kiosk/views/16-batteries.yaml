@@ -21,7 +21,6 @@ cards:
   - !include ../includes/headerR.yaml
   - !include ../includes/menu.yaml
   - !include ../includes/footer.yaml
-  - 
 
   - type: vertical-stack
     view_layout:
