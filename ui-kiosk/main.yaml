@@ -1,4 +1,5 @@
 ---
+button_card_templates: !include_dir_merge_named ./includes/templates
 views:
   # Main Views
   - !include views/10-home.yaml

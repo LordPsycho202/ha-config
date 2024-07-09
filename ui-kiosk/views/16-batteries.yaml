@@ -15,7 +15,6 @@ layout:
     "footer footer footer"
 type: custom:grid-layout
 badges: []
-button_card_templates: !include_dir_merge_named "../includes/templates"
 cards:
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
