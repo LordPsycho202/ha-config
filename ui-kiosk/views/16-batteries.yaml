@@ -41,8 +41,8 @@ cards:
                 template: cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_back_door
-                  gradient_start_color: var(--picard-lightest-blue)
-                  gradient_end_color: var(--picard-dark-blue)
+                  gradient_start_color: '#AAAAFF'
+                  gradient_end_color: '#FFAA00'
               - type: markdown
                 content: "Aft View Battery"
                 card_mod:
@@ -57,8 +57,8 @@ cards:
                 template: cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_driveway
-                  gradient_start_color: var(--picard-lightest-blue)
-                  gradient_end_color: var(--picard-dark-blue)
+                  gradient_start_color: '#AAAAFF'
+                  gradient_end_color: '#FFAA00'
               - type: markdown
                 content: "Shuttle Bay Battery"
                 card_mod:
