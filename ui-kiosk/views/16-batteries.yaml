@@ -37,8 +37,6 @@ cards:
         cards:
           - type: vertical-stack
             cards:
-          - type: vertical-stack
-            cards:
               - type: custom:button-card
                 template:
                   - cb-lcars-meter
