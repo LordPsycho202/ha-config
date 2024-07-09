@@ -38,20 +38,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:button-card
-                template:
-                  - cb-lcars-meter
+                template: cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_back_door
-                  _gradient:
-                    'Y': 20
-                    gap: 1px
-                  gradient_start_color: var(--lcars-blue)
-                  gradient_end_color: var(--lcars-orange)
-                  button:
-                    variables:
-                      card:
-                        height: 10px
-                        width: 10px
+                  gradient_start_color: var(--picard-lightest-blue)
+                  gradient_end_color: var(--picard-dark-blue)
               - type: markdown
                 content: "Aft View Battery"
                 card_mod:
@@ -63,20 +54,11 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:button-card
-                template:
-                  - cb-lcars-meter
+                template: cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_driveway
-                  _gradient:
-                    'Y': 20
-                    gap: 1px
-                  gradient_start_color: var(--lcars-blue)
-                  gradient_end_color: var(--lcars-orange)
-                  button:
-                    variables:
-                      card:
-                        height: 10px
-                        width: 10px
+                  gradient_start_color: var(--picard-lightest-blue)
+                  gradient_end_color: var(--picard-dark-blue)
               - type: markdown
                 content: "Shuttle Bay Battery"
                 card_mod:
