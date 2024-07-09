@@ -20,7 +20,7 @@ cards:
   - !include ../includes/headerR.yaml
   - !include ../includes/menu.yaml
   - !include ../includes/footer.yaml
-  - !include ../includes/cb-lcars-full.yaml
+  - 
 
   - type: vertical-stack
     view_layout:

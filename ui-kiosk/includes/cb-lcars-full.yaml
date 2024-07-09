@@ -1,4 +1,3 @@
-button_card_templates:
   cb-lcars-slider:
     template:
       - cb-lcars-card-base
