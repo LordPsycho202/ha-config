@@ -27,7 +27,7 @@ cards:
       grid-area: aux
     cards:
       - type: markdown
-        content: "Power Reserves"
+        content: "# External Sensors"
         card_mod:
           class: header-open
           style: |
@@ -36,20 +36,40 @@ cards:
             }
       - type: horizontal-stack
         cards:
-          - type: custom:button-card
-            template: cb-lcars-slider
-            variables:
-              entity: sensor.aarlo_battery_level_back_door
-              slider:
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                template: cb-lcars-slider
                 variables:
-                  mask_color: rgba(0,0,0,1)
-          - type: custom:button-card
-            template: cb-lcars-slider
-            variables:
-              entity: aarlo_battery_level_driveway
-              slider:
+                  entity: sensor.aarlo_battery_level_back_door
+                  slider:
+                    variables:
+                      mask_color: rgba(0,0,0,1)
+              - type: markdown
+                content: "Aft View"
+                card_mod:
+                  class: header-open
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+          - type: vertical-stack
+            cards:
+              - type: custom:button-card
+                template: cb-lcars-slider
                 variables:
-                  mask_color: rgba(0,0,0,1)
+                  entity: sensor.aarlo_battery_level_driveway
+                  slider:
+                    variables:
+                      mask_color: rgba(0,0,0,1)
+              - type: markdown
+                content: "Shuttle Bay"
+                card_mod:
+                  class: header-open
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
       - type: markdown
         content: "# Deck B"
         card_mod:
