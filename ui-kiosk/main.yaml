@@ -1,5 +1,4 @@
 ---
-button_card_templates: !include ./includes/cb-lcars-full.yaml
 views:
   # Main Views
   - !include views/10-home.yaml
