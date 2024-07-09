@@ -8,4 +8,5 @@ views:
   - !include views/50-planeTracker.yaml
   # Psuedo-Popups
   - !include views/15-security.yaml
+  - !include views/16-batteries.yaml
   - !include views/25-wxalert.yaml
