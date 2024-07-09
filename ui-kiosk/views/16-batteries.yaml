@@ -37,8 +37,11 @@ cards:
         cards:
           - type: vertical-stack
             cards:
+          - type: vertical-stack
+            cards:
               - type: custom:button-card
-                template: cb-lcars-meter
+                template:
+                  - cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_back_door
                   _gradient:
@@ -62,7 +65,8 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:button-card
-                template: cb-lcars-meter
+                template:
+                  - cb-lcars-meter
                 variables:
                   entity: sensor.aarlo_battery_level_driveway
                   _gradient:
