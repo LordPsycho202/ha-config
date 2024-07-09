@@ -1,5 +1,5 @@
 ---
-button_card_templates: !include ./includes/cb-lcars-full.yaml
+button_card_templates: !include ../includes/cb-lcars-full.yaml
 title: Battery Charge
 path: battery
 icon: mdi:battery
