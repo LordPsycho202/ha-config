@@ -38,11 +38,29 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:button-card
-                template: cb-lcars-meter
+                template:
+                  - cb-lcars-slider-gauge
+                entity: sensor.aarlo_battery_level_back_door
                 variables:
-                  entity: sensor.aarlo_battery_level_back_door
-                  gradient_start_color: '#AAAAFF'
-                  gradient_end_color: '#FFAA00'
+                  card:
+                    height: 400px
+                    width: 50px
+                  slider:
+                    variables:
+                      color: var(--error-color)
+                      color_alpha: 0.7
+                      border_color: none
+                  meter:
+                    variables:
+                      button:
+                        variables:
+                          text:
+                            label:
+                              color:
+                                'on': var(--warning-color)
+                          card:
+                            color:
+                              active: var(--error-color)
               - type: markdown
                 content: "Aft View Battery"
                 card_mod:
@@ -54,11 +72,29 @@ cards:
           - type: vertical-stack
             cards:
               - type: custom:button-card
-                template: cb-lcars-meter
+                template:
+                  - cb-lcars-slider-gauge
+                entity: sensor.aarlo_battery_level_driveway
                 variables:
-                  entity: sensor.aarlo_battery_level_driveway
-                  gradient_start_color: '#AAAAFF'
-                  gradient_end_color: '#FFAA00'
+                  card:
+                    height: 400px
+                    width: 50px
+                  slider:
+                    variables:
+                      color: var(--error-color)
+                      color_alpha: 0.7
+                      border_color: none
+                  meter:
+                    variables:
+                      button:
+                        variables:
+                          text:
+                            label:
+                              color:
+                                'on': var(--warning-color)
+                          card:
+                            color:
+                              active: var(--error-color)
               - type: markdown
                 content: "Shuttle Bay Battery"
                 card_mod:
