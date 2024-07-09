@@ -1,5 +1,4 @@
 ---
-button_card_templates: !include ../includes/cb-lcars-full.yaml
 title: Battery Charge
 path: battery
 icon: mdi:battery
@@ -17,6 +16,7 @@ layout:
 type: custom:grid-layout
 badges: []
 cards:
+  - !include ../includes/cb-lcars-full.yaml
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/menu.yaml
@@ -46,7 +46,7 @@ cards:
                     variables:
                       mask_color: rgba(0,0,0,1)
               - type: markdown
-                content: "Aft View"
+                content: "Aft View Battery"
                 card_mod:
                   class: header-open
                   style: |
@@ -63,22 +63,13 @@ cards:
                     variables:
                       mask_color: rgba(0,0,0,1)
               - type: markdown
-                content: "Shuttle Bay"
+                content: "Shuttle Bay Battery"
                 card_mod:
                   class: header-open
                   style: |
                     ha-card > * {
                       font-family: Antonio
                     }
-      - type: markdown
-        content: "# Deck B"
-        card_mod:
-          class: bar
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-      - !include ../includes/space_maps/upstairsMap.yaml
 
   - type: vertical-stack
     view_layout:
