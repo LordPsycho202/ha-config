@@ -22,8 +22,9 @@ lovelace:
       filename: ui-tricorder/main.yaml
 
 #### Logbook ##################################
-whitelist_external_dirs:
-  - /config/timelapses
+homeassistant:
+  whitelist_external_dirs:
+    - /config/timelapses
 
 #### Logbook ##################################
 logbook:
