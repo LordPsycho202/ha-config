@@ -22,6 +22,10 @@ lovelace:
       filename: ui-tricorder/main.yaml
 
 #### Logbook ##################################
+whitelist_external_dirs:
+  - /config/timelapses
+
+#### Logbook ##################################
 logbook:
   exclude:
     entity_globs:
