@@ -110,6 +110,9 @@ zha: !include zha.yaml
 #### Battery Notes #############################################
 battery_notes:
 
+#### For Timeplapse #############################################
+ffmpeg:
+
 #### Arlo Integration #############################################
 aarlo:
   # host: "https://my.arlo.com"
