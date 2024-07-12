@@ -137,7 +137,7 @@ camera:
     file_path: /media/photos/greenhouse/test_photo.jpg
 
 shell_command:
-  esp32_gifify: '/media/photos/greenhouse/esp32cam_gifify.sh {{ input }} {{ output }}'
+  esp32_gifify: 'ffmpeg -loglevel 8 -r 4 -f image2 -y -pattern_type glob -i {{ input }} {{ output }}'
 
 sensor:
   - platform: unifigateway
