@@ -135,9 +135,10 @@ camera:
     name: Office
   - platform: local_file
     file_path: /media/photos/greenhouse/test_photo.jpg
+    name: Greenhouse_Timelapse
 
 shell_command:
-  esp32_gifify: 'ffmpeg -loglevel 8 -r 4 -f image2 -y -pattern_type glob -i {{ input }} {{ output }}'
+  esp32_gifify: '/config/esp32_gifify.sh {{framerate}} {{ input }} {{ output }}'
 
 sensor:
   - platform: unifigateway
