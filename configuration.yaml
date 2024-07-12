@@ -57,8 +57,6 @@ scene: !include scenes.yaml
 homeassistant:
   whitelist_external_dirs:
     - /config/timelapses
-  shell_command:
-    esp32_gifify: '/usr/bin/ffmpeg -loglevel -8 -f image2 -framerate 1 -vf scale=800x600 -i {{ arguments }}'
 
 #### Frontend ##################################
 frontend:
@@ -137,6 +135,9 @@ camera:
     name: Office
   - platform: local_file
     file_path: /media/photos/greenhouse/test_photo.jpg
+
+shell_command:
+  esp32_gifify: '/usr/bin/ffmpeg -loglevel -8 -f image2 -framerate 1 -vf scale=800x600 -i {{ arguments }}'
 
 sensor:
   - platform: unifigateway
