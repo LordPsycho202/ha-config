@@ -134,7 +134,7 @@ camera:
     input: rtsp://admin:Chargers1990@192.168.2.130:554/ch01/1
     name: Office
   - platform: local_file
-    file_path: /media/photos/greenhouse/test_photo.jpg
+    file_path: /media/photos/greenhouse/esp32cam.gif
     name: Greenhouse_Timelapse
 
 shell_command:
