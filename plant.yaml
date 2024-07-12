@@ -3,8 +3,8 @@ Front Flowers:
   sensors:
     moisture: sensor.soil_moisture_1
     battery: sensor.soil_moisture_1_batt
-  min_moisture: 20
-  min_battery: 35
+  min_moisture: 15
+  min_battery: 60
 Blackberries:
   sensors:
     moisture: sensor.soil_moisture_2
@@ -31,27 +31,27 @@ Tobasco and Tomato:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
-  min_moisture: 40
-  max_moisture: 80
+  min_moisture: 20
+  max_moisture: 65
   min_battery: 35
 Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_6
     battery: sensor.soil_moisture_6_batt
-  min_moisture: 40
-  max_moisture: 80
+  min_moisture: 20
+  max_moisture: 65
   min_battery: 35
 Standing Container:
   sensors:
     moisture: sensor.soil_moisture_7
     battery: sensor.soil_moisture_7_batt
-  min_moisture: 40
-  max_moisture: 80
+  min_moisture: 25
+  max_moisture: 75
   min_battery: 35
 Okra and Tomato:
   sensors:
     moisture: sensor.soil_moisture_8
     battery: sensor.soil_moisture_8_batt
-  min_moisture: 40
-  max_moisture: 80
+  min_moisture: 22
+  max_moisture: 65
   min_battery: 35
