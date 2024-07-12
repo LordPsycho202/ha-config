@@ -138,7 +138,8 @@ camera:
     name: Greenhouse_Timelapse
 
 shell_command:
-  esp32_gifify: '/config/esp32_gifify.sh {{framerate}} {{ input }} {{ output }}'
+  esp32_cleanup: "find {{ base }}/* -maxdepth 0 -type f -not -name 'Thumbs.db' | sort -nr | awk 'NR > {{ total }} {print $2}' | xargs rm -rf"
+  esp32_gifify: "ffmpeg -loglevel 8 -r {{ framerate }} -f image2 -y -pattern_type glob -i '{{ input }}' {{ output }}"
 
 sensor:
   - platform: unifigateway
