@@ -128,7 +128,7 @@ cards:
               - entity: input_boolean.indoor_greenhouse_lights
                 state: 'on'
             row:
-              entity: input_datetime.indoor_greenhouse_on
+              entity: input_datetime.indoor_greenhouse_off
               name: Turn Off?
   - type: vertical-stack
     cards:
@@ -149,3 +149,7 @@ cards:
           - entity: sensor.steve_battery
           - entity: sensor.lettuce_battery
           - entity: sensor.temp_greenhouse_battery
+            name: Indoor Greenhouse Zigbee Battery
+          - entity: sensor.batt_nexus_th_2
+            name: Outdoor Greenhouse RF Battery
+          - entity: sensor.airthings_wave_mini_060811_battery
