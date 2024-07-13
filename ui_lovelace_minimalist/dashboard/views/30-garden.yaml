@@ -303,7 +303,8 @@ cards:
             entity: plant.front_flowers
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_flowers"
             secondary: |-
               {% if states('plant.front_flowers') == 'ok' %}
               We Good!
