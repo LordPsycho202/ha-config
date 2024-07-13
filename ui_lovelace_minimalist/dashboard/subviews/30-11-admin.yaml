@@ -150,6 +150,6 @@ cards:
           - entity: sensor.lettuce_battery
           - entity: sensor.temp_greenhouse_battery
             name: Indoor Greenhouse Zigbee Battery
-          - entity: sensor.batt_nexus_th_2
+          - entity: binary_sensor.batt_nexus_th_2
             name: Outdoor Greenhouse RF Battery
           - entity: sensor.airthings_wave_mini_060811_battery
