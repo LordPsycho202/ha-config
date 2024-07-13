@@ -1,0 +1,75 @@
+---
+title: "Tobasco Pepper, Okra, & Tomato"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:chili-mild
+subview: true
+path: plant_tobasco
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:mushroom-template-card
+        primary: Tobasco Pepper & Tomato
+        entity: plant.tobasco_and_tomato
+        layout: vertical
+        tap_action:
+          action: more-info
+        secondary: |-
+          {% if states('plant.tobasco_and_tomato') == 'ok' %}
+          We Good!
+          {% else %}
+          {{ state_attr('plant.tobasco_and_tomato','problem')|capitalize }}
+          {% endif %}
+        icon: |-
+          {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
+          mdi:watering-can-outline
+          {% elif 'moisture high' in state_attr('plant.tobasco_and_tomato','problem') %}
+          mdi:water-alert
+          {% elif 'temperature low' in state_attr('plant.tobasco_and_tomato','problem') %}
+          mdi:snowflake-thermometer
+          {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem')%}
+          mdi:sun-thermometer-outline
+          {% else %}
+          mdi:chili-mild
+          {% endif %}
+        icon_color: |-
+          {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
+          brown
+          {% elif 'moisture high' in state_attr('plant.tobasco_and_tomato','problem') %}
+          blue
+          {% elif 'temperature low' in state_attr('plant.tobasco_and_tomato','problem') %}
+          cyan
+          {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem') %}
+          red
+          {% else %}
+          green
+          {% endif %}
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_5
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_5
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.outdoor_temp
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.outdoor_temp
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_battery
+        entity: sensor.soil_moisture_5_batt
+        variables:
+          ulm_card_battery_battery_level_danger: 30
+          ulm_card_battery_battery_level_warning: 80
+          ulm_card_battery_name: Battery
