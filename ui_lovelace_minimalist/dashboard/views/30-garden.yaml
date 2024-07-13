@@ -140,6 +140,100 @@ cards:
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Steve
+            entity: plant.steve
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.steve') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.steve','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.steve','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.steve','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.steve','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.steve','problem')%}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:leaf
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.steve','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.steve','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.steve','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.steve','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.steve_moisture
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.steve_moisture
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Steve
+            entity: plant.lettuce
+            layout: vertical
+            tap_action:
+              action: more-info
+            secondary: |-
+              {% if states('plant.lettuce') == 'ok' %}
+              We Good!
+              {% else %}
+              {{ state_attr('plant.lettuce','problem')|capitalize }}
+              {% endif %}
+            icon: |-
+              {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
+              mdi:watering-can-outline
+              {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
+              mdi:water-alert
+              {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
+              mdi:snowflake-thermometer
+              {% elif 'temperature high' in state_attr('plant.lettuce','problem')%}
+              mdi:sun-thermometer-outline
+              {% else %}
+              mdi:leaf
+              {% endif %}
+            icon_color: |-
+              {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
+              brown
+              {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
+              blue
+              {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
+              cyan
+              {% elif 'temperature high' in state_attr('plant.lettuce','problem') %}
+              red
+              {% else %}
+              green
+              {% endif %}
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.lettuce_moisture
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.lettuce_moisture
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
