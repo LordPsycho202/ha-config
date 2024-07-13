@@ -44,7 +44,7 @@ cards:
           {% else %}
           green
           {% endif %}
-      - type: horizontal_card
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
@@ -64,7 +64,7 @@ cards:
               ulm_card_graph_entity: sensor.steve_conductivity
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: horizontal_card
+      - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
