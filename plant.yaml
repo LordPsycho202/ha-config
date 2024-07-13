@@ -55,3 +55,31 @@ Okra and Tomato:
   min_moisture: 22
   max_moisture: 65
   min_battery: 35
+Steve:
+  sensors:
+    moisture: sensor.steve_moisture
+    battery: sensor.steve_battery
+    temperature: sensor.steve_temperature
+    conductivity: sensor.steve_conductivity
+    brightness: sensor.steve_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_temperature: 41
+  max_temperature: 95
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_battery: 35
+Lettuce:
+  sensors:
+    moisture: sensor.lettuce_moisture
+    battery: sensor.lettuce_battery
+    temperature: sensor.lettuce_temperature
+    conductivity: sensor.lettuce_conductivity
+    brightness: sensor.lettuce_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_temperature: 46
+  max_temperature: 95
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_battery: 35
