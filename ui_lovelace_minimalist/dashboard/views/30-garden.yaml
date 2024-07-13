@@ -500,7 +500,8 @@ cards:
             entity: plant.greenhouse_plants
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_greenhouse"
             primary: Greenhouse
             secondary: |-
               {% if states('plant.greenhouse_plants') == 'ok' %}

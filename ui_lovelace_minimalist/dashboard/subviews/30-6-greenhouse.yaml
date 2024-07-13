@@ -1,46 +1,50 @@
 ---
-title: "Blackberries"
+title: "Greenhouse"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:fruit-grapes
+icon: mdi:carrot
 subview: true
-path: plant_blackberries
+path: plant_greenhouse
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
       - type: custom:mushroom-template-card
-        primary: Blackberries
-        entity: plant.blackberries
+        entity: plant.greenhouse_plants
         layout: vertical
         tap_action:
           action: more-info
+        primary: Greenhouse
         secondary: |-
-          {% if states('plant.blackberries') == 'ok' %}
+          {% if states('plant.greenhouse_plants') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.blackberries','problem')|capitalize }}
+          {{ state_attr('plant.greenhouse_plants','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
+          {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
+          {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
+          {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
+          {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
           mdi:sun-thermometer-outline
+          {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
+          mdi:thermometer-off
           {% else %}
-          mdi:fruit-grapes
+          mdi:carrot
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
+          {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
+          {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
+          {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
+          {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
           red
+          {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
+          yellow
           {% else %}
           green
           {% endif %}
@@ -48,11 +52,11 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_2
+            entity: sensor.soil_moisture_4
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_2
+              ulm_card_graph_entity: sensor.soil_moisture_4
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: horizontal-stack
@@ -68,7 +72,7 @@ cards:
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_2_batt
+        entity: sensor.soil_moisture_4_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

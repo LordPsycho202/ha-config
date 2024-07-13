@@ -28,6 +28,7 @@ views:
   - !include subviews/30-3-pineapple.yaml
   - !include subviews/30-4-flowers.yaml
   - !include subviews/30-5-blackberries.yaml
+  - !include subviews/30-6-greenhouse.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
