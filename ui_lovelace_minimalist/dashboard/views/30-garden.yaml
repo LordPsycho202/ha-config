@@ -360,16 +360,16 @@ cards:
                     conditions:
                       - condition: numeric_state
                         entity: sensor.soil_moisture_5
-                        below: 40
+                        below: 20
                       - condition: numeric_state
                         entity: sensor.soil_moisture_6
-                        below: 40
+                        below: 20
                       - condition: numeric_state
                         entity: sensor.soil_moisture_7
-                        below: 50
+                        below: 25
                       - condition: numeric_state
                         entity: sensor.soil_moisture_8
-                        below: 40
+                        below: 22
                   - condition: state
                     entity: timer.garden_watering
                     state: idle
@@ -452,7 +452,8 @@ cards:
             entity: plant.blackberries
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_blackberries"
             secondary: |-
               {% if states('plant.blackberries') == 'ok' %}
               We Good!
