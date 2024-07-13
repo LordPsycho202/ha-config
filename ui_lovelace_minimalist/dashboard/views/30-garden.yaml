@@ -249,7 +249,8 @@ cards:
             entity: plant.pineapples
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_pineapple"
             secondary: |-
               {% if states('plant.pineapples') == 'ok' %}
               We Good!
