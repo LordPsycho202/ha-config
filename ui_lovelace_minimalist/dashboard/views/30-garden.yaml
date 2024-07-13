@@ -697,11 +697,12 @@ cards:
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-template-card
-            primary: Okra & Tomato
+            primary: Squash & Tomato
             entity: plant.okra_and_tomato
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_squash"
             secondary: |-
               {% if states('plant.okra_and_tomato') == 'ok' %}
               We Good!

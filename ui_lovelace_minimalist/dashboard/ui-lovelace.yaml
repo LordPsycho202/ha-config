@@ -32,6 +32,7 @@ views:
   - !include subviews/30-7-tobasco.yaml
   - !include subviews/30-8-tomatoes.yaml
   - !include subviews/30-9-planter.yaml
+  - !include subviews/30-10-squash.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
