@@ -742,8 +742,16 @@ cards:
               ulm_card_graph_entity: sensor.soil_moisture_8
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: entities
-        entities:
-          - entity: input_boolean.garden_watering
-            icon: mdi:sprinkler
-            name: Morning Watering
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Configurations
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/plant_admin
+          ulm_card_navigate_title: Garden Admin
+          ulm_card_navigate_icon: mdi:bell-cog
+          ulm_card_navigate_color: var(--color-red)

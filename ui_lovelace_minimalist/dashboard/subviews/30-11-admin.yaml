@@ -1,0 +1,157 @@
+---
+title: "Garden Admin"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:bell-cog
+subview: true
+path: plant_admin
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Auto Watering
+      - type: entities
+        entities:
+          - entity: input_boolean.garden_watering
+            icon: mdi:sprinkler
+            name: Automatic Morning Watering
+          - type: entities
+            entities:
+              - entity: input_boolean.garden_watering
+                name: Automatically Water?
+                icon: mdi:sprinkler
+              - type: divider
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.garden_watering
+                    state: on
+                row:
+                    entity: input_datetime.garden_watering
+                    name: When to Start
+                    icon: mdi:clock-digital
+              - type: conditional
+                conditions:
+                  - entity: input_boolean.garden_watering
+                    state: on
+                row:
+                    entity: input_number.garden_watering
+                    name: How Long?
+                    icon: mdi:clock-end       
+      - type: "custom:button-card"
+        template: card_title
+        label: Manual Override        
+      - type: horizontal-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: and
+                conditions:
+                  - condition: or
+                    conditions:
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_5
+                        below: 20
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_6
+                        below: 20
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_7
+                        below: 25
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_8
+                        below: 22
+                  - condition: state
+                    entity: timer.garden_watering
+                    state: idle
+            card:
+              type: custom:mushroom-template-card
+              primary: Water Garden
+              secondary: >-
+                Last run: {{
+                as_datetime(states('sensor.zone_1_zone_history')).strftime('%Y.%m.%d
+                %H:%M') }}
+                Hold to start
+              icon: mdi:sprinkler
+              entity: script.garden_watering_2
+              icon_color: grey
+              hold_action:
+                action: call-service
+                service: script.garden_watering_2
+                target: {}
+              double_tap_action:
+                action: none
+              tap_action:
+                action: none
+              multiline_secondary: true
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: timer.garden_watering
+                state: active
+            card:
+              type: custom:mushroom-template-card
+              primary: Garden is being Watered
+              secondary: |-
+                {%- set f = state_attr('timer.garden_watering', 'finishes_at') %}
+                Finishes in {{ '00:00:00' if f == None else
+                  (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
+                Hold to Stop
+              icon: mdi:sprinkler
+              entity: timer.garden_watering
+              icon_color: blue
+              tap_action:
+                action: none
+              hold_action:
+                action: call-service
+                service: timer.finish
+                target:
+                  entity_id: timer.garden_watering
+              double_tap_action:
+                action: none
+              multiline_secondary: true
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Indoor Greenhouse Lights
+      - type: entities
+        entities:
+          - entity: input_boolean.indoor_greenhouse_lights
+            name: Automatic Lights?
+          - type: divider
+          - type: conditional
+            conditions:
+              - entity: input_boolean.indoor_greenhouse_lights
+                state: on
+            row:
+                entity: input_datetime.indoor_greenhouse_on
+                name: Turn On?
+          - type: conditional
+            conditions:
+              - entity: input_boolean.indoor_greenhouse_lights
+                state: on
+            row:
+                entity: input_datetime.indoor_greenhouse_on
+                name: Turn Off? 
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Batteries
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_1_batt
+          - entity: sensor.soil_moisture_2_batt
+          - entity: sensor.soil_moisture_3_batt
+          - entity: sensor.soil_moisture_4_batt
+          - entity: sensor.soil_moisture_5_batt
+          - entity: sensor.soil_moisture_6_batt
+          - entity: sensor.soil_moisture_7_batt
+          - entity: sensor.soil_moisture_8_batt
+          - entity: sensor.soil_temperature_1_batt
+          - entity: sensor.steve_battery
+          - entity: sensor.lettuce_battery
+          - entity: sensor.temp_greenhouse_battery

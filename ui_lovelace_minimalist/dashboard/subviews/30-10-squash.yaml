@@ -60,7 +60,7 @@ cards:
             entity: sensor.soil_temperature_1
             variables:
               ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_name: Soil Temperature
               ulm_card_graph_entity: sensor.soil_temperature_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
