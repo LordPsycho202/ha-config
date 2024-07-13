@@ -130,7 +130,7 @@ cards:
             row:
               entity: input_datetime.indoor_greenhouse_off
               name: Turn Off?
-          - type: :divider
+          - type: divider
           - entity: input_boolean.indoor_greenhouse_timelapse
             name: Run Timelapse?
   - type: vertical-stack
