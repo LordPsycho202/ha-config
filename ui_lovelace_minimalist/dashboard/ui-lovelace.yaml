@@ -23,6 +23,7 @@ views:
   - !include subviews/20-4-upmisc.yaml
   # Garden
   - !include views/30-garden.yaml
+  - !include subviews/30-1-steve.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
