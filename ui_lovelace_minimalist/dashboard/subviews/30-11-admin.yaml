@@ -14,30 +14,25 @@ cards:
       - type: entities
         entities:
           - entity: input_boolean.garden_watering
+            name: Automatically Water?
             icon: mdi:sprinkler
-            name: Automatic Morning Watering
-          - type: entities
-            entities:
+          - type: divider
+          - type: conditional
+            conditions:
               - entity: input_boolean.garden_watering
-                name: Automatically Water?
-                icon: mdi:sprinkler
-              - type: divider
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.garden_watering
-                    state: on
-                row:
-                    entity: input_datetime.garden_watering
-                    name: When to Start
-                    icon: mdi:clock-digital
-              - type: conditional
-                conditions:
-                  - entity: input_boolean.garden_watering
-                    state: on
-                row:
-                    entity: input_number.garden_watering
-                    name: How Long?
-                    icon: mdi:clock-end       
+                state: 'on'
+            row:
+              entity: input_datetime.garden_watering
+              name: When to Start
+              icon: mdi:clock-digital
+          - type: conditional
+            conditions:
+              - entity: input_boolean.garden_watering
+                state: 'on'
+            row:
+              entity: input_number.garden_watering
+              name: How Long?
+              icon: mdi:clock-end
       - type: "custom:button-card"
         template: card_title
         label: Manual Override        
@@ -124,18 +119,17 @@ cards:
           - type: conditional
             conditions:
               - entity: input_boolean.indoor_greenhouse_lights
-                state: on
+                state: 'on'
             row:
-                entity: input_datetime.indoor_greenhouse_on
-                name: Turn On?
+              entity: input_datetime.indoor_greenhouse_on
+              name: Turn On?
           - type: conditional
             conditions:
               - entity: input_boolean.indoor_greenhouse_lights
-                state: on
+                state: 'on'
             row:
-                entity: input_datetime.indoor_greenhouse_on
-                name: Turn Off? 
-
+              entity: input_datetime.indoor_greenhouse_on
+              name: Turn Off?
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
