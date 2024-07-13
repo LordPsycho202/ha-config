@@ -1,45 +1,45 @@
 ---
-title: "Tomatoes"
+title: "Standing Herb Planter"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:pig
+icon: mdi:leaf
 subview: true
-path: plant_tomatoes
+path: plant_planter
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
       - type: custom:mushroom-template-card
-        primary: Tomatoes
-        entity: plant.tomatoes
+        primary: Standing Herb Container
+        entity: plant.standing_container
         layout: vertical
         tap_action:
           action: more-info
         secondary: |-
-          {% if states('plant.tomatoes') == 'ok' %}
+          {% if states('plant.standing_container') == 'ok' %}
           We Good!
           {% else %}
-          {{ state_attr('plant.tomatoes','problem')|capitalize }}
+          {{ state_attr('plant.standing_container','problem')|capitalize }}
           {% endif %}
         icon: |-
-          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
+          {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
           mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
+          {% elif 'moisture high' in state_attr('plant.standing_container','problem') %}
           mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
+          {% elif 'temperature low' in state_attr('plant.standing_container','problem') %}
           mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
+          {% elif 'temperature high' in state_attr('plant.standing_container','problem')%}
           mdi:sun-thermometer-outline
           {% else %}
-          mdi:pig
+          mdi:leaf
           {% endif %}
         icon_color: |-
-          {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
+          {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
           brown
-          {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
+          {% elif 'moisture high' in state_attr('plant.standing_container','problem') %}
           blue
-          {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
+          {% elif 'temperature low' in state_attr('plant.standing_container','problem') %}
           cyan
-          {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
+          {% elif 'temperature high' in state_attr('plant.standing_container','problem') %}
           red
           {% else %}
           green
@@ -48,11 +48,11 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_6
+            entity: sensor.soil_moisture_7
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_6
+              ulm_card_graph_entity: sensor.soil_moisture_7
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: horizontal-stack
@@ -68,7 +68,7 @@ cards:
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_6_batt
+        entity: sensor.soil_moisture_7_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

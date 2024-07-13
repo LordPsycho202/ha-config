@@ -652,7 +652,8 @@ cards:
             entity: plant.standing_container
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_planter"
             secondary: |-
               {% if states('plant.standing_container') == 'ok' %}
               We Good!

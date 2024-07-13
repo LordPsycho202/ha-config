@@ -31,6 +31,7 @@ views:
   - !include subviews/30-6-greenhouse.yaml
   - !include subviews/30-7-tobasco.yaml
   - !include subviews/30-8-tomatoes.yaml
+  - !include subviews/30-9-planter.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
