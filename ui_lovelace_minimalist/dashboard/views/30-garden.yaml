@@ -195,7 +195,8 @@ cards:
             entity: plant.lettuce
             layout: vertical
             tap_action:
-              action: more-info
+              action: navigate
+              navigation_path: "plant_lettuce"
             secondary: |-
               {% if states('plant.lettuce') == 'ok' %}
               We Good!
