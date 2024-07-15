@@ -8,9 +8,8 @@ back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
-      - type: "custom:button-card"
-        template: card_title
-        name: Today
+      - type: markdown
+        content: '## Today'
       - show_state: true
         show_name: true
         camera_view: auto
@@ -20,9 +19,8 @@ cards:
         name: Temp
   - type: vertical-stack
     cards:
-      - type: "custom:button-card"
-        template: card_title
-        name: "{{ states('sensor.season') }} of {{ now().strftime('%Y') }}"
+      - type: markdown
+        content: '## {{ states("sensor.season") }} of {{ now().strftime("%Y") }}'
       - show_state: true
         show_name: true
         camera_view: auto
