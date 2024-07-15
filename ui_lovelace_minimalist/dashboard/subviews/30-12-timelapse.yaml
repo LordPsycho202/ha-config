@@ -27,4 +27,4 @@ cards:
         type: picture-entity
         camera_image: camera.greenhouse_timelapse_l
         entity: sensor.humidity_indoor_greenhouse
-        name: Temp
+        name: Humidity
