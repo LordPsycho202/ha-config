@@ -21,6 +21,9 @@ cards:
           secondary: Heat Index Warning
           icon: mdi:thermometer-alert
           icon_color: red
+          tap_action:
+            action: navigate
+            navigation_path: weather
 
       - type: conditional
         conditions:
@@ -78,6 +81,9 @@ cards:
             {% else %}
             blue
             {% endif %}
+          tap_action:
+            action: navigate
+            navigation_path: weather
 
       - type: conditional
         conditions:
@@ -120,6 +126,14 @@ cards:
               ulm_card_light_name: Plant Light
               ulm_card_light_force_background_color: true
               ulm_card_light_enable_collapse: true
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/plant_timelapse
+          ulm_card_navigate_title: Timelapse Views
+          ulm_card_navigate_icon: mdi:camera-burst
+          ulm_card_navigate_color: var(--color-green)
+
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -753,5 +767,5 @@ cards:
         variables:
           ulm_card_navigate_path: /ui-lovelace-minimalist/plant_admin
           ulm_card_navigate_title: Garden Admin
-          ulm_card_navigate_icon: mdi:bell-cog
+          ulm_card_navigate_icon: mdi:cog
           ulm_card_navigate_color: var(--color-red)
