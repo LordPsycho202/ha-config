@@ -20,7 +20,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: markdown
-        content: '## {{ states("sensor.season") }} of {{ now().strftime("%Y") }}'
+        content: '## {{ states("sensor.season") | Capitalize }} of {{ now().strftime("%Y") }}'
       - show_state: true
         show_name: true
         camera_view: auto
