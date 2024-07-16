@@ -276,7 +276,6 @@ chips:
         action: navigate
         navigation_path: outside
 
-
   - type: conditional
     conditions:
       - entity: vacuum.catbug

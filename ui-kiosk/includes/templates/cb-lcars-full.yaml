@@ -1,3 +1,4 @@
+---
 cb-lcars-slider:
   template:
     - cb-lcars-card-base
@@ -926,7 +927,7 @@ cb-lcars-button-picard-filled:
               variables.card.color.inactive ]]]
           - border-bottom: >-
               [[[ return variables.card.border.bottom.size + " solid " +
-              variables.card.color.inactive ]]]          
+              variables.card.color.inactive ]]]
         state:
           - color: '[[[ return variables.text.state.color.off ]]]'
         label:
@@ -957,7 +958,7 @@ cb-lcars-button-picard-filled:
               variables.icon.color.default ]]]
           - background: >-
               [[[ return variables.icon.color.background.inactive ||
-              variables.card.color.background.inactive ]]]  
+              variables.card.color.background.inactive ]]]
 cb-lcars-button-picard-filled-dense:
   template: cb-lcars-button-picard-filled
   variables:
@@ -1297,7 +1298,7 @@ cb-lcars-multimeter:
               show_label: false
               entity: '[[[ return variables.entity ]]]'
           template_columns: >-
-            [[[ return  variables.y_header_width + " " + variables.y_trim_width 
+            [[[ return  variables.y_header_width + " " + variables.y_trim_width
             ]]]
           gap: 0px
     z_gauge_card:
@@ -1313,7 +1314,7 @@ cb-lcars-multimeter:
         slider: |
           [[[
           let sliderObject = (variables.panel && variables.panel.slider) ?
-          variables.panel.slider : {}; 
+          variables.panel.slider : {};
           let defaultVariables = {
             variables: {
               step: 1
@@ -1326,7 +1327,7 @@ cb-lcars-multimeter:
         gauge: |
           [[[
           let gaugeObject = (variables.panel && variables.panel.gauge) ?
-          variables.panel.gauge : {}; 
+          variables.panel.gauge : {};
           let defaultVariables = {
             "show_sub_meter": true,
             "meter": {
@@ -1393,7 +1394,7 @@ cb-lcars-multimeter:
         meter: |
           [[[
           let meterObject = (variables.panel && variables.panel.meter) ?
-          variables.panel.meter : {}; 
+          variables.panel.meter : {};
           let defaultVariables = {
             variables: {
               button: {
@@ -1413,7 +1414,7 @@ cb-lcars-multimeter:
         slider: |
           [[[
           let sliderObject = (variables.panel && variables.panel.slider) ?
-          variables.panel.slider : {}; 
+          variables.panel.slider : {};
           let defaultVariables = {
             variables: {
               step: 1
@@ -1595,7 +1596,7 @@ cb-lcars-debug:
       [[[
         if (!variables.debug) return
         const o = {
-          variables: variables, 
+          variables: variables,
           entity: entity ? entity : {},
           bc: this
         }
@@ -1651,7 +1652,7 @@ cb-lcars-functions:
           let button_card_dimension = ((card_dimension - grid_gap * (grid_cells - 1)) / grid_cells);
           //console.debug("...button_card_dimension calulated: " + button_card_dimension);
           return (button_card_dimension +"px");
-        } 
+        }
       ]]]
     __calculate_grid_cells: |
       [[[
@@ -1672,7 +1673,7 @@ cb-lcars-functions:
           //console.debug("...returing calc. grid_dimension: " + grid_dimension);
           return grid_dimension;
         }
-      ]]]      
+      ]]]
     __deepMerge: |
       [[[
         return function deepMerge(object1, object2) {
@@ -1858,13 +1859,13 @@ cb-lcars-meter:
         - cb-lcars-button-lozenge
     gradient_start_color: var(--error-color)
     gradient_start_rgb: |
-      [[[ 
+      [[[
         return variables.__hex_to_rgba(variables.gradient_start_color)
         ]]]
     gradient_end_color: var(--lcars-blue)
     gradient_end_rgb: |
-      [[[ 
-        return variables.__hex_to_rgba(variables.gradient_end_color) 
+      [[[
+        return variables.__hex_to_rgba(variables.gradient_end_color)
       ]]]
     _gradient:
       X: 1
@@ -1883,7 +1884,7 @@ cb-lcars-meter:
       'Y': '[[[ return variables.gradient_Y ]]]'
       gap: '[[[ return variables._gradient.gap ]]]'
       buttons: |
-        [[[ 
+        [[[
           let buttons = [];
           let total_steps = (variables.gradient_X > variables.gradient_Y) ? variables.gradient_X : variables.gradient_Y;
           //console.debug("grid_X: " + variables.grid_X);
@@ -2038,15 +2039,15 @@ cb-lcars-base:
       - width: '[[[ return variables.card.width; ]]]'
       - border-top: >-
           [[[ return variables.card.border.top.size + " solid " +
-              (variables.card.border.top.color || variables.card.border.color) 
+              (variables.card.border.top.color || variables.card.border.color)
           ]]]
       - border-left: >-
           [[[ return variables.card.border.left.size + " solid " +
-              (variables.card.border.left.color || variables.card.border.color) 
+              (variables.card.border.left.color || variables.card.border.color)
           ]]]
       - border-right: >-
           [[[ return variables.card.border.right.size + " solid " +
-              (variables.card.border.right.color || variables.card.border.color) 
+              (variables.card.border.right.color || variables.card.border.color)
           ]]]
       - border-bottom: >-
           [[[ return variables.card.border.bottom.size + " solid " +
@@ -2189,7 +2190,7 @@ cb-lcars-base:
               variables.card.color.inactive ]]]
           - border-bottom: >-
               [[[ return variables.card.border.bottom.size + " solid " +
-              variables.card.color.inactive ]]]          
+              variables.card.color.inactive ]]]
         state:
           - color: '[[[ return variables.text.state.color.off ]]]'
         label:
@@ -2292,7 +2293,7 @@ cb-lcars-base:
           - color: >-
               [[[ return variables.icon.color.inactive || variables.icon.color.default ]]]
           - background: >-
-              [[[ return variables.icon.color.background.inactive || variables.card.color.background.inactive ]]]    
+              [[[ return variables.icon.color.background.inactive || variables.card.color.background.inactive ]]]
 cb-lcars-actions-hue-tap:
   tap_action:
     action: navigate
@@ -3454,7 +3455,7 @@ cb-lcars-slider-gauge:
         color_alpha: 0.95
         border_color: |
           [[[ return  variables.entity_match_slider ? variables.entity_color :
-          "var(--picard-blue)" ]]]  
+          "var(--picard-blue)" ]]]
         border_alpha: 0.5
         border_width: 2px
         height: '[[[ return variables.card.height ]]]'
@@ -3717,17 +3718,17 @@ cb-lcars-state-blink:
   extra_styles: |
     [[[ return `
         @keyframes blink2 {
-          0% { 
+          0% {
             opacity: 1;
           }
-          50% { 
-            opacity: 0.3; 
-          } 
-          100% { 
-            opacity: 1; 
+          50% {
+            opacity: 0.3;
+          }
+          100% {
+            opacity: 1;
           }
         }
-      `]]]    
+      `]]]
   state:
     - id: state_on
       styles:
