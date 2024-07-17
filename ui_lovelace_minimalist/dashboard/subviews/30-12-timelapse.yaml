@@ -12,7 +12,7 @@ cards:
         content: '## Today'
       - show_state: true
         show_name: true
-        camera_view: auto
+        camera_view: live
         type: picture-entity
         camera_image: camera.greenhouse_timelapse
         entity: sensor.temp_indoor_greenhouse
@@ -23,7 +23,7 @@ cards:
         content: '## {{ states("sensor.season") | capitalize }} of {{ now().strftime("%Y") }}'
       - show_state: true
         show_name: true
-        camera_view: auto
+        camera_view: live
         type: picture-entity
         camera_image: camera.greenhouse_timelapse_l
         entity: sensor.humidity_indoor_greenhouse
