@@ -48,8 +48,10 @@ cards:
       - type: 'custom:button-card'
         template: card_binary_sensor
         variables:
+          ulm_card_binary_sensor_name: "Garage Door"
+          ulm_card_binary_sensor_icon: mdi:garage-open-variant
           ulm_card_binary_sensor_alert: true
-          ulm_card_binary_sensor_show_last_changed: true
+          ulm_card_binary_sensor_show_last_changed: false
         entity: binary_sensor.garage_door
       - type: vertical-stack
         cards:
