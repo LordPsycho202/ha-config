@@ -122,7 +122,7 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: cover.garage_door
+        entity: cover.garage_door_2
         icon: mdi:garage
         name: "Lock: Shuttle Bay Door"
         show_state: true

@@ -70,7 +70,7 @@ cards:
 
       - type: "custom:button-card"
         template: card_cover
-        entity: cover.garage_door
+        entity: cover.garage_door_2
         variables:
           ulm_card_cover_enable_controls: true
           ulm_card_cover_garage_large: true
