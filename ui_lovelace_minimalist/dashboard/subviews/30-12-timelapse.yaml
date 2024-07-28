@@ -10,21 +10,38 @@ cards:
     cards:
       - type: markdown
         content: '## Today'
-      - show_state: true
-        show_name: true
-        camera_view: live
-        type: picture-entity
+      - camera_view: auto
+        type: picture-glance
+        entities:
+          - entity: sensor.temp_indoor_greenhouse
+        title: 'Timelapse: today'
         camera_image: camera.greenhouse_timelapse
-        entity: sensor.temp_indoor_greenhouse
-        name: Temp
+        show_state: true
+        tap_action:
+          action: more-info
   - type: vertical-stack
     cards:
       - type: markdown
         content: '## {{ states("sensor.season") | capitalize }} of {{ now().strftime("%Y") }}'
-      - show_state: true
-        show_name: true
-        camera_view: live
-        type: picture-entity
+      - camera_view: auto
+        type: picture-glance
+        entities:
+          - entity: sensor.humidity_indoor_greenhouse
+        title: 'Timelapse: this season'
         camera_image: camera.greenhouse_timelapse_l
-        entity: sensor.humidity_indoor_greenhouse
-        name: Humidity
+        show_state: true
+        tap_action:
+          action: more-info
+  - type: vertical-stack
+    cards:
+      - type: custom:mushroom-entity-card
+        entity: camera.esp32_cam01_esp32_cam01
+        name: Live view
+        tap_action:
+          action: more-info
+        hold_action:
+          action: more-info
+        double_tap_action:
+          action: none
+        icon_color: light-green
+        fill_container: false
