@@ -126,4 +126,4 @@
       icon: mdi:cloud-cancel-outline
       value_template: >
         {%- set lst = value_json|last %}
-        {{ lst.DSCI}}
+        {{ lst.dsci}}
