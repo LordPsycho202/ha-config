@@ -30,7 +30,7 @@ plant_mushroom_card:
       {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
       mdi:battery-alert-variant-outline
       {% else %}
-      mdi:[[plant_icon]]]
+      mdi:[[plant_icon]]
       {% endif %}
     icon_color: |-
       {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
