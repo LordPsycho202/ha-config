@@ -52,7 +52,7 @@ plant_mushroom_card:
 plant_chip:
   default:
     - plant_icon: leaf
-  card:
+  chip:
     type: conditional
     conditions:
       - condition: and
