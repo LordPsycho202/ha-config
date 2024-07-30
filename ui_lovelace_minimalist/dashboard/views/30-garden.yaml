@@ -464,9 +464,9 @@ cards:
           - type: custom:decluttering-card
             template: plant_mushroom_card
             variables:
-              - plant_entity: plant_blackberries
+              - plant_entity: plant.blackberries
               - plant_path: plant_blackberries
-              - plant_icon: mdi:fruit-grapes
+              - plant_icon: fruit-grapes
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_2
