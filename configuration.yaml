@@ -93,7 +93,7 @@ rest: !include rest.yaml
 mqtt: !include mqtt.yaml
 
 #### Plant Sensors #############################################
-plant: !include plant.yaml
+#plant: !include plant.yaml
 
 #### ZHA Sensors #############################################
 zha: !include zha.yaml
