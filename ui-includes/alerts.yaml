@@ -330,6 +330,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.front_flowers','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.front_flowers','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:flower-outline
         {% endif %}
@@ -358,6 +362,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.blackberries','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.blackberries','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-grapes
         {% endif %}
@@ -385,6 +393,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.pineapples','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.pineapples','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-pineapple
         {% endif %}
@@ -418,6 +430,8 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.greenhouse_plants','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:carrot
         {% endif %}
@@ -449,6 +463,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.tobasco_and_tomato','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.tobasco_and_tomato','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:chili-mild
         {% endif %}
@@ -480,6 +498,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.tomatoes','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.tomatoes','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:pig
         {% endif %}
@@ -511,6 +533,10 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.standing_container','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.standing_container','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.standing_container','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
         {% endif %}
@@ -542,10 +568,78 @@ chips:
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem') %}
         mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.okra_and_tomato','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.okra_and_tomato','problem')%}
+        mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
         {% endif %}
       content: Okra & Tomato
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.steve
+            state_not: ok
+    chip:
+      type: template
+      entity: plant.steve
+      icon_color: grey
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.steve','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.steve','problem') %}
+        mdi:water-alert
+        {% elif 'temperature low' in state_attr('plant.steve','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.steve','problem') %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.steve','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.steve','problem')%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:pine-tree-variant-outline
+        {% endif %}
+      content: Steve
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.lettuce
+            state_not: ok
+    chip:
+      type: template
+      entity: plant.lettuce
+      icon_color: grey
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
+        mdi:water-alert
+        {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.lettuce','problem') %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.lettuce','problem') %}
+        mdi:thermometer-off
+        {% elif 'battery low' in state_attr('plant.lettuce','problem')%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:pine-tree-variant-outline
+        {% endif %}
+      content: Steve
       tap_action:
         action: navigate
         navigation_path: garden
