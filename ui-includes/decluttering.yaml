@@ -45,7 +45,7 @@ plant_mushroom_card:
       {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
       yellow
       {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
-      red    
+      red
       {% else %}
       green
       {% endif %}
