@@ -519,11 +519,6 @@ chips:
         action: navigate
         navigation_path: garden
 
-  - type: custom:decluttering-card
-    template: plant_chip
-    variables:
-      - plant_entity: plant.okra_and_tomato
-
   - type: conditional
     conditions:
       - condition: and

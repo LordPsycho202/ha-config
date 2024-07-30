@@ -8,42 +8,11 @@ back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:mushroom-template-card
-        primary: Okra & Tomato
-        entity: plant.okra_and_tomato
-        layout: vertical
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.okra_and_tomato') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.okra_and_tomato','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.okra_and_tomato','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.okra_and_tomato','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem')%}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:leaf
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.okra_and_tomato','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.okra_and_tomato','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.okra_and_tomato
+          - plant_path: plant_squash
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

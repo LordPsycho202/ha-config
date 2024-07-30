@@ -8,42 +8,12 @@ back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:mushroom-template-card
-        primary: Pineapples
-        entity: plant.pineapples
-        layout: vertical
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.pineapples') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.pineapples','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:fruit-pineapple
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.pineapples
+          - plant_path: plant_pineapple
+          - plant_icon: fruit-pineapple
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

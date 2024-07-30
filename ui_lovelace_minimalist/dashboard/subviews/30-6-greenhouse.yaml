@@ -8,46 +8,12 @@ back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:mushroom-template-card
-        entity: plant.greenhouse_plants
-        layout: vertical
-        tap_action:
-          action: more-info
-        primary: Greenhouse
-        secondary: |-
-          {% if states('plant.greenhouse_plants') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.greenhouse_plants','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
-          mdi:sun-thermometer-outline
-          {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
-          mdi:thermometer-off
-          {% else %}
-          mdi:carrot
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
-          red
-          {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
-          yellow
-          {% else %}
-          green
-          {% endif %}
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.greenhouse_plants
+          - plant_path: plant_greenhouse
+          - plant_icon: carrot
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

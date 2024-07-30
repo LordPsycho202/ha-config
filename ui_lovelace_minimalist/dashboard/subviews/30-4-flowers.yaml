@@ -8,42 +8,12 @@ back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
     cards:
-      - type: custom:mushroom-template-card
-        primary: Flowers
-        entity: plant.front_flowers
-        layout: vertical
-        tap_action:
-          action: more-info
-        secondary: |-
-          {% if states('plant.front_flowers') == 'ok' %}
-          We Good!
-          {% else %}
-          {{ state_attr('plant.front_flowers','problem')|capitalize }}
-          {% endif %}
-        icon: |-
-          {% if 'moisture low'in state_attr('plant.front_flowers','problem') %}
-          mdi:watering-can-outline
-          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-          mdi:water-alert
-          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-          mdi:snowflake-thermometer
-          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-          mdi:sun-thermometer-outline
-          {% else %}
-          mdi:flower-outline
-          {% endif %}
-        icon_color: |-
-          {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
-          brown
-          {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-          blue
-          {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-          cyan
-          {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-          red
-          {% else %}
-          green
-          {% endif %}
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.front_flowers
+          - plant_path: plant_flowers
+          - plant_icon: flower-outline
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
