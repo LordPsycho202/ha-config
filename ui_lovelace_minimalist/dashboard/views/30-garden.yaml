@@ -154,45 +154,15 @@ cards:
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+              
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Steve
-            entity: plant.steve
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_steve"
-            secondary: |-
-              {% if states('plant.steve') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.steve','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.steve','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.steve','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.steve','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.steve','problem')%}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:pine-tree-variant-outline
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.steve','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.steve','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.steve','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.steve','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.steve
+              - plant_path: plant_steve
+              - plant_icon: pine-tree-variant-outline
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.steve_moisture
@@ -202,45 +172,14 @@ cards:
               ulm_card_graph_entity: sensor.steve_moisture
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Lettuce
-            entity: plant.lettuce
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_lettuce"
-            secondary: |-
-              {% if states('plant.lettuce') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.lettuce','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.lettuce','problem')%}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:leaf
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.lettuce','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.lettuce
+              - plant_path: plant_lettuce
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.lettuce_moisture
@@ -258,43 +197,12 @@ cards:
         name: Pineapple Pots
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Pineapples
-            entity: plant.pineapples
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_pineapple"
-            secondary: |-
-              {% if states('plant.pineapples') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.pineapples','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:fruit-pineapple
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.pineapples
+              - plant_path: plant_pineapple
+              - plant_icon: fruit-pineapple
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_3
@@ -312,43 +220,12 @@ cards:
         name: Front Planter
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Flowers
-            entity: plant.front_flowers
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_flowers"
-            secondary: |-
-              {% if states('plant.front_flowers') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.front_flowers','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low'in state_attr('plant.front_flowers','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:flower-outline
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.front_flowers
+              - plant_path: plant_flowers
+              - plant_icon: flower-outline
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_1
@@ -479,51 +356,12 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            entity: plant.greenhouse_plants
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_greenhouse"
-            primary: Greenhouse
-            secondary: |-
-              {% if states('plant.greenhouse_plants') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.greenhouse_plants','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
-              mdi:sun-thermometer-outline
-              {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
-              mdi:thermometer-off
-              {% elif 'battery low' in state_attr('plant.greenhouse_plants','problem')%}
-              mdi:battery-alert-variant-outline
-              {% else %}
-              mdi:carrot
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.greenhouse_plants','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
-              red
-              {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
-              yellow
-              {% elif 'battery low' in state_attr('plant.greenhouse_plants','problem')%}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.greenhouse_plants
+              - plant_path: plant_greenhouse
+              - plant_icon: carrot
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_4
@@ -536,43 +374,12 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Tobasco Pepper & Tomato
-            entity: plant.tobasco_and_tomato
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_tobasco"
-            secondary: |-
-              {% if states('plant.tobasco_and_tomato') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.tobasco_and_tomato','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.tobasco_and_tomato','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.tobasco_and_tomato','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem')%}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:chili-mild
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.tobasco_and_tomato','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.tobasco_and_tomato','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.tobasco_and_tomato','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.tobasco_and_tomato
+              - plant_path: plant_tobasco
+              - plant_icon: chili-mild
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_5
@@ -585,43 +392,12 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Tomatoes
-            entity: plant.tomatoes
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_tomatoes"
-            secondary: |-
-              {% if states('plant.tomatoes') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.tomatoes','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.tomatoes','problem')%}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:pig
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.tomatoes
+              - plant_path: plant_tomatoes
+              - plant_icon: pig
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_6
@@ -634,43 +410,11 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Standing Container
-            entity: plant.standing_container
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_planter"
-            secondary: |-
-              {% if states('plant.standing_container') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.standing_container','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.standing_container','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.standing_container','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.standing_container','problem')%}
-              mdi:sun-thermometer-outline
-              {% else %}
-              mdi:leaf
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.standing_container','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.standing_container','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.standing_container','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.standing_container','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.standing_container
+              - plant_path: plant_planter
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_7
@@ -683,45 +427,11 @@ cards:
 
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-template-card
-            primary: Squash & Tomato
-            entity: plant.okra_and_tomato
-            layout: vertical
-            tap_action:
-              action: navigate
-              navigation_path: "plant_squash"
-            secondary: |-
-              {% if states('plant.okra_and_tomato') == 'ok' %}
-              We Good!
-              {% else %}
-              {{ state_attr('plant.okra_and_tomato','problem')|capitalize }}
-              {% endif %}
-            icon: |-
-              {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
-              mdi:watering-can-outline
-              {% elif 'moisture high' in state_attr('plant.okra_and_tomato','problem') %}
-              mdi:water-alert
-              {% elif 'temperature low' in state_attr('plant.okra_and_tomato','problem') %}
-              mdi:snowflake-thermometer
-              {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem')%}
-              mdi:sun-thermometer-outline
-              {% elif 'battery low' in state_attr('plant.okra_and_tomato','problem')%}
-              mdi:battery-alert-variant-outline
-              {% else %}
-              mdi:leaf
-              {% endif %}
-            icon_color: |-
-              {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
-              brown
-              {% elif 'moisture high' in state_attr('plant.okra_and_tomato','problem') %}
-              blue
-              {% elif 'temperature low' in state_attr('plant.okra_and_tomato','problem') %}
-              cyan
-              {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem') %}
-              red
-              {% else %}
-              green
-              {% endif %}
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.okra_and_tomato
+              - plant_path: plant_squash
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.soil_moisture_8
