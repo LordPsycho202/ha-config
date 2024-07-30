@@ -14,6 +14,7 @@ cards:
           - plant_entity: plant.front_flowers
           - plant_path: plant_flowers
           - plant_icon: flower-outline
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

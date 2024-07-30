@@ -14,6 +14,7 @@ cards:
           - plant_entity: plant.blackberries
           - plant_path: plant_blackberries
           - plant_icon: fruit-grapes
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

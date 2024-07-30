@@ -13,6 +13,7 @@ cards:
         variables:
           - plant_entity: plant.lettuce
           - plant_path: plant_lettuce
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

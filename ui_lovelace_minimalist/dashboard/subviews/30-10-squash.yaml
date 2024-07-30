@@ -13,6 +13,7 @@ cards:
         variables:
           - plant_entity: plant.squash
           - plant_path: plant_squash
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

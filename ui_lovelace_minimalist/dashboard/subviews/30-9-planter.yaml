@@ -13,6 +13,7 @@ cards:
         variables:
           - plant_entity: plant.standing_container
           - plant_path: plant_planter
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

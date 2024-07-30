@@ -14,6 +14,7 @@ cards:
           - plant_entity: plant.greenhouse_plants
           - plant_path: plant_greenhouse
           - plant_icon: carrot
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
