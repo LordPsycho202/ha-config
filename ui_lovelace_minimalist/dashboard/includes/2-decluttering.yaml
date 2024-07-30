@@ -1,0 +1,48 @@
+---
+plant_mushroom_card:
+  card:
+    type: custom:mushroom-template-card
+    primary: "{{ state_attr('[[plant_entity]]','friendly_name') }}"
+    entity: '[[plant_entity]]'
+    layout: vertical
+    tap_action:
+      action: navigate
+      navigation_path: "[[plant_path]]"
+    secondary: |-
+      {% if states('[[plant_entity]]') == 'ok' %}
+      We Good!
+      {% else %}
+      {{ state_attr('[[plant_entity]]','problem')|capitalize }}
+      {% endif %}
+    icon: |-
+      {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
+      mdi:watering-can-outline
+      {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
+      mdi:water-alert
+      {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') %}
+      mdi:snowflake-thermometer
+      {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
+      mdi:sun-thermometer-outline
+      {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
+      mdi:thermometer-off
+      {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
+      mdi:battery-alert-variant-outline
+      {% else %}
+      [[plant_icon]]]
+      {% endif %}
+    icon_color: |-
+      {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
+      brown
+      {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
+      blue
+      {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') %}
+      cyan
+      {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
+      red
+      {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
+      yellow
+      {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
+      red             
+      {% else %}
+      green
+      {% endif %}
