@@ -550,27 +550,27 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.okra_and_tomato
+            entity: plant.squash
             state_not: ok
           - condition: state
             entity: sensor.season
             state_not: winter
     chip:
       type: template
-      entity: plant.okra_and_tomato
+      entity: plant.squash
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.okra_and_tomato','problem') %}
+        {% if 'moisture low' in state_attr('plant.squash','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.okra_and_tomato','problem') %}
+        {% elif 'moisture high' in state_attr('plant.squash','problem') %}
         mdi:water-alert
-        {% elif 'temperature low' in state_attr('plant.okra_and_tomato','problem') %}
+        {% elif 'temperature low' in state_attr('plant.squash','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.okra_and_tomato','problem') %}
+        {% elif 'temperature high' in state_attr('plant.squash','problem') %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.okra_and_tomato','problem') %}
+        {% elif 'temperature unavailable' in state_attr('plant.squash','problem') %}
         mdi:thermometer-off
-        {% elif 'battery low' in state_attr('plant.okra_and_tomato','problem')%}
+        {% elif 'battery low' in state_attr('plant.squash','problem')%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf

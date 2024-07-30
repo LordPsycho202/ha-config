@@ -11,7 +11,7 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.okra_and_tomato
+          - plant_entity: plant.squash
           - plant_path: plant_squash
       - type: horizontal-stack
         cards:

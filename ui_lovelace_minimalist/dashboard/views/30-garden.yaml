@@ -154,7 +154,7 @@ cards:
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-              
+
       - type: horizontal-stack
         cards:
           - type: custom:decluttering-card
@@ -430,7 +430,7 @@ cards:
           - type: custom:decluttering-card
             template: plant_mushroom_card
             variables:
-              - plant_entity: plant.okra_and_tomato
+              - plant_entity: plant.squash
               - plant_path: plant_squash
           - type: "custom:button-card"
             template: card_graph

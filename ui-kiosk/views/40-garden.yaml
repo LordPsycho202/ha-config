@@ -114,7 +114,7 @@ cards:
           action: more-info
         name: Okra & Tomato
         show_state: true
-        entity: plant.okra_and_tomato
+        entity: plant.squash
         card_mod:
           class: button-bullet
           style: |
