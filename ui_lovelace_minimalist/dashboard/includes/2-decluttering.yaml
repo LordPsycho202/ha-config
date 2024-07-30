@@ -12,7 +12,7 @@ plant_mushroom_card:
       navigation_path: "[[plant_path]]"
     secondary: |-
       {% if states('[[plant_entity]]') == 'ok' %}
-      We Good!
+      We're Happy!
       {% else %}
       {{ state_attr('[[plant_entity]]','problem')|capitalize }}
       {% endif %}
@@ -30,7 +30,7 @@ plant_mushroom_card:
       {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
       mdi:battery-alert-variant-outline
       {% else %}
-      'mdi:[[plant_icon]]]'
+      mdi:[[plant_icon]]]
       {% endif %}
     icon_color: |-
       {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
