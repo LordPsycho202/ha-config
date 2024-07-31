@@ -143,7 +143,7 @@ camera:
 shell_command:
   esp32_gifify: "ffmpeg -loglevel 8 -r {{ framerate }} -f image2 -y -pattern_type glob -i '{{ input }}' {{ output }}"
   add_timestamp: >-
-    ffmpeg -loglevel 8 -vf 'drawtext=fontfile={{ font }}: text={{ timestamp }}: x=(w-tw): y=0: fontcolor=white: box=1: boxcolor=0x00000000@1: fontsize=30' -y -pattern_type glob -i {{ input }} {{ output }}
+    ffmpeg -loglevel 8 -vf 'drawtext=fontfile={{ font }}: text={{ timestamp }}: x=(w-tw): y=0: fontcolor=white: box=1: boxcolor=0x00000000@1: fontsize=30' -y -i {{ input }} {{ output }}
 
 sensor:
   - platform: unifigateway
