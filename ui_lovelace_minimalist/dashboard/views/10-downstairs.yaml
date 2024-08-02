@@ -28,7 +28,7 @@ cards:
               action: navigate
               navigation_path: "livingroom"
             variables:
-              ulm_custom_card_esh_room_light_entity: light.living_room_2
+              ulm_custom_card_fan_room_light_entity: light.living_room_2
               ulm_custom_card_fan_room_fan_entity: fan.living_room_ceiling_fan
               ulm_card_dynamic_color: true
             label: '[[[ return states["sensor.main_floor_temperature"].state + "°F" ]]]'
