@@ -78,7 +78,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Sensor Batteries
+        name: Ecowitt Sensor Batteries
 
       - type: horizontal-stack
         cards:
@@ -141,28 +141,57 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_battery
+            entity: sensor.soil_moisture_7_batt
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.soil_moisture_7_batt
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Squash Soil Moisture
+          - type: "custom:button-card"
+            template: card_battery
             entity: sensor.soil_moisture_8_batt
             variables:
               ulm_card_battery_charger_type_entity_id: sensor.soil_moisture_8_batt
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Okras Soil Moisture
+
+
+      - type: horizontal-stack
+        cards:
           - type: "custom:button-card"
             template: card_battery
-            entity: sensor.soil_moisture_7_batt
+            entity: sensor.soil_temperature_1_batt
             variables:
               ulm_card_battery_charger_type_entity_id: sensor.soil_temperature_1_batt
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Squash Soil Moisture
+              ulm_card_battery_name: Soil Temperature
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.wh57_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.wh57_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Lightning Sensor
+
       - type: "custom:button-card"
         template: card_battery
         entity: sensor.soil_temperature_1_batt
         variables:
-          ulm_card_battery_charger_type_entity_id: sensor.soil_temperature_1_batt
+          ulm_card_battery_charger_type_entity_id: sensor.wh26_battery
           ulm_card_battery_battery_level_danger: 15
           ulm_card_battery_battery_level_warning: 25
-          ulm_card_battery_name: Soil Temperature
+          ulm_card_battery_name: Outdoor Temp/Humidity Sensor
+
+              
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: rtl_433 Sensor Batteries
 
       - type: horizontal-stack
         cards:
@@ -192,8 +221,8 @@ cards:
             template: card_binary_sensor_alert
             variables:
               ulm_card_binary_sensor_alert: true
-              ulm_card_binary_sensor_alert_name: Garage
-            entity: binary_sensor.batt_acurite_6045m
+              ulm_card_binary_sensor_alert_name: Greenhouse
+            entity: binary_sensor.batt_nexus_th_2
 
       - type: horizontal-stack
         cards:
@@ -203,6 +232,12 @@ cards:
               ulm_card_binary_sensor_alert: true
               ulm_card_binary_sensor_alert_name: Rack
             entity: binary_sensor.batt_rack_2
+          - type: "custom:button-card"
+            template: card_binary_sensor_alert
+            variables:
+              ulm_card_binary_sensor_alert: true
+              ulm_card_binary_sensor_alert_name: Garage
+            entity: binary_sensor.batt_acurite_6045m
 
   - type: vertical-stack
     cards:
@@ -258,6 +293,15 @@ cards:
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Mailbox Door
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.remote_office_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.remote_office_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Dimmer Switch
+
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -276,30 +320,6 @@ cards:
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Garden Motion Sensor
-  - type: vertical-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_title
-        name: Office Batteries
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_battery
-            entity: sensor.remote_office_battery
-            variables:
-              ulm_card_battery_charger_type_entity_id: sensor.remote_office_battery
-              ulm_card_battery_battery_level_danger: 15
-              ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Dimmer Switch
-          - type: "custom:button-card"
-            template: card_battery
-            entity: sensor.blind_tilt_03de_battery
-            variables:
-              ulm_card_battery_charger_type_entity_id: sensor.blind_tilt_03de_battery
-              ulm_card_battery_battery_level_danger: 15
-              ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Blinds
 
       - type: horizontal-stack
         cards:
@@ -310,7 +330,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.motion_office_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Motion Sensor
+              ulm_card_battery_name: Office Motion Sensor
           - type: "custom:button-card"
             template: card_battery
             entity: sensor.lumi_lumi_sensor_magnet_aq2_battery_2
@@ -319,3 +339,41 @@ cards:
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Office Closet Door
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Bluetuth Batteries
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.lettuce_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.lettuce_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Lettuce Plant Monitor
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.steve_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.steve_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Steve Plant Monitor
+
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_battery
+            entity: sensor.blind_tilt_03de_battery
+            variables:
+              ulm_card_battery_charger_type_entity_id: sensor.blind_tilt_03de_battery
+              ulm_card_battery_battery_level_danger: 15
+              ulm_card_battery_battery_level_warning: 25
+              ulm_card_battery_name: Blinds
+
+
