@@ -246,15 +246,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.vibration_mail_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Mailbox Door
-          - type: "custom:button-card"
-            template: card_battery
-            entity: sensor.temp_greenhouse_battery
-            variables:
-              ulm_card_battery_charger_type_entity_id: sensor.temp_greenhouse_battery
-              ulm_card_battery_battery_level_danger: 15
-              ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Indoor Greenhouse Temp    
+              ulm_card_battery_name: Mailbox Door 
 
       - type: horizontal-stack
         cards:
@@ -268,12 +260,12 @@ cards:
               ulm_card_battery_name: Garage Door
           - type: "custom:button-card"
             template: card_battery
-            entity: sensor.motion_garage_battery
+            entity: sensor.temp_greenhouse_battery
             variables:
-              ulm_card_battery_charger_type_entity_id: sensor.motion_garage_battery
+              ulm_card_battery_charger_type_entity_id: sensor.temp_greenhouse_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Garage Motion
+              ulm_card_battery_name: Indoor Greenhouse Temp   
 
       - type: horizontal-stack
         cards:
