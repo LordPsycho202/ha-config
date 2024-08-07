@@ -637,9 +637,9 @@ chips:
         {% elif 'battery low' in state_attr('plant.lettuce','problem')%}
         mdi:battery-alert-variant-outline
         {% else %}
-        mdi:pine-tree-variant-outline
+        mdi:leaf
         {% endif %}
-      content: Steve
+      content: Lettuce
       tap_action:
         action: navigate
         navigation_path: garden
