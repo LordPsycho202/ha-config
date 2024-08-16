@@ -28,6 +28,8 @@ plant_mushroom_card:
       mdi:sun-thermometer-outline
       {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
       mdi:thermometer-off
+      {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+      mdi:seed-plus-outline
       {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
       mdi:battery-alert-variant-outline
       {% else %}
@@ -44,6 +46,8 @@ plant_mushroom_card:
       red
       {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
       yellow
+      {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+      cyan
       {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
       red
       {% else %}
