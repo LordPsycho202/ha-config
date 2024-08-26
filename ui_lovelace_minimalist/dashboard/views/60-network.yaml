@@ -42,7 +42,7 @@ cards:
               ulm_card_graph_name: Ping to Microsoft
               ulm_card_graph_entity: sensor.net_folden_nissen_com_microsoft_wan_latency
               ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-down
+              ulm_card_graph_icon: mdi:microsoft
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
@@ -52,7 +52,7 @@ cards:
               ulm_card_graph_name: Ping to Cloudflare
               ulm_card_graph_entity: sensor.net_folden_nissen_com_cloudflare_wan_latency
               ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:arrow-up
+              ulm_card_graph_icon: mdi:cloud-arrow-up-outline
               ulm_card_graph_hours: 24
 
       - type: custom:stack-in-card
@@ -92,7 +92,7 @@ cards:
               ulm_card_graph_name: Ping to Google
               ulm_card_graph_entity: sensor.net_folden_nissen_com_google_wan_latency
               ulm_card_graph_type: fill
-              ulm_card_graph_icon: mdi:lan-pending
+              ulm_card_graph_icon: mdi:google
               ulm_card_graph_hours: 24
 
       - type: custom:mushroom-template-card
