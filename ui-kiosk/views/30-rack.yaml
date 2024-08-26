@@ -585,9 +585,9 @@ cards:
         show_state: true
         type: glance
         entities:
-          - entity: sensor.speedtest_download
-          - entity: sensor.speedtest_upload
-          - entity: sensor.speedtest_ping
+          - entity: sensor.net_folden_nissen_com_cloudflare_wan_latency
+          - entity: sensor.net_folden_nissen_com_microsoft_wan_latency
+          - entity: sensor.net_folden_nissen_com_google_wan_latency
           - entity: binary_sensor.internet_connection
             name: ISP Uplink
         columns: 4
