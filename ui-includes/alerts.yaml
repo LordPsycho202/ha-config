@@ -332,7 +332,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.front_flowers','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.front_flowers','problem') %}
         mdi:seed-plus-outline
         {% elif 'battery low' in state_attr('plant.front_flowers','problem')%}
         mdi:battery-alert-variant-outline
@@ -366,7 +366,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.blackberries','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.blackberries','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.blackberries','problem')%}
         mdi:battery-alert-variant-outline
@@ -399,7 +399,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.pineapples','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.pineapples','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.pineapples','problem')%}
         mdi:battery-alert-variant-outline
@@ -436,7 +436,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.greenhouse_plants','problem')%}
         mdi:battery-alert-variant-outline
@@ -473,7 +473,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.tobasco_and_tomato','problem')%}
         mdi:battery-alert-variant-outline
@@ -510,7 +510,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.tomatoes','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.tomatoes','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.tomatoes','problem')%}
         mdi:battery-alert-variant-outline
@@ -547,7 +547,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.standing_container','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.standing_container','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.standing_container','problem')%}
         mdi:battery-alert-variant-outline
@@ -584,7 +584,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.squash','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.squash','problem') %}
         mdi:seed-plus-outline
         {% elif 'battery low' in state_attr('plant.squash','problem')%}
         mdi:battery-alert-variant-outline
@@ -618,7 +618,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.steve','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.steve','problem') %}
         mdi:seed-plus-outline 
         {% elif 'battery low' in state_attr('plant.steve','problem')%}
         mdi:battery-alert-variant-outline
@@ -652,7 +652,7 @@ chips:
         mdi:sun-thermometer-outline
         {% elif 'temperature unavailable' in state_attr('plant.lettuce','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.lettuce','problem') %}
         mdi:seed-plus-outline
         {% elif 'battery low' in state_attr('plant.lettuce','problem')%}
         mdi:battery-alert-variant-outline
