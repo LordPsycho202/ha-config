@@ -36,21 +36,21 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.speedtest_download
+            entity: sensor.net_folden_nissen_com_microsoft_wan_latency
             variables:
-              ulm_card_graph_color: "var(--google-blue)"
-              ulm_card_graph_name: Download
-              ulm_card_graph_entity: sensor.speedtest_download
+              ulm_card_graph_color: "#00A3EE"
+              ulm_card_graph_name: Ping to Microsoft
+              ulm_card_graph_entity: sensor.net_folden_nissen_com_microsoft_wan_latency
               ulm_card_graph_type: fill
               ulm_card_graph_icon: mdi:arrow-down
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.speedtest_upload
+            entity: sensor.net_folden_nissen_com_cloudflare_wan_latency
             variables:
-              ulm_card_graph_color: "#e7d1ff"
-              ulm_card_graph_name: Upload
-              ulm_card_graph_entity: sensor.speedtest_upload
+              ulm_card_graph_color: "#faae40"
+              ulm_card_graph_name: Ping to Cloudflare
+              ulm_card_graph_entity: sensor.net_folden_nissen_com_cloudflare_wan_latency
               ulm_card_graph_type: fill
               ulm_card_graph_icon: mdi:arrow-up
               ulm_card_graph_hours: 24
@@ -86,11 +86,11 @@ cards:
               {% endif %}
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.speedtest_ping
+            entity: sensor.net_folden_nissen_com_google_wan_latency
             variables:
-              ulm_card_graph_color: "var(--google-yellow)"
-              ulm_card_graph_name: Ping
-              ulm_card_graph_entity: sensor.speedtest_ping
+              ulm_card_graph_color: "#34A853"
+              ulm_card_graph_name: Ping to Google
+              ulm_card_graph_entity: sensor.net_folden_nissen_com_google_wan_latency
               ulm_card_graph_type: fill
               ulm_card_graph_icon: mdi:lan-pending
               ulm_card_graph_hours: 24
