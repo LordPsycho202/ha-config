@@ -11,6 +11,32 @@ cards:
 
   - type: vertical-stack
     cards:
+      - type: conditional
+        conditions:
+          - condition: and
+            conditions:
+              - condition: state
+                entity: binary_sensor.show_nighttime_card
+                state: 'on'
+              - condition: state
+                entity: light.living_room_2
+                state: 'on'
+        card:
+          type: vertical-stack
+          cards:
+            - type: custom:mushroom-template-card
+              primary: Turn Living Room Lights Off (Before Bed)
+              secondary: Hold to activate - Lights will slowly fade
+              icon: mdi:lightbulb-group-off
+              icon_color: yellow
+              tap_action:
+                action: none
+              hold_action:
+                action: perform-action
+                perform_action: script.downstairs_night_mode
+                target: {}
+              double_tap_action:
+                action: none
       - type: "custom:button-card"
         template: card_title
         name: Rooms

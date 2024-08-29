@@ -20,12 +20,21 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.office_day
-            state: "off"
+          - condition: and
+            conditions:
+              - condition: state
+                entity: binary_sensor.show_morning_lights
+                state: 'on'
+              - condition: state
+                entity: light.master_bedroom
+                state: 'off'
+              - condition: state
+                entity: device_tracker.jennifer_s_z_fold5
+                state_not: home
         card:
           type: "custom:button-card"
           template: card_script
-          entity: aautomation.alarm_raise_lights
+          entity: automation.alarm_raise_lights
           variables:
             ulm_card_script_title: Turn on Lights Slowly
             ulm_card_script_icon: "mdi:weather-sunset-up"
