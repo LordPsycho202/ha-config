@@ -182,6 +182,19 @@ chips:
 
   - type: conditional
     conditions:
+      - condition: numeric_state
+        entity: sensor.monthly_water
+        above: 7500
+    chip:
+      type: template
+      content: High Monthly Water Usage
+      icon: mdi:water-alert-outline
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
       - entity: input_select.mail_status
         state: "Mail Delivered"
     chip:
