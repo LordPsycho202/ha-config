@@ -14,7 +14,10 @@ cards:
       - type: entities
         entities:
           - entity: input_boolean.garden_watering
-            name: Automatically Water?
+            name: Automatically Water Garden?
+            icon: mdi:sprinkler
+          - entity: input_boolean.flower_bed_watering
+            name: Automatically Water Flower Beds?
             icon: mdi:sprinkler
           - type: divider
           - type: conditional
@@ -31,7 +34,15 @@ cards:
                 state: 'on'
             row:
               entity: input_number.garden_watering
-              name: How Long?
+              name: How Long for the Garden?
+              icon: mdi:clock-end
+          - type: conditional
+            conditions:
+              - entity: input_boolean.flower_bed_watering
+                state: 'on'
+            row:
+              entity: input_number.flower_bed_watering
+              name: How Long for the Flower Beds?
               icon: mdi:clock-end
       - type: "custom:button-card"
         template: card_title
