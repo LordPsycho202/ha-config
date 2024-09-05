@@ -170,11 +170,59 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: switch.sprinklers
+      - entity: switch.back_yard_zone
         state_not: 'off'
     chip:
       type: template
-      content: Sprinklers
+      content: Backyard
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.flower_beds_zone
+        state_not: 'off'
+    chip:
+      type: template
+      content: Flower Beds
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.front_yard_zone
+        state_not: 'off'
+    chip:
+      type: template
+      content: Front Yard
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.side_yard_zone
+        state_not: 'off'
+    chip:
+      type: template
+      content: Side Yards
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.garden_watering
+        state_not: 'off'
+    chip:
+      type: template
+      content: Garden
       icon: mdi:sprinkler-variant
       tap_action:
         action: navigate
