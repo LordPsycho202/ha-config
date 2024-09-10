@@ -140,10 +140,10 @@ camera:
     file_path: "/media/photos/greenhouse/test_photo.gif"
     name: Greenhouse_Timelapse_L
   - platform: local_file
-    filepath: "/media/multimedia/space_weather/latest_1024_0193.mp4"
+    file_path: "/media/multimedia/space_weather/latest_1024_0193.mp4"
     name: latest_1024_0193
   - platform: local_file
-    filepath: "/media/multimedia/space_weather/latest_1024_0335.mp4"
+    file_path: "/media/multimedia/space_weather/latest_1024_0335.mp4"
     name: latest_1024_0335
 
 shell_command:
