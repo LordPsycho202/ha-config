@@ -139,6 +139,12 @@ camera:
   - platform: local_file
     file_path: "/media/photos/greenhouse/test_photo.gif"
     name: Greenhouse_Timelapse_L
+  - platform: ffmpeg
+    input: "/media/multimedia/space_weather/latest_1024_0193.mp4"
+    name: latest_1024_0193
+  - platform: ffmpeg
+    input: "/media/multimedia/space_weather/latest_1024_0335.mp4"
+    name: latest_1024_0335
 
 shell_command:
   esp32_gifify: "ffmpeg -loglevel 8 -r {{ framerate }} -f image2 -y -pattern_type glob -i '{{ input }}' {{ output }}"
