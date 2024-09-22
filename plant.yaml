@@ -63,7 +63,7 @@ Steve:
     conductivity: sensor.steve_conductivity
     brightness: sensor.steve_illuminance
   min_moisture: 15
-  max_moisture: 60
+  max_moisture: 75
   min_temperature: 41
   max_temperature: 95
   min_conductivity: 350
