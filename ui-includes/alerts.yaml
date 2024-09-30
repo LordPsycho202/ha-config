@@ -387,6 +387,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.front_flowers','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
@@ -421,6 +423,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.blackberries','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
@@ -454,6 +458,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.pineapples','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
@@ -491,6 +497,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.greenhouse_plants','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.greenhouse_plants','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.greenhouse_plants','problem') %}
@@ -528,6 +536,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.tobasco_and_tomato','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.tobasco_and_tomato','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.tobasco_and_tomato','problem') %}
@@ -565,6 +575,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.tomatoes','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
@@ -602,6 +614,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.standing_container','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.standing_container','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.standing_container','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.standing_container','problem') %}
@@ -639,6 +653,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.squash','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.squash','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.squash','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.squash','problem') %}
@@ -673,6 +689,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.steve','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.steve','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.steve','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.steve','problem') %}
@@ -707,6 +725,8 @@ chips:
         mdi:watering-can-outline
         {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
         mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.lettuce','problem') %}
+        mdi:water-off-outline
         {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in state_attr('plant.lettuce','problem') %}

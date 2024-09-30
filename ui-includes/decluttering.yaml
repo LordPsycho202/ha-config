@@ -22,6 +22,8 @@ plant_mushroom_card:
       mdi:watering-can-outline
       {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
       mdi:water-alert
+      {% elif 'moisture unavailable' in state_attr('[[plant_entity]]','problem') %}
+      mdi:water-off-outline
       {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') %}
       mdi:snowflake-thermometer
       {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
@@ -40,6 +42,8 @@ plant_mushroom_card:
       brown
       {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
       blue
+      {% elif 'moisture unavailable' in state_attr('[[plant_entity]]','problem') %}
+      yellow
       {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') %}
       cyan
       {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
