@@ -186,7 +186,7 @@ sensor:
 
   - platform: marta
     friendly_name: Rodney's Card
-    card_number: 01640221816660476163
+    card_number: 01640598761764599046
 
 binary_sensor:
 
