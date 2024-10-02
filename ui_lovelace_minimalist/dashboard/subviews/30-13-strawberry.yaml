@@ -62,3 +62,11 @@ cards:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80
           ulm_card_battery_name: Battery
+      - show_state: true
+        show_name: true
+        camera_view: auto
+        type: picture-entity
+        entity: light.greenhouse
+        tap_action:
+          action: more-info
+        camera_image: camera.esp32_cam01_esp32_cam01
