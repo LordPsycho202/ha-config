@@ -13,6 +13,7 @@ cards:
         variables:
           - plant_entity: plant.strawberry
           - plant_path: plant_strawberry
+          - plant_icon: fruit-grapes
           - plant_action: more-info
       - type: horizontal-stack
         cards:

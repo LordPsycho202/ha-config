@@ -194,7 +194,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Pineapple Pots
+        name: Potted Plants
       - type: horizontal-stack
         cards:
           - type: custom:decluttering-card
@@ -210,6 +210,24 @@ cards:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
               ulm_card_graph_entity: sensor.soil_moisture_3
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: plant.strawberry
+              - plant_path: plant_strawberry
+              - plant_icon: fruit-grapes
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.strawberry_moisture
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.strawberry_moisture
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
@@ -515,6 +533,7 @@ cards:
             variables:
               - plant_entity: plant.strawberry
               - plant_path: plant_strawberry
+              - plant_icon: fruit-grapes
           - type: "custom:button-card"
             template: card_graph
             entity: sensor.strawberry_moisture
