@@ -780,3 +780,39 @@ chips:
       tap_action:
         action: navigate
         navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.japanese_maple
+            state_not: ok
+    chip:
+      type: template
+      entity: plant.japanese_maple
+      icon_color: grey
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.japanese_maple','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.japanese_maple','problem') %}
+        mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.japanese_maple','problem') %}
+        mdi:water-off-outline
+        {% elif 'temperature low' in state_attr('plant.japanese_maple','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.japanese_maple','problem') %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.japanese_maple','problem') %}
+        mdi:thermometer-off
+        {% elif 'conductivity low' in state_attr('plant.japanese_maple','problem') %}
+        mdi:seed-plus-outline
+        {% elif 'battery low' in state_attr('plant.japanese_maple','problem')%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:leaf-maple
+        {% endif %}
+      content: Japanese Maple
+      tap_action:
+        action: navigate
+        navigation_path: garden
