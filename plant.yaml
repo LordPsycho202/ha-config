@@ -97,3 +97,17 @@ Strawberry:
   min_conductivity: 350
   max_conductivity: 2000
   min_battery: 35
+Japanese Maple:
+  sensors:
+    moisture: sensor.japanese_maple_moisture
+    battery: sensor.japanese_maple_battery
+    temperature: sensor.japanese_maple_temperature
+    conductivity: sensor.japanese_maple_conductivity
+    brightness: sensor.japanese_maple_illuminance
+  min_moisture: 15
+  max_moisture: 60
+  min_temperature: 41
+  max_temperature: 95
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_battery: 35
