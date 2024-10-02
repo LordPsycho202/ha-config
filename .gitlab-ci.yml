@@ -6,6 +6,6 @@ lint-test-job:
   stage: test
   tags:
     - core
-  image: registry.gitlab.com/pipeline-components/yamllint:latest
+  image: cytopia/yamllint:latest
   script:
     - yamllint .
