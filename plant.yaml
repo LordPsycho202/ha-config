@@ -83,3 +83,17 @@ Lettuce:
   min_conductivity: 350
   max_conductivity: 2000
   min_battery: 35
+Strawberry:
+  sensors:
+    moisture: sensor.strawberry_moisture
+    battery: sensor.strawberry_battery
+    temperature: sensor.strawberry_temperature
+    conductivity: sensor.strawberry_conductivity
+    brightness: sensor.strawberry_illuminance
+  min_moisture: 25
+  max_moisture: 80
+  min_temperature: 46
+  max_temperature: 95
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_battery: 35
