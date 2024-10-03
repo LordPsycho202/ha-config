@@ -106,4 +106,17 @@ Japanese Maple:
   min_temperature: 41
   max_temperature: 95
   min_conductivity: 350
+  min_battery: 
+Fairy Washboard:
+  sensors:
+    moisture: sensor.fairy_washboard_moisture
+    battery: sensor.fairy_washboard_battery
+    temperature: sensor.fairy_washboard_temperature
+    conductivity: sensor.fairy_washboard_conductivity
+    brightness: sensor.fairy_washboard_illuminance
+  min_moisture: 7
+  max_moisture: 50
+  min_temperature: 41
+  max_temperature: 95
+  min_conductivity: 300
   min_battery: 35
