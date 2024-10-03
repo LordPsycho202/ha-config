@@ -816,3 +816,39 @@ chips:
       tap_action:
         action: navigate
         navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.fairy_washboard
+            state_not: ok
+    chip:
+      type: template
+      entity: plant.fairy_washboard
+      icon_color: grey
+      icon: |-
+        {% if 'moisture low' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:water-alert
+        {% elif 'moisture unavailable' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:water-off-outline
+        {% elif 'temperature low' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:thermometer-off
+        {% elif 'conductivity low' in state_attr('plant.fairy_washboard','problem') %}
+        mdi:seed-plus-outline 
+        {% elif 'battery low' in state_attr('plant.fairy_washboard','problem')%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:grass
+        {% endif %}
+      content: Fairy Washboard
+      tap_action:
+        action: navigate
+        navigation_path: garden

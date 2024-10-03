@@ -178,6 +178,24 @@ cards:
           - type: custom:decluttering-card
             template: plant_mushroom_card
             variables:
+              - plant_entity: plant.fairy_washboard
+              - plant_path: plant_fairy_washboard
+              - plant_icon: grass
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.fairy_washboard_moisture
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.fairy_washboard_moisture
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+
+      - type: horizontal-stack
+        cards:
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
               - plant_entity: plant.lettuce
               - plant_path: plant_lettuce
           - type: "custom:button-card"
