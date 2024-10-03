@@ -67,6 +67,7 @@ Steve:
   min_temperature: 41
   max_temperature: 95
   min_conductivity: 350
+  max_conductivity: 6000
   min_battery: 35
 Lettuce:
   sensors:
@@ -80,6 +81,7 @@ Lettuce:
   min_temperature: 46
   max_temperature: 95
   min_conductivity: 350
+  max_conductivity: 6000
   min_battery: 35
 Strawberry:
   sensors:
@@ -93,6 +95,7 @@ Strawberry:
   min_temperature: 46
   max_temperature: 95
   min_conductivity: 350
+  max_conductivity: 6000
   min_battery: 35
 Japanese Maple:
   sensors:
@@ -106,6 +109,7 @@ Japanese Maple:
   min_temperature: 41
   max_temperature: 95
   min_conductivity: 350
+  max_conductivity: 6000
   min_battery: 35
 Fairy Washboard:
   sensors:
@@ -119,4 +123,5 @@ Fairy Washboard:
   min_temperature: 41
   max_temperature: 95
   min_conductivity: 300
+  max_conductivity: 6000
   min_battery: 35
