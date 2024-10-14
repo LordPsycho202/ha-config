@@ -146,7 +146,7 @@ cards:
       - type: markdown
         content: "# Upstairs"
         card_mod:
-          class: header
+          class: header-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -321,7 +321,7 @@ cards:
       - type: markdown
         content: "# R: {{states('person.rodney_nissen')}} | J: {{states('person.jfoldennissen')}}"
         card_mod:
-          class: footer
+          class: footer-left
           style: |
             ha-card > * {
               font-family: Antonio

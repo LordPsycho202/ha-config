@@ -6,7 +6,7 @@ cards:
   - type: markdown
     content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
     card_mod:
-      class: footer
+      class: footer-left
       style: |
         ha-card > * {
           font-family: Antonio

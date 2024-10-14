@@ -141,14 +141,14 @@ cards:
       - type: markdown
         content: "# Downstairs"
         card_mod:
-          class: header
+          class: header-left
           style: |
             ha-card > * {
               font-family: Antonio
             }
       - type: custom:aarlo-glance
         card_mod:
-          class: middle
+          class:middle-left
         entities:
           - entity: camera.aarlo_driveway
             image_view: arlo-stream
@@ -218,7 +218,7 @@ cards:
           - entity: sensor.nws_alerts
         columns: 4
         card_mod:
-          class: middle
+          class:middle-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -251,7 +251,7 @@ cards:
           grid-area: right
         content: "# R: {{states('person.rodney_nissen')}} | J: {{states('person.jfoldennissen')}}"
         card_mod:
-          class: footer
+          class: footer-left
           style: |
             ha-card > * {
               font-family: Antonio

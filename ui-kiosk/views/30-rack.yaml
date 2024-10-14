@@ -60,7 +60,7 @@ cards:
       - type: markdown
         content: "# Computer Bank"
         card_mod:
-          class: middle
+          class:middle-left
           style: |
             ha-card > * {
               font-family: Antonio
