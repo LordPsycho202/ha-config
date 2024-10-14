@@ -52,7 +52,7 @@ cards:
       - type: markdown
         content: "# Locks"
         card_mod:
-          class:middle-left
+          class: middle-left
           style: |
             ha-card > * {
               font-family: Antonio
