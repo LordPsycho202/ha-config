@@ -24,7 +24,7 @@ cards:
     hold_action:
       action: none
     card_mod:
-      class: button-bullet
+      class: button-bullet-left
       style: |
         ha-card > * {
           font-family: Antonio
@@ -42,7 +42,7 @@ cards:
     hold_action:
       action: none
     card_mod:
-      class: button-bullet
+      class: button-bullet-left
       style: |
         ha-card > * {
           font-family: Antonio
@@ -60,7 +60,7 @@ cards:
     hold_action:
       action: none
     card_mod:
-      class: button-bullet
+      class: button-bullet-left
       style: |
         ha-card > * {
           font-family: Antonio
@@ -78,7 +78,7 @@ cards:
     hold_action:
       action: none
     card_mod:
-      class: button-bullet
+      class: button-bullet-left
       style: |
         ha-card > * {
           font-family: Antonio
@@ -96,7 +96,7 @@ cards:
     hold_action:
       action: none
     card_mod:
-      class: button-bullet
+      class: button-bullet-left
       style: |
         ha-card > * {
           font-family: Antonio

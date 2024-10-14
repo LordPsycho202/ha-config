@@ -188,7 +188,7 @@ cards:
               data: {}
             icon: mdi:light-flood-down
             card_mod:
-              class: button-bullet
+              class: button-bullet-left
               style: |
                 ha-card > * {
                   font-family: Antonio

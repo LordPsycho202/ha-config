@@ -41,7 +41,7 @@ cards:
         show_state: true
         entity: plant.tomatoes
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -56,7 +56,7 @@ cards:
         show_state: true
         entity: plant.pineapples
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -71,7 +71,7 @@ cards:
         show_state: true
         entity: plant.front_flowers
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -86,7 +86,7 @@ cards:
         show_state: true
         entity: plant.blackberries
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -101,7 +101,7 @@ cards:
         show_state: true
         entity: plant.tobasco_and_tomato
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -116,7 +116,7 @@ cards:
         show_state: true
         entity: plant.squash
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -265,7 +265,7 @@ cards:
             name: Sprinkler Delay
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -279,7 +279,7 @@ cards:
             name: Last Run
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -293,7 +293,7 @@ cards:
             name: Last Rainfall
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -307,7 +307,7 @@ cards:
             name: Drought Level
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio

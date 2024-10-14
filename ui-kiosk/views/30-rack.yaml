@@ -46,7 +46,7 @@ cards:
         show_state: true
         name: Power Draw
         card_mod:
-          class: button-lozenge
+          class: button-lozenge-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -74,7 +74,7 @@ cards:
         name: "Computer Core Temp"
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -89,7 +89,7 @@ cards:
         icon: mdi:crosshairs
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -104,7 +104,7 @@ cards:
         icon: mdi:home-automation
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -119,7 +119,7 @@ cards:
         icon: mdi:server-outline
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -134,7 +134,7 @@ cards:
         icon: mdi:nas
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -149,7 +149,7 @@ cards:
         icon: mdi:database
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -615,7 +615,7 @@ cards:
             entity: sensor.ups01_battery_charge_2
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -628,7 +628,7 @@ cards:
             entity: sensor.ups01_load_2
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio

@@ -40,7 +40,7 @@ cards:
         show_state: true
         entity: weather.weather_station
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -53,7 +53,7 @@ cards:
         show_state: true
         name: Exterior Heat
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -65,7 +65,7 @@ cards:
         show_state: true
         name: Exterior Humidity
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -77,7 +77,7 @@ cards:
         show_state: true
         name: Exterior Winds
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -92,7 +92,7 @@ cards:
         show_state: true
         name: Air Pressure
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -107,7 +107,7 @@ cards:
         icon: mdi:weather-pouring
         name: Percipitation Rate
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -181,7 +181,7 @@ cards:
             entity: sensor.heat_index
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -194,7 +194,7 @@ cards:
             entity: sensor.wind_chill
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio

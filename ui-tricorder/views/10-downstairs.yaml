@@ -168,7 +168,7 @@ cards:
                   action: navigate
                   navigation_path: living
                 card_mod:
-                  class: button-bullet
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -186,7 +186,7 @@ cards:
                   action: navigate
                   navigation_path: dining
                 card_mod:
-                  class: button-bullet
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -204,7 +204,7 @@ cards:
                   action: navigate
                   navigation_path: master_bed
                 card_mod:
-                  class: button-bullet
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -222,7 +222,7 @@ cards:
                   action: navigate
                   navigation_path: laundry
                 card_mod:
-                  class: button-bullet
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -315,7 +315,7 @@ cards:
           action: navigate
           navigation_path: outside
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -345,7 +345,7 @@ cards:
             entity: vacuum.catbug
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -358,7 +358,7 @@ cards:
             entity: vacuum.philoctetes
             show_state: true
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -372,7 +372,7 @@ cards:
             show_state: true
             name: Sprinkler Delay
             card_mod:
-              class: button-lozenge
+              class: button-lozenge-left
               style: |
                 ha-card > * {
                   font-family: Antonio
@@ -405,7 +405,7 @@ cards:
           action: navigate
           navigation_path: security
         card_mod:
-          class: button-lozenge
+          class: button-lozenge-left
           style: |
             ha-card > * {
               font-family: Antonio

@@ -67,7 +67,7 @@ cards:
         name: "Lock: Shuttle Bay Door"
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -82,7 +82,7 @@ cards:
         icon: mdi:garage
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -98,7 +98,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -113,7 +113,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -129,7 +129,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -144,7 +144,7 @@ cards:
         icon: mdi:door
         show_state: true
         card_mod:
-          class: button-bullet
+          class: button-bullet-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -247,7 +247,7 @@ cards:
                   data: {}
                 icon: mdi:light-flood-down
                 card_mod:
-                  class: button-lozenge
+                  class: button-lozenge-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -261,7 +261,7 @@ cards:
                 hold_action:
                   action: toggle
                 card_mod:
-                  class: button-lozenge
+                  class: button-lozenge-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
