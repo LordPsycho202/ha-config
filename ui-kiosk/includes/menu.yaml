@@ -6,7 +6,7 @@ cards:
   - type: markdown
     content: '# Controls'
     card_mod:
-      class: header
+      class: header-left
       style: |
         ha-card > * {
           font-family: Antonio

@@ -11,7 +11,7 @@ cards:
 
       #  {{ states('sensor.template_header_greet') }}
     card_mod:
-      class: footer
+      class: footer-left
       style:
         .: |
           ha-card > * {
