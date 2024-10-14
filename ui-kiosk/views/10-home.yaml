@@ -23,12 +23,12 @@ cards:
     view_layout:
       grid-area: sidebar
     card_mod:
-      class:middle-left
+      class: middle-left
     cards:
       - type: markdown
         content: "# Status Updates"
         card_mod:
-          class:middle-left
+          class: middle-left
           style: |
             ha-card > * {
               font-family: Antonio

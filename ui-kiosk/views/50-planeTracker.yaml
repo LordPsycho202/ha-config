@@ -25,7 +25,7 @@ cards:
       - type: markdown
         content: '# Traffic Control'
         card_mod:
-          class:middle-left
+          class: middle-left
           style: |
             ha-card > * {
               font-family: Antonio
