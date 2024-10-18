@@ -13,6 +13,7 @@ cards:
             font-family: Antonio
           }
     chips:
+      - type: spacer
       - type: template
         tap_action:
           action: more-info
