@@ -1,7 +1,7 @@
 ---
 type: custom:mushroom-chips-card
 card_mod:
-  class: middle-left
+  class: middle-blank
   style:
     .: |
       ha-card > * {

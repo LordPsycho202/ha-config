@@ -1,19 +1,23 @@
 ---
 type: vertical-stack
+card_mod:
+  class: footer-right
+  style:
+    .: |
+      ha-card > * {
+        font-family: Antonio;
+      }
 view_layout:
   grid-area: headerL
   place-self: end stretch
 cards:
+  - !include /config/ui-includes/alerts.yaml
   - type: markdown
     content: >-
       #  {{ states('sensor.template_header_greet') }}
     card_mod:
-      class: footer-right
       style:
         .: |
-          ha-card > * {
-            font-family: Antonio;
-          }
           ha-card.type-markdown {
             overflow-x: hidden;
             text-overflow: ellipsis;

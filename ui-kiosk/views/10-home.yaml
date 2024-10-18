@@ -7,7 +7,6 @@ layout:
   grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
-    "alertsL alertsR alertsR"
     "headerL headerR headerR"
     "menu main aux"
     "sidebar main aux"
@@ -15,57 +14,6 @@ layout:
 path: home
 badges: []
 cards:
-  - type: vertical-stack
-    view_layout:
-      grid-area: alertsL
-    cards:
-      - type: custom:mushroom-chips-card
-        card_mod:
-          class: middle-right
-          style:
-            .: |
-              ha-card > * {
-                font-family: Antonio
-              }
-        chips:
-          - type: template
-            tap_action:
-              action: more-info
-            icon: |-
-              {% if states('person.jfoldennissen')|string == 'home' %}
-              mdi:home
-              {% else %}
-              mdi:home-export-outline
-              {%endif%}
-            icon_color: blue
-            content: "J: {{ states('person.jfoldennissen')|string|capitalize }}"
-            entity: person.jfoldennissen
-          - type: template
-            tap_action:
-              action: more-info
-            icon: |-
-              {% if states('person.rodney_nissen')|string == 'home' %}
-              mdi:home
-              {% else %}
-              mdi:home-export-outline
-              {%endif%}
-            icon_color: green
-            content: "R: {{ states('person.rodney_nissen')|string|capitalize }}"
-            entity: person.rodney_nissen
-
-  - type: vertical-stack
-    card_mod:
-      class: middle-left
-      style:
-        .: |
-          ha-card > * {
-            font-family: Antonio
-          }
-    view_layout:
-      grid-area: alertsR
-    cards:
-      - !include /config/ui-includes/alerts.yaml
-
   - !include ../includes/headerL.yaml
   - !include ../includes/headerR.yaml
   - !include ../includes/menu.yaml

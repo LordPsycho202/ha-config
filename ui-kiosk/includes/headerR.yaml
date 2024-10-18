@@ -1,18 +1,54 @@
 ---
 type: vertical-stack
+card_mod:
+  class: footer-left
+  style:
+    .: |
+      ha-card > * {
+        font-family: Antonio
+      }
 view_layout:
   grid-area: headerR
   place-self: end stretch
 cards:
-  - type: markdown
-    content: '# Weather: {{ states(''sensor.template_header_weather'') }} &#149; Stardate: {{ states(''sensor.stardate'')}} &#149; {{ as_timestamp(now()) | timestamp_custom( ''%d %b %Y &#149; %H:%M'' ) }}'
+  - type: custom:mushroom-chips-card
     card_mod:
-      class: footer-left
+      class: middle-blank
       style:
         .: |
           ha-card > * {
             font-family: Antonio
           }
+    chips:
+      - type: template
+        tap_action:
+          action: more-info
+        icon: |-
+          {% if states('person.jfoldennissen')|string == 'home' %}
+          mdi:home
+          {% else %}
+          mdi:home-export-outline
+          {%endif%}
+        icon_color: blue
+        content: "J: {{ states('person.jfoldennissen')|string|capitalize }}"
+        entity: person.jfoldennissen
+      - type: template
+        tap_action:
+          action: more-info
+        icon: |-
+          {% if states('person.rodney_nissen')|string == 'home' %}
+          mdi:home
+          {% else %}
+          mdi:home-export-outline
+          {%endif%}
+        icon_color: green
+        content: "R: {{ states('person.rodney_nissen')|string|capitalize }}"
+        entity: person.rodney_nissen
+  - type: markdown
+    content: '# Weather: {{ states(''sensor.template_header_weather'') }} &#149; Stardate: {{ states(''sensor.stardate'')}} &#149; {{ as_timestamp(now()) | timestamp_custom( ''%d %b %Y &#149; %H:%M'' ) }}'
+    card_mod:
+      style:
+        .: |
           ha-card.type-markdown {
             overflow-x: hidden;
             text-overflow: ellipsis;
