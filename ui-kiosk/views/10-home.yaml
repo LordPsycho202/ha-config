@@ -23,7 +23,7 @@ cards:
     view_layout:
       grid-area: sidebar
     card_mod:
-      class: middle-left
+      class:middle-left
     cards:
       - type: markdown
         content: "# Status Updates"
@@ -124,6 +124,7 @@ cards:
           style: |
             ha-card > * {
               font-family: Antonio
+            }
 
   - type: vertical-stack
     cards:

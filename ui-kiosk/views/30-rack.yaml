@@ -523,13 +523,13 @@ cards:
               - type: horizontal-stack
                 cards:
                   - type: gauge
-                    entity: sensor.fanspeed_r510
+                    entity: sensor.fanspeed_r510_2
                     name: Fan
                     unit: rpm
                     min: 0
                     max: 10000
                   - type: gauge
-                    entity: sensor.temp_r510
+                    entity: sensor.sanlm_folden_nissen_com_ambient_temp
                     name: Temp
                     min: 0
                     max: 140

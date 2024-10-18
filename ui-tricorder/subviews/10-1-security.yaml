@@ -148,7 +148,7 @@ cards:
             }
       - type: custom:aarlo-glance
         card_mod:
-          class: middle-left
+          class:middle-left
         entities:
           - entity: camera.aarlo_driveway
             image_view: arlo-stream
