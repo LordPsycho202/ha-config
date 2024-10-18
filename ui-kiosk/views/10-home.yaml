@@ -10,7 +10,7 @@ layout:
     "headerL headerR headerR"
     "menu main aux"
     "sidebar main aux"
-    "footer footer footer"
+    "footerL footer footer"
 path: home
 badges: []
 cards:
@@ -121,6 +121,19 @@ cards:
         show_state: true
         card_mod:
           class: button-bullet-right
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
+
+  - type: vertical-stack
+    view_layout:
+      grid-area: footerL
+    cards:
+      - type: markdown
+        content: '## plants with problems: {{ states.plant | selectattr(''state'',''equalto'',''problem'') | list | length }}'
+        card_mod:
+          class: footer-right
           style: |
             ha-card > * {
               font-family: Antonio
