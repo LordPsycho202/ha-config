@@ -1,7 +1,7 @@
 ---
 type: custom:mushroom-chips-card
 card_mod:
-  class: middle-blank
+  class: middle-right
   style:
     .: |
       ha-card > * {
@@ -12,7 +12,6 @@ chips:
     entity: weather.weather_station
     show_temperature: true
     show_conditions: false
-
   - type: conditional
     conditions:
       - entity: binary_sensor.wx_card

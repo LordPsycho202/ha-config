@@ -16,17 +16,17 @@ path: home
 badges: []
 cards:
   - type: vertical-stack
-    card_mod:
-      class: middle-left
-      style:
-        .: |
-          ha-card > * {
-            font-family: Antonio
-          }
     view_layout:
       grid-area: alertsL
     cards:
       - type: custom:mushroom-chips-card
+        card_mod:
+          class: middle-left
+          style:
+            .: |
+              ha-card > * {
+                font-family: Antonio
+              }
         chips:
           - type: template
             tap_action:
