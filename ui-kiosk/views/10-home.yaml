@@ -153,12 +153,18 @@ cards:
       - type: markdown
         content: "# Viewscreen"
         card_mod:
-          class: header-open
+          class: header-left
           style: |
             ha-card > * {
               font-family: Antonio
             }
       - type: custom:aarlo-glance
+        card_mod:
+          class: middle-left
+          style: |
+            ha-card > * {
+              font-family: Antonio
+            }
         entities:
           - entity: camera.aarlo_driveway
             image_view: arlo-stream
@@ -179,7 +185,7 @@ cards:
       - type: markdown
         content: "# Utility Usage"
         card_mod:
-          class: bar
+          class: bar-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -195,7 +201,7 @@ cards:
           - entity: sensor.home_123_1mon
         columns: 4
         card_mod:
-          class: middle-blank
+          class: middle-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -203,7 +209,7 @@ cards:
       - type: markdown
         content: "# Worker Bees"
         card_mod:
-          class: bar
+          class: bar-left
           style: |
             ha-card > * {
               font-family: Antonio
