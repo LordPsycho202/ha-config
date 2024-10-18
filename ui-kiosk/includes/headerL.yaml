@@ -1,23 +1,52 @@
 ---
 type: vertical-stack
-card_mod:
-  class: footer-right
-  style:
-    .: |
-      ha-card > * {
-        font-family: Antonio;
-      }
 view_layout:
   grid-area: headerL
   place-self: end stretch
 cards:
-  - !include /config/ui-includes/alerts.yaml
+  - type: custom:mushroom-chips-card
+    card_mod:
+      class: middle-right
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio
+          }
+    chips:
+      - type: template
+        tap_action:
+          action: more-info
+        icon: |-
+          {% if states('person.jfoldennissen')|string == 'home' %}
+          mdi:home
+          {% else %}
+          mdi:home-export-outline
+          {%endif%}
+        icon_color: blue
+        content: "J: {{ states('person.jfoldennissen')|string|capitalize }}"
+        entity: person.jfoldennissen
+      - type: template
+        tap_action:
+          action: more-info
+        icon: |-
+          {% if states('person.rodney_nissen')|string == 'home' %}
+          mdi:home
+          {% else %}
+          mdi:home-export-outline
+          {%endif%}
+        icon_color: green
+        content: "R: {{ states('person.rodney_nissen')|string|capitalize }}"
+        entity: person.rodney_nissen
   - type: markdown
     content: >-
       #  {{ states('sensor.template_header_greet') }}
     card_mod:
+      class: footer-right
       style:
         .: |
+          ha-card > * {
+            font-family: Antonio;
+          }
           ha-card.type-markdown {
             overflow-x: hidden;
             text-overflow: ellipsis;
