@@ -7,7 +7,7 @@ layout:
   grid-template-columns: 22% 58% 20%
   grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
   grid-template-areas: |
-    "alerts alerts alerts"
+    "alertsL alertsR alertsR"
     "headerL headerR headerR"
     "menu main aux"
     "sidebar main aux"
@@ -16,8 +16,39 @@ path: home
 badges: []
 cards:
   - type: vertical-stack
+    card_mod:
+      class: middle-left
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio
+          }
     view_layout:
-      grid-area: alerts
+      grid-area: alertsR
+    cards:
+      - type: custom:mushroom-chips-card
+        card_mod:
+          class: middle-blank
+          style:
+            .: |
+              ha-card > * {
+                font-family: Antonio;
+              }
+        chips:
+          - type: weather
+            entity: weather.weather_station
+            show_temperature: true
+            show_conditions: false
+  - type: vertical-stack
+    card_mod:
+      class: middle-left
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio
+          }
+    view_layout:
+      grid-area: alertsR
     cards:
       - !include /config/ui-includes/alerts.yaml
 
