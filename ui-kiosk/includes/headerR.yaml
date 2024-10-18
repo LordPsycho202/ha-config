@@ -4,11 +4,10 @@ view_layout:
   grid-area: headerR
   place-self: end stretch
 cards:
-  - !include /config/ui-includes/alerts.yaml
   - type: markdown
-    content: '# Weather: {{ states(''sensor.template_header_weather'') }}'
+    content: '# Weather: {{ states(''sensor.template_header_weather'') }} &#149; Stardate: {{ states(''sensor.stardate'')}} &#149; {{ as_timestamp(now()) | timestamp_custom( ''%d %b %Y &#149; %H:%M'' ) }}'
     card_mod:
-      class: footer-open
+      class: footer-left
       style:
         .: |
           ha-card > * {

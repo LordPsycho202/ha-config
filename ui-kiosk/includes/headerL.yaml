@@ -6,12 +6,9 @@ view_layout:
 cards:
   - type: markdown
     content: >-
-      ## Stardate: {{ states('sensor.stardate')}} &#149; {{ as_timestamp(now())
-      | timestamp_custom( '%d %b %Y &#149; %H:%M' ) }}
-
       #  {{ states('sensor.template_header_greet') }}
     card_mod:
-      class: footer-left
+      class: footer-right
       style:
         .: |
           ha-card > * {
