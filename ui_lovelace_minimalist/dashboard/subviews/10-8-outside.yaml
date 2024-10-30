@@ -96,13 +96,13 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_light
-            entity: light.front_porch
+            entity: light.light_frontporch
             variables:
               ulm_card_light_force_background_color: true
               ulm_card_light_enable_collapse: true
           - type: "custom:button-card"
             template: card_light
-            entity: light.front_sconces
+            entity: light.light_garagesconce
             variables:
               ulm_card_light_force_background_color: true
               ulm_card_light_enable_collapse: true
