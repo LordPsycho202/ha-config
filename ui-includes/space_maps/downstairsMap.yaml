@@ -123,7 +123,7 @@ elements:
       - states['light.light_frontporch'].state
       - states['light.light_frontporch'].attributes.hs_color
     entities:
-      - llight.light_frontporch
+      - light.light_frontporch
     element:
       type: image
       image: /local/images/floorplan/theme/space/Ground-Floor/lit-front-porch.png
@@ -138,7 +138,7 @@ elements:
       - states['light.light_garagesconce'].state
       - states['light.light_garagesconce'].attributes.hs_color
     entities:
-      - llight.light_garagesconce
+      - light.light_garagesconce
     element:
       type: image
       image: /local/images/floorplan/theme/space/Ground-Floor/lit-garage-scones.png
