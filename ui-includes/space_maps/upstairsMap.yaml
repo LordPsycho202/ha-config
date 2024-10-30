@@ -42,14 +42,19 @@ elements:
       opacity: "${ vars[1] === 'above_horizon' ? vars[0]/100 : '0%' }"
   - type: custom:config-template-card
     variables:
-      - states['light.front_sconces'].state
+      - states['light.light_garagesconce'].attributes.brightness
+      - states['light.light_garagesconce'].state
+      - states['light.light_garagesconce'].attributes.hs_color
     entities:
-      - light.front_sconces
+      - llight.light_garagesconce
     element:
       type: image
-      image: /local/images/floorplan/Ground-Floor/lit-garage-scones.png
+      image: /local/images/floorplan/theme/space/Ground-Floor/lit-garage-scones.png
     style:
-      opacity: "${ vars[0] === 'on' ? '100%': '0%' }"
+      opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
+      filter: >-
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
   - type: custom:config-template-card
     variables:
       - states['light.office_closet'].state

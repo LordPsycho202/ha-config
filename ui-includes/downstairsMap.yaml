@@ -118,20 +118,36 @@ elements:
     state_image:
       "on": /local/images/floorplan/Ground-Floor/lit-stairs.png
       "off": /local/images/transparent.png
-  - type: image
-    entity: light.front_porch
-    tap_action:
-      action: none
-    state_image:
-      "on": /local/images/floorplan/Ground-Floor/lit-front-porch.png
-      "off": /local/images/transparent.png
-  - type: image
-    entity: light.front_sconces
-    tap_action:
-      action: none
-    state_image:
-      "on": /local/images/floorplan/Ground-Floor/lit-garage-scones.png
-      "off": /local/images/transparent.png
+  - type: custom:config-template-card
+    variables:
+      - states['light.light_frontporch'].attributes.brightness
+      - states['light.light_frontporch'].state
+      - states['light.light_frontporch'].attributes.hs_color
+    entities:
+      - llight.light_frontporch
+    element:
+      type: image
+      image: /local/images/floorplan/Ground-Floor/lit-front-porch.png
+    style:
+      opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
+      filter: >-
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
+  - type: custom:config-template-card
+    variables:
+      - states['light.light_garagesconce'].attributes.brightness
+      - states['light.light_garagesconce'].state
+      - states['light.light_garagesconce'].attributes.hs_color
+    entities:
+      - llight.light_garagesconce
+    element:
+      type: image
+      image: /local/images/floorplan/Ground-Floor/lit-garage-scones.png
+    style:
+      opacity: "${ vars[1] === 'on' ? vars[0]/255 : '0%' }"
+      filter: >-
+        ${ "hue-rotate(" + (vars[2] ? vars[2][0] : 0) + "deg) saturate(" +
+        (vars[2] ? vars[2][1] : 100)+ "%)"}
   - type: image
     entity: light.kitchen_overhead
     tap_action:
