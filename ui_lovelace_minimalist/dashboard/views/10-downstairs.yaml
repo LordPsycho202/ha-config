@@ -235,8 +235,27 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Maps
-
       - !include /config/ui-includes/downstairsMap.yaml
-
-  - type: markdown
-    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
+      - type: horizontal-stack
+        cards:
+          - type: custom:aarlo-glance
+            entity: camera.aarlo_doorbell
+            image_view: arlo-stream
+            image_top: date,status
+            image_bottom: motion,sound,signal|library,snapshot
+            image_click: stream
+            library_sizes: 3,4,2
+          - type: custom:aarlo-glance
+            entity: camera.aarlo_driveway
+            image_view: arlo-stream
+            image_top: date,status
+            image_bottom: motion,sound,signal,battery|library,snapshot
+            image_click: stream
+            library_sizes: 3,4,2
+          - type: custom:aarlo-glance
+            entity: camera.aarlo_back_door
+            image_view: arlo-stream
+            image_top: date,status
+            image_bottom: motion,sound,signal,battery|library,snapshot
+            image_click: stream
+            library_sizes: 3,4,2
