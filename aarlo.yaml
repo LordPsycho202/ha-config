@@ -1,6 +1,4 @@
 ---
 version: 1
 aarlo:
-  recent_time: 10
-  verbose_debug: true
-  backend: sse
+  backend: auto
