@@ -376,11 +376,8 @@ chips:
             entity: plant.front_flowers
             state_not: ok
           - condition: state
-            entity: input_boolean.flower_bed_watering
+            entity: input_boolean.soil_moisture_1_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       icon_color: grey
@@ -416,7 +413,10 @@ chips:
         conditions:
           - condition: state
             entity: plant.blackberries
-            state_not: ok
+            state_not: 
+          - condition: state
+            entity: input_boolean.soil_moisture_2_notify
+            state: on
     chip:
       type: template
       icon_color: grey
@@ -448,9 +448,14 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: plant.pineapples
-        state_not: ok
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.pineapples
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_3_notify
+            state: on
     chip:
       type: template
       entity: plant.pineapples
@@ -488,11 +493,8 @@ chips:
             entity: plant.greenhouse_plants
             state_not: ok
           - condition: state
-            entity: input_boolean.garden_watering
+            entity: input_boolean.soil_moisture_4_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       entity: plant.greenhouse_plants
@@ -530,11 +532,8 @@ chips:
             entity: plant.tobasco_and_tomato
             state_not: ok
           - condition: state
-            entity: input_boolean.garden_watering
+            entity: input_boolean.soil_moisture_5_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       entity: plant.tobasco_and_tomato
@@ -572,11 +571,8 @@ chips:
             entity: plant.tomatoes
             state_not: ok
           - condition: state
-            entity: input_boolean.garden_watering
+            entity: input_boolean.soil_moisture_6_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       entity: plant.tomatoes
@@ -614,8 +610,8 @@ chips:
             entity: plant.standing_container
             state_not: ok
           - condition: state
-            entity: sensor.season
-            state_not: winter
+            entity: input_boolean.soil_moisture_7_notify
+            state: on
     chip:
       type: template
       entity: plant.standing_container
@@ -653,11 +649,8 @@ chips:
             entity: plant.squash
             state_not: ok
           - condition: state
-            entity: input_boolean.garden_watering
+            entity: input_boolean.soil_moisture_8_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       entity: plant.squash
@@ -694,6 +687,9 @@ chips:
           - condition: state
             entity: plant.steve
             state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_sv_notify
+            state: on
     chip:
       type: template
       entity: plant.steve
@@ -730,6 +726,9 @@ chips:
           - condition: state
             entity: plant.lettuce
             state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_lt_notify
+            state: on
     chip:
       type: template
       entity: plant.lettuce
@@ -767,11 +766,8 @@ chips:
             entity: plant.strawberry
             state_not: ok
           - condition: state
-            entity: input_boolean.garden_watering
+            entity: input_boolean.soil_moisture_sb_notify
             state: on
-          - condition: state
-            entity: sensor.season
-            state_not: winter
     chip:
       type: template
       entity: plant.strawberry
@@ -809,8 +805,8 @@ chips:
             entity: plant.japanese_maple
             state_not: ok
           - condition: state
-            entity: sensor.season
-            state_not: winter
+            entity: input_boolean.soil_moisture_jm_notify
+            state: on
     chip:
       type: template
       entity: plant.japanese_maple
@@ -847,6 +843,9 @@ chips:
           - condition: state
             entity: plant.fairy_washboard
             state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_fw_notify
+            state: on
     chip:
       type: template
       entity: plant.fairy_washboard
