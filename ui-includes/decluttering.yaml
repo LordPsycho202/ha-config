@@ -57,3 +57,23 @@ plant_mushroom_card:
       {% else %}
       green
       {% endif %}
+
+
+plant_notification_card:
+  card:
+    type: custom:vertical-stack-in-card
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','[[moisture_entity]]')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: '[[moisture_entity]]'
+          - entity: '[[battery_entity]]'
+          - entity: '[[notify_entity]]'
+            name: Notify on this Plant?
