@@ -146,6 +146,38 @@ cards:
             name: Run Timelapse?
   - type: vertical-stack
     cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_1')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_1_batt
+          - entity: input_boolean.soil_moisture_1_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_2')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_2_batt
+          - entity: input_boolean.soil_moisture_2_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
       - type: "custom:button-card"
         template: card_title
         name: Batteries
