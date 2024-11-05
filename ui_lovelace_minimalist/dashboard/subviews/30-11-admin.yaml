@@ -293,7 +293,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.fairy_washboard_moisture
-          - entitye: sensor.fairy_washboard_conductivity
+          - entity: sensor.fairy_washboard_conductivity
           - entity: sensor.fairy_washboard_battery
           - entity: input_boolean.soil_moisture_fw_notify
             name: Notify on this Plant?
@@ -311,7 +311,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.japanese_maple_moisture
-          - entitye: sensor.japanese_maple_conductivity
+          - entity: sensor.japanese_maple_conductivity
           - entity: sensor.japanese_maple_battery
           - entity: input_boolean.soil_moisture_jm_notify
             name: Notify on this Plant?
@@ -329,7 +329,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.lettuce_moisture
-          - entitye: sensor.lettuce_conductivity
+          - entity: sensor.lettuce_conductivity
           - entity: sensor.lettuce_battery
           - entity: input_boolean.soil_moisture_lt_notify
             name: Notify on this Plant?
@@ -347,7 +347,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.steve_moisture
-          - entitye: sensor.steve_conductivity
+          - entity: sensor.steve_conductivity
           - entity: sensor.steve_battery
           - entity: input_boolean.soil_moisture_sv_notify
             name: Notify on this Plant?
@@ -365,7 +365,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.strawberry_moisture
-          - entitye: sensor.strawberry_conductivity
+          - entity: sensor.strawberry_conductivity
           - entity: sensor.strawberry_battery
           - entity: input_boolean.soil_moisture_sb_notify
             name: Notify on this Plant?
