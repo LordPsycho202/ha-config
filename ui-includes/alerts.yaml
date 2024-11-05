@@ -405,7 +405,7 @@ chips:
       entity: plant.front_flowers
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_flowers
 
   - type: conditional
     conditions:
@@ -444,7 +444,7 @@ chips:
       entity: plant.blackberries
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_blackberries
 
   - type: conditional
     conditions:
@@ -483,7 +483,7 @@ chips:
       content: Pineapple Pots
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_pineapple
 
   - type: conditional
     conditions:
@@ -522,7 +522,7 @@ chips:
       content: Greenhouse
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_greenhouse
 
   - type: conditional
     conditions:
@@ -561,7 +561,7 @@ chips:
       content: Tobasco & Tomato
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_tobasco
 
   - type: conditional
     conditions:
@@ -600,7 +600,7 @@ chips:
       content: Tomatoes
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_tomatoes
 
   - type: conditional
     conditions:
@@ -639,7 +639,7 @@ chips:
       content: Standing Container
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_planter
 
   - type: conditional
     conditions:
@@ -678,7 +678,7 @@ chips:
       content: Okra & Tomato
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_squash
 
   - type: conditional
     conditions:
@@ -717,7 +717,7 @@ chips:
       content: Steve
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_steve
 
   - type: conditional
     conditions:
@@ -756,7 +756,7 @@ chips:
       content: Lettuce
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_lettuce
 
   - type: conditional
     conditions:
@@ -795,7 +795,7 @@ chips:
       content: Strawberry
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_strawberry
 
   - type: conditional
     conditions:
@@ -834,7 +834,7 @@ chips:
       content: Japanese Maple
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_japanese_maple
 
   - type: conditional
     conditions:
@@ -873,4 +873,4 @@ chips:
       content: Fairy Washboard
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: plant_fairy_washboard
