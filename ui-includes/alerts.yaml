@@ -413,7 +413,7 @@ chips:
         conditions:
           - condition: state
             entity: plant.blackberries
-            state_not: 
+            state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_2_notify
             state: "on"
