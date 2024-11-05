@@ -157,6 +157,7 @@ cards:
       - type: entities
         entities:
           - entity: sensor.soil_moisture_1_batt
+          - entity: sensor.soil_moisture_1
           - entity: input_boolean.soil_moisture_1_notify
             name: Notify on this Plant?
 
@@ -173,7 +174,110 @@ cards:
       - type: entities
         entities:
           - entity: sensor.soil_moisture_2_batt
+          - entity: sensor.soil_moisture_2
           - entity: input_boolean.soil_moisture_2_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_3')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_3_batt
+          - entity: sensor.soil_moisture_3
+          - entity: input_boolean.soil_moisture_3_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_4')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_4_batt
+          - entity: sensor.soil_moisture_4
+          - entity: input_boolean.soil_moisture_4_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_5')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_5_batt
+          - entity: sensor.soil_moisture_5
+          - entity: input_boolean.soil_moisture_5_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_6')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_6_batt
+          - entity: sensor.soil_moisture_6
+          - entity: input_boolean.soil_moisture_6_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_7')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_7_batt
+          - entity: sensor.soil_moisture_7
+          - entity: input_boolean.soil_moisture_7_notify
+            name: Notify on this Plant?
+
+  - type: vertical-stack
+    cards:
+      - type: markdown
+        content: |-
+          ### Plant: {{
+            (states.plant
+            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_8')
+            | map(attribute='attributes.friendly_name')
+            | list).0
+          }}
+      - type: entities
+        entities:
+          - entity: sensor.soil_moisture_8_batt
+          - entity: sensor.soil_moisture_8
+          - entity: input_boolean.soil_moisture_8_notify
             name: Notify on this Plant?
 
   - type: vertical-stack
@@ -183,12 +287,6 @@ cards:
         name: Batteries
       - type: entities
         entities:
-          - entity: sensor.soil_moisture_1_batt
-          - entity: sensor.soil_moisture_2_batt
-          - entity: sensor.soil_moisture_3_batt
-          - entity: sensor.soil_moisture_4_batt
-          - entity: sensor.soil_moisture_5_batt
-          - entity: sensor.soil_moisture_6_batt
           - entity: sensor.soil_moisture_7_batt
           - entity: sensor.soil_moisture_8_batt
           - entity: sensor.soil_temperature_1_batt
