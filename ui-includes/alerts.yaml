@@ -377,7 +377,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_1_notify
-            state: on
+            state: "on"
     chip:
       type: template
       icon_color: grey
@@ -416,7 +416,7 @@ chips:
             state_not: 
           - condition: state
             entity: input_boolean.soil_moisture_2_notify
-            state: on
+            state: "on"
     chip:
       type: template
       icon_color: grey
@@ -455,7 +455,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_3_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.pineapples
@@ -494,7 +494,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_4_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.greenhouse_plants
@@ -533,7 +533,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_5_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.tobasco_and_tomato
@@ -572,7 +572,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_6_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.tomatoes
@@ -611,7 +611,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_7_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.standing_container
@@ -650,7 +650,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_8_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.squash
@@ -689,7 +689,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_sv_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.steve
@@ -728,7 +728,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_lt_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.lettuce
@@ -767,7 +767,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_sb_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.strawberry
@@ -806,7 +806,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_jm_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.japanese_maple
@@ -845,7 +845,7 @@ chips:
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_fw_notify
-            state: on
+            state: "on"
     chip:
       type: template
       entity: plant.fairy_washboard
