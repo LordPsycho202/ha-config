@@ -1,7 +1,6 @@
 ---
 title: "Downstairs"
 icon: "mdi:stairs-down"
-theme: "minimalist-mobile"
 path: "downstairs"
 cards:
   - type: vertical-stack
