@@ -83,9 +83,6 @@ command_line:
 #### Template Sensors #############################################
 template: !include template.yaml
 
-#### Influx Integration ##################################
-influxdb: !include influxdb.yaml
-
 #### Rest Sensors #############################################
 rest: !include rest.yaml
 
