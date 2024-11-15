@@ -60,7 +60,7 @@ cards:
       - type: markdown
         content: "# Computer Bank"
         card_mod:
-          class: middle-left
+          class: middle-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -74,7 +74,7 @@ cards:
         name: "Computer Core Temp"
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -89,7 +89,7 @@ cards:
         icon: mdi:crosshairs
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -104,7 +104,7 @@ cards:
         icon: mdi:home-automation
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -119,7 +119,7 @@ cards:
         icon: mdi:server-outline
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -134,7 +134,7 @@ cards:
         icon: mdi:nas
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -149,7 +149,7 @@ cards:
         icon: mdi:database
         show_state: true
         card_mod:
-          class: button-bullet-left
+          class: button-bullet-right
           style: |
             ha-card > * {
               font-family: Antonio

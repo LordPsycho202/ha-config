@@ -28,7 +28,7 @@ cards:
       - type: markdown
         content: '# Current Conditions'
         card_mod:
-          class: middle-left
+          class: middle-right
           style: |
             ha-card > * {
               font-family: Antonio
