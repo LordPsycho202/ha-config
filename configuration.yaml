@@ -83,9 +83,6 @@ command_line:
 #### Template Sensors #############################################
 template: !include template.yaml
 
-#### Influx Integration ##################################
-influxdb: !include influxdb.yaml
-
 #### Rest Sensors #############################################
 rest: !include rest.yaml
 
@@ -118,12 +115,6 @@ camera:
   - platform: ffmpeg
     input: rtsp://admin:Chargers1990@192.168.2.130:554/ch01/1
     name: Office
-  - platform: local_file
-    file_path: /media/photos/greenhouse/esp32cam.gif
-    name: Greenhouse_Timelapse
-  - platform: local_file
-    file_path: "/media/photos/greenhouse/2024autumn.gif"
-    name: Greenhouse_Timelapse_L
   - platform: ffmpeg
     input: "/media/multimedia/space_weather/latest_1024_0193.mp4"
     name: latest_1024_0193

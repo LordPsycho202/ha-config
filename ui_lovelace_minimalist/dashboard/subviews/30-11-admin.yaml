@@ -144,231 +144,108 @@ cards:
           - type: divider
           - entity: input_boolean.indoor_greenhouse_timelapse
             name: Run Timelapse?
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_1')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_1_batt
-          - entity: sensor.soil_moisture_1
-          - entity: input_boolean.soil_moisture_1_notify
-            name: Notify on this Plant?
 
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_2')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_2_batt
-          - entity: sensor.soil_moisture_2
-          - entity: input_boolean.soil_moisture_2_notify
-            name: Notify on this Plant?
+      - type: "custom:button-card"
+        template: card_title
+        name: Front Planter
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_1
+          - battery_entity: sensor.soil_moisture_1_batt
+          - notify_entity: input_boolean.soil_moisture_1_notify
 
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_3')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_3_batt
-          - entity: sensor.soil_moisture_3
-          - entity: input_boolean.soil_moisture_3_notify
-            name: Notify on this Plant?
+      - type: "custom:button-card"
+        template: card_title
+        name: Potted Plants
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_2
+          - battery_entity: sensor.soil_moisture_2_batt
+          - notify_entity: input_boolean.soil_moisture_2_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_3
+          - battery_entity: sensor.soil_moisture_3_batt
+          - notify_entity: input_boolean.soil_moisture_3_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.japanese_maple_moisture
+          - battery_entity: sensor.japanese_maple_battery
+          - notify_entity: input_boolean.soil_moisture_jm_notify
+  
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Indoor Greenhouse
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.steve_moisture
+          - battery_entity: sensor.steve_battery
+          - notify_entity: input_boolean.soil_moisture_sv_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.fairy_washboard_moisture
+          - battery_entity: sensor.fairy_washboard_battery
+          - notify_entity: input_boolean.soil_moisture_fw_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.lettuce_moisture
+          - battery_entity: sensor.lettuce_battery
+          - notify_entity: input_boolean.soil_moisture_lt_notify
 
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_4')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_4_batt
-          - entity: sensor.soil_moisture_4
-          - entity: input_boolean.soil_moisture_4_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_5')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_5_batt
-          - entity: sensor.soil_moisture_5
-          - entity: input_boolean.soil_moisture_5_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_6')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_6_batt
-          - entity: sensor.soil_moisture_6
-          - entity: input_boolean.soil_moisture_6_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_7')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_7_batt
-          - entity: sensor.soil_moisture_7
-          - entity: input_boolean.soil_moisture_7_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.soil_moisture_8')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.soil_moisture_8_batt
-          - entity: sensor.soil_moisture_8
-          - entity: input_boolean.soil_moisture_8_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.fairy_washboard_moisture')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.fairy_washboard_moisture
-          - entity: sensor.fairy_washboard_conductivity
-          - entity: sensor.fairy_washboard_battery
-          - entity: input_boolean.soil_moisture_fw_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.japanese_maple_moisture')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.japanese_maple_moisture
-          - entity: sensor.japanese_maple_conductivity
-          - entity: sensor.japanese_maple_battery
-          - entity: input_boolean.soil_moisture_jm_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.lettuce_moisture')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.lettuce_moisture
-          - entity: sensor.lettuce_conductivity
-          - entity: sensor.lettuce_battery
-          - entity: input_boolean.soil_moisture_lt_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.steve_moisture')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.steve_moisture
-          - entity: sensor.steve_conductivity
-          - entity: sensor.steve_battery
-          - entity: input_boolean.soil_moisture_sv_notify
-            name: Notify on this Plant?
-
-  - type: vertical-stack
-    cards:
-      - type: markdown
-        content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','sensor.strawberry_moisture')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
-      - type: entities
-        entities:
-          - entity: sensor.strawberry_moisture
-          - entity: sensor.strawberry_conductivity
-          - entity: sensor.strawberry_battery
-          - entity: input_boolean.soil_moisture_sb_notify
-            name: Notify on this Plant?
+      - type: "custom:button-card"
+        template: card_title
+        name: Garden Plots
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_4
+          - battery_entity: sensor.soil_moisture_4_batt
+          - notify_entity: input_boolean.soil_moisture_4_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_5
+          - battery_entity: sensor.soil_moisture_5_batt
+          - notify_entity: input_boolean.soil_moisture_5_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_6
+          - battery_entity: sensor.soil_moisture_6_batt
+          - notify_entity: input_boolean.soil_moisture_6_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_7
+          - battery_entity: sensor.soil_moisture_7_batt
+          - notify_entity: input_boolean.soil_moisture_7_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_8
+          - battery_entity: sensor.soil_moisture_8_batt
+          - notify_entity: input_boolean.soil_moisture_8_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.strawberry_moisture
+          - battery_entity: sensor.strawberry_battery
+          - notify_entity: input_boolean.soil_moisture_sb_notify
 
   - type: vertical-stack
     cards:
