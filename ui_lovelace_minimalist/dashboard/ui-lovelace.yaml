@@ -22,6 +22,8 @@ views:
   - !include subviews/20-2-kids_room.yaml
   - !include subviews/20-3-craft_room.yaml
   - !include subviews/20-4-upmisc.yaml
+  #Utilities
+  - !include views/25-utilities.yaml
   # Garden
   - !include views/30-garden.yaml
   - !include subviews/30-1-steve.yaml

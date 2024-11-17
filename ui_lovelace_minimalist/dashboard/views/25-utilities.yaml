@@ -1,0 +1,107 @@
+---
+title: "Utilities"
+icon: "mdi:lightning-bolt"
+theme: "minimalist-mobile"
+path: "utilities"
+cards:
+  - type: vertical-stack
+    cards:
+      - !include /config/ui-includes/alerts.yaml
+      - !include ../includes/1-welcome.yaml
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Electricity
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.home_123_1mon
+            unit: kWh
+            name: Power Usage
+            max: 2400
+            min: 0
+            severity:
+              green: 0
+              yellow: 650
+              red: 1000
+          - type: custom:mushroom-template-card
+            primary: ${{ states('sensor.power_bill')|round(2) }}
+            secondary: Expected Bill (So Far)
+            icon: mdi:currency-usd
+            entity: sensor.power_bill
+            icon_color: |-
+              {% if states('sensor.home_123_1mon') | float <= 650 %} green
+              {% elif states('sensor.home_123_1mon') | float <= 1000 %} yellow
+              {% else %} red
+              {% endif %}
+            layout: vertical
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Water
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.monthly_water
+            unit: gal
+            name: Water Usage
+            max: 10000
+            min: 0
+            severity:
+              green: 0
+              yellow: 5700
+              red: 7500
+          - type: custom:mushroom-template-card
+            primary: ${{ states('sensor.water_bill')|round(2) }}
+            secondary: Expected Bill (So Far)
+            icon: mdi:currency-usd
+            entity: sensor.water_bill
+            icon_color: |-
+              {% if states('sensor.monthly_water') | float <= 5700 %} green
+              {% elif states('sensor.monthly_water') | float <= 7500 %} yellow
+              {% else %} red
+              {% endif %}
+            layout: vertical
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Propane
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.tank_utility_002a001d383334340d473130
+            max: 100
+            min: 0
+            unit: "%"
+            name: Propane Tank
+            needle: true
+            severity:
+              green: 66
+              yellow: 33
+              red: 0
+          - type: vertical-stack
+            cards:
+              - type: custom:mushroom-template-card
+                primary: >-
+                  {% set fill = 102 - states('sensor.propane_remaining_gallons')|float %}
+                  {% set price = fill * states('input_number.propane_price')|float %}
+                  ${{ price | round(2) }}
+                secondary: Next Fill
+                icon: mdi:currency-usd
+                entity: Next Fill
+                icon_color: >-
+                  {% set fill = 102 - states('sensor.propane_remaining_gallons')|float%}
+                  {% set price = fill * states('input_number.propane_price')|float %}
+                  {% if price | float <= 100 %} green
+                  {% elif price | float <= 200 %} yellow
+                  {% else %} red
+                  {% endif %}
+              - type: entity
+                entity: input_number.propane_price
+                name: Set Price/Gal
