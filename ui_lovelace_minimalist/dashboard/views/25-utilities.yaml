@@ -72,6 +72,7 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Propane
+        label: House Tank
       - type: horizontal-stack
         cards:
           - type: gauge
@@ -105,3 +106,19 @@ cards:
               - type: entity
                 entity: input_number.propane_price
                 name: Set Price/Gal
+      - type: "custom:button-card"
+        template: card_title
+        label: Grill Tank
+      - type: horizontal-stack
+        cards:
+          - type: gauge
+            entity: sensor.pro_check_462f_tank_percent
+            max: 100
+            min: 0
+            unit: "%"
+            name: Grill
+            needle: true
+            severity:
+              green: 66
+              yellow: 33
+              red: 0
