@@ -58,7 +58,6 @@ plant_mushroom_card:
       green
       {% endif %}
 
-
 plant_notification_card:
   card:
     type: custom:vertical-stack-in-card

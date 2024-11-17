@@ -173,7 +173,6 @@ cards:
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Squash Soil Moisture
 
-
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -200,7 +199,7 @@ cards:
             variables:
               ulm_card_binary_sensor_alert: true
               ulm_card_binary_sensor_alert_name: Outdoor Temp/Humidity Sensor
-            entity: binary_sensor.wh26_battery        
+            entity: binary_sensor.wh26_battery   
 
   - type: vertical-stack
     cards:
@@ -263,7 +262,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.vibration_mail_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Mailbox Door 
+              ulm_card_battery_name: Mailbox Door
 
       - type: horizontal-stack
         cards:
@@ -282,7 +281,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.temp_greenhouse_battery
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Indoor Greenhouse Temp   
+              ulm_card_battery_name: Indoor Greenhouse Temp
 
       - type: horizontal-stack
         cards:
@@ -312,7 +311,7 @@ cards:
               ulm_card_battery_charger_type_entity_id: sensor.door_kidsroom_closet_battery_5
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
-              ulm_card_battery_name: Kids Room Closet Door                    
+              ulm_card_battery_name: Kids Room Closet Door                 
           - type: "custom:button-card"
             template: card_battery
             entity: sensor.remote_office_battery
@@ -395,5 +394,3 @@ cards:
               ulm_card_battery_battery_level_danger: 15
               ulm_card_battery_battery_level_warning: 25
               ulm_card_battery_name: Office Blinds
-
-

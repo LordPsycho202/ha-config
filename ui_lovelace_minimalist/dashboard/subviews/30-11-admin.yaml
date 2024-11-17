@@ -180,7 +180,7 @@ cards:
           - moisture_entity: sensor.japanese_maple_moisture
           - battery_entity: sensor.japanese_maple_battery
           - notify_entity: input_boolean.soil_moisture_jm_notify
-  
+
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
