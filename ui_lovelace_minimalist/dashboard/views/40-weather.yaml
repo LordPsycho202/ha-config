@@ -320,7 +320,7 @@ cards:
       show_name: false
       camera_view: auto
       type: picture-entity
-      entity: sensor.jc_ga_drought_level
+      entity: camera.droughtmonitor_unl_edu
       name: Drought Level
       camera_image: camera.droughtmonitor_unl_edu
 
