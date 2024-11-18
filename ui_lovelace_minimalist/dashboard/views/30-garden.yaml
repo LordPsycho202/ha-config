@@ -155,117 +155,153 @@ cards:
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.steve
-              - plant_path: plant_steve
-              - plant_icon: pine-tree-variant-outline
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.steve_moisture
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.steve_moisture
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_sv_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.steve
+                - plant_path: plant_steve
+                - plant_icon: pine-tree-variant-outline
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.steve_moisture
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.steve_moisture
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.fairy_washboard
-              - plant_path: plant_fairy_washboard
-              - plant_icon: grass
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.fairy_washboard_moisture
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.fairy_washboard_moisture
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_fw_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.fairy_washboard
+                - plant_path: plant_fairy_washboard
+                - plant_icon: grass
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.fairy_washboard_moisture
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.fairy_washboard_moisture
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.lettuce
-              - plant_path: plant_lettuce
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.lettuce_moisture
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.lettuce_moisture
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_lt_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.lettuce
+                - plant_path: plant_lettuce
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.lettuce_moisture
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.lettuce_moisture
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Potted Plants
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.blackberries
-              - plant_path: plant_blackberries
-              - plant_icon: fruit-grapes
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_2
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_2
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_2_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.blackberries
+                - plant_path: plant_blackberries
+                - plant_icon: fruit-grapes
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_2
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_2
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.pineapples
-              - plant_path: plant_pineapple
-              - plant_icon: fruit-pineapple
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_3
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_3
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_3_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.pineapples
+                - plant_path: plant_pineapple
+                - plant_icon: fruit-pineapple
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_3
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_3
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.japanese_maple
-              - plant_path: plant_japanese_maple
-              - plant_icon: leaf-maple
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.japanese_maple_moisture
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.japanese_maple_moisture
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_jm_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.japanese_maple
+                - plant_path: plant_japanese_maple
+                - plant_icon: leaf-maple
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.japanese_maple_moisture
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.japanese_maple_moisture
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
@@ -286,6 +322,9 @@ cards:
                   - condition: state
                     entity: timer.flower_bed_watering
                     state: idle
+                  - condition: state
+                    entity: input_boolean.flower_bed_watering
+                    state: "on"     
             card:
               type: custom:mushroom-template-card
               primary: Water Flower Beds
@@ -332,23 +371,29 @@ cards:
               double_tap_action:
                 action: none
               multiline_secondary: true
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.front_flowers
-              - plant_path: plant_flowers
-              - plant_icon: flower-outline
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_1
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_1
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_1_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.front_flowers
+                - plant_path: plant_flowers
+                - plant_icon: flower-outline
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_1
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_1
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
@@ -381,6 +426,9 @@ cards:
                   - condition: state
                     entity: timer.garden_watering
                     state: idle
+                  - condition: state
+                    entity: input_boolean.garden_watering
+                    state: "on"                    
             card:
               type: custom:mushroom-template-card
               primary: Water Garden
@@ -454,111 +502,147 @@ cards:
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.greenhouse_plants
-              - plant_path: plant_greenhouse
-              - plant_icon: carrot
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_4
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_4
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_4_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.greenhouse_plants
+                - plant_path: plant_greenhouse
+                - plant_icon: carrot
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_4
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_4
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.tobasco_and_tomato
-              - plant_path: plant_tobasco
-              - plant_icon: chili-mild
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_5
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_5
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_5_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.tobasco_and_tomato
+                - plant_path: plant_tobasco
+                - plant_icon: chili-mild
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_5
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_5
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.tomatoes
-              - plant_path: plant_tomatoes
-              - plant_icon: pig
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_6
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_6
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_6_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.tomatoes
+                - plant_path: plant_tomatoes
+                - plant_icon: pig
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_6
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_6
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.standing_container
-              - plant_path: plant_planter
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_7
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_7
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_8_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.standing_container
+                - plant_path: plant_planter
+            - type: "custom:button-card"
+              template: card_graph
+              entity: input_boolean.soil_moisture_7_notify
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_7
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.squash
-              - plant_path: plant_squash
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_8
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_8
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_8_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.squash
+                - plant_path: plant_squash
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_8
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_8
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
-      - type: horizontal-stack
-        cards:
-          - type: custom:decluttering-card
-            template: plant_mushroom_card
-            variables:
-              - plant_entity: plant.strawberry
-              - plant_path: plant_strawberry
-              - plant_icon: fruit-grapes
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.strawberry_moisture
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.strawberry_moisture
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_sb_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.strawberry
+                - plant_path: plant_strawberry
+                - plant_icon: fruit-grapes
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.strawberry_moisture
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.strawberry_moisture
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
