@@ -310,5 +310,19 @@ cards:
         entity: weather.weather_station
         camera_image: camera.radar_weather_gov
 
+  - type: conditional
+    conditions:
+      - condition: state
+        entity: sensor.jc_ga_drought_level
+        state_not: "No Drought"
+    card:
+      show_state: false
+      show_name: false
+      camera_view: auto
+      type: picture-entity
+      entity: sensor.jc_ga_drought_level
+      name: Drought Level
+      camera_image: camera.droughtmonitor_unl_edu
+
   - type: markdown
     content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
