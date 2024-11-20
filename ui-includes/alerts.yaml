@@ -238,7 +238,33 @@ chips:
       icon: mdi:water-alert-outline
       tap_action:
         action: navigate
-        navigation_path: garden
+        navigation_path: utilities
+
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.tank_utility_002a001d383334340d473130
+        below: 50
+    chip:
+      type: template
+      content: Refill House Tank
+      icon: mdi:tanker-truck
+      tap_action:
+        action: navigate
+        navigation_path: utilities
+
+  - type: conditional
+    conditions:
+      - condition: numeric_state
+        entity: sensor.grill_tank_percent
+        below: 20
+    chip:
+      type: template
+      content: Refill Grill Tank
+      icon: mdi:propane-tank
+      tap_action:
+        action: navigate
+        navigation_path: utilities
 
   - type: conditional
     conditions:
