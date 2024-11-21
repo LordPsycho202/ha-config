@@ -216,7 +216,7 @@ cards:
             name: House C₃H₈ Reserve
           - entity: sensor.grill_tank_percent
             name: Grill C₃H₈ Reserve
-        columns: 4
+        columns: 6
         card_mod:
           class: middle-left
           style: |
