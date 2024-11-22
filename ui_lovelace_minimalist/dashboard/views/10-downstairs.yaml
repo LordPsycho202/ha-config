@@ -102,54 +102,83 @@ cards:
               ulm_custom_card_esh_room_light_entity: light.foyer
             label: '[[[ return "Words" ]]]'
 
+      - type: conditional
+        conditions:
+          - condition: user
+            users:
+              - 43859dba2df74242af68b55440156fe4
+              - 829c75b162794808a699871056da2b93
+        card:
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template:
+                  - card_fan_room
+                  - yellow_on
+                name: Master Bathroom
+                entity: light.master_bathroom
+                icon: mdi:shower-head
+                variables:
+                  ulm_custom_card_fan_room_light_entity: light.master_bathroom
+                  ulm_custom_card_fan_room_fan_entity: fan.shower_vent
+                tap_action:
+                  action: navigate
+                  navigation_path: "master_bath"
+                label: '[[[ return states["sensor.master_bathroom_temperature"].state + "°F" ]]]'
+              - type: "custom:button-card"
+                template:
+                  - card_fan_room
+                  - yellow_on
+                name: Master Bedroom
+                entity: light.master_bedroom
+                icon: mdi:bed-double
+                tap_action:
+                  action: navigate
+                  navigation_path: "master_bed"
+                variables:
+                  ulm_custom_card_fan_room_light_entity: light.master_bedroom
+                  ulm_custom_card_fan_room_fan_entity: fan.master_bedroom_ceiling_fan
+                  ulm_card_dynamic_color: true
+                label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
+
+      - type: conditional
+        conditions:
+          - condition: user
+            users:
+              - 43859dba2df74242af68b55440156fe4
+              - 829c75b162794808a699871056da2b93
+        card:
+          - type: horizontal-stack
+            cards:
+              - type: "custom:button-card"
+                template:
+                  - card_esh_room
+                  - yellow_on
+                name: Laundry/Closet
+                entity: light.laundry_room
+                icon: mdi:tumble-dryer
+                variables:
+                  ulm_custom_card_esh_room_light_entity: light.laundry_room
+                tap_action:
+                  action: navigate
+                  navigation_path: "laundry"
+                label: '[[[ return "Dryer: " + states["input_select.dryer_state"].state ]]]'
+              - type: "custom:button-card"
+                template:
+                  - card_esh_room
+                  - yellow_on
+                name: Master Closet
+                entity: light.master_closet
+                icon: mdi:hanger
+                tap_action:
+                  action: navigate
+                  navigation_path: "master_bath"
+                variables:
+                  ulm_custom_card_fan_room_light_entity: light.master_closet
+                  ulm_card_dynamic_color: true
+
       - type: horizontal-stack
         cards:
-          - type: "custom:button-card"
-            template:
-              - card_fan_room
-              - yellow_on
-            name: Master Bathroom
-            entity: light.master_bathroom
-            icon: mdi:shower-head
-            variables:
-              ulm_custom_card_fan_room_light_entity: light.master_bathroom
-              ulm_custom_card_fan_room_fan_entity: fan.shower_vent
-            tap_action:
-              action: navigate
-              navigation_path: "master_bath"
-            label: '[[[ return states["sensor.master_bathroom_temperature"].state + "°F" ]]]'
-
-          - type: "custom:button-card"
-            template:
-              - card_fan_room
-              - yellow_on
-            name: Master Bedroom
-            entity: light.master_bedroom
-            icon: mdi:bed-double
-            tap_action:
-              action: navigate
-              navigation_path: "master_bed"
-            variables:
-              ulm_custom_card_fan_room_light_entity: light.master_bedroom
-              ulm_custom_card_fan_room_fan_entity: fan.master_bedroom_ceiling_fan
-              ulm_card_dynamic_color: true
-            label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
-
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template:
-              - card_esh_room
-              - yellow_on
-            name: Laundry/Closet
-            entity: light.laundry_room
-            icon: mdi:tumble-dryer
-            variables:
-              ulm_custom_card_esh_room_light_entity: light.laundry_room
-            tap_action:
-              action: navigate
-              navigation_path: "laundry"
-            label: '[[[ return "Dryer: " + states["input_select.dryer_state"].state ]]]'
           - type: "custom:button-card"
             template:
               - card_rnissen_garage
@@ -164,19 +193,19 @@ cards:
               action: navigate
               navigation_path: "garage"
             label: '[[[ return states["cover.garage_door_2"].state ]]]'
-      - type: "custom:button-card"
-        template:
-          - card_esh_room
-          - yellow_on
-        name: Outside
-        entity: light.outside
-        icon: mdi:tree
-        variables:
-          ulm_custom_card_esh_room_light_entity: light.outside
-        tap_action:
-          action: navigate
-          navigation_path: "outside"
-        label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
+          - type: "custom:button-card"
+            template:
+              - card_esh_room
+              - yellow_on
+            name: Outside
+            entity: light.outside
+            icon: mdi:tree
+            variables:
+              ulm_custom_card_esh_room_light_entity: light.outside
+            tap_action:
+              action: navigate
+              navigation_path: "outside"
+            label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
 
       - type: conditional
         conditions:
