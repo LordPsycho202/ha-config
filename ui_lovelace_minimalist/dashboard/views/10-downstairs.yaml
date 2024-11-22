@@ -154,7 +154,7 @@ cards:
               template:
                 - card_esh_room
                 - yellow_on
-              name: Laundry/Closet
+              name: Laundry
               entity: light.laundry_room
               icon: mdi:tumble-dryer
               variables:
@@ -174,8 +174,7 @@ cards:
                 action: navigate
                 navigation_path: "master_bath"
               variables:
-                ulm_custom_card_fan_room_light_entity: light.master_closet
-                ulm_card_dynamic_color: true
+                ulm_custom_card_esh_room_light_entity: light.master_closet
 
       - type: horizontal-stack
         cards:
