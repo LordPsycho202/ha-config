@@ -789,39 +789,39 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.strawberry
+            entity: plant.mums
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_sb_notify
             state: "on"
     chip:
       type: template
-      entity: plant.strawberry
+      entity: plant.mums
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.strawberry','problem') %}
+        {% if 'moisture low' in state_attr('plant.mums','problem') %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.strawberry','problem') %}
+        {% elif 'moisture high' in state_attr('plant.mums','problem') %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.strawberry','problem') %}
+        {% elif 'moisture unavailable' in state_attr('plant.mums','problem') %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.strawberry','problem') %}
+        {% elif 'temperature low' in state_attr('plant.mums','problem') %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.strawberry','problem') %}
+        {% elif 'temperature high' in state_attr('plant.mums','problem') %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.strawberry','problem') %}
+        {% elif 'temperature unavailable' in state_attr('plant.mums','problem') %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.strawberry','problem') %}
+        {% elif 'conductivity low' in state_attr('plant.mums','problem') %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.strawberry','problem')%}
+        {% elif 'battery low' in state_attr('plant.mums','problem')%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-grapes
         {% endif %}
-      content: Strawberry
+      content: mums
       tap_action:
         action: navigate
-        navigation_path: plant_strawberry
+        navigation_path: plant_mums
 
   - type: conditional
     conditions:
