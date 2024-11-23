@@ -212,7 +212,11 @@ cards:
           - entity: sensor.monthly_water
           - entity: sensor.power_bill
           - entity: sensor.home_123_1mon
-        columns: 4
+          - entity: sensor.tank_utility_002a001d383334340d473130
+            name: House C₃H₈ Reserve
+          - entity: sensor.grill_tank_percent
+            name: Grill C₃H₈ Reserve
+        columns: 6
         card_mod:
           class: middle-left
           style: |
