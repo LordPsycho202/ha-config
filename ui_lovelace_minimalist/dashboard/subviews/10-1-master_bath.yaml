@@ -62,7 +62,7 @@ cards:
             Finishes in {{ '00:00:00' if f == None else
               (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
             Hold to Stop
-          icon: mdi:sprinkler
+          icon: mdi:fan
           entity: timer.master_toilet_fan
           icon_color: blue
           tap_action:
