@@ -62,6 +62,33 @@ cards:
         template: card_title
         label: "Powder Room"
 
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: timer.guest_bathroom_fan
+            state: active
+        card:
+          type: custom:mushroom-template-card
+          primary: Fan Timer
+          secondary: |-
+            {%- set f = state_attr('timer.timer.guest_bathroom_fan', 'finishes_at') %}
+            Finishes in {{ '00:00:00' if f == None else
+              (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
+            Hold to Stop
+          icon: mdi:sprinkler
+          entity: timer.guest_bathroom_fan
+          icon_color: blue
+          tap_action:
+            action: none
+          hold_action:
+            action: call-service
+            service: timer.finish
+            target:
+              entity_id: timer.guest_bathroom_fan
+          double_tap_action:
+            action: none
+          multiline_secondary: true
+
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
