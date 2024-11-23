@@ -13,7 +13,7 @@ cards:
         variables:
           - plant_entity: plant.mums
           - plant_path: plant_mums
-          - plant_icon: fruit-grapes
+          - plant_icon: flower-outline
           - plant_action: more-info
       - type: horizontal-stack
         cards:
