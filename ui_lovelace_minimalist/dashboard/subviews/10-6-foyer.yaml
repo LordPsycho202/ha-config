@@ -30,7 +30,7 @@ cards:
         name: "Front Door Lock"
         variables:
           ulm_custom_card_eraycetinay_lock_tap_control: true
-          ulm_custom_card_eraycetinay_lock_battery_level: sensor.front_door_battery
+          ulm_custom_card_eraycetinay_lock_battery_level: "sensor.front_door_battery"
         triggers_update:
           - "sensor.front_door_battery"
 
@@ -71,7 +71,7 @@ cards:
           type: custom:mushroom-template-card
           primary: Fan Timer
           secondary: |-
-            {%- set f = state_attr('timer.timer.guest_bathroom_fan', 'finishes_at') %}
+            {%- set f = state_attr('timer.guest_bathroom_fan', 'finishes_at') %}
             Finishes in {{ '00:00:00' if f == None else
               (as_datetime(f) - now()).total_seconds() | timestamp_custom('%H:%M:%S', false) }}
             Hold to Stop
