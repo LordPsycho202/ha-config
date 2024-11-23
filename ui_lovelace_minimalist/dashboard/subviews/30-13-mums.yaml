@@ -1,9 +1,9 @@
 ---
-title: "Strawberry Plant"
+title: "Mums Plant"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:leaf
 subview: true
-path: plant_strawberry
+path: plant_mums
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
@@ -11,53 +11,53 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.strawberry
-          - plant_path: plant_strawberry
+          - plant_entity: plant.mums
+          - plant_path: plant_mums
           - plant_icon: fruit-grapes
           - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.strawberry_moisture
+            entity: sensor.mums_moisture
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.strawberry_moisture
+              ulm_card_graph_entity: sensor.mums_moisture
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.strawberry_conductivity
+            entity: sensor.mums_conductivity
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Nutrients
-              ulm_card_graph_entity: sensor.strawberry_conductivity
+              ulm_card_graph_entity: sensor.mums_conductivity
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.strawberry_temperature
+            entity: sensor.mums_temperature
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.strawberry_temperature
+              ulm_card_graph_entity: sensor.mums_temperature
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.strawberry_illuminance
+            entity: sensor.mums_illuminance
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Light
-              ulm_card_graph_entity: sensor.strawberry_illuminance
+              ulm_card_graph_entity: sensor.mums_illuminance
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.strawberry_battery
+        entity: sensor.mums_battery
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

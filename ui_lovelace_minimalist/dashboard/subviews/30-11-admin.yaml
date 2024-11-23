@@ -243,8 +243,8 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - moisture_entity: sensor.strawberry_moisture
-          - battery_entity: sensor.strawberry_battery
+          - moisture_entity: sensor.mums_moisture
+          - battery_entity: sensor.mums_battery
           - notify_entity: input_boolean.soil_moisture_sb_notify
 
   - type: vertical-stack

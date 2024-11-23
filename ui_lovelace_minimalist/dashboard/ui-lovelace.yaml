@@ -38,7 +38,7 @@ views:
   - !include subviews/30-10-squash.yaml
   - !include subviews/30-11-admin.yaml
   - !include subviews/30-12-timelapse.yaml
-  - !include subviews/30-13-strawberry.yaml
+  - !include subviews/30-13-mums.yaml
   - !include subviews/30-14-japanese-maple.yaml
   - !include subviews/30-15-fairy-washboard.yaml
   # Weather
