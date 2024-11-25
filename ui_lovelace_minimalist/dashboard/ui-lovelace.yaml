@@ -35,7 +35,7 @@ views:
   - !include subviews/30-7-tobasco.yaml
   - !include subviews/30-8-tomatoes.yaml
   - !include subviews/30-9-planter.yaml
-  - !include subviews/30-10-squash.yaml
+  - !include subviews/30-10-garlic.yaml
   - !include subviews/30-11-admin.yaml
   - !include subviews/30-12-timelapse.yaml
   - !include subviews/30-13-mums.yaml
