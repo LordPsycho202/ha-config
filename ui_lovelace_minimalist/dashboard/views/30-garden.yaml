@@ -620,7 +620,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_8_notify
+            entity: input_boolean.soil_moisture_7_notify
             state: "on"    
         card:
           type: horizontal-stack
@@ -632,7 +632,7 @@ cards:
                 - plant_path: plant_planter
             - type: "custom:button-card"
               template: card_graph
-              entity: input_boolean.soil_moisture_7_notify
+              entity: sensor.soil_moisture_7
               variables:
                 ulm_card_graph_color: "var(--google-green)"
                 ulm_card_graph_name: Soil Moisture
