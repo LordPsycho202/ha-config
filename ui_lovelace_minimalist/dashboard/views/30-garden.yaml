@@ -225,6 +225,28 @@ cards:
                 ulm_card_graph_entity: sensor.lettuce_moisture
                 ulm_card_graph_type: fill
                 ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_8_notify
+            state: "on"    
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:decluttering-card
+              template: plant_mushroom_card
+              variables:
+                - plant_entity: plant.garlic
+                - plant_path: plant_garlic
+            - type: "custom:button-card"
+              template: card_graph
+              entity: sensor.soil_moisture_8
+              variables:
+                ulm_card_graph_color: "var(--google-green)"
+                ulm_card_graph_name: Soil Moisture
+                ulm_card_graph_entity: sensor.soil_moisture_8
+                ulm_card_graph_type: fill
+                ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:
@@ -444,9 +466,6 @@ cards:
                       - condition: numeric_state
                         entity: sensor.soil_moisture_7
                         below: 25
-                      - condition: numeric_state
-                        entity: sensor.soil_moisture_8
-                        below: 22
                   - condition: state
                     entity: timer.garden_watering
                     state: idle
@@ -618,29 +637,6 @@ cards:
                 ulm_card_graph_color: "var(--google-green)"
                 ulm_card_graph_name: Soil Moisture
                 ulm_card_graph_entity: sensor.soil_moisture_7
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
-
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_8_notify
-            state: "on"    
-        card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.squash
-                - plant_path: plant_squash
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.soil_moisture_8
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.soil_moisture_8
                 ulm_card_graph_type: fill
                 ulm_card_graph_hours: 24
 

@@ -112,9 +112,9 @@ cards:
         icon: mdi:leaf
         tap_action:
           action: more-info
-        name: Okra & Tomato
+        name: Garlic
         show_state: true
-        entity: plant.squash
+        entity: plant.garlic
         card_mod:
           class: button-bullet-right
           style: |

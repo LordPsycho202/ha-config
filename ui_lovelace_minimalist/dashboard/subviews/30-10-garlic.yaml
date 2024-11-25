@@ -1,9 +1,9 @@
 ---
-title: "Squash, Okra, & Tomato"
+title: "Garlic"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:leaf
 subview: true
-path: plant_squash
+path: plant_garlic
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
@@ -11,8 +11,8 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.squash
-          - plant_path: plant_squash
+          - plant_entity: plant.garlic
+          - plant_path: plant_garlic
           - plant_action: more-info
       - type: horizontal-stack
         cards:

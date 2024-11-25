@@ -48,11 +48,11 @@ Standing Container:
   min_moisture: 25
   max_moisture: 75
   min_battery: 35
-Squash:
+Garlic:
   sensors:
     moisture: sensor.soil_moisture_8
     battery: sensor.soil_moisture_8_batt
-  min_moisture: 22
+  min_moisture: 20
   max_moisture: 65
   min_battery: 35
 Steve:

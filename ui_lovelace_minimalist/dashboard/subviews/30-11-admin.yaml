@@ -204,6 +204,12 @@ cards:
           - moisture_entity: sensor.lettuce_moisture
           - battery_entity: sensor.lettuce_battery
           - notify_entity: input_boolean.soil_moisture_lt_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_8
+          - battery_entity: sensor.soil_moisture_8_batt
+          - notify_entity: input_boolean.soil_moisture_8_notify
 
   - type: vertical-stack
     cards:
@@ -234,12 +240,6 @@ cards:
           - moisture_entity: sensor.soil_moisture_7
           - battery_entity: sensor.soil_moisture_7_batt
           - notify_entity: input_boolean.soil_moisture_7_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - moisture_entity: sensor.soil_moisture_8
-          - battery_entity: sensor.soil_moisture_8_batt
-          - notify_entity: input_boolean.soil_moisture_8_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
