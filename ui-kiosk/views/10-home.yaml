@@ -11,6 +11,15 @@ layout:
     "menu main aux"
     "sidebar main aux"
     "footerL footer footer"
+  mediaquery:
+    '(max-width: 900px)':
+      grid-template-columns: 22% 78%
+      grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+      grid-template-areas: |
+        "headerL headerR"
+        "menu main"
+        "sidebar main"
+        "footerL footer"
 path: home
 badges: []
 cards:
