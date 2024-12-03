@@ -12,7 +12,7 @@ layout:
     "sidebar main aux"
     "footerL footer footer"
   mediaquery:
-    '(max-width: 900px)':
+    '(max-width: 1440px)':
       grid-template-columns: 22% 78%
       grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
       grid-template-areas: |
