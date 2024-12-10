@@ -253,6 +253,16 @@ cards:
             type: 'bullets'
         cards:
           - type: horizontal-stack
+            card_mod:
+            style:
+              hui-horizontal-stack-card$: |
+                hui-entities-card {
+                  margin-left: 10px !important;
+                  margin-right: 10px !important;
+                  margin-bottom: 10px !important;
+                  width: 200%;
+                  flex: auto !important; 
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -279,12 +289,22 @@ cards:
                   - entity: sensor.monthly_water
                 columns: 2
                 card_mod:
-                  class: middle-open
+                  class: middle-blank
                   style: |
                     ha-card > * {
                       font-family: Antonio
                     }
           - type: horizontal-stack
+            card_mod:
+            style:
+              hui-horizontal-stack-card$: |
+                hui-entities-card {
+                  margin-left: 10px !important;
+                  margin-right: 10px !important;
+                  margin-bottom: 10px !important;
+                  width: 200%;
+                  flex: auto !important; 
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -311,12 +331,22 @@ cards:
                   - entity: sensor.home_123_1mon
                 columns: 2
                 card_mod:
-                  class: middle-open
+                  class: middle-blank
                   style: |
                     ha-card > * {
                       font-family: Antonio
                     }
           - type: horizontal-stack
+            card_mod:
+            style:
+              hui-horizontal-stack-card$: |
+                hui-entities-card {
+                  margin-left: 10px !important;
+                  margin-right: 10px !important;
+                  margin-bottom: 10px !important;
+                  width: 200%;
+                  flex: auto !important; 
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -345,7 +375,7 @@ cards:
                     name: Grill C₃H₈ Reserve
                 columns: 2
                 card_mod:
-                  class: middle-open
+                  class: middle-blank
                   style: |
                     ha-card > * {
                       font-family: Antonio
