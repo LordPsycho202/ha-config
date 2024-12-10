@@ -265,7 +265,7 @@ cards:
                 hold_action:
                   action: none
                 card_mod:
-                  class: button-bullet-right
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -279,7 +279,7 @@ cards:
                   - entity: sensor.monthly_water
                 columns: 2
                 card_mod:
-                  class: middle-left
+                  class: middle-open
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -297,7 +297,7 @@ cards:
                 hold_action:
                   action: none
                 card_mod:
-                  class: button-bullet-right
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -311,7 +311,7 @@ cards:
                   - entity: sensor.home_123_1mon
                 columns: 2
                 card_mod:
-                  class: middle-left
+                  class: middle-open
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -329,7 +329,7 @@ cards:
                 hold_action:
                   action: none
                 card_mod:
-                  class: button-bullet-right
+                  class: button-bullet-left
                   style: |
                     ha-card > * {
                       font-family: Antonio
@@ -345,7 +345,7 @@ cards:
                     name: Grill C₃H₈ Reserve
                 columns: 2
                 card_mod:
-                  class: middle-left
+                  class: middle-open
                   style: |
                     ha-card > * {
                       font-family: Antonio
