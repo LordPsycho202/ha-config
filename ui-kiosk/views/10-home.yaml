@@ -255,14 +255,14 @@ cards:
           - type: horizontal-stack
             card_mod:
             style:
-              hui-horizontal-stack-card $: |
-                div#root > :first-child > * {
-                  width: 30%;
-                  flex: auto; 
+              hui-horizontal-stack-card$: |
+                hui-glance-card {
+                  width: 75%;
+                  flex: auto !important; 
                 }
-                div#root > :last-child > * {
-                  width: 70%;
-                  flex: auto; 
+                hui-button-card {
+                  width: 25%
+                  flex: auto !important;
                 }
             cards:
               - show_name: true
@@ -299,15 +299,14 @@ cards:
             card_mod:
             style:
               hui-horizontal-stack-card$: |
-                hui-horizontal-stack-card $: |
-                  div#root > :first-child > * {
-                    width: 30%;
-                    flex: auto; 
-                  }
-                  div#root > :last-child > * {
-                    width: 70%;
-                    flex: auto; 
-                  }
+                hui-glance-card {
+                  width: 75%;
+                  flex: auto !important; 
+                }
+                hui-button-card {
+                  width: 25%
+                  flex: auto !important;
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -343,15 +342,14 @@ cards:
             card_mod:
             style:
               hui-horizontal-stack-card$: |
-                hui-horizontal-stack-card $: |
-                  div#root > :first-child > * {
-                    width: 30%;
-                    flex: auto; 
-                  }
-                  div#root > :last-child > * {
-                    width: 70%;
-                    flex: auto; 
-                  }
+                hui-glance-card {
+                  width: 75%;
+                  flex: auto !important; 
+                }
+                hui-button-card {
+                  width: 25%
+                  flex: auto !important;
+                }
             cards:
               - show_name: true
                 show_icon: true
