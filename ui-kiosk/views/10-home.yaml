@@ -180,30 +180,56 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:aarlo-glance
-        card_mod:
-          class: middle-left
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-        entities:
-          - entity: camera.aarlo_driveway
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,battery|library,snapshot
-          - entity: camera.aarlo_back_door
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,battery|library,snapshot
-          - entity: camera.aarlo_doorbell
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,bell|library,snapshot
-          - entity: camera.aarlo_garage
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,onoff|library,snapshot
+      - type: custom:swipe-card
+        cards:
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_driveway
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,battery|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_back_door
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,battery|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_doorbell
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,bell|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_garage
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,onoff|library,snapshot
       - type: markdown
         content: "# Utility Usage"
         card_mod:
