@@ -190,7 +190,7 @@ cards:
             tap_action:
               action: navigate
               navigation_path: "garage"
-            label: '[[[ return states["binary_sensor.door_garage_opening"].state ]]]'
+            label: '[[[ return "Garage Door:" + states["binary_sensor.door_garage_opening"].state ? "Open":"Closed" ]]]'
           - type: "custom:button-card"
             template:
               - card_esh_room
