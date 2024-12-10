@@ -183,7 +183,8 @@ cards:
       - type: custom:swipe-card
         parameters:
           spaceBetween: 8
-          rewind: true
+          loop: true
+          preloadImages: true
           pagination:
             type: 'bullets'
         cards:
@@ -243,26 +244,112 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - show_name: true
-        show_icon: false
-        show_state: true
-        type: glance
-        entities:
-          - entity: sensor.water_bill
-          - entity: sensor.monthly_water
-          - entity: sensor.power_bill
-          - entity: sensor.home_123_1mon
-          - entity: sensor.tank_utility_002a001d383334340d473130
-            name: House C₃H₈ Reserve
-          - entity: sensor.grill_tank_percent
-            name: Grill C₃H₈ Reserve
-        columns: 6
-        card_mod:
-          class: middle-left
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
+      - type: custom:swipe-card
+        parameters:
+          spaceBetween: 8
+          loop: true
+          preloadImages: true
+          pagination:
+            type: 'bullets'
+        cards:
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Water
+                icon: 'mdi:water-pump'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.water_bill
+                  - entity: sensor.monthly_water
+                columns: 2
+                card_mod:
+                  class: middle-left
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Power
+                icon: 'mdi:meter-electric'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.power_bill
+                  - entity: sensor.home_123_1mon
+                columns: 2
+                card_mod:
+                  class: middle-left
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: C₃H₈
+                icon: 'mdi:storage-tank-outline'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-right
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.tank_utility_002a001d383334340d473130
+                    name: House C₃H₈ Reserve
+                  - entity: sensor.grill_tank_percent
+                    name: Grill C₃H₈ Reserve
+                columns: 2
+                card_mod:
+                  class: middle-left
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio
+                    }
       - type: markdown
         content: "# Worker Bees"
         card_mod:
