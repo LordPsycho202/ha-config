@@ -255,16 +255,14 @@ cards:
           - type: horizontal-stack
             card_mod:
             style:
-              hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  margin-left: 10px !important;
-                  margin-right: 10px !important;
-                  margin-bottom: 10px !important;
-                  width: 200%;
-                  flex: auto !important; 
+              hui-horizontal-stack-card $: |
+                div#root > :first-child > * {
+                  width: 30%;
+                  flex: auto; 
                 }
-                hui-button-card {
-                  flex: auto !important;
+                div#root > :last-child > * {
+                  width: 70%;
+                  flex: auto; 
                 }
             cards:
               - show_name: true
@@ -301,16 +299,15 @@ cards:
             card_mod:
             style:
               hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  margin-left: 10px !important;
-                  margin-right: 10px !important;
-                  margin-bottom: 10px !important;
-                  width: 200%;
-                  flex: auto !important; 
-                }
-                hui-button-card {
-                  flex: auto !important;
-                }
+                hui-horizontal-stack-card $: |
+                  div#root > :first-child > * {
+                    width: 30%;
+                    flex: auto; 
+                  }
+                  div#root > :last-child > * {
+                    width: 70%;
+                    flex: auto; 
+                  }
             cards:
               - show_name: true
                 show_icon: true
@@ -346,16 +343,15 @@ cards:
             card_mod:
             style:
               hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  margin-left: 10px !important;
-                  margin-right: 10px !important;
-                  margin-bottom: 10px !important;
-                  width: 200%;
-                  flex: auto !important; 
-                }
-                hui-button-card {
-                  flex: auto !important;
-                }
+                hui-horizontal-stack-card $: |
+                  div#root > :first-child > * {
+                    width: 30%;
+                    flex: auto; 
+                  }
+                  div#root > :last-child > * {
+                    width: 70%;
+                    flex: auto; 
+                  }
             cards:
               - show_name: true
                 show_icon: true
