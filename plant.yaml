@@ -9,7 +9,7 @@ Blackberries:
   sensors:
     moisture: sensor.soil_moisture_2
     battery: sensor.soil_moisture_2_batt
-  min_moisture: 20
+  min_moisture: 25
   max_moisture: 60
   min_battery: 35
 Pineapples:
