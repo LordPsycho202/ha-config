@@ -183,7 +183,7 @@ cards:
       - type: custom:swipe-card
         parameters:
           spaceBetween: 8
-          loop: true
+          rewind: true
           pagination:
             type: 'bullets'
         cards:
