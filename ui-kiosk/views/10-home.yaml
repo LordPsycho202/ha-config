@@ -263,6 +263,9 @@ cards:
                   width: 200%;
                   flex: auto !important; 
                 }
+                hui-button-card {
+                  flex: auto !important;
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -305,6 +308,9 @@ cards:
                   width: 200%;
                   flex: auto !important; 
                 }
+                hui-button-card {
+                  flex: auto !important;
+                }
             cards:
               - show_name: true
                 show_icon: true
@@ -346,6 +352,9 @@ cards:
                   margin-bottom: 10px !important;
                   width: 200%;
                   flex: auto !important; 
+                }
+                hui-button-card {
+                  flex: auto !important;
                 }
             cards:
               - show_name: true
