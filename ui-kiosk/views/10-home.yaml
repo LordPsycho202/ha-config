@@ -276,8 +276,7 @@ cards:
                 type: glance
                 entities:
                   - entity: sensor.water_bill
-                  - entity: sensor.monthly_water
-                columns: 2
+                columns: 1
                 card_mod:
                   class: middle-blank
                   style: |
@@ -288,11 +287,11 @@ cards:
                 positions:
                   icon: "off"
                   indicator: "off"
-                  name: "off"
-                  value: "off"
+                  name: "outside"
                 max: 10000
                 entities:
                   - entity: sensor.monthly_water
+                    name: Water Usage
                 severity:
                   - color: "#ffaa00"
                     from: 0
@@ -330,8 +329,7 @@ cards:
                 type: glance
                 entities:
                   - entity: sensor.power_bill
-                  - entity: sensor.home_123_1mon
-                columns: 2
+                columns: 1
                 card_mod:
                   class: middle-blank
                   style: |
@@ -342,11 +340,11 @@ cards:
                 positions:
                   icon: "off"
                   indicator: "off"
-                  name: "off"
-                  value: "off"
+                  name: "outside"
                 max: 2400
                 entities:
                   - entity: sensor.home_123_1mon
+                    name: Power Usage
                 severity:
                   - color: "#ffaa00"
                     from: 0
