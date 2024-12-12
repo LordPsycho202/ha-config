@@ -269,7 +269,7 @@ cards:
                   style: |
                     ha-card {
                       font-family: Antonio;
-                      width: 25% !important;
+                      width: 33% !important;
                     }
               - show_name: true
                 show_icon: false
@@ -284,7 +284,8 @@ cards:
                   style: |
                     ha-card {
                       font-family: Antonio;
-                      width: 75% !important;
+                      left: -16% !important;
+                      width: 66% !important;
                     }
           - type: horizontal-stack
             cards:
