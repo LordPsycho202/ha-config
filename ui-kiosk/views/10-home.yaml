@@ -253,17 +253,6 @@ cards:
             type: 'bullets'
         cards:
           - type: horizontal-stack
-            card_mod:
-            style:
-              hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  width: 75%;
-                  flex: auto !important; 
-                }
-                hui-button-card {
-                  width: 25%;
-                  flex: auto !important;
-                }
             cards:
               - show_name: true
                 show_icon: true
@@ -279,7 +268,8 @@ cards:
                   class: button-bullet-left
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 25%;
                     }
               - show_name: true
                 show_icon: false
@@ -293,20 +283,10 @@ cards:
                   class: middle-blank
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 75%;
                     }
           - type: horizontal-stack
-            card_mod:
-            style:
-              hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  width: 75%;
-                  flex: auto !important; 
-                }
-                hui-button-card {
-                  width: 25%;
-                  flex: auto !important;
-                }
             cards:
               - show_name: true
                 show_icon: true
@@ -322,7 +302,8 @@ cards:
                   class: button-bullet-left
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 25%;
                     }
               - show_name: true
                 show_icon: false
@@ -336,20 +317,10 @@ cards:
                   class: middle-blank
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 75%;
                     }
           - type: horizontal-stack
-            card_mod:
-            style:
-              hui-horizontal-stack-card$: |
-                hui-glance-card {
-                  width: 75%;
-                  flex: auto !important; 
-                }
-                hui-button-card {
-                  width: 25%;
-                  flex: auto !important;
-                }
             cards:
               - show_name: true
                 show_icon: true
@@ -365,7 +336,8 @@ cards:
                   class: button-bullet-left
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 25%;
                     }
               - show_name: true
                 show_icon: false
@@ -381,7 +353,8 @@ cards:
                   class: middle-blank
                   style: |
                     ha-card > * {
-                      font-family: Antonio
+                      font-family: Antonio;
+                      width: 75%;
                     }
       - type: markdown
         content: "# Worker Bees"
