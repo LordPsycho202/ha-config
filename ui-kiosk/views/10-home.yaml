@@ -251,7 +251,7 @@ cards:
           centeredSlides: true
           slidesPerView: auto
           autoplay:
-            delay: 5000
+            delay: 25000
           coverflowEffect:
             rotate: 50
             stretch: 0
