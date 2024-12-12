@@ -267,9 +267,9 @@ cards:
                 card_mod:
                   class: button-bullet-left
                   style: |
-                    ha-card > * {
+                    ha-card {
                       font-family: Antonio;
-                      width: 25%;
+                      width: 25% !important;
                     }
               - show_name: true
                 show_icon: false
@@ -282,10 +282,9 @@ cards:
                 card_mod:
                   class: middle-blank
                   style: |
-                    ha-card > * {
+                    ha-card {
                       font-family: Antonio;
-                      left: -30px;
-                      width: 75%;
+                      width: 75% !important;
                     }
           - type: horizontal-stack
             cards:
