@@ -377,22 +377,47 @@ cards:
                       font-family: Antonio;
                       width: 25%;
                     }
-              - show_name: true
-                show_icon: false
-                show_state: true
-                type: glance
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
                 entities:
                   - entity: sensor.tank_utility_002a001d383334340d473130
                     name: House C₃H₈ Reserve
-                  - entity: sensor.grill_tank_percent
-                    name: Grill C₃H₈ Reserve
-                columns: 2
+                severity:
+                  - color: "#ffaa00"
+                    from: 33
+                    to: 100
+                  - color: Red
+                    from: 0
+                    to: 33
                 card_mod:
                   class: middle-blank
                   style: |
-                    ha-card > * {
+                    ha-card {
                       font-family: Antonio;
-                      width: 75%;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
+                entities:
+                  - entity: sensor.grill_tank_percent
+                    name: Grill C₃H₈ Reserve
+                severity:
+                  - color: "#ffaa00"
+                    from: 33
+                    to: 100
+                  - color: Red
+                    from: 0
+                    to: 33
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
                     }
       - type: markdown
         content: "# Worker Bees"
