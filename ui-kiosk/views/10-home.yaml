@@ -269,7 +269,6 @@ cards:
                   style: |
                     ha-card {
                       font-family: Antonio;
-                      width: 33% !important;
                     }
               - show_name: true
                 show_icon: false
@@ -284,8 +283,28 @@ cards:
                   style: |
                     ha-card {
                       font-family: Antonio;
-                      left: -16% !important;
-                      width: 66% !important;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "off"
+                  value: "off"
+                max: 10000
+                entities:
+                  - entity: sensor.monthly_water
+                severity:
+                  - color: "#ffaa00"
+                    from: 0
+                    to: 7500
+                  - color: Red
+                    from: 7500
+                    to: 10000
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
                     }
           - type: horizontal-stack
             cards:
@@ -302,9 +321,8 @@ cards:
                 card_mod:
                   class: button-bullet-left
                   style: |
-                    ha-card > * {
+                    ha-card {
                       font-family: Antonio;
-                      width: 25%;
                     }
               - show_name: true
                 show_icon: false
@@ -317,9 +335,30 @@ cards:
                 card_mod:
                   class: middle-blank
                   style: |
-                    ha-card > * {
+                    ha-card {
                       font-family: Antonio;
-                      width: 75%;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "off"
+                  value: "off"
+                max: 2400
+                entities:
+                  - entity: sensor.home_123_1mon
+                severity:
+                  - color: "#ffaa00"
+                    from: 0
+                    to: 1000
+                  - color: Red
+                    from: 1000
+                    to: 2400
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
                     }
           - type: horizontal-stack
             cards:
