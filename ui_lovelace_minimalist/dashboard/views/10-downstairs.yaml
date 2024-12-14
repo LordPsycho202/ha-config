@@ -180,18 +180,17 @@ cards:
         cards:
           - type: "custom:button-card"
             template:
-              - card_rnissen_garage
+              - card_esh_room
               - yellow_on
             name: Garage
             entity: light.garage
             icon: mdi:garage
             variables:
-              ulm_custom_card_rnissen_room_light_entity: light.garage
-              ulm_custom_card_rnissen_room_garage_entity: cover.garage_door_2
+              ulm_custom_card_esh_room_light_entity: light.garage
             tap_action:
               action: navigate
               navigation_path: "garage"
-            label: '[[[ return states["cover.garage_door_2"].state ]]]'
+            label: '[[[ return "Garage Door:" + states["binary_sensor.door_garage_opening"].state == "on" ? "Open":"Closed" ]]]'
           - type: "custom:button-card"
             template:
               - card_esh_room

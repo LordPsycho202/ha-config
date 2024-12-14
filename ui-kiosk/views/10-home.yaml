@@ -11,6 +11,15 @@ layout:
     "menu main aux"
     "sidebar main aux"
     "footerL footer footer"
+  mediaquery:
+    '(max-width: 1440px)':
+      grid-template-columns: 22% 78%
+      grid-template-rows: minmax(10%,auto) minmax(auto,60%) 10%
+      grid-template-areas: |
+        "headerL headerR"
+        "menu main"
+        "sidebar main"
+        "footerL footer"
 path: home
 badges: []
 cards:
@@ -171,30 +180,62 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:aarlo-glance
-        card_mod:
-          class: middle-left
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
-        entities:
-          - entity: camera.aarlo_driveway
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,battery|library,snapshot
-          - entity: camera.aarlo_back_door
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,battery|library,snapshot
-          - entity: camera.aarlo_doorbell
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,bell|library,snapshot
-          - entity: camera.aarlo_garage
-            image_view: arlo-stream
-            image_top: previous,name,next
-            image_bottom: motion,sound,signal,onoff|library,snapshot
+      - type: custom:swipe-card
+        parameters:
+          spaceBetween: 8
+          loop: true
+          preloadImages: true
+          pagination:
+            type: 'bullets'
+        cards:
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_driveway
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,battery|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_back_door
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,battery|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_doorbell
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,bell|library,snapshot
+          - type: custom:aarlo-glance
+            card_mod:
+              class: middle-left
+              style: |
+                ha-card > * {
+                  font-family: Antonio
+                }
+            entities:
+              - entity: camera.aarlo_garage
+                image_view: arlo-stream
+                image_top: previous,name,next
+                image_bottom: motion,sound,signal,onoff|library,snapshot
       - type: markdown
         content: "# Utility Usage"
         card_mod:
@@ -203,26 +244,188 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - show_name: true
-        show_icon: false
-        show_state: true
-        type: glance
-        entities:
-          - entity: sensor.water_bill
-          - entity: sensor.monthly_water
-          - entity: sensor.power_bill
-          - entity: sensor.home_123_1mon
-          - entity: sensor.tank_utility_002a001d383334340d473130
-            name: House C₃H₈ Reserve
-          - entity: sensor.grill_tank_percent
-            name: Grill C₃H₈ Reserve
-        columns: 6
-        card_mod:
-          class: middle-left
-          style: |
-            ha-card > * {
-              font-family: Antonio
-            }
+      - type: custom:swipe-card
+        parameters:
+          effect: coverflow
+          grabCursor: true
+          centeredSlides: true
+          slidesPerView: auto
+          autoplay:
+            delay: 25000
+          coverflowEffect:
+            rotate: 50
+            stretch: 0
+            depth: 100
+            modifier: 1
+            slideShadows: true
+        cards:
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Water
+                icon: 'mdi:water-pump'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-left
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.water_bill
+                columns: 1
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
+                max: 10000
+                entities:
+                  - entity: sensor.monthly_water
+                    name: Water Usage
+                severity:
+                  - color: "#ffaa00"
+                    from: 0
+                    to: 7500
+                  - color: Red
+                    from: 7500
+                    to: 10000
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: Power
+                icon: 'mdi:meter-electric'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-left
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+              - show_name: true
+                show_icon: false
+                show_state: true
+                type: glance
+                entities:
+                  - entity: sensor.power_bill
+                columns: 1
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
+                max: 2400
+                entities:
+                  - entity: sensor.home_123_1mon
+                    name: Power Usage
+                severity:
+                  - color: "#ffaa00"
+                    from: 0
+                    to: 1000
+                  - color: Red
+                    from: 1000
+                    to: 2400
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+          - type: horizontal-stack
+            cards:
+              - show_name: true
+                show_icon: true
+                show_state: false
+                type: button
+                name: C₃H₈
+                icon: 'mdi:storage-tank-outline'
+                tap_action:
+                  action: none
+                hold_action:
+                  action: none
+                card_mod:
+                  class: button-bullet-left
+                  style: |
+                    ha-card > * {
+                      font-family: Antonio;
+                      width: 25%;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
+                entities:
+                  - entity: sensor.tank_utility_002a001d383334340d473130
+                    name: House C₃H₈ Reserve
+                severity:
+                  - color: "#ffaa00"
+                    from: 33
+                    to: 100
+                  - color: Red
+                    from: 0
+                    to: 33
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
+              - type: custom:bar-card
+                positions:
+                  icon: "off"
+                  indicator: "off"
+                  name: "outside"
+                entities:
+                  - entity: sensor.grill_tank_percent
+                    name: Grill C₃H₈ Reserve
+                severity:
+                  - color: "#ffaa00"
+                    from: 33
+                    to: 100
+                  - color: Red
+                    from: 0
+                    to: 33
+                card_mod:
+                  class: middle-blank
+                  style: |
+                    ha-card {
+                      font-family: Antonio;
+                    }
       - type: markdown
         content: "# Worker Bees"
         card_mod:

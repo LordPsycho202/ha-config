@@ -53,7 +53,7 @@ cards:
           ulm_card_binary_sensor_alert: true
           ulm_card_binary_sensor_show_last_changed: false
           ulm_card_binary_sensor_color: red
-        entity: binary_sensor.garage_door
+        entity: binary_sensor.door_garage_opening
       - type: vertical-stack
         cards:
           - type: conditional

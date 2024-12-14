@@ -68,12 +68,14 @@ cards:
           ulm_card_light_force_background_color: true
           ulm_card_light_enable_collapse: true
 
-      - type: "custom:button-card"
-        template: card_cover
-        entity: cover.garage_door_2
+      - type: 'custom:button-card'
+        template: card_binary_sensor_alert
         variables:
-          ulm_card_cover_enable_controls: true
-          ulm_card_cover_garage_large: true
+          ulm_card_binary_sensor_alert: true
+          ulm_card_binary_sensor_show_last_changed: true
+          ulm_card_binary_sensor_alert_name: "Garage Door"
+          ulm_card_binary_sensor_alert_icon: mdi:garage-variant
+        entity: binary_sensor.door_garage_opening
 
   - type: vertical-stack
     cards:
