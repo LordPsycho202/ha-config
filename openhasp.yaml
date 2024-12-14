@@ -1,12 +1,12 @@
 ---
-greenhouse:
+limehouse:
   objects:
     - obj: "p1b4"
       properties:
-        "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
+        "text": "{{ states('sensor.temp_indoor_limehouse') }}"
     - obj: "p1b5"
       properties:
-        "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
+        "text": "{{ state_attr('sensor.sensor.temp_indoor_limehouse','unit_of_measurement') }}"
 
     - obj: "p1b21"
       properties:
@@ -15,7 +15,7 @@ greenhouse:
     - obj: "p1b23"
       properties:
         "text": "{{ state_attr('plant.garlic','friendly_name')}}"
-        "text_color": "{% if 25 <= state_attr('plant.garlic','moisture') |int %}green{% else %}sienna{% endif %}"
+        "text_color": "{% if 25 <= state_attr('plant.garlic','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b25"
       properties:
@@ -24,7 +24,7 @@ greenhouse:
     - obj: "p1b27"
       properties:
         "text": "{{ state_attr('plant.steve','friendly_name')}}"
-        "text_color": "{% if 15 <= state_attr('plant.steve','moisture') |int %}green{% else %}sienna{% endif %}"
+        "text_color": "{% if 15 <= state_attr('plant.steve','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b29"
       properties:
@@ -33,7 +33,7 @@ greenhouse:
     - obj: "p1b31"
       properties:
         "text": "{{ state_attr('plant.lettuce','friendly_name')}}"
-        "text_color": "{% if 15 <= state_attr('plant.lettuce','moisture') |int %}green{% else %}sienna{% endif %}"
+        "text_color": "{% if 15 <= state_attr('plant.lettuce','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b33"
       properties:
@@ -42,4 +42,4 @@ greenhouse:
     - obj: "p1b35"
       properties:
         "text": "{{ state_attr('plant.fairy_washboard','friendly_name')}}"
-        "text_color": "{% if 7 <= state_attr('plant.fairy_washboard','moisture') |int %}green{% else %}sienna{% endif %}"
+        "text_color": "{% if 7 <= state_attr('plant.fairy_washboard','moisture') |int %}lime{% else %}sienna{% endif %}"
