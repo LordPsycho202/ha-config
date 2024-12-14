@@ -1,12 +1,12 @@
 ---
-limehouse:
+greenhouse:
   objects:
     - obj: "p1b4"
       properties:
-        "text": "{{ states('sensor.temp_indoor_limehouse') }}"
+        "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
     - obj: "p1b5"
       properties:
-        "text": "{{ state_attr('sensor.sensor.temp_indoor_limehouse','unit_of_measurement') }}"
+        "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
 
     - obj: "p1b21"
       properties:
