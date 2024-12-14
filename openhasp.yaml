@@ -7,3 +7,10 @@ greenhouse:
     - obj: "p1b5"
       properties:
         "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
+    - obj: "p1b21"
+      properties:
+        "val": "{{ state_attr('plant.garlic','moisture') }}"
+        "critical_value": 75
+    - obj: "p1b23"
+      properties:
+        "text": "{{ state_attr('plant.garlic','friendly_name')}}"
