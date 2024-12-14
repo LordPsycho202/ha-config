@@ -1,5 +1,5 @@
 {
-    "page":0,
+    "page":1,
     "id":4,
     "obj":"label",
     "x":175,
@@ -11,7 +11,7 @@
     "bg_color":"#2C3E50"
 }
 {
-    "page":0,
+    "page":1,
     "id":5,
     "obj":"label",
     "x":220,
@@ -23,7 +23,7 @@
     "bg_color":"#2C3E50"
 }
 {
-    "page":0,
+    "page":1,
     "id":6,
     "obj":"label",
     "x":3,
@@ -32,4 +32,5 @@
     "w":62,
     "text":"%H:%M",
     "align":0,
-    "bg_color":"#2C3E50"}
+    "bg_color":"#2C3E50"
+}
