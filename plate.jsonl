@@ -1,5 +1,5 @@
 {"page":1,"id":4,"obj":"label","x":387,"y":5,"h":40,"w":60,"text":"00.0","align":2,"bg_color":"Green"}
-{"page":1,"id":5,"obj":"label","x":447,"y":5,"h":40,"w":45,"text":"°C","align":0,"bg_color":"Green"}
+{"page":1,"id":5,"obj":"label","x":447,"y":5,"h":40,"w":45,"text":"°F","align":0,"bg_color":"Green"}
 {"page":1,"id":6,"obj":"label","x":160,"y":5,"h":40,"w":150,"text":"Greenhouse","align":"center","bg_color":"Green"}
 {"page":1,"id":8,"obj":"label","x":3,"y":5,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":0,"bg_color":"Green"}
 
