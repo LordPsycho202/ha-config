@@ -1,9 +1,9 @@
 {"comment":" ----------- Page 1 layout ------------"}
 {"comment":" ----------- Header ------------"}
-{"page":1,"id":3,"obj":"label","x":0,"y":5,"h":40,"w":480,"text":"Greenhouse","align":"center","bg_color":"green"}
-{"page":1,"id":4,"obj":"label","x":380,"y":5,"h":40,"w":60,"text":"00.0","align":2,"bg_color":"green"}
-{"page":1,"id":5,"obj":"label","x":440,"y":5,"h":40,"w":40,"text":"°F","align":0,"bg_color":"green"}
-{"page":1,"id":6,"obj":"label","x":3,"y":5,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":"0","bg_color":"green"}
+{"page":1,"id":3,"obj":"label","x":0,"y":5,"h":40,"w":480,"text":"Greenhouse","align":"center","bg_opa":100,"bg_grad_color":"green","bg_color":"black","bg_grad_dir":1,"bg_grad_stop":48}
+{"page":1,"id":4,"obj":"label","x":380,"y":5,"h":40,"w":60,"text":"00.0","align":2}
+{"page":1,"id":5,"obj":"label","x":440,"y":5,"h":40,"w":40,"text":"°F","align":0}
+{"page":1,"id":6,"obj":"label","x":3,"y":5,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":"0"}
 
 {"comment":" ----------- Gauge 1 ------------"}
 {"page":1,"id":21,"obj":"gauge","align":"center","x":20,"y":60,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":100,"label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"green"}
