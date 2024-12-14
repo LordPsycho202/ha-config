@@ -2,4 +2,5 @@
 {"page":1,"id":5,"obj":"label","x":447,"y":5,"h":40,"w":45,"text":"°F","align":0,"bg_color":"Green"}
 {"page":1,"id":6,"obj":"label","x":160,"y":5,"h":40,"w":150,"text":"Greenhouse","align":"center","bg_color":"Green"}
 {"page":1,"id":8,"obj":"label","x":3,"y":5,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":0,"bg_color":"Green"}
-
+{"page":1,"id":21,"obj":"gauge","x":3,"y":60,"w":100,"h":100,"val":50,"format":1,"critical_value":100,"label_count":10,"line_count":10,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_ofs_y":55,"value_font":16,"bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"#348feb","line_color60":"#348feb","scale_grad_color":"#eb4934","scale_grad_color60":"#eb4934","scale_end_color60":"#eb4934"}
+{"page":1,"id":23,"obj":"label","x":53,"y":165,"w":70,"h":30,"parentid":21,"text":"Garlic","text_font":24,"align":"center"}
