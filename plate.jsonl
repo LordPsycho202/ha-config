@@ -1,17 +1,35 @@
 {
-    "page": 1,
-    "id": 10,
-    "w": 240,
-    "obj": "label",
-    "text": "%hostname%"
-},
-{
-    "page":1,
-    "id":20,
-    "w":50,
-    "x": 250,
+    "page":0,
+    "id":4,
     "obj":"label",
-    "text":"Mums",
-    "enabled":true,
-    "hidden":false
+    "x":175,
+    "y":5,
+    "h":30,
+    "w":45,
+    "text":"Moisture",
+    "align":2,
+    "bg_color":"#2C3E50"
 }
+{
+    "page":0,
+    "id":5,
+    "obj":"label",
+    "x":220,
+    "y":5,
+    "h":30,
+    "w":45,
+    "text":"%hostname%",
+    "align":0,
+    "bg_color":"#2C3E50"
+}
+{
+    "page":0,
+    "id":6,
+    "obj":"label",
+    "x":3,
+    "y":5,
+    "h":30,
+    "w":62,
+    "text":"00:00",
+    "align":0,
+    "bg_color":"#2C3E50"}
