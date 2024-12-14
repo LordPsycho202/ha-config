@@ -7,10 +7,35 @@ greenhouse:
     - obj: "p1b5"
       properties:
         "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
+
     - obj: "p1b21"
       properties:
         "val": "{{ state_attr('plant.garlic','moisture') }}"
-        "critical_value": 75
+        "critical_value": 25
     - obj: "p1b23"
       properties:
         "text": "{{ state_attr('plant.garlic','friendly_name')}}"
+
+    - obj: "p1b25"
+      properties:
+        "val": "{{ state_attr('plant.steve','moisture') }}"
+        "critical_value": 15
+    - obj: "p1b27"
+      properties:
+        "text": "{{ state_attr('plant.steve','friendly_name')}}"
+
+    - obj: "p1b29"
+      properties:
+        "val": "{{ state_attr('plant.lettuce','moisture') }}"
+        "critical_value": 15
+    - obj: "p1b31"
+      properties:
+        "text": "{{ state_attr('plant.lettuce','friendly_name')}}"
+
+    - obj: "p1b33"
+      properties:
+        "val": "{{ state_attr('plant.fairy_washboard','moisture') }}"
+        "critical_value": 7
+    - obj: "p1b35"
+      properties:
+        "text": "{{ state_attr('plant.fairy_washboard','friendly_name')}}"
