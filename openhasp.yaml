@@ -4,6 +4,3 @@ plate:
     - obj: "p0b4"
       properties:
         "text": "{{ states('sensor.sensor.temp_indoor_greenhouse') }}"
-    - obj: "p0b6"
-      properties:
-        "text": "{{ as_timestamp(now()) | timestamp_custom( ''%H:%M'' ) }}"
