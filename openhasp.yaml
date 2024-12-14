@@ -1,6 +1,9 @@
 ---
 plate:
   objects:
-    - obj: "p0b4"
+    - obj: "p1b4"
       properties:
-        "text": "{{ states('sensor.sensor.temp_indoor_greenhouse') }}"
+        "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
+    - obj: "p1b5"
+      properties:
+        "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
