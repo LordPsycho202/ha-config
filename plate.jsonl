@@ -1,0 +1,17 @@
+{
+    "page": 1,
+    "id": 10,
+    "w": 240,
+    "obj": "label",
+    "text": "%hostname%"
+},
+{
+    "page":1,
+    "id":20,
+    "w":50,
+    "x": 250,
+    "obj":"label",
+    "text":"Mums",
+    "enabled":true,
+    "hidden":false
+}
