@@ -70,6 +70,9 @@ recorder: !include recorder.yaml
 #### HTTPS ##################################
 http: !include http.yaml
 
+#### OpenHASP ##################################
+openhasp: !include openhasp.yaml
+
 #### Command Line ##################################
 command_line:
   - sensor:
