@@ -16,7 +16,7 @@ greenhouse:
     - obj: "p1b23"
       properties:
         "text": "{{ state_attr('plant.garlic','friendly_name')}}"
-        "text_color": "{% if 65 <= states_attr('plant.garlic','moisture')|int %}blue{% elif 25 <= state_attr('plant.garlic','moisture')|int %}lime{% else %}sienna{% endif %}"
+        "text_color": "{% if 25 <= state_attr('plant.garlic','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b25"
       properties:
@@ -26,7 +26,7 @@ greenhouse:
     - obj: "p1b27"
       properties:
         "text": "{{ state_attr('plant.steve','friendly_name')}}"
-        "text_color": "{% if 75 <= states_attr('plant.steve','moisture')|int %}blue{% elif 15 <= state_attr('plant.steve','moisture') |int %}lime{% else %}sienna{% endif %}"
+        "text_color": "{% if 15 <= state_attr('plant.steve','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b29"
       properties:
@@ -36,7 +36,7 @@ greenhouse:
     - obj: "p1b31"
       properties:
         "text": "{{ state_attr('plant.lettuce','friendly_name')}}"
-        "text_color": "{% if 60 <= states_attr('plant.lettuce','moisture')|int %}blue{% elif 15 <= state_attr('plant.lettuce','moisture') |int %}lime{% else %}sienna{% endif %}"
+        "text_color": "{% if 15 <= state_attr('plant.lettuce','moisture') |int %}lime{% else %}sienna{% endif %}"
 
     - obj: "p1b33"
       properties:
@@ -46,4 +46,4 @@ greenhouse:
     - obj: "p1b35"
       properties:
         "text": "{{ state_attr('plant.fairy_washboard','friendly_name')}}"
-        "text_color": "{% if 50 <= states_attr('plant.fairy_washboard','moisture')|int %}blue{% elif 7 <= state_attr('plant.fairy_washboard','moisture') |int %}lime{% else %}sienna{% endif %}"
+        "text_color": "{% if 7 <= state_attr('plant.fairy_washboard','moisture') |int %}lime{% else %}sienna{% endif %}"
