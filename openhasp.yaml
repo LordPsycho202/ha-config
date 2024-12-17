@@ -11,6 +11,8 @@ greenhouse:
     - obj: "p1b21"
       properties:
         "val": "{{ state_attr('plant.garlic','moisture') }}"
+        "value_str": "{{ state_attr('plant.garlic','moisture')|string + '%'}}"
+        "value_opa": 255
         "critical_value": 25
     - obj: "p1b23"
       properties:
@@ -20,6 +22,8 @@ greenhouse:
     - obj: "p1b25"
       properties:
         "val": "{{ state_attr('plant.steve','moisture') }}"
+        "value_str": "{{ state_attr('plant.steve','moisture')|string + '%'}}"
+        "value_opa": 255
         "critical_value": 15
     - obj: "p1b27"
       properties:
@@ -29,6 +33,8 @@ greenhouse:
     - obj: "p1b29"
       properties:
         "val": "{{ state_attr('plant.lettuce','moisture') }}"
+        "value_str": "{{ state_attr('plant.lettuce','moisture')|string + '%'}}"
+        "value_opa": 255
         "critical_value": 15
     - obj: "p1b31"
       properties:
@@ -38,6 +44,8 @@ greenhouse:
     - obj: "p1b33"
       properties:
         "val": "{{ state_attr('plant.fairy_washboard','moisture') }}"
+        "value_str": "{{ state_attr('plant.fairy_washboard','moisture')|string + '%'}}"
+        "value_opa": 255
         "critical_value": 7
     - obj: "p1b35"
       properties:
