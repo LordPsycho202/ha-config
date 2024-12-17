@@ -1,5 +1,5 @@
 ---
-title: "Craft Room"
+title: "Jennifer's Office"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:bed
 subview: true
@@ -10,7 +10,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Craft Room
+        name: "Jennifer's Office"
 
   - type: vertical-stack
     cards:
