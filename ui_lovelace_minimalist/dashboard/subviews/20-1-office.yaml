@@ -165,7 +165,7 @@ cards:
               ulm_card_graph_hours: 24
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.temp_acurite_606tx
+            entity: sensor.temp_rack_2
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Rack
