@@ -55,6 +55,13 @@ Garlic:
   min_moisture: 20
   max_moisture: 65
   min_battery: 35
+Juniper:
+  sensors:
+    moisture: sensor.juniper_humidity
+    battery: sensor.juniper_battery
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 35
 Steve:
   sensors:
     moisture: sensor.steve_moisture
