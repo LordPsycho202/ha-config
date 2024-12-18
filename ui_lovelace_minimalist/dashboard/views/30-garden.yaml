@@ -357,7 +357,7 @@ cards:
             entity: input_boolean.soil_moisture_1_notify
             state: "on"
           - condition: state
-            entity: input_boolean.juniper_notify
+            entity: input_boolean.soil_moisture_8_notify
             state: "on"        
     card:
       type: vertical-stack
@@ -377,7 +377,7 @@ cards:
                           entity: sensor.soil_moisture_1
                           below: 15
                         - condition: numeric_state
-                          entity: sensor.juniper_humidity
+                          entity: sensor.soil_moisture_8
                           below: 15
                     - condition: state
                       entity: timer.flower_bed_watering
