@@ -21,7 +21,7 @@ cards:
             template:
               - card_fan_room
               - yellow_on
-            name: Office
+            name: "Rodney's"
             entity: light.office_ceiling_fan
             icon: mdi:desk
             tap_action:
@@ -35,9 +35,9 @@ cards:
             template:
               - card_fan_room
               - yellow_on
-            name: Craft Room
+            name: "Jennifer's"
             entity: light.craft_room
-            icon: mdi:puzzle-edit-outline
+            icon: mdi:desk
             tap_action:
               action: navigate
               navigation_path: "croom"
