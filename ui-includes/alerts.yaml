@@ -675,7 +675,7 @@ chips:
             entity: plant.garlic
             state_not: ok
           - condition: state
-            entity: input_boolean.soil_moisture_8_notify
+            entity: input_boolean.soil_moisture_9_notify
             state: "on"
     chip:
       type: template
@@ -909,7 +909,7 @@ chips:
             entity: plant.juniper
             state_not: ok
           - condition: state
-            entity: input_boolean.juniper_notify
+            entity: input_boolean.soil_moisture_8_notify
             state: "on"
     chip:
       type: template
