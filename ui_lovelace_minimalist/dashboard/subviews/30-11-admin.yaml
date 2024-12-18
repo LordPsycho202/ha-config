@@ -159,9 +159,9 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - moisture_entity: sensor.juniper_humidity
-          - battery_entity: sensor.juniper_battery
-          - notify_entity: input_boolean.juniper_notify
+          - moisture_entity: sensor.soil_moisture_8
+          - battery_entity: sensor.soil_moisture_8_batt
+          - notify_entity: input_boolean.soil_moisture_8_notify
 
   - type: vertical-stack
     cards:
@@ -213,9 +213,9 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - moisture_entity: sensor.soil_moisture_8
-          - battery_entity: sensor.soil_moisture_8_batt
-          - notify_entity: input_boolean.soil_moisture_8_notify
+          - moisture_entity: sensor.soil_moisture_9
+          - battery_entity: sensor.soil_moisture_9_batt
+          - notify_entity: input_boolean.soil_moisture_9_notify
 
   - type: vertical-stack
     cards:

@@ -22,12 +22,12 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_8
+              ulm_card_graph_entity: sensor.soil_moisture_9
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_8_batt
+        entity: sensor.soil_moisture_9_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

@@ -16,16 +16,16 @@ cards:
           - plant_icon: pine-tree-variant-outline
       - type: "custom:button-card"
         template: card_graph
-        entity: sensor.juniper_humidity
+        entity: sensor.soil_moisture_8
         variables:
           ulm_card_graph_color: "var(--google-green)"
           ulm_card_graph_name: Soil Moisture
-          ulm_card_graph_entity: sensor.juniper_humidity
+          ulm_card_graph_entity: sensor.soil_moisture_8
           ulm_card_graph_type: fill
           ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.juniper_battery
+        entity: sensor.soil_moisture_8_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80
