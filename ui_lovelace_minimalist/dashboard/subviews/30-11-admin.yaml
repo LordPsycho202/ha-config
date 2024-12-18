@@ -149,13 +149,19 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Front Planter
+        name: Front Yard
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
           - moisture_entity: sensor.soil_moisture_1
           - battery_entity: sensor.soil_moisture_1_batt
           - notify_entity: input_boolean.soil_moisture_1_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.juniper_humidity
+          - battery_entity: sensor.juniper_battery
+          - notify_entity: input_boolean.juniper_notify
 
   - type: vertical-stack
     cards:

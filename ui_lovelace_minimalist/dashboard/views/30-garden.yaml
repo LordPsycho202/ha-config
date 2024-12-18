@@ -351,9 +351,14 @@ cards:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: input_boolean.soil_moisture_1_notify
-        state: "on"    
+      - condition: or
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_1_notify
+            state: "on"
+          - condition: state
+            entity: input_boolean.juniper_notify
+            state: "on"        
     card:
       type: vertical-stack
       cards:
@@ -370,6 +375,9 @@ cards:
                       conditions:
                         - condition: numeric_state
                           entity: sensor.soil_moisture_1
+                          below: 15
+                        - condition: numeric_state
+                          entity: sensor.juniper_humidity
                           below: 15
                     - condition: state
                       entity: timer.flower_bed_watering
@@ -423,23 +431,56 @@ cards:
                 double_tap_action:
                   action: none
                 multiline_secondary: true
-        - type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.front_flowers
-                - plant_path: plant_flowers
-                - plant_icon: flower-outline
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.soil_moisture_1
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.soil_moisture_1
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+        - type: conditional
+          conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_1_notify
+                  state: "on"
+          card:  
+            type: horizontal-stack
+            cards:
+              - type: custom:decluttering-card
+                template: plant_mushroom_card
+                variables:
+                  - plant_entity: plant.front_flowers
+                  - plant_path: plant_flowers
+                  - plant_icon: flower-outline
+              - type: "custom:button-card"
+                template: card_graph
+                entity: sensor.soil_moisture_1
+                variables:
+                  ulm_card_graph_color: "var(--google-green)"
+                  ulm_card_graph_name: Soil Moisture
+                  ulm_card_graph_entity: sensor.soil_moisture_1
+                  ulm_card_graph_type: fill
+                  ulm_card_graph_hours: 24
+        - type: conditional
+          conditions:
+            - condition: or
+              conditions:
+                - condition: state
+                  entity: input_boolean.juniper_notify
+                  state: "on"
+          card:  
+            type: horizontal-stack
+            cards:
+              - type: custom:decluttering-card
+                template: plant_mushroom_card
+                variables:
+                  - plant_entity: plant.juniper
+                  - plant_path: plant_juniper
+                  - plant_icon: pine-tree-variant-outline
+              - type: "custom:button-card"
+                template: card_graph
+                entity: sensor.juniper_humidity
+                variables:
+                  ulm_card_graph_color: "var(--google-green)"
+                  ulm_card_graph_name: Soil Moisture
+                  ulm_card_graph_entity: sensor.juniper_humidity
+                  ulm_card_graph_type: fill
+                  ulm_card_graph_hours: 24
 
   - type: vertical-stack
     cards:

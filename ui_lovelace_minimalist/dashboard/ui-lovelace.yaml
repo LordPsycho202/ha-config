@@ -41,6 +41,7 @@ views:
   - !include subviews/30-13-mums.yaml
   - !include subviews/30-14-japanese-maple.yaml
   - !include subviews/30-15-fairy-washboard.yaml
+  - !include subviews/30-16-juniper.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
