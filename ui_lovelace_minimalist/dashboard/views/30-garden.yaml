@@ -364,7 +364,7 @@ cards:
       cards:
         - type: "custom:button-card"
           template: card_title
-          name: Front Planter
+          name: Front Yard
         - type: horizontal-stack
           cards:
             - type: conditional
