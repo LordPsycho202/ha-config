@@ -78,3 +78,101 @@ sensor:
       model: Enviro+
       name: Enviro+
       manufacturer: Pimaroni
+
+# ToBS 
+
+  - name: "ToBS Battery Voltage"
+    unique_id: "node_1__battery_voltage"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and
+            value_json.payload.voltage is defined and
+            value_json.payload.temperature is not defined %}
+        {{ (value_json.payload.voltage | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    unit_of_measurement: "Volts"
+    # Telemetry packets come in two flavors: The default node telemetry, and the I2C sensor data.
+    # Both packets contain "voltage" so we check for temperature to ignore the sensor packet here.
+
+  - name: "ToBS Battery Percent"
+    unique_id: "node_1_battery_percent"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.battery_level is defined %}
+        {{ (value_json.payload.battery_level | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    device_class: "battery"
+    unit_of_measurement: "%"
+
+  - name: "ToBS ChUtil"
+    unique_id: "node_1_chutil"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.channel_utilization is defined %}
+        {{ (value_json.payload.channel_utilization | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    unit_of_measurement: "%"
+
+  - name: "ToBS AirUtilTX"
+    unique_id: "node_1_airutiltx"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.air_util_tx is defined %}
+        {{ (value_json.payload.air_util_tx | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    unit_of_measurement: "%"
+
+  - name: "ToBS Temperature"
+    unique_id: "node_1_temperature"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.temperature is defined %}
+        {{ (((value_json.payload.temperature | float) * 1.8) +32) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    device_class: "temperature"
+    unit_of_measurement: "°F"
+# With device_class: "temperature" set, make sure to use the configured unit for temperature in your HA instance.
+# If you don't, then non-temperature messages will change the value of this sensor by reinterpreting the current state with the wrong unit, unless you account for it.
+# For Celsius use:    {{ (value_json.payload.temperature | float) | round(1) }} 
+# For Fahrenheit use: {{ (((value_json.payload.temperature | float) * 1.8) +32) | round(2) }}
+
+  - name: "ToBS Humidity"
+    unique_id: "node_1_humidity"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.relative_humidity is defined %}
+        {{ (value_json.payload.relative_humidity | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    device_class: "humidity"
+    unit_of_measurement: "%"
+
+  - name: "ToBS Pressure"
+    unique_id: "node_1_pressure"
+    state_topic: "msh/US/2/json/LongFast/!947b7813"
+    state_class: measurement
+    value_template: >-
+      {% if value_json.from == 4038675309 and value_json.payload.barometric_pressure is defined %}
+        {{ (value_json.payload.barometric_pressure | float) | round(2) }}
+      {% else %}
+        {{ this.state }}
+      {% endif %}
+    device_class: "pressure"
+    unit_of_measurement: "hPa"
