@@ -63,14 +63,15 @@ plant_graphs:
     - plant_icon: leaf
     - plant_action: navigate
   card:
-    type: vertical-stack
+    type: custom:stack-in-card
+    title: '[[plant_name]]'
+    mode: vertical
     cards:
-      - type: "custom:button-card"
-        template: card_title
-        label: '[[plant_name]]'
-      - type: horizontal-stack
+      - type: custom:stack-in-card
+        mode: horizontal
         cards:
-          - type: vertical-stack
+          - type: custom:stack-in-card
+            mode: vertical
             cards:
               - type: custom:decluttering-card
                 template: plant_mushroom_card
