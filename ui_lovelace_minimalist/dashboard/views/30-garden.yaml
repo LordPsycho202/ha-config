@@ -164,6 +164,7 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
+            - plant_name: "Steve"
             - plant_entity: plant.steve
             - plant_path: plant_steve
             - plant_icon: pine-tree-variant-outline
@@ -180,6 +181,7 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
+            - plant_name: "Fairy Washboard"
             - plant_entity: plant.fairy_washboard
             - plant_path: plant_fairy_washboard
             - plant_icon: grass
