@@ -67,7 +67,7 @@ plant_graphs:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: "{{ state_attr('[[plant_entity]]','friendly_name') }}"
+        label: "[[[ states['[[plant_entity]]'].attributes.friendly_name ]]]"
       - type: horizontal-stack
         cards:
           - type: custom:modern-circular-gauge
