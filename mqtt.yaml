@@ -94,6 +94,9 @@ sensor:
         {{ this.state }}
       {% endif %}
     unit_of_measurement: "Volts"
+    device: 
+      identifiers: "!947b7813"
+      name: ToBS Meshtastic Node
     # Telemetry packets come in two flavors: The default node telemetry, and the I2C sensor data.
     # Both packets contain "voltage" so we check for temperature to ignore the sensor packet here.
 
