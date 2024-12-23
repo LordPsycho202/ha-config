@@ -230,97 +230,66 @@ cards:
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_2_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.blackberries
-                - plant_path: plant_blackberries
-                - plant_icon: fruit-grapes
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.soil_moisture_2
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.soil_moisture_2
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
-
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Blackberries"
+            - plant_entity: plant.blackberries
+            - plant_path: plant_blackberries
+            - plant_icon: fruit-grapes
+            - plant_moisture_entity: sensor.soil_moisture_2
+            - plant_moisture_min: 25
+            - plant_moisture_max: 60      
       - type: conditional
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_3_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.pineapples
-                - plant_path: plant_pineapple
-                - plant_icon: fruit-pineapple
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.soil_moisture_3
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.soil_moisture_3
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
-
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Pineapples"
+            - plant_entity: plant.pineapples
+            - plant_path: plant_pineapple
+            - plant_icon: fruit-pineapple
+            - plant_moisture_entity: sensor.soil_moisture_3
+            - plant_moisture_min: 25
+            - plant_moisture_max: 50     
       - type: conditional
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_jm_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.japanese_maple
-                - plant_path: plant_japanese_maple
-                - plant_icon: leaf-maple
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.japanese_maple_moisture
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.japanese_maple_moisture
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
-
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Japanese Maple"
+            - plant_entity: plant.japanese_maple
+            - plant_path: plant_japanese_maple
+            - plant_icon: leaf-maple
+            - plant_moisture_entity: sensor.japanese_maple_moisture
+            - plant_moisture_min: 25
+            - plant_moisture_max: 60     
       - type: conditional
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_sb_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.mums
-                - plant_path: plant_mums
-                - plant_icon: flower-outline
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.mums_moisture
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.mums_moisture
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Mums"
+            - plant_entity: plant.mums
+            - plant_path: plant_mums
+            - plant_icon: flower-outline
+            - plant_moisture_entity: sensor.mums_moisture
+            - plant_moisture_min: 20
+            - plant_moisture_max: 60    
 
   - type: conditional
     conditions:
