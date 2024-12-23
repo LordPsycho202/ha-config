@@ -133,7 +133,8 @@ cards:
           ulm_card_navigate_title: Timelapse Views
           ulm_card_navigate_icon: mdi:camera-burst
           ulm_card_navigate_color: var(--color-green)
-      - type: horizontal-stack
+      - type: custom:stack-in-card
+        mode: horizontal
         cards:
           - type: "custom:button-card"
             template: card_graph
@@ -148,7 +149,7 @@ cards:
             template: card_graph
             entity: sensor.humidity_indoor_greenhouse
             variables:
-              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_color: "var(--google-blue)"
               ulm_card_graph_name: Humidity
               ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
               ulm_card_graph_type: fill
