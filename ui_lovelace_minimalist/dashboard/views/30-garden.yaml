@@ -161,23 +161,16 @@ cards:
             entity: input_boolean.soil_moisture_sv_notify
             state: "on"    
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.steve
-                - plant_path: plant_steve
-                - plant_icon: pine-tree-variant-outline
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.steve_moisture
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.steve_moisture
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_entity: plant.steve
+            - plant_path: plant_steve
+            - plant_icon: pine-tree-variant-outline
+            - plant_moisture_entity: sensor.steve_moisture
+            - plant_moisture_min: 15
+            - plant_moisture_max: 75
+
 
       - type: conditional
         conditions:
