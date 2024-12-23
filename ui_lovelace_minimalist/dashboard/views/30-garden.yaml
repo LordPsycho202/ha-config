@@ -171,30 +171,21 @@ cards:
             - plant_moisture_min: 15
             - plant_moisture_max: 75
 
-
       - type: conditional
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_fw_notify
             state: "on"    
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.fairy_washboard
-                - plant_path: plant_fairy_washboard
-                - plant_icon: grass
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.fairy_washboard_moisture
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.fairy_washboard_moisture
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_entity: plant.fairy_washboard
+            - plant_path: plant_fairy_washboard
+            - plant_icon: grass
+            - plant_moisture_entity: sensor.fairy_washboard_moisture
+            - plant_moisture_min: 7
+            - plant_moisture_max: 50
 
       - type: conditional
         conditions:
