@@ -484,7 +484,8 @@ cards:
               double_tap_action:
                 action: none
               multiline_secondary: true
-      - type: horizontal-stack
+      - type: custom:stack-in-card
+        mode: horizontal
         cards:
           - type: conditional
             conditions:
@@ -505,7 +506,7 @@ cards:
             template: card_graph
             entity: sensor.soil_temperature_1
             variables:
-              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_color: "brown"
               ulm_card_graph_name: Soil Temp
               ulm_card_graph_entity: sensor.soil_temperature_1
               ulm_card_graph_type: fill
