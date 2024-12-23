@@ -193,46 +193,33 @@ cards:
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_lt_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.lettuce
-                - plant_path: plant_lettuce
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.lettuce_moisture
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.lettuce_moisture
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Lettuce"
+            - plant_entity: plant.lettuce
+            - plant_path: plant_lettuce
+            - plant_moisture_entity: sensor.lettuce_moisture
+            - plant_moisture_min: 15
+            - plant_moisture_max: 60   
+
       - type: conditional
         conditions:
           - condition: state
             entity: input_boolean.soil_moisture_9_notify
-            state: "on"    
+            state: "on"
         card:
-          type: horizontal-stack
-          cards:
-            - type: custom:decluttering-card
-              template: plant_mushroom_card
-              variables:
-                - plant_entity: plant.garlic
-                - plant_path: plant_garlic
-            - type: "custom:button-card"
-              template: card_graph
-              entity: sensor.soil_moisture_9
-              variables:
-                ulm_card_graph_color: "var(--google-green)"
-                ulm_card_graph_name: Soil Moisture
-                ulm_card_graph_entity: sensor.soil_moisture_9
-                ulm_card_graph_type: fill
-                ulm_card_graph_hours: 24
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Garlic"
+            - plant_entity: plant.garlic
+            - plant_path: plant_garlic
+            - plant_moisture_entity: sensor.soil_moisture_9
+            - plant_moisture_min: 20
+            - plant_moisture_max: 60   
 
   - type: vertical-stack
     cards:

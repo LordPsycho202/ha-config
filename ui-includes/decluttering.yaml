@@ -70,6 +70,23 @@ plant_graphs:
         label: '[[plant_name]]'
       - type: horizontal-stack
         cards:
+          - type: vertical-stack
+            cards:
+              - type: custom:decluttering-card
+                template: plant_mushroom_card
+                variables:
+                  - plant_entity: '[[plant_entity]]'
+                  - plant_path: '[[plant_path]]'
+                  - plant_icon: '[[plant_icon]]'
+              - type: "custom:button-card"
+                template: card_graph
+                entity: '[[plant_moisture_entity]]'
+                variables:
+                  ulm_card_graph_color: "var(--google-green)"
+                  ulm_card_graph_name: Soil Moisture Trend
+                  ulm_card_graph_entity: '[[plant_moisture_entity]]'
+                  ulm_card_graph_type: fill
+                  ulm_card_graph_hours: 24
           - type: custom:modern-circular-gauge
             entity: '[[plant_moisture_entity]]'
             name: Soil Moisture
@@ -96,23 +113,6 @@ plant_graphs:
                   - 255
                 from: '[[plant_moisture_max]]'
                 label: Too Wet
-          - type: vertical-stack
-            cards:
-              - type: custom:decluttering-card
-                template: plant_mushroom_card
-                variables:
-                  - plant_entity: '[[plant_entity]]'
-                  - plant_path: '[[plant_path]]'
-                  - plant_icon: '[[plant_icon]]'
-              - type: "custom:button-card"
-                template: card_graph
-                entity: '[[plant_moisture_entity]]'
-                variables:
-                  ulm_card_graph_color: "var(--google-green)"
-                  ulm_card_graph_name: Soil Moisture Trend
-                  ulm_card_graph_entity: '[[plant_moisture_entity]]'
-                  ulm_card_graph_type: fill
-                  ulm_card_graph_hours: 24
 
 plant_notification_card:
   card:
