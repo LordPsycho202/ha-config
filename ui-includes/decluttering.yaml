@@ -63,48 +63,48 @@ plant_graphs:
     - plant_icon: leaf
     - plant_action: navigate
   card:
-    type: vertical-stack
+    type: horizontal-stack
     cards:
-      - type: custom:decluttering-card
-        template: plant_mushroom_card
-        variables:
-          - plant_entity: '[[plant_entity]]'
-          - plant_path: '[[plant_path]]'
-          - plant_icon: '[[plant_icon]]'
-      - type: horizontal-stack
+      - type: custom:modern-circular-gauge
+        entity: '[[plant_moisture_entity]]'
+        name: Soil Moisture
+        unit: "%"
+        min: 0
+        max: 100
+        needle: true
+        header_position: bottom
+        segments:
+          - from: 0
+            color:
+              - 79
+              - 53
+              - 0
+            label: Water
+          - color:
+              - 28
+              - 184
+              - 0
+            from: '[[plant_moisture_min]]'
+          - color:
+              - 0
+              - 0
+              - 255
+            from: '[[plant_moisture_max]]'
+            label: Too Wet
+      - type: vertical-stack
         cards:
-          - type: custom:modern-circular-gauge
-            entity: '[[plant_moisture_entity]]'
-            name: Soil Moisture
-            unit: "%"
-            min: 0
-            max: 100
-            needle: true
-            header_position: bottom
-            segments:
-              - from: 0
-                color:
-                  - 79
-                  - 53
-                  - 0
-                label: Water
-              - color:
-                  - 28
-                  - 184
-                  - 0
-                from: '[[plant_moisture_min]]'
-              - color:
-                  - 0
-                  - 0
-                  - 255
-                from: '[[plant_moisture_max]]'
-                label: Too Wet
+          - type: custom:decluttering-card
+            template: plant_mushroom_card
+            variables:
+              - plant_entity: '[[plant_entity]]'
+              - plant_path: '[[plant_path]]'
+              - plant_icon: '[[plant_icon]]'
           - type: "custom:button-card"
             template: card_graph
             entity: '[[plant_moisture_entity]]'
             variables:
               ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_name: Soil Moisture Trend
               ulm_card_graph_entity: '[[plant_moisture_entity]]'
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
