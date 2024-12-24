@@ -252,7 +252,7 @@ cards:
             - plant_path: plant_pineapple
             - plant_icon: fruit-pineapple
             - plant_moisture_entity: sensor.soil_moisture_3
-            - plant_moisture_min: 25
+            - plant_moisture_min: 20
             - plant_moisture_max: 51 
       - type: conditional
         conditions:
