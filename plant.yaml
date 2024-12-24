@@ -19,7 +19,7 @@ Pineapples:
   min_moisture: 20
   max_moisture: 50
   min_battery: 35
-Greenhouse Plants:
+Herbs:
   sensors:
     moisture: sensor.soil_moisture_4
     battery: sensor.soil_moisture_4_batt
@@ -27,26 +27,26 @@ Greenhouse Plants:
   max_moisture: 80
   min_temperature: 50
   min_battery: 35
-Tobasco and Tomato:
+Cucumber:
   sensors:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
-  min_moisture: 20
-  max_moisture: 65
+  min_moisture: 30
+  max_moisture: 75
   min_battery: 35
 Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_6
     battery: sensor.soil_moisture_6_batt
-  min_moisture: 20
+  min_moisture: 25
   max_moisture: 65
   min_battery: 35
-Standing Container:
+Beans:
   sensors:
     moisture: sensor.soil_moisture_7
     battery: sensor.soil_moisture_7_batt
   min_moisture: 25
-  max_moisture: 75
+  max_moisture: 65
   min_battery: 35
 Juniper:
   sensors:
@@ -132,3 +132,18 @@ Fairy Washboard:
   min_conductivity: 300
   max_conductivity: 6000
   min_battery: 35
+
+# Okra:
+  # sensors:
+    # moisture: sensor.soil_moisture_2
+    # battery: sensor.soil_moisture_2_batt
+  # min_moisture: 20
+  # max_moisture: 60
+  # min_battery: 35
+# Amaranth:
+  # sensors:
+    # moisture: sensor.soil_moisture_3
+    # battery: sensor.soil_moisture_3_batt
+  # min_moisture: 20
+  # max_moisture: 60
+  # min_battery: 35
