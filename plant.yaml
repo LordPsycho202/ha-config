@@ -64,11 +64,11 @@ Garlic:
   min_battery: 35
 Steve:
   sensors:
-    moisture: sensor.steve_moisture
-    battery: sensor.steve_battery
-    temperature: sensor.steve_temperature
-    conductivity: sensor.steve_conductivity
-    brightness: sensor.steve_illuminance
+    moisture: sensor.soil_moisture_10
+    battery: sensor.soil_moisture_10_batt
+    temperature: sensor.soil_moisture_10_temp
+    conductivity: sensor.soil_moisture_10_cond
+    brightness: sensor.soil_moisture_10_lum
   min_moisture: 15
   max_moisture: 75
   min_temperature: 41
@@ -78,11 +78,11 @@ Steve:
   min_battery: 35
 Lettuce:
   sensors:
-    moisture: sensor.lettuce_moisture
-    battery: sensor.lettuce_battery
-    temperature: sensor.lettuce_temperature
-    conductivity: sensor.lettuce_conductivity
-    brightness: sensor.lettuce_illuminance
+    moisture: sensor.soil_moisture_11
+    battery: sensor.soil_moisture_11_batt
+    temperature: sensor.soil_moisture_11_temp
+    conductivity: sensor.soil_moisture_11_cond
+    brightness: sensor.soil_moisture_11_lum
   min_moisture: 15
   max_moisture: 60
   min_temperature: 46
@@ -92,11 +92,11 @@ Lettuce:
   min_battery: 35
 Mums:
   sensors:
-    moisture: sensor.mums_moisture
-    battery: sensor.mums_battery
-    temperature: sensor.mums_temperature
-    conductivity: sensor.mums_conductivity
-    brightness: sensor.mums_illuminance
+    moisture: sensor.soil_moisture_12
+    battery: sensor.soil_moisture_12_batt
+    temperature: sensor.soil_moisture_12_temp
+    conductivity: sensor.soil_moisture_12_cond
+    brightness: sensor.soil_moisture_12_lum
   min_moisture: 20
   max_moisture: 60
   min_temperature: 46
@@ -106,11 +106,11 @@ Mums:
   min_battery: 35
 Japanese Maple:
   sensors:
-    moisture: sensor.japanese_maple_moisture
-    battery: sensor.japanese_maple_battery
-    temperature: sensor.japanese_maple_temperature
-    conductivity: sensor.japanese_maple_conductivity
-    brightness: sensor.japanese_maple_illuminance
+    moisture: sensor.soil_moisture_13
+    battery: sensor.soil_moisture_13_batt
+    temperature: sensor.soil_moisture_13_temp
+    conductivity: sensor.soil_moisture_13_cond
+    brightness: sensor.soil_moisture_13_lum
   min_moisture: 25
   max_moisture: 60
   min_temperature: 41
@@ -120,11 +120,11 @@ Japanese Maple:
   min_battery: 35
 Fairy Washboard:
   sensors:
-    moisture: sensor.fairy_washboard_moisture
-    battery: sensor.fairy_washboard_battery
-    temperature: sensor.fairy_washboard_temperature
-    conductivity: sensor.fairy_washboard_conductivity
-    brightness: sensor.fairy_washboard_illuminance
+    moisture: sensor.soil_moisture_14
+    battery: sensor.soil_moisture_14_batt
+    temperature: sensor.soil_moisture_14_temp
+    conductivity: sensor.soil_moisture_14_cond
+    brightness: sensor.soil_moisture_14_lum
   min_moisture: 7
   max_moisture: 50
   min_temperature: 41
