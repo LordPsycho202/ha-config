@@ -183,7 +183,7 @@ cards:
             - plant_entity: plant.fairy_washboard
             - plant_path: plant_fairy_washboard
             - plant_icon: grass
-            - plant_moisture_entity: soil_moisture_14
+            - plant_moisture_entity: sensor.soil_moisture_14
             - plant_moisture_min: 7
             - plant_moisture_max: 51
       - type: conditional
