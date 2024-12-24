@@ -169,7 +169,7 @@ cards:
             - plant_icon: pine-tree-variant-outline
             - plant_moisture_entity: sensor.steve_moisture
             - plant_moisture_min: 15
-            - plant_moisture_max: 75
+            - plant_moisture_max: 76
       - type: conditional
         conditions:
           - condition: state
@@ -185,7 +185,7 @@ cards:
             - plant_icon: grass
             - plant_moisture_entity: sensor.fairy_washboard_moisture
             - plant_moisture_min: 7
-            - plant_moisture_max: 50
+            - plant_moisture_max: 51
       - type: conditional
         conditions:
           - condition: state
@@ -200,7 +200,7 @@ cards:
             - plant_path: plant_lettuce
             - plant_moisture_entity: sensor.lettuce_moisture
             - plant_moisture_min: 15
-            - plant_moisture_max: 60   
+            - plant_moisture_max: 61
       - type: conditional
         conditions:
           - condition: state
@@ -215,7 +215,7 @@ cards:
             - plant_path: plant_garlic
             - plant_moisture_entity: sensor.soil_moisture_9
             - plant_moisture_min: 20
-            - plant_moisture_max: 60   
+            - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
@@ -237,7 +237,7 @@ cards:
             - plant_icon: fruit-grapes
             - plant_moisture_entity: sensor.soil_moisture_2
             - plant_moisture_min: 25
-            - plant_moisture_max: 60      
+            - plant_moisture_max: 61
       - type: conditional
         conditions:
           - condition: state
@@ -253,7 +253,7 @@ cards:
             - plant_icon: fruit-pineapple
             - plant_moisture_entity: sensor.soil_moisture_3
             - plant_moisture_min: 25
-            - plant_moisture_max: 50     
+            - plant_moisture_max: 51 
       - type: conditional
         conditions:
           - condition: state
@@ -269,7 +269,7 @@ cards:
             - plant_icon: leaf-maple
             - plant_moisture_entity: sensor.japanese_maple_moisture
             - plant_moisture_min: 25
-            - plant_moisture_max: 60     
+            - plant_moisture_max: 61
       - type: conditional
         conditions:
           - condition: state
@@ -285,7 +285,7 @@ cards:
             - plant_icon: flower-outline
             - plant_moisture_entity: sensor.mums_moisture
             - plant_moisture_min: 20
-            - plant_moisture_max: 60    
+            - plant_moisture_max: 61
 
   - type: conditional
     conditions:
@@ -386,7 +386,7 @@ cards:
               - plant_icon: flower-outline
               - plant_moisture_entity: sensor.soil_moisture_1
               - plant_moisture_min: 15
-              - plant_moisture_max: 60  
+              - plant_moisture_max: 61
 
         - type: conditional
           conditions:
@@ -405,7 +405,7 @@ cards:
               - plant_icon: pine-tree-variant-outline
               - plant_moisture_entity: sensor.soil_moisture_8
               - plant_moisture_min: 15
-              - plant_moisture_max: 60  
+              - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
@@ -526,7 +526,7 @@ cards:
             - plant_icon: carrot
             - plant_moisture_entity: sensor.soil_moisture_4
             - plant_moisture_min: 40
-            - plant_moisture_max: 80 
+            - plant_moisture_max: 81
       - type: conditional
         conditions:
           - condition: state
@@ -542,7 +542,7 @@ cards:
             - plant_icon: chili-mild
             - plant_moisture_entity: sensor.soil_moisture_5
             - plant_moisture_min: 20
-            - plant_moisture_max: 65   
+            - plant_moisture_max: 66  
       - type: conditional
         conditions:
           - condition: state
@@ -558,7 +558,7 @@ cards:
             - plant_icon: pig
             - plant_moisture_entity: sensor.soil_moisture_6
             - plant_moisture_min: 20
-            - plant_moisture_max: 65    
+            - plant_moisture_max: 66   
       - type: conditional
         conditions:
           - condition: state
@@ -573,7 +573,7 @@ cards:
             - plant_path: plant_planter
             - plant_moisture_entity: sensor.soil_moisture_7
             - plant_moisture_min: 25
-            - plant_moisture_max: 75
+            - plant_moisture_max: 76
 
   - type: vertical-stack
     cards:
