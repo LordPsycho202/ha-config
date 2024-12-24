@@ -167,7 +167,7 @@ cards:
             - plant_entity: plant.steve
             - plant_path: plant_steve
             - plant_icon: pine-tree-variant-outline
-            - plant_moisture_entity: sensor.steve_moisture
+            - plant_moisture_entity: soil_moisture_10
             - plant_moisture_min: 15
             - plant_moisture_max: 76
       - type: conditional
@@ -183,7 +183,7 @@ cards:
             - plant_entity: plant.fairy_washboard
             - plant_path: plant_fairy_washboard
             - plant_icon: grass
-            - plant_moisture_entity: sensor.fairy_washboard_moisture
+            - plant_moisture_entity: soil_moisture_14
             - plant_moisture_min: 7
             - plant_moisture_max: 51
       - type: conditional
@@ -198,7 +198,7 @@ cards:
             - plant_name: "Lettuce"
             - plant_entity: plant.lettuce
             - plant_path: plant_lettuce
-            - plant_moisture_entity: sensor.lettuce_moisture
+            - plant_moisture_entity: sensor.soil_moisture_11
             - plant_moisture_min: 15
             - plant_moisture_max: 61
       - type: conditional
@@ -267,7 +267,7 @@ cards:
             - plant_entity: plant.japanese_maple
             - plant_path: plant_japanese_maple
             - plant_icon: leaf-maple
-            - plant_moisture_entity: sensor.japanese_maple_moisture
+            - plant_moisture_entity: sensor.soil_moisture_13
             - plant_moisture_min: 25
             - plant_moisture_max: 61
       - type: conditional
@@ -283,7 +283,7 @@ cards:
             - plant_entity: plant.mums
             - plant_path: plant_mums
             - plant_icon: flower-outline
-            - plant_moisture_entity: sensor.mums_moisture
+            - plant_moisture_entity: sensor.soil_moisture_12
             - plant_moisture_min: 20
             - plant_moisture_max: 61
 
