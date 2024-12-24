@@ -167,7 +167,7 @@ cards:
             - plant_entity: plant.steve
             - plant_path: plant_steve
             - plant_icon: pine-tree-variant-outline
-            - plant_moisture_entity: soil_moisture_10
+            - plant_moisture_entity: sensor.soil_moisture_10
             - plant_moisture_min: 15
             - plant_moisture_max: 76
       - type: conditional
