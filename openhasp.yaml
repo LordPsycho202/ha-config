@@ -6,7 +6,7 @@ greenhouse:
         "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
     - obj: "p1b5"
       properties:
-        "text": "{{ state_attr('sensor.sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
+        "text": "{{ state_attr('sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
 
     - obj: "p1b21"
       properties:

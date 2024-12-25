@@ -39,7 +39,7 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.sensor.soil_moisture_10_temp
+            entity: sensor.soil_moisture_10_temp
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Temperature
