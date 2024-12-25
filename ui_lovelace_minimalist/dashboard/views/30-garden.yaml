@@ -157,7 +157,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_sv_notify
+            entity: input_boolean.soil_moisture_10_notify
             state: "on"    
         card:
           type: custom:decluttering-card
@@ -173,7 +173,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_fw_notify
+            entity: input_boolean.soil_moisture_14_notify
             state: "on"    
         card:
           type: custom:decluttering-card
@@ -189,7 +189,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_lt_notify
+            entity: input_boolean.soil_moisture_11_notify
             state: "on"
         card:
           type: custom:decluttering-card
@@ -257,7 +257,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_jm_notify
+            entity: input_boolean.soil_moisture_13_notify
             state: "on"
         card:
           type: custom:decluttering-card
@@ -273,7 +273,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_sb_notify
+            entity: input_boolean.soil_moisture_12_notify
             state: "on"
         card:
           type: custom:decluttering-card
