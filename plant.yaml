@@ -134,7 +134,7 @@ Fairy Washboard:
   min_battery: 35
 Carrots:
   sensors:
-    moisure: sensor.soil_moisture_15
+    moisture: sensor.soil_moisture_15
     battery: sensor.soil_moisture_15_batt
     temperature: sensor.soil_moisture_15_temp
   min_moisture: 15
