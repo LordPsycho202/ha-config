@@ -185,13 +185,13 @@ cards:
         variables:
           - moisture_entity: sensor.soil_moisture_13
           - battery_entity: sensor.soil_moisture_13_batt
-          - notify_entity: input_boolean.soil_moisture_jm_notify
+          - notify_entity: input_boolean.soil_moisture_13_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
           - moisture_entity: sensor.soil_moisture_12
           - battery_entity: sensor.soil_moisture_12_batt
-          - notify_entity: input_boolean.soil_moisture_sb_notify
+          - notify_entity: input_boolean.soil_moisture_12_notify
 
   - type: vertical-stack
     cards:
@@ -203,19 +203,19 @@ cards:
         variables:
           - moisture_entity: sensor.soil_moisture_10
           - battery_entity: sensor.soil_moisture_10_batt
-          - notify_entity: input_boolean.soil_moisture_sv_notify
+          - notify_entity: input_boolean.soil_moisture_10_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
           - moisture_entity: sensor.soil_moisture_14
           - battery_entity: sensor.soil_moisture_14_batt
-          - notify_entity: input_boolean.soil_moisture_fw_notify
+          - notify_entity: input_boolean.soil_moisture_14_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
           - moisture_entity: sensor.soil_moisture_11
           - battery_entity: sensor.soil_moisture_11_batt
-          - notify_entity: input_boolean.soil_moisture_lt_notify
+          - notify_entity: input_boolean.soil_moisture_11_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
