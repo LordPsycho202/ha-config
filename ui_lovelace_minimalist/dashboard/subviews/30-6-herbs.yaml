@@ -1,9 +1,9 @@
 ---
 title: "Greenhouse"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:carrot
+icon: mdi:leaf
 subview: true
-path: plant_greenhouse
+path: plant_herbs
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
@@ -11,9 +11,8 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.greenhouse_plants
-          - plant_path: plant_greenhouse
-          - plant_icon: carrot
+          - plant_entity: plant.herbs
+          - plant_path: plant_herbs
           - plant_action: more-info
       - type: horizontal-stack
         cards:

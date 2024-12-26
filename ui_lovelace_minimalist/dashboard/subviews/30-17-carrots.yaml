@@ -1,9 +1,9 @@
 ---
-title: "Tobasco Pepper, Okra, & Tomato"
+title: "Carrots"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:chili-mild
+icon: mdi:carrot
 subview: true
-path: plant_tobasco
+path: plant_carrot
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
@@ -11,35 +11,32 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.tobasco_and_tomato
-          - plant_path: plant_tobasco
-          - plant_icon: chili-mild
-          - plant_action: more-info
+          - plant_entity: plant.carrot
+          - plant_path: plant_carrot
+          - plant_icon: carrot
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_5
+            entity: sensor.soil_moisture_15
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_5
+              ulm_card_graph_entity: sensor.soil_moisture_15
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
-      - type: horizontal-stack
-        cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.outdoor_temp
+            entity: sensor.soil_moisture_15_temp
             variables:
-              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.outdoor_temp
+              ulm_card_graph_entity: sensor.soil_moisture_15_temp
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_5_batt
+        entity: sensor.soil_moisture_15_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

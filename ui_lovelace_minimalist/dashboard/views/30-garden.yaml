@@ -432,6 +432,9 @@ cards:
                       - condition: numeric_state
                         entity: sensor.soil_moisture_7
                         below: 25
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_15
+                        below: 15
                   - condition: state
                     entity: timer.garden_watering
                     state: idle
@@ -520,10 +523,9 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
-            - plant_name: "Juniper"
-            - plant_entity: plant.greenhouse_plants
-            - plant_path: plant_greenhouse
-            - plant_icon: carrot
+            - plant_name: "Herbs"
+            - plant_entity: plant.herbs
+            - plant_path: plant_herbs
             - plant_moisture_entity: sensor.soil_moisture_4
             - plant_moisture_min: 40
             - plant_moisture_max: 81
@@ -536,13 +538,13 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
-            - plant_name: "Tobasco & Tomato"
-            - plant_entity: plant.tobasco_and_tomato
-            - plant_path: plant_tobasco
-            - plant_icon: chili-mild
+            - plant_name: "Cucumber"
+            - plant_entity: plant.cucumber
+            - plant_path: plant_cucumber
+            - plant_icon: fruit-pear
             - plant_moisture_entity: sensor.soil_moisture_5
-            - plant_moisture_min: 20
-            - plant_moisture_max: 66  
+            - plant_moisture_min: 30
+            - plant_moisture_max: 76  
       - type: conditional
         conditions:
           - condition: state
@@ -568,12 +570,28 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
-            - plant_name: "Standing Planter"
-            - plant_entity: plant.standing_container
-            - plant_path: plant_planter
+            - plant_name: "Beans"
+            - plant_entity: plant.beans
+            - plant_path: plant_beans
             - plant_moisture_entity: sensor.soil_moisture_7
             - plant_moisture_min: 25
-            - plant_moisture_max: 76
+            - plant_moisture_max: 66
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_7_notify
+            state: "on"
+        card:
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Carrots"
+            - plant_entity: plant.carrots
+            - plant_icon: carrot
+            - plant_path: plant_carrot
+            - plant_moisture_entity: sensor.soil_moisture_15
+            - plant_moisture_min: 15
+            - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
