@@ -31,10 +31,10 @@ views:
   - !include subviews/30-3-pineapple.yaml
   - !include subviews/30-4-flowers.yaml
   - !include subviews/30-5-blackberries.yaml
-  - !include subviews/30-6-greenhouse.yaml
-  - !include subviews/30-7-tobasco.yaml
+  - !include subviews/30-6-herbs.yaml
+  - !include subviews/30-7-cucumber.yaml
   - !include subviews/30-8-tomatoes.yaml
-  - !include subviews/30-9-planter.yaml
+  - !include subviews/30-9-beans.yaml
   - !include subviews/30-10-garlic.yaml
   - !include subviews/30-11-admin.yaml
   - !include subviews/30-12-timelapse.yaml
@@ -42,6 +42,7 @@ views:
   - !include subviews/30-14-japanese-maple.yaml
   - !include subviews/30-15-fairy-washboard.yaml
   - !include subviews/30-16-juniper.yaml
+  - !include subviews/30-17-carrots.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
