@@ -66,8 +66,8 @@ binary_sensor:
       {%- set adjust = (day - temp.weekday()) % 7 %}
       {%- set temp = temp + timedelta(days=adjust) %}
       {%- set thanksgiving = temp + timedelta(weeks = week - 1) %}
-      {%- set secondday = today.replace(month=1, day=2) %}
-      {{ today < secondday or today > thanksgiving }}
+      {%- set boxingday = today.replace(month=12, day=26) %}
+      { today < boxingday and today > thanksgiving }}
 
   - unique_id: wind_chill_active
     name: Wind Chill Active
