@@ -265,14 +265,15 @@ cards:
               name: Winds
               speed_unit: auto
               use_statistics: false
-              speed_range_max: 30
-              speed_range_step: 2
-              speed_range_beaufort: false
           output_speed_unit: mph
           windrose_draw_north_offset: 0
           cardinal_direction_letters: NESW
           matching_strategy: direction-first
           center_calm_percentage: true
+          speed_range_max: 30
+          speed_range_step: 2
+          speed_range_beaufort: false
+
       - type: horizontal-stack
         cards:
           - type: conditional
