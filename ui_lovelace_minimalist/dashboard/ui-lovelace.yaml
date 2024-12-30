@@ -43,6 +43,7 @@ views:
   - !include subviews/30-15-fairy-washboard.yaml
   - !include subviews/30-16-juniper.yaml
   - !include subviews/30-17-carrots.yaml
+  - !include subviews/30-18-camellia.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security
