@@ -425,6 +425,7 @@ cards:
               - plant_name: "Camellia"
               - plant_entity: plant.camellia
               - plant_path: plant_camellia
+              - plant_icon: flower
               - plant_moisture_entity: sensor.soil_moisture_9
               - plant_moisture_min: 20
               - plant_moisture_max: 61
