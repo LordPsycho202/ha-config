@@ -44,6 +44,8 @@ views:
   - !include subviews/30-16-juniper.yaml
   - !include subviews/30-17-carrots.yaml
   - !include subviews/30-18-camellia.yaml
+  - !include subviews/30-19-okra.yaml
+  - !include subviews/30-20-amaranth.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security

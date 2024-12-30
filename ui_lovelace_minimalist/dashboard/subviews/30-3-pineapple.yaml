@@ -19,27 +19,45 @@ cards:
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_3
+            entity: sensor.soil_moisture_18
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_3
+              ulm_card_graph_entity: sensor.soil_moisture_18
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_18_cond
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Nutrients
+              ulm_card_graph_entity: sensor.soil_moisture_18_cond
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.outdoor_temp
+            entity: sensor.soil_moisture_18_temp
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.outdoor_temp
+              ulm_card_graph_entity: sensor.soil_moisture_18_temp
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_18_lum
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Light
+              ulm_card_graph_entity: sensor.soil_moisture_18_lum
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_3_batt
+        entity: sensor.soil_moisture_18_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80

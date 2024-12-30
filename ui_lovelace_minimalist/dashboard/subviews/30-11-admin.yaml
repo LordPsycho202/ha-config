@@ -177,15 +177,15 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - moisture_entity: sensor.soil_moisture_2
-          - battery_entity: sensor.soil_moisture_2_batt
-          - notify_entity: input_boolean.soil_moisture_2_notify
+          - moisture_entity: sensor.soil_moisture_17
+          - battery_entity: sensor.soil_moisture_17_batt
+          - notify_entity: input_boolean.soil_moisture_17_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - moisture_entity: sensor.soil_moisture_3
-          - battery_entity: sensor.soil_moisture_3_batt
-          - notify_entity: input_boolean.soil_moisture_3_notify
+          - moisture_entity: sensor.soil_moisture_18
+          - battery_entity: sensor.soil_moisture_18_batt
+          - notify_entity: input_boolean.soil_moisture_18_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
@@ -234,6 +234,18 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Garden Plots
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_2
+          - battery_entity: sensor.soil_moisture_2_batt
+          - notify_entity: input_boolean.soil_moisture_2_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - moisture_entity: sensor.soil_moisture_3
+          - battery_entity: sensor.soil_moisture_3_batt
+          - notify_entity: input_boolean.soil_moisture_3_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:

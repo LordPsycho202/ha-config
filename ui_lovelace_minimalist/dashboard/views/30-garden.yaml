@@ -225,7 +225,7 @@ cards:
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_2_notify
+            entity: input_boolean.soil_moisture_17_notify
             state: "on"
         card:
           type: custom:decluttering-card
@@ -235,13 +235,13 @@ cards:
             - plant_entity: plant.blackberries
             - plant_path: plant_blackberries
             - plant_icon: fruit-grapes
-            - plant_moisture_entity: sensor.soil_moisture_2
+            - plant_moisture_entity: sensor.soil_moisture_17
             - plant_moisture_min: 25
             - plant_moisture_max: 61
       - type: conditional
         conditions:
           - condition: state
-            entity: input_boolean.soil_moisture_3_notify
+            entity: input_boolean.soil_moisture_18_notify
             state: "on"
         card:
           type: custom:decluttering-card
@@ -251,7 +251,7 @@ cards:
             - plant_entity: plant.pineapples
             - plant_path: plant_pineapple
             - plant_icon: fruit-pineapple
-            - plant_moisture_entity: sensor.soil_moisture_3
+            - plant_moisture_entity: sensor.soil_moisture_18
             - plant_moisture_min: 20
             - plant_moisture_max: 51 
       - type: conditional
@@ -445,6 +445,12 @@ cards:
                   - condition: or
                     conditions:
                       - condition: numeric_state
+                        entity: sensor.soil_moisture_2
+                        below: 20
+                      - condition: numeric_state
+                        entity: sensor.soil_moisture_3
+                        below: 20
+                      - condition: numeric_state
                         entity: sensor.soil_moisture_4
                         below: 40
                       - condition: numeric_state
@@ -538,6 +544,37 @@ cards:
               ulm_card_graph_entity: sensor.soil_temperature_1
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_2_notify
+            state: "on"
+        card:
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Okra"
+            - plant_entity: plant.okra
+            - plant_path: plant_okra
+            - plant_icon: chili-mild
+            - plant_moisture_entity: sensor.soil_moisture_2
+            - plant_moisture_min: 20
+            - plant_moisture_max: 61
+      - type: conditional
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_3_notify
+            state: "on"
+        card:
+          type: custom:decluttering-card
+          template: plant_graphs
+          variables:
+            - plant_name: "Amaranth"
+            - plant_entity: plant.amaranth
+            - plant_path: plant_amaranth
+            - plant_moisture_entity: sensor.soil_moisture_3
+            - plant_moisture_min: 20
+            - plant_moisture_max: 60
       - type: conditional
         conditions:
           - condition: state
