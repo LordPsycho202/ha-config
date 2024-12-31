@@ -408,21 +408,22 @@ chips:
       type: template
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.front_flowers','problem') %}
+        {%- set problem = state_attr('plant.front_flowers','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.front_flowers','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.front_flowers','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:flower-outline
@@ -447,21 +448,22 @@ chips:
       type: template
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.okra','problem') %}
+        {%- set problem = state_attr('plant.okra','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.okra','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.okra','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.okra','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.okra','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.okra','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.okra','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.okra','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:chili-mild
@@ -487,21 +489,22 @@ chips:
       entity: plant.amaranth
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.amaranth','problem') %}
+        {%- set problem = state_attr('plant.amaranth','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.amaranth','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.amaranth','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.amaranth','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.amaranth','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.amaranth','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.amaranth','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.amaranth','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
@@ -526,21 +529,22 @@ chips:
       entity: plant.herbs
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.herbs','problem') %}
+        {%- set problem = state_attr('plant.herbs','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.herbs','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.herbs','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.herbs','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.herbs','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.herbs','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.herbs','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.herbs','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
@@ -565,21 +569,22 @@ chips:
       entity: plant.cucumber
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.cucumber','problem') %}
+        {%- set problem = state_attr('plant.cucumber','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.cucumber','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.cucumber','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.cucumber','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.cucumber','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.cucumber','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.cucumber','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.cucumber','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-pear
@@ -604,21 +609,22 @@ chips:
       entity: plant.tomatoes
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.tomatoes','problem') %}
+        {%- set problem = state_attr('plant.tomatoes','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.tomatoes','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.tomatoes','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:pig
@@ -643,21 +649,22 @@ chips:
       entity: plant.beans
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.beans','problem') %}
+        {%- set problem = state_attr('plant.beans','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.beans','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.beans','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.beans','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.beans','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.beans','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.beans','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.beans','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
@@ -682,21 +689,22 @@ chips:
       entity: plant.juniper
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.juniper','problem') %}
+        {%- set problem = state_attr('plant.juniper','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.juniper','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.juniper','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.juniper','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.juniper','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.juniper','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.juniper','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.juniper','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:pine-tree-variant-outline
@@ -721,21 +729,22 @@ chips:
       entity: plant.camellia
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.camellia','problem') %}
+        {%- set problem = state_attr('plant.camellia','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.camellia','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.camellia','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.camellia','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.camellia','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.camellia','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.camellia','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.camellia','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:flower
@@ -760,21 +769,22 @@ chips:
       entity: plant.steve
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.steve','problem') %}
+        {%- set problem = state_attr('plant.steve','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.steve','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.steve','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.steve','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.steve','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.steve','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.steve','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.steve','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:pine-tree-variant-outline
@@ -799,21 +809,22 @@ chips:
       entity: plant.lettuce
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.lettuce','problem') %}
+        {%- set problem = state_attr('plant.lettuce','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.lettuce','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.lettuce','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.lettuce','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.lettuce','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.lettuce','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.lettuce','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.lettuce','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
@@ -838,21 +849,22 @@ chips:
       entity: plant.mums
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.mums','problem') %}
+        {%- set problem = state_attr('plant.mums','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.mums','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.mums','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.mums','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.mums','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.mums','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.mums','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.mums','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-grapes
@@ -877,21 +889,22 @@ chips:
       entity: plant.japanese_maple
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.japanese_maple','problem') %}
+        {%- set problem = state_attr('plant.japanese_maple','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.japanese_maple','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.japanese_maple','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf-maple
@@ -916,21 +929,22 @@ chips:
       entity: plant.fairy_washboard
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.fairy_washboard','problem') %}
+        {%- set problem = state_attr('plant.fairy_washboard','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.fairy_washboard','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.fairy_washboard','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:grass
@@ -955,21 +969,22 @@ chips:
       entity: plant.carrots
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.carrots','problem') %}
+        {%- set problem = state_attr('plant.carrots','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.carrots','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.carrots','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.carrots','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.carrots','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.carrots','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.carrots','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.carrots','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:carrot
@@ -995,21 +1010,22 @@ chips:
       entity: plant.garlic
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.garlic','problem') %}
+        {%- set problem = state_attr('plant.garlic','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.garlic','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.garlic','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.garlic','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.garlic','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.garlic','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.garlic','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.garlic','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:leaf
