@@ -1033,21 +1033,22 @@ chips:
       type: template
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.blackberries','problem') %}
+        {%- set problem = state_attr('plant.blackberries','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.blackberries','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.blackberries','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.blackberries','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.blackberries','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.blackberries','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.blackberries','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seed-plus-outline
-        {% elif 'battery low' in state_attr('plant.blackberries','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-grapes
@@ -1073,21 +1074,22 @@ chips:
       entity: plant.pineapples
       icon_color: grey
       icon: |-
-        {% if 'moisture low' in state_attr('plant.pineapples','problem') %}
+        {%- set problem = state_attr('plant.pineapples','problem') %}
+        {% if 'moisture low' in problem %}
         mdi:watering-can-outline
-        {% elif 'moisture high' in state_attr('plant.pineapples','problem') %}
+        {% elif 'moisture high' in problem %}
         mdi:water-alert
-        {% elif 'moisture unavailable' in state_attr('plant.pineapples','problem') %}
+        {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in state_attr('plant.pineapples','problem') %}
+        {% elif 'temperature low' in problem %}
         mdi:snowflake-thermometer
-        {% elif 'temperature high' in state_attr('plant.pineapples','problem') %}
+        {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
-        {% elif 'temperature unavailable' in state_attr('plant.pineapples','problem') %}
+        {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
-        {% elif 'conductivity low' in state_attr('plant.pineapples','problem') %}
+        {% elif 'conductivity low' in problem %}
         mdi:seen-plus-outline
-        {% elif 'battery low' in state_attr('plant.pineapples','problem')%}
+        {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
         mdi:fruit-pineapple
