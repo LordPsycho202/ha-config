@@ -46,6 +46,8 @@ views:
   - !include subviews/30-18-camellia.yaml
   - !include subviews/30-19-okra.yaml
   - !include subviews/30-20-amaranth.yaml
+  - !include subviews/30-21-japanese_holly.yaml
+  - !include subviews/30-22-holly.yaml
   # Weather
   - !include views/40-weather.yaml
   # Security

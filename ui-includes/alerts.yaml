@@ -1114,3 +1114,83 @@ chips:
       tap_action:
         action: navigate
         navigation_path: plant_pineapple
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.japanese_holly
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_19_notify
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.japanese_holly
+      icon_color: grey
+      icon: |-
+        {%- set problem = state_attr('plant.japanese_holly','problem') %}
+        {% if 'moisture low' in problem %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in problem %}
+        mdi:water-alert
+        {% elif 'moisture unavailable' in problem %}
+        mdi:water-off-outline
+        {% elif 'temperature low' in problem %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in problem %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in problem %}
+        mdi:thermometer-off
+        {% elif 'conductivity low' in problem %}
+        mdi:seen-plus-outline
+        {% elif 'battery low' in problem%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:fruit-pineapple
+        {% endif %}
+      content: Japanese Holly
+      tap_action:
+        action: navigate
+        navigation_path: plant_japanese_holly
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.holly
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_20_notify
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.holly
+      icon_color: grey
+      icon: |-
+        {%- set problem = state_attr('plant.holly','problem') %}
+        {% if 'moisture low' in problem %}
+        mdi:watering-can-outline
+        {% elif 'moisture high' in problem %}
+        mdi:water-alert
+        {% elif 'moisture unavailable' in problem %}
+        mdi:water-off-outline
+        {% elif 'temperature low' in problem %}
+        mdi:snowflake-thermometer
+        {% elif 'temperature high' in problem %}
+        mdi:sun-thermometer-outline
+        {% elif 'temperature unavailable' in problem %}
+        mdi:thermometer-off
+        {% elif 'conductivity low' in problem %}
+        mdi:seen-plus-outline
+        {% elif 'battery low' in problem%}
+        mdi:battery-alert-variant-outline
+        {% else %}
+        mdi:fruit-pineapple
+        {% endif %}
+      content: Holly
+      tap_action:
+        action: navigate
+        navigation_path: plant_holly
