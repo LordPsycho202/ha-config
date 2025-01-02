@@ -430,6 +430,39 @@ cards:
               - plant_moisture_min: 20
               - plant_moisture_max: 61
 
+        - type: conditional
+          conditions:
+            - condition: state
+              entity: input_boolean.soil_moisture_19_notify
+              state: "on"
+          card:
+            type: custom:decluttering-card
+            template: plant_graphs
+            variables:
+              - plant_name: "Japanese Holly"
+              - plant_entity: plant.japanese_holly
+              - plant_path: plant_japanese_holly
+              - plant_icon: weather-cloudy
+              - plant_moisture_entity: sensor.soil_moisture_19
+              - plant_moisture_min: 20
+              - plant_moisture_max: 61
+
+        - type: conditional
+          conditions:
+            - condition: state
+              entity: input_boolean.soil_moisture_20_notify
+              state: "on"
+          card:
+            type: custom:decluttering-card
+            template: plant_graphs
+            variables:
+              - plant_name: "Holly"
+              - plant_entity: plant.holly
+              - plant_path: plant_holly
+              - plant_icon: weather-cloudy
+              - plant_moisture_entity: sensor.soil_moisture_20
+              - plant_moisture_min: 20
+              - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
