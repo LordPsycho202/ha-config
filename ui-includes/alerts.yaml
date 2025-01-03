@@ -1104,7 +1104,7 @@ chips:
         {% elif 'temperature unavailable' in problem %}
         mdi:thermometer-off
         {% elif 'conductivity low' in problem %}
-        mdi:seen-plus-outline
+        mdi:seed-plus-outline
         {% elif 'battery low' in problem%}
         mdi:battery-alert-variant-outline
         {% else %}
