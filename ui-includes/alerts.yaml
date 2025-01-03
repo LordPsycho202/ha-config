@@ -170,7 +170,7 @@ chips:
   - type: conditional
     conditions:
       - entity: switch.back_yard_zone
-        state_not: 'off'
+        state: 'on'
     chip:
       type: template
       content: Backyard
@@ -182,7 +182,7 @@ chips:
   - type: conditional
     conditions:
       - entity: switch.flower_beds_zone
-        state_not: 'off'
+        state: 'on'
     chip:
       type: template
       content: Flower Beds
@@ -194,7 +194,7 @@ chips:
   - type: conditional
     conditions:
       - entity: switch.front_yard_zone
-        state_not: 'off'
+        state: 'on'
     chip:
       type: template
       content: Front Yard
@@ -206,7 +206,7 @@ chips:
   - type: conditional
     conditions:
       - entity: switch.side_yard_zone
-        state_not: 'off'
+        state: 'on'
     chip:
       type: template
       content: Side Yards
@@ -218,7 +218,7 @@ chips:
   - type: conditional
     conditions:
       - entity: switch.garden_watering
-        state_not: 'off'
+        state: 'on'
     chip:
       type: template
       content: Garden
