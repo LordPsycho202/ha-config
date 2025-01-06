@@ -296,23 +296,37 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: calendar.trash_collection
-        state: 'on'
+      - entity: input_select.trash_day_status
+        state: 'Trash Day'
     chip:
       type: template
       icon_color: grey
       content: Trash Day
       icon: mdi:delete
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.trash_day_status
+        data:
+          option: On Curb
 
   - type: conditional
     conditions:
-      - entity: calendar.recycling_collection
-        state: 'on'
+      - entity: input_select.recycling_day_status
+        state: 'Recycling Day'
     chip:
       type: template
       icon_color: grey
       content: Recycling Day
       icon: mdi:recycle-variant
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.recycling_day_status
+        data:
+          option: On Curb
 
   - type: conditional
     conditions:
