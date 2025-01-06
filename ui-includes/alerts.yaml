@@ -32,9 +32,9 @@ chips:
               {% set severity = desc.Severity %}
               {%- if severity == "Extreme" %}
                 {%- set ns.output = "red" %}
-              {% elif severity == "Severe" %}
+              {% elif severity == "Severe" and ns.output != "red" %}
                 {%- set ns.output = "orange" %}
-              {% else %}
+              {% elif severity == "Moderate" and (ns.output != "red" or ns.output != "yellow") %}
                 {%- set ns.output = "yellow" %}
               {%- endif %}
             {%- endif %}

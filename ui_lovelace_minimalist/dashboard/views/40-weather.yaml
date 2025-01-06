@@ -46,6 +46,63 @@ cards:
 
       - type: conditional
         conditions:
+          - entity: binary_sensor.wx_card
+            state: on
+        card:
+          type: custom:mushroom-template-card
+          primary: |-
+            {%- set ns = namespace(count = 0,index=0) %}
+            {%- if states.sensor.nws_alerts.state | int > 0 %}
+              {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
+              {%- for desc in description %}
+                {%- set ends = as_timestamp(desc.Expires) %}
+                {%- if as_timestamp(now()) < ends %}
+                  {%- set ns.count = ns.count+1 %}
+                  {%- set ns.index = loop.index0 %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+            {{ns.count}} NWS Alerts
+          secondary: |-
+            {%- set ns = namespace(count = 0,index=0) %}
+            {%- if states.sensor.nws_alerts.state | int > 0 %}
+              {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
+              {%- for desc in description %}
+                {%- set ends = as_timestamp(desc.Expires) %}
+                {%- if as_timestamp(now()) < ends %}
+                  {{ " | " ~ desc.Event }}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+          icon: "{{states.sensor.nws_alerts.attributes.icon}}"
+          icon_color: |-
+            {%- set ns = namespace(output="grey") %}
+            {%- if states.sensor.nws_alerts.state | int > 0 %}
+              {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
+              {%- for desc in description %}
+                {%- set ends = as_timestamp(desc.Ends) %}
+                {%- if as_timestamp(now()) < ends %}
+                  {% set severity = desc.Severity %}
+                  {%- if severity == "Extreme" %}
+                    {%- set ns.output = "red" %}
+                  {% elif severity == "Severe" and ns.output != "red" %}
+                    {%- set ns.output = "orange" %}
+                  {% elif severity == "Moderate" and (ns.output != "red" or ns.output != "yellow") %}
+                    {%- set ns.output = "yellow" %}
+                  {%- endif %}
+                {%- endif %}
+              {%- endfor %}
+            {%- endif %}
+            {{ ns.output }}
+          tap_action:
+            action: navigate
+            navigation_path: wxalert
+          hold_action:
+            action: more-info
+          entity: sensor.nws_alerts
+
+      - type: conditional
+        conditions:
           - entity: binary_sensor.wind_chill_active
             state: "on"
         card:
