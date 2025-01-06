@@ -22,7 +22,7 @@ cards:
         # {{ns.count}} NWS Alerts
       {%- else %}
         # {{states.sensor.nws_alerts.attributes.Alerts[ns.index].Event}}
-      {% endif %}
+      {%- endif %}
       {%- set Alerts = states.sensor.nws_alerts.attributes.Alerts %}
       {%- for alrt in Alerts %}
         {%- set ends = as_timestamp(alrt.Ends) %}
@@ -32,17 +32,16 @@ cards:
           {%- set what = "*" ~ alrt.Description.split("*")[1]|replace("\n"," ")  %}
           {%- set where = "*" ~ alrt.Description.split("*")[2]|replace("\n"," ")  %}
           {%- set when = "*" ~ alrt.Description.split("*")[3]|replace("\n"," ") %}
-          {%- set impacts = "*" ~ alrt.Description.split("*")[4]|replace("\n"," ") %}
- 
+          {%- set impacts = "*" ~ alrt.Description.split("*")[4] ~ "\n" %}
         {{ "## " + alrt.Headline }}
         {{ what }}
         {{ where }}
         {{ when }}
-        {{ impacts }}
         {%- if "Instruction" in alrt %}
         {%- set instructions = "* Instructions..." ~ alrt.Instruction %}
         {{ instructions }}
         {%- endif %}
+        {{ impacts }}
         {%- endif %}
       {% endfor %}
   - show_state: true
