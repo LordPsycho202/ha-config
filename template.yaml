@@ -13,11 +13,11 @@ binary_sensor:
     state: >
       {%- set ns = namespace(output="off") %}
       {%- if states.sensor.nws_alerts.state | int > 0 %}
-        {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
+        {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
         {%- for desc in description %}
-          {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
+          {%- set expires = as_timestamp(desc.Expires) %}
           {%- if as_timestamp(now()) < expires %}
-            {% set severity = states.sensor.nws_alerts.attributes.event_severity.split(" - ")[loop.index0] %}
+            {% set severity = desc.Severity %}
             {%- if severity == "Extreme" or severity == "Severe" %}
               {%- set ns.output = "on" %}
             {%- endif %}
