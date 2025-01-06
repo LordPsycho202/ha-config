@@ -27,7 +27,6 @@ cards:
       {%- for alrt in Alerts %}
         {%- set ends = as_timestamp(alrt.Ends) %}
         {%- if as_timestamp(now()) < ends %}
-          {%- set bold= desc | replace("\n>\nHeadline: ","## ") %}
           {%- set preamble = alrt.Description.split("*")[0] %}
           {%- set what = "*" ~ alrt.Description.split("*")[1]|replace("\n"," ")  %}
           {%- set where = "*" ~ alrt.Description.split("*")[2]|replace("\n"," ")  %}
