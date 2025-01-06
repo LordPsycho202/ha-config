@@ -68,7 +68,7 @@ frontend:
 recorder: !include recorder.yaml
 
 #### HTTPS ##################################
-# http: !include http.yaml
+http: !include http.yaml
 
 #### OpenHASP ##################################
 openhasp: !include openhasp.yaml
