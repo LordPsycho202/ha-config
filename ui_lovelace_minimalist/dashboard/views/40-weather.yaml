@@ -46,8 +46,9 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: binary_sensor.wx_card
-            state: on
+          - condition: state
+            entity: binary_sensor.wx_card
+            state: "on"
         card:
           type: custom:mushroom-template-card
           primary: |-
@@ -85,9 +86,9 @@ cards:
                   {% set severity = desc.Severity %}
                   {%- if severity == "Extreme" %}
                     {%- set ns.output = "red" %}
-                  {% elif severity == "Severe" and ns.output != "red" %}
+                  {% elif severity == "Severe" %}
                     {%- set ns.output = "orange" %}
-                  {% elif severity == "Moderate" and (ns.output != "red" or ns.output != "yellow") %}
+                  {% else %}
                     {%- set ns.output = "yellow" %}
                   {%- endif %}
                 {%- endif %}
