@@ -10,21 +10,21 @@ Okra:
     moisture: sensor.soil_moisture_2
     battery: sensor.soil_moisture_2_batt
   min_moisture: 20
-  max_moisture: 60
+  max_moisture: 100
   min_battery: 35
 Amaranth:
   sensors:
     moisture: sensor.soil_moisture_3
     battery: sensor.soil_moisture_3_batt
   min_moisture: 20
-  max_moisture: 60
+  max_moisture: 100
   min_battery: 35
 Herbs:
   sensors:
     moisture: sensor.soil_moisture_4
     battery: sensor.soil_moisture_4_batt
   min_moisture: 40
-  max_moisture: 80
+  max_moisture: 100
   min_temperature: 50
   min_battery: 35
 Cucumber:
@@ -32,35 +32,35 @@ Cucumber:
     moisture: sensor.soil_moisture_5
     battery: sensor.soil_moisture_5_batt
   min_moisture: 30
-  max_moisture: 75
+  max_moisture: 100
   min_battery: 35
 Tomatoes:
   sensors:
     moisture: sensor.soil_moisture_6
     battery: sensor.soil_moisture_6_batt
   min_moisture: 25
-  max_moisture: 65
+  max_moisture: 100
   min_battery: 35
 Beans:
   sensors:
     moisture: sensor.soil_moisture_7
     battery: sensor.soil_moisture_7_batt
   min_moisture: 25
-  max_moisture: 65
+  max_moisture: 100
   min_battery: 35
 Juniper:
   sensors:
     moisture: sensor.soil_moisture_8
     battery: sensor.soil_moisture_8_batt
   min_moisture: 15
-  max_moisture: 60
+  max_moisture: 100
   min_battery: 35
 Camellia:
   sensors:
     moisture: sensor.soil_moisture_9
     battery: sensor.soil_moisture_9_batt
   min_moisture: 20
-  max_moisture: 60
+  max_moisture: 100
   min_battery: 35
 Steve:
   sensors:
@@ -190,7 +190,7 @@ Japanese Holly:
     battery: sensor.soil_moisture_19_batt
     temperature: sensor.soil_moisture_19_temp
   min_moisture: 20
-  max_moisture: 60
+  max_moisture: 100
   min_temperature: 41
   max_temperature: 95
   min_battery: 35
@@ -200,7 +200,7 @@ Holly:
     battery: sensor.soil_moisture_20_batt
     temperature: sensor.soil_moisture_20_temp
   min_moisture: 20
-  max_moisture: 60
+  max_moisture: 100
   min_temperature: 41
   max_temperature: 95
   min_battery: 35
