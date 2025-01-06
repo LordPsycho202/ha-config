@@ -56,7 +56,7 @@ cards:
             {%- if states.sensor.nws_alerts.state | int > 0 %}
               {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
               {%- for desc in description %}
-                {%- set ends = as_timestamp(desc.Expires) %}
+                {%- set ends = as_timestamp(desc.Ends) %}
                 {%- if as_timestamp(now()) < ends %}
                   {%- set ns.count = ns.count+1 %}
                   {%- set ns.index = loop.index0 %}
@@ -69,7 +69,7 @@ cards:
             {%- if states.sensor.nws_alerts.state | int > 0 %}
               {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
               {%- for desc in description %}
-                {%- set ends = as_timestamp(desc.Expires) %}
+                {%- set ends = as_timestamp(desc.Ends) %}
                 {%- if as_timestamp(now()) < ends %}
                   {{ " | " ~ desc.Event }}
                 {%- endif %}
