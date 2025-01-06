@@ -1,14 +1,5 @@
 ---
-# server_port: 443
-# ssl_certificate: /ssl/folden-nissen.com.pem
-# ssl_key: /ssl/folden-nissen.key
-# cors_allowed_origins:
-#   - https://cardinal.folden-nissen.com
 use_x_forwarded_for: true
-  trusted_proxies:
-    - 172.30.33.0/24
-    - 192.168.3.1
-# trusted_proxies:
-#   - 192.168.3.1
-# ip_ban_enabled: true
-# login_attempts_threshold: 5
+trusted_proxies:
+  - 172.30.33.0/24
+  - 192.168.3.1
