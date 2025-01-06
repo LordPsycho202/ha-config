@@ -27,12 +27,14 @@ chips:
         {%- if states.sensor.nws_alerts.state | int > 0 %}
           {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
           {%- for desc in description %}
-            {%- set expires = as_timestamp(desc.Expires) %}
-            {%- if as_timestamp(now()) < expires %}
+            {%- set ends = as_timestamp(desc.Ends) %}
+            {%- if as_timestamp(now()) < ends %}
               {% set severity = desc.Severity %}
               {%- if severity == "Extreme" %}
                 {%- set ns.output = "red" %}
               {% elif severity == "Severe" %}
+                {%- set ns.output = "orange" %}
+              {% else %}
                 {%- set ns.output = "yellow" %}
               {%- endif %}
             {%- endif %}
@@ -44,8 +46,8 @@ chips:
         {%- if states.sensor.nws_alerts.state | int > 0 %}
           {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
           {%- for desc in description %}
-            {%- set expires = as_timestamp(desc.Expires) %}
-            {%- if as_timestamp(now()) < expires %}
+            {%- set ends = as_timestamp(desc.Expires) %}
+            {%- if as_timestamp(now()) < ends %}
               {%- set ns.count = ns.count+1 %}
               {%- set ns.index = loop.index0 %}
             {%- endif %}

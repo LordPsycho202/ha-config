@@ -9,10 +9,10 @@ cards:
     content: >-
       {%- set ns = namespace(count = 0,index=0) %}
       {%- if states.sensor.nws_alerts.state | int > 0 %}
-        {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
-        {%- for desc in description %}
-          {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
-          {%- if as_timestamp(now()) < expires %}
+        {%- set Alerts = states.sensor.nws_alerts.attributes.Alerts%}
+        {%- for alrt in Alerts %}
+          {%- set ends = as_timestamp(alrt.Ends) %}
+          {%- if as_timestamp(now()) < ends %}
             {%- set ns.count = ns.count+1 %}
             {%- set ns.index = loop.index0 %}
           {%- endif %}
@@ -21,30 +21,27 @@ cards:
       {%- if ns.count > 1 %}
         # {{ns.count}} NWS Alerts
       {%- else %}
-        # {{states.sensor.nws_alerts.attributes.title.split(" - ")[ns.index]}}
+        # {{states.sensor.nws_alerts.attributes.Alerts[ns.index].Event}}
       {% endif %}
-      {%- set description = states.sensor.nws_alerts.attributes.display_desc.split("\n\n-\n\n") %}
-      {%- for desc in description %}
-        {%- set expires = as_timestamp((desc.split("Expires: ")[1]).split("\nDescription")[0]) %}
-        {%- if as_timestamp(now()) < expires %}
+      {%- set Alerts = states.sensor.nws_alerts.attributes.Alerts %}
+      {%- for alrt in Alerts %}
+        {%- set ends = as_timestamp(alrt.Ends) %}
+        {%- if as_timestamp(now()) < ends %}
           {%- set bold= desc | replace("\n>\nHeadline: ","## ") %}
-          {%- set preamble = bold.split("*")[0] %}
-          {%- set what = "*" ~ ((bold.split("*")[1])|replace("\n"," ")) %}
-          {%- set where = "*" ~ (bold.split("*")[2])|replace("\n"," ") %}
-          {%- set when = "*" ~ (bold.split("*")[3])|replace("\n"," ") %}
-          {%- if "Instruction" in bold.split("*")[4] %}
-            {%- set impacts = "*" ~ (bold.split("*")[4]).split("Instruction")[0]|replace("\n"," ") %}
-            {%- set instruction = "__Instruction__" ~ (bold.split("*")[4]).split("Instruction")[1]|replace("\n"," ") %}
-          {%- else %}
-            {%- set impacts = "*" ~ (bold.split("*")[4])|replace("\n"," ") %}
-          {%- endif %}
-        {{ preamble }}
+          {%- set preamble = alrt.Description.split("*")[0] %}
+          {%- set what = "*" ~ alrt.Description.split("*")[1]|replace("\n"," ")  %}
+          {%- set where = "*" ~ alrt.Description.split("*")[2]|replace("\n"," ")  %}
+          {%- set when = "*" ~ alrt.Description.split("*")[3]|replace("\n"," ") %}
+          {%- set impacts = "*" ~ alrt.Description.split("*")[4]|replace("\n"," ") %}
+ 
+        {{ "## " + alrt.Headline }}
         {{ what }}
         {{ where }}
         {{ when }}
         {{ impacts }}
-        {%- if "Instruction" in bold.split("*")[4] %}
-        {{ instruction }}
+        {%- if "Instruction" in alrt %}
+        {%- set instructions = "* Instructions..." ~ alrt.Instruction %}
+        {{ instructions }}
         {%- endif %}
         {%- endif %}
       {% endfor %}
@@ -53,4 +50,4 @@ cards:
     camera_view: auto
     type: picture-entity
     entity: weather.weather_station
-    image: https://radar.weather.gov/ridge/standard/KFFC_loop.gif
+    camera_image: camera.radar_weather_gov
