@@ -313,6 +313,23 @@ chips:
 
   - type: conditional
     conditions:
+      - entity: input_select.trash_day_status
+        state: 'Empty'
+    chip:
+      type: template
+      icon_color: grey
+      content: Take in Trash
+      icon: mdi:delete
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.trash_day_status
+        data:
+          option: In Garage
+
+  - type: conditional
+    conditions:
       - entity: input_select.recycling_day_status
         state: 'Recycling Day'
     chip:
@@ -327,6 +344,23 @@ chips:
           entity_id: input_select.recycling_day_status
         data:
           option: On Curb
+
+  - type: conditional
+    conditions:
+      - entity: input_select.recycling_day_status
+        state: 'Empty'
+    chip:
+      type: template
+      icon_color: grey
+      content: Take In Recycling
+      icon: mdi:recycle-variant
+      tap_action:
+        action: call-service
+        service: input_select.select_option
+        target:
+          entity_id: input_select.recycling_day_status
+        data:
+          option: In Garage
 
   - type: conditional
     conditions:
