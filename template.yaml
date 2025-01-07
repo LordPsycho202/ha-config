@@ -15,10 +15,10 @@ binary_sensor:
       {%- if states.sensor.nws_alerts.state | int > 0 %}
         {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
         {%- for desc in description %}
-          {%- set expires = as_timestamp(desc.Expires) %}
-          {%- if as_timestamp(now()) < expires %}
+          {%- set ends = as_timestamp(desc.Ends) %}
+          {%- if as_timestamp(now()) < ends %}
             {% set severity = desc.Severity %}
-            {%- if severity == "Extreme" or severity == "Severe" %}
+            {%- if severity == "Extreme" or severity == "Severe" or severity == "Moderate" %}
               {%- set ns.output = "on" %}
             {%- endif %}
           {%- endif %}
