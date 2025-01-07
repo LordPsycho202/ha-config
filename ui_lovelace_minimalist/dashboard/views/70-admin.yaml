@@ -105,6 +105,18 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        name: Timelapse Controls
+
+      - type: entities
+        entities:
+          - entity: input_boolean.backyard_timelapse
+          - entity: input_boolean.doorbell_timelapse
+          - entity: input_boolean.driveway_timelapse
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         name: Info
 
       - type: custom:button-card
