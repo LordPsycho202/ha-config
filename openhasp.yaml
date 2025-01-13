@@ -17,13 +17,10 @@ greenhouse:
         "critical_value": 25
         "value_color": |-
           {%- set problem = state_attr('plant.garlic','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b23"
       properties:
         "text": "{{ state_attr('plant.garlic','friendly_name')}}"
-        "text_color": |-
-          {%- set problem = state_attr('plant.garlic','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
 
     - obj: "p1b25"
       properties:
@@ -34,13 +31,10 @@ greenhouse:
         "critical_value": 15
         "value_color": |-
           {%- set problem = state_attr('plant.steve','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b27"
       properties:
         "text": "{{ state_attr('plant.steve','friendly_name')}}"
-        "text_color": |-
-          {%- set problem = state_attr('plant.steve','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
 
     - obj: "p1b29"
       properties:
@@ -51,13 +45,10 @@ greenhouse:
         "critical_value": 15
         "value_color": |-
           {%- set problem = state_attr('plant.lettuce','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b31"
       properties:
         "text": "{{ state_attr('plant.lettuce','friendly_name')}}"
-        "text_color": |-
-          {%- set problem = state_attr('plant.lettuce','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
 
     - obj: "p1b33"
       properties:
@@ -68,10 +59,7 @@ greenhouse:
         "critical_value": 7
         "value_color": |-
           {%- set problem = state_attr('plant.fairy_washboard','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b35"
       properties:
         "text": "{{ state_attr('plant.fairy_washboard','friendly_name')}}"
-        "text_color": |-
-          {%- set problem = state_attr('plant.fairy_washboard','problem') %}
-          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
