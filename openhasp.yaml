@@ -13,10 +13,15 @@ greenhouse:
         "val": "{{ state_attr('plant.garlic','moisture') }}"
         "value_str": "{{ state_attr('plant.garlic','moisture')|string + '%'}}"
         "critical_value": 25
+        "value_color": |-
+          {%- set problem = state_attr('plant.garlic','problem') %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
     - obj: "p1b23"
       properties:
         "text": "{{ state_attr('plant.garlic','friendly_name')}}"
-        "text_color": "{% if 25 <= state_attr('plant.garlic','moisture') |int %}lime{% else %}sienna{% endif %}"
+        "text_color": |-
+          {%- set problem = state_attr('plant.garlic','problem') %}
+          {% if 'moisture low' in problem %}sienna{% elif 'moisture high' in problem %}blue{% else %}lime{% endif %}
 
     - obj: "p1b25"
       properties:
