@@ -27,7 +27,7 @@ greenhouse:
         "val": "{{ state_attr('plant.steve','moisture') }}"
         "value_str":  |-
           {%- set problem = state_attr('plant.steve','problem') %}
-          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.garlic','moisture')|string + '%'}}{% endif %}
+          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.steve','moisture')|string + '%'}}{% endif %}
         "critical_value": 15
         "value_color": |-
           {%- set problem = state_attr('plant.steve','problem') %}
@@ -41,7 +41,7 @@ greenhouse:
         "val": "{{ state_attr('plant.lettuce','moisture') }}"
         "value_str": |-
           {%- set problem = state_attr('plant.lettuce','problem') %}
-          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.garlic','moisture')|string + '%'}}{% endif %}
+          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.lettuce','moisture')|string + '%'}}{% endif %}
         "critical_value": 15
         "value_color": |-
           {%- set problem = state_attr('plant.lettuce','problem') %}
@@ -55,7 +55,7 @@ greenhouse:
         "val": "{{ state_attr('plant.fairy_washboard','moisture') }}"
         "value_str": |-
           {%- set problem = state_attr('plant.fairy_washboard','problem') %}
-          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.garlic','moisture')|string + '%'}}{% endif %}
+          {% if 'moisture low' in problem %}Water{% elif 'moisture high' in problem %}Too Wet{% else %}{{ state_attr('plant.fairy_washboard','moisture')|string + '%'}}{% endif %}
         "critical_value": 7
         "value_color": |-
           {%- set problem = state_attr('plant.fairy_washboard','problem') %}
