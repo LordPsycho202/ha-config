@@ -95,7 +95,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - blue_no_state
+              - grey_no_state
             name: Dining Room
             label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
             entity: light.dining_room
@@ -112,7 +112,6 @@ cards:
                   - yellow_on
                 tap_action:
                   action: toggle
-
           - type: "custom:button-card"
             template:
               - card_room
@@ -140,7 +139,6 @@ cards:
                 tap_action:
                   action: toggle
 
-
       - type: conditional
         conditions:
           - condition: user
@@ -152,33 +150,56 @@ cards:
           cards:
             - type: "custom:button-card"
               template:
-                - card_fan_room
-                - yellow_on
+                - card_room
+                - blue_no_state
               name: Master Bathroom
+              label: '[[[ return states["sensor.master_bathroom_temperature"].state + "°F" ]]]'
               entity: light.master_bathroom
               icon: mdi:shower-head
-              variables:
-                ulm_custom_card_fan_room_light_entity: light.master_bathroom
-                ulm_custom_card_fan_room_fan_entity: fan.shower_vent
               tap_action:
                 action: navigate
                 navigation_path: "master_bath"
-              label: '[[[ return states["sensor.master_bathroom_temperature"].state + "°F" ]]]'
+              variables:
+                label_use_temperature: false
+                label_use_brightness: true
+                entity_3:
+                  entity_id: light.master_bathroom
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
+                entity_4:
+                  entity_id: fan.shower_vent
+                  templates:
+                    - blue_on
+                  tap_action:
+                    action: toggle
             - type: "custom:button-card"
               template:
-                - card_fan_room
-                - yellow_on
+                - card_room
+                - blue_no_state
               name: Master Bedroom
+              label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
               entity: light.master_bedroom
               icon: mdi:bed-double
               tap_action:
                 action: navigate
                 navigation_path: "master_bed"
               variables:
-                ulm_custom_card_fan_room_light_entity: light.master_bedroom
-                ulm_custom_card_fan_room_fan_entity: fan.master_bedroom_ceiling_fan
-                ulm_card_dynamic_color: true
-              label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
+                label_use_temperature: false
+                label_use_brightness: true
+                entity_3:
+                  entity_id: light.master_bedroom
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
+                entity_4:
+                  entity_id: fan.master_bedroom_ceiling_fan
+                  templates:
+                    - blue_on
+                  tap_action:
+                    action: toggle
 
       - type: conditional
         conditions:
