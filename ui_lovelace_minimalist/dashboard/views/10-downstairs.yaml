@@ -46,7 +46,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - red_no_state
+              - yellow_no_state
             name: Living Room
             label: '[[[ return states["sensor.main_floor_temperature"].state + "°F" ]]]'
             entity: light.living_room_2
@@ -72,7 +72,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - red_no_state
+              - green_no_state
             name: Kitchen
             label: '[[[ return "DW: " + states["input_select.dishwasher_state"].state ]]]'
             entity: light.kitchen
@@ -95,7 +95,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - red_no_state
+              - blue_no_state
             name: Dining Room
             label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
             entity: light.dining_room
