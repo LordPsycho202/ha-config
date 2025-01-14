@@ -75,7 +75,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - gray_no_state
+              - grey_no_state
             name: Kid's Room
             label: '[[[ return "🌡️ " + states["sensor.kids_room_temperature"].state + "°F" ]]]'
             entity: light.kids_room
@@ -95,7 +95,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - yellow_no_state
+              - blue_no_state
             name: Upstairs Misc
             label: '[[[ return "🌡️ " + states["sensor.upstairs_temperature"].state + "°F" ]]]'
             entity: light.upstairs_common
@@ -115,7 +115,7 @@ cards:
               entity_4:
                 entity_id: climate.upstairs
                 tap_action:
-                  action: toggle
+                  action: more-info
 
       - type: "custom:button-card"
         template: card_thermostat
