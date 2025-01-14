@@ -280,32 +280,32 @@ cards:
                   - green_off
                 tap_action:
                   action: none
-            - type: "custom:button-card"
-              template:
-                - card_room
-                - green_no_state
-              name: Outside
-              label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
-              entity: light.outside
-              icon: mdi:tree
-              tap_action:
-                action: navigate
-                navigation_path: "outside"
-              variables:
-                label_use_temperature: false
-                label_use_brightness: true
-                entity_3:
-                  entity_id: light.front_yard
-                  templates:
-                    - yellow_on
-                  tap_action:
-                    action: toggle
-                entity_3:
-                  entity_id: light.back_porch
-                  templates:
-                    - yellow_on
-                  tap_action:
-                    action: toggle
+          - type: "custom:button-card"
+            template:
+              - card_room
+              - green_no_state
+            name: Outside
+            label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
+            entity: light.outside
+            icon: mdi:tree
+            tap_action:
+              action: navigate
+              navigation_path: "outside"
+            variables:
+              label_use_temperature: false
+              label_use_brightness: true
+              entity_3:
+                entity_id: light.front_yard
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+              entity_4:
+                entity_id: light.back_porch
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
 
       - type: conditional
         conditions:
