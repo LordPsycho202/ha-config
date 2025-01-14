@@ -94,28 +94,74 @@ cards:
         cards:
           - type: "custom:button-card"
             template:
-              - card_esh_room
-              - yellow_on
+              - card_room
+              - red_no_state
             name: Dining Room
+            label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
             entity: light.dining_room
             icon: mdi:silverware
             tap_action:
               action: navigate
               navigation_path: "diningroom"
             variables:
-              ulm_custom_card_esh_room_light_entity: light.dining_room
-              ulm_card_dynamic_color: true
-            label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
+              label_use_temperature: false
+              label_use_brightness: true
+              entity_1:
+                entity_id: light.dining_room
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+
           - type: "custom:button-card"
             template:
-              - card_esh_room
-              - yellow_on
+              - card_room
+              - red_no_state
             name: Foyer/Misc
+            label: 'And Powder Room'
             entity: light.foyer
             icon: mdi:door-closed
             tap_action:
               action: navigate
               navigation_path: "foyer"
+            variables:
+              label_use_temperature: false
+              label_use_brightness: true
+              entity_1:
+                entity_id: light.foyer
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+              entity_2:
+                entity_id: light.stairway_lights
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+              entity_3:
+                entity_id: light.powder_room
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+              entity_4:
+                entity_id: fan.powder_room_vent
+                templates:
+                  - blue_on
+                tap_action:
+                  action: toggle
+
+          - type: "custom:button-card"
+            template:
+              - card_esh_room
+              - yellow_on
+            name: 
+            entity: 
+            icon: 
+            tap_action:
+              action: navigate
+              navigation_path: ""
             variables:
               ulm_custom_card_esh_room_light_entity: light.foyer
             label: '[[[ return "Words" ]]]'
