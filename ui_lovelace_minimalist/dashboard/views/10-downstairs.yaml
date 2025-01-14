@@ -57,13 +57,13 @@ cards:
             variables:
               label_use_temperature: false
               label_use_brightness: true
-              entity_1:
+              entity_3:
                 entity_id: light.living_room_2
                 templates:
                   - yellow_on
                 tap_action:
                   action: toggle
-              entity_2:
+              entity_4:
                 entity_id: fan.living_room_ceiling_fan
                 templates:
                   - blue_on
@@ -83,7 +83,7 @@ cards:
             variables:
               label_use_temperature: false
               label_use_brightness: true
-              entity_1:
+              entity_4:
                 entity_id: light.kitchen
                 templates:
                   - yellow_on
@@ -106,7 +106,7 @@ cards:
             variables:
               label_use_temperature: false
               label_use_brightness: true
-              entity_1:
+              entity_4:
                 entity_id: light.dining_room
                 templates:
                   - yellow_on
@@ -127,30 +127,19 @@ cards:
             variables:
               label_use_temperature: false
               label_use_brightness: true
-              entity_1:
+              entity_3:
                 entity_id: light.foyer
                 templates:
                   - yellow_on
                 tap_action:
                   action: toggle
-              entity_2:
-                entity_id: light.stairway_lights
-                templates:
-                  - yellow_on
-                tap_action:
-                  action: toggle
-              entity_3:
+              entity_4:
                 entity_id: light.powder_room
                 templates:
                   - yellow_on
                 tap_action:
                   action: toggle
-              entity_4:
-                entity_id: fan.powder_room_vent
-                templates:
-                  - blue_on
-                tap_action:
-                  action: toggle
+
 
       - type: conditional
         conditions:
