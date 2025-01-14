@@ -95,7 +95,7 @@ cards:
           - type: "custom:button-card"
             template:
               - card_room
-              - grey_no_state
+              - purple_no_state
             name: Dining Room
             label: '[[[ return states["sensor.dining_room_temperature"].state + "°F" ]]]'
             entity: light.dining_room
@@ -177,7 +177,7 @@ cards:
             - type: "custom:button-card"
               template:
                 - card_room
-                - blue_no_state
+                - purple_no_state
               name: Master Bedroom
               label: '[[[ return states["sensor.master_bedroom_temperature"].state + "°F" ]]]'
               entity: light.master_bedroom
