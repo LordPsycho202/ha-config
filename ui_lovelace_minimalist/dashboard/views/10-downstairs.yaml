@@ -212,58 +212,100 @@ cards:
           cards:
             - type: "custom:button-card"
               template:
-                - card_esh_room
-                - yellow_on
+                - card_room
+                - blue_no_state
               name: Laundry
+              label: '[[[ return "Dryer: " + states["input_select.dryer_state"].state ]]]'
               entity: light.laundry_room
               icon: mdi:tumble-dryer
-              variables:
-                ulm_custom_card_esh_room_light_entity: light.laundry_room
               tap_action:
                 action: navigate
                 navigation_path: "laundry"
-              label: '[[[ return "Dryer: " + states["input_select.dryer_state"].state ]]]'
+              variables:
+                label_use_temperature: false
+                label_use_brightness: true
+                entity_4:
+                  entity_id: light.laundry_room
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
             - type: "custom:button-card"
               template:
-                - card_esh_room
-                - yellow_on
+                - card_room
+                - yellow_no_state
               name: Master Closet
+              label: '...'
               entity: light.master_closet
               icon: mdi:hanger
               tap_action:
                 action: navigate
                 navigation_path: "master_bath"
               variables:
-                ulm_custom_card_esh_room_light_entity: light.master_closet
+                label_use_temperature: false
+                label_use_brightness: true
+                entity_4:
+                  entity_id: light.master_closet
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
 
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template:
-              - card_esh_room
-              - yellow_on
+              - card_room
+              - grey_no_state
             name: Garage
+            label: '[[[ return "Garage Door:" + states["binary_sensor.door_garage_opening"].state == "on" ? "Open":"Closed" ]]]'
             entity: light.garage
             icon: mdi:garage
-            variables:
-              ulm_custom_card_esh_room_light_entity: light.garage
             tap_action:
               action: navigate
               navigation_path: "garage"
-            label: '[[[ return "Garage Door:" + states["binary_sensor.door_garage_opening"].state == "on" ? "Open":"Closed" ]]]'
-          - type: "custom:button-card"
-            template:
-              - card_esh_room
-              - yellow_on
-            name: Outside
-            entity: light.outside
-            icon: mdi:tree
             variables:
-              ulm_custom_card_esh_room_light_entity: light.outside
-            tap_action:
-              action: navigate
-              navigation_path: "outside"
-            label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
+              label_use_temperature: false
+              label_use_brightness: true
+              entity_3:
+                entity_id: light.garage
+                templates:
+                  - yellow_on
+                tap_action:
+                  action: toggle
+              entity_2:
+                entity_id: binary_sensor.door_garage_opening
+                templates:
+                  - red_on
+                  - green_off
+                tap_action:
+                  action: none
+            - type: "custom:button-card"
+              template:
+                - card_room
+                - green_no_state
+              name: Outside
+              label: '[[[ return states["sensor.outdoor_temp"].state + "°F" ]]]'
+              entity: light.outside
+              icon: mdi:tree
+              tap_action:
+                action: navigate
+                navigation_path: "outside"
+              variables:
+                label_use_temperature: false
+                label_use_brightness: true
+                entity_3:
+                  entity_id: light.front_yard
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
+                entity_3:
+                  entity_id: light.back_porch
+                  templates:
+                    - yellow_on
+                  tap_action:
+                    action: toggle
 
       - type: conditional
         conditions:
