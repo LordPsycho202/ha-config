@@ -74,6 +74,7 @@ cards:
               - card_room
               - red_no_state
             name: Kitchen
+            label: '[[[ return "DW: " + states["input_select.dishwasher_state"].state ]]]'
             entity: light.kitchen
             icon: mdi:knife
             tap_action:
@@ -88,10 +89,6 @@ cards:
                   - yellow_on
                 tap_action:
                   action: toggle
-              entity_2:
-                entity_id: input_select.dishwasher_state
-                tap_action:
-                  action: none
 
       - type: horizontal-stack
         cards:
