@@ -30,6 +30,8 @@ cards:
               domain: sensor
               attributes:
                 device_class: battery
+          exclude:
+            - name: "*Doorbell*"
         sort:
           method: state
           numeric: true
