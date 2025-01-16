@@ -139,7 +139,7 @@ plant_notification_card:
     cards:
       - type: markdown
         content: |-
-          ### Plant: {{ state_attr('[[plant.entity]]','friendly_name') }}
+          ### Plant: {{ state_attr('[[plant_entity]]','friendly_name') }}
       - type: entities
         entities:
           - entity: '[[moisture_entity]]'
