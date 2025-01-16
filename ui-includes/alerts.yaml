@@ -485,7 +485,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -525,7 +525,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -566,7 +566,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -606,7 +606,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -646,7 +646,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -686,7 +686,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -726,7 +726,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -766,7 +766,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -806,7 +806,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -846,7 +846,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -886,7 +886,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -926,7 +926,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -966,7 +966,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1006,7 +1006,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1046,7 +1046,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1087,7 +1087,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1126,7 +1126,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1167,7 +1167,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1207,7 +1207,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
@@ -1247,7 +1247,7 @@ chips:
         mdi:water-alert
         {% elif 'moisture unavailable' in problem %}
         mdi:water-off-outline
-        {% elif 'temperature low' in problem %}
+        {% elif 'temperature low' in problem and input_boolean.outdoor_plant_cold_notify == "on" %}
         mdi:snowflake-thermometer
         {% elif 'temperature high' in problem %}
         mdi:sun-thermometer-outline
