@@ -10,6 +10,16 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        name: Notifications
+      - type: entities
+        entities:
+          - entity: input_boolean.outdoor_plant_cold_notify
+            name: Alert for Cold Plants?
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         name: Auto Watering
       - type: entities
         entities:
