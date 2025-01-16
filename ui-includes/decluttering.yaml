@@ -15,45 +15,63 @@ plant_mushroom_card:
       {% if states('[[plant_entity]]') == 'ok' %}
       We're Happy!
       {% else %}
-      {{ state_attr('[[plant_entity]]','problem')|capitalize }}
+        {%- set plant = '[[plant_entity]]' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        Water Me, plz
+        {% elif moisture == "High"%}
+        Too Much Water
+        {% elif temp == "Low" %}
+        I'm Cold
+        {% elif temp == "High" %}
+        I'm Hot
+        {% elif cond == "Low" %}
+        Feed Me Seymore
+        {% elif cond == "High" %}
+        Just water, plz
+        {% else %}
+        mdi:[[plant_icon]]
+        {% endif %}
       {% endif %}
     icon: |-
-      {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
+      {%- set plant = '[[plant_entity]]' %}
+      {%- set moisture = state_attr(plant,'moisture_status')|string %}
+      {%- set temp = state_attr(plant,'temperature_status')|string %}
+      {%- set cond = state_attr(plant,'conductivity_status')|string %}
+      {% if moisture == "Low"%}
       mdi:watering-can-outline
-      {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
+      {% elif moisture == "High"%}
       mdi:water-alert
-      {% elif 'moisture unavailable' in state_attr('[[plant_entity]]','problem') %}
-      mdi:water-off-outline
-      {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') and input_boolean.outdoor_plant_cold_notify == "on" %}
+      {% elif temp == "Low" %}
       mdi:snowflake-thermometer
-      {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
+      {% elif temp == "High" %}
       mdi:sun-thermometer-outline
-      {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
-      mdi:thermometer-off
-      {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+      {% elif cond == "Low" %}
       mdi:seed-plus-outline
-      {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
-      mdi:battery-alert-variant-outline
+      {% elif cond == "High" %}
+      mdi:seed-off-outline
       {% else %}
       mdi:[[plant_icon]]
       {% endif %}
     icon_color: |-
-      {% if 'moisture low' in state_attr('[[plant_entity]]','problem') %}
+      {%- set plant = '[[plant_entity]]' %}
+      {%- set moisture = state_attr(plant,'moisture_status')|string %}
+      {%- set temp = state_attr(plant,'temperature_status')|string %}
+      {%- set cond = state_attr(plant,'conductivity_status')|string %}
+      {% if moisture == "Low"%}
       brown
-      {% elif 'moisture high' in state_attr('[[plant_entity]]','problem') %}
+      {% elif moisture == "High"%}
       blue
-      {% elif 'moisture unavailable' in state_attr('[[plant_entity]]','problem') %}
-      yellow
-      {% elif 'temperature low' in state_attr('[[plant_entity]]','problem') and input_boolean.outdoor_plant_cold_notify == "on" %}
+      {% elif temp == "Low" %}
       cyan
-      {% elif 'temperature high' in state_attr('[[plant_entity]]','problem') %}
+      {% elif temp == "High" %}
       red
-      {% elif 'temperature unavailable' in state_attr('[[plant_entity]]','problem') %}
-      yellow
-      {% elif 'conductivity low' in state_attr('[[plant_entity]]','problem') %}
+      {% elif cond == "Low" %}
       cyan
-      {% elif 'battery low' in state_attr('[[plant_entity]]','problem')%}
-      red
+      {% elif cond == "High" %}
+      blue
       {% else %}
       green
       {% endif %}
@@ -121,12 +139,7 @@ plant_notification_card:
     cards:
       - type: markdown
         content: |-
-          ### Plant: {{
-            (states.plant
-            | selectattr('attributes.sensors.moisture','eq','[[moisture_entity]]')
-            | map(attribute='attributes.friendly_name')
-            | list).0
-          }}
+          ### Plant: {{ state_attr('[[plant.entity]]','friendly_name') }}
       - type: entities
         entities:
           - entity: '[[moisture_entity]]'

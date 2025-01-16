@@ -163,30 +163,35 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.front_flowers
           - moisture_entity: sensor.soil_moisture_1
           - battery_entity: sensor.soil_moisture_1_batt
           - notify_entity: input_boolean.soil_moisture_1_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.junpier
           - moisture_entity: sensor.soil_moisture_8
           - battery_entity: sensor.soil_moisture_8_batt
           - notify_entity: input_boolean.soil_moisture_8_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.camellia
           - moisture_entity: sensor.soil_moisture_9
           - battery_entity: sensor.soil_moisture_9_batt
           - notify_entity: input_boolean.soil_moisture_9_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.japanese_holly
           - moisture_entity: sensor.soil_moisture_19
           - battery_entity: sensor.soil_moisture_19_batt
           - notify_entity: input_boolean.soil_moisture_19_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.holly
           - moisture_entity: sensor.soil_moisture_20
           - battery_entity: sensor.soil_moisture_20_batt
           - notify_entity: input_boolean.soil_moisture_20_notify
@@ -199,24 +204,28 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.blackberries
           - moisture_entity: sensor.soil_moisture_17
           - battery_entity: sensor.soil_moisture_17_batt
           - notify_entity: input_boolean.soil_moisture_17_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.pineapples
           - moisture_entity: sensor.soil_moisture_18
           - battery_entity: sensor.soil_moisture_18_batt
           - notify_entity: input_boolean.soil_moisture_18_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.japanese_maple
           - moisture_entity: sensor.soil_moisture_13
           - battery_entity: sensor.soil_moisture_13_batt
           - notify_entity: input_boolean.soil_moisture_13_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.mums
           - moisture_entity: sensor.soil_moisture_12
           - battery_entity: sensor.soil_moisture_12_batt
           - notify_entity: input_boolean.soil_moisture_12_notify
@@ -229,24 +238,28 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.steve
           - moisture_entity: sensor.soil_moisture_10
           - battery_entity: sensor.soil_moisture_10_batt
           - notify_entity: input_boolean.soil_moisture_10_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.fairy_washboard
           - moisture_entity: sensor.soil_moisture_14
           - battery_entity: sensor.soil_moisture_14_batt
           - notify_entity: input_boolean.soil_moisture_14_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.lettuce
           - moisture_entity: sensor.soil_moisture_11
           - battery_entity: sensor.soil_moisture_11_batt
           - notify_entity: input_boolean.soil_moisture_11_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.garlic
           - moisture_entity: sensor.soil_moisture_16
           - battery_entity: sensor.soil_moisture_16_batt
           - notify_entity: input_boolean.soil_moisture_16_notify
@@ -259,42 +272,49 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.okra
           - moisture_entity: sensor.soil_moisture_2
           - battery_entity: sensor.soil_moisture_2_batt
           - notify_entity: input_boolean.soil_moisture_2_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.amaranth
           - moisture_entity: sensor.soil_moisture_3
           - battery_entity: sensor.soil_moisture_3_batt
           - notify_entity: input_boolean.soil_moisture_3_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.herbs
           - moisture_entity: sensor.soil_moisture_4
           - battery_entity: sensor.soil_moisture_4_batt
           - notify_entity: input_boolean.soil_moisture_4_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.cucumber
           - moisture_entity: sensor.soil_moisture_5
           - battery_entity: sensor.soil_moisture_5_batt
           - notify_entity: input_boolean.soil_moisture_5_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.tomatoes
           - moisture_entity: sensor.soil_moisture_6
           - battery_entity: sensor.soil_moisture_6_batt
           - notify_entity: input_boolean.soil_moisture_6_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.beans
           - moisture_entity: sensor.soil_moisture_7
           - battery_entity: sensor.soil_moisture_7_batt
           - notify_entity: input_boolean.soil_moisture_7_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.carrots
           - moisture_entity: sensor.soil_moisture_15
           - battery_entity: sensor.soil_moisture_15_batt
           - notify_entity: input_boolean.soil_moisture_15_notify
