@@ -338,9 +338,6 @@ cards:
                         - condition: numeric_state
                           entity: sensor.soil_moisture_20
                           below: 20
-                        - condition: numeric_state
-                          entity: sensor.soil_moisture_21
-                          below: 20
                     - condition: state
                       entity: timer.flower_bed_watering
                       state: idle
@@ -495,7 +492,7 @@ cards:
               - plant_path: plant_stick
               - plant_icon: tree-outline
               - plant_moisture_entity: sensor.soil_moisture_21
-              - plant_moisture_min: 20
+              - plant_moisture_min: 15
               - plant_moisture_max: 61
 
   - type: vertical-stack
