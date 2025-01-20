@@ -1199,7 +1199,7 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:fruit-pineapple
+        mdi:weather-cloudy
         {% endif %}
       content: Japanese Holly
       tap_action:
@@ -1238,9 +1238,48 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:fruit-pineapple
+        mdi:weather-cloudy
         {% endif %}
       content: Holly
       tap_action:
         action: navigate
         navigation_path: plant_holly
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.stick
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_21_notify
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.stick
+      icon_color: grey
+      icon: |-
+        {%- set plant = 'plant.stick' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:tree-outline
+        {% endif %}
+      content: Holly
+      tap_action:
+        action: navigate
+        navigation_path: plant_stick
