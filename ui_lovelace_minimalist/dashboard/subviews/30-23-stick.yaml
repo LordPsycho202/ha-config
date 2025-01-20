@@ -1,0 +1,32 @@
+---
+title: "The Stick"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:tree-outline
+subview: true
+path: plant_stick
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.stick
+          - plant_path: plant_stick
+          - plant_icon: tree-outline
+      - type: "custom:button-card"
+        template: card_graph
+        entity: sensor.soil_moisture_21
+        variables:
+          ulm_card_graph_color: "var(--google-green)"
+          ulm_card_graph_name: Soil Moisture
+          ulm_card_graph_entity: sensor.soil_moisture_21
+          ulm_card_graph_type: fill
+          ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_battery
+        entity: sensor.soil_moisture_21_batt
+        variables:
+          ulm_card_battery_battery_level_danger: 30
+          ulm_card_battery_battery_level_warning: 80
+          ulm_card_battery_name: Battery
