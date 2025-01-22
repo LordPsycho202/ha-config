@@ -169,7 +169,7 @@ cards:
             - plant_icon: pine-tree-variant-outline
             - plant_moisture_entity: sensor.soil_moisture_10
             - plant_moisture_min: 15
-            - plant_moisture_max: 76
+            - plant_moisture_max: 61
       - type: conditional
         conditions:
           - condition: state

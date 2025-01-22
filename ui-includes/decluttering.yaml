@@ -106,7 +106,7 @@ plant_graphs:
                   ulm_card_graph_entity: '[[plant_moisture_entity]]'
                   ulm_card_graph_type: fill
                   ulm_card_graph_hours: 24
-          - type: custom:modern-circular-gauge
+          - type: gauge
             entity: '[[plant_moisture_entity]]'
             name: Soil Moisture
             unit: "%"
@@ -116,20 +116,11 @@ plant_graphs:
             header_position: bottom
             segments:
               - from: 0
-                color:
-                  - 79
-                  - 53
-                  - 0
+                color: "#A0522D"
                 label: Water
-              - color:
-                  - 28
-                  - 184
-                  - 0
+              - color: "#00FF00"
                 from: '[[plant_moisture_min]]'
-              - color:
-                  - 0
-                  - 0
-                  - 255
+              - color: "#0000FF"
                 from: '[[plant_moisture_max]]'
                 label: Too Wet
 
