@@ -183,6 +183,60 @@ plant_graphs_cond:
                 from: '[[plant_moisture_max]]'
                 label: Too Wet
 
+plant_graphs_temp:
+  default:
+    - plant_icon: leaf
+    - plant_action: navigate
+    - plant_temp_scale: 105
+  card:
+    type: custom:stack-in-card
+    title: '[[plant_name]]'
+    mode: vertical
+    cards:
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: '[[plant_entity]]'
+          - plant_path: '[[plant_path]]'
+          - plant_icon: '[[plant_icon]]'
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: gauge
+            entity: '[[plant_temp_entity]]'
+            name: Temp
+            unit: "°F"
+            min: 25
+            max: '[[plant_temp_scale]]'
+            needle: true
+            header_position: bottom
+            segments:
+              - from: 0
+                color: "#00FFFF"
+                label: Too Cold
+              - color: "#008000"
+                from: '[[plant_temp_min]]'
+              - color: "#FF0000"
+                from: '[[plant_temp_max]]'
+                label: Too Hot
+          - type: gauge
+            entity: '[[plant_moisture_entity]]'
+            name: Soil Moisture
+            unit: "%"
+            min: 0
+            max: 100
+            needle: true
+            header_position: bottom
+            segments:
+              - from: 0
+                color: "#A0522D"
+                label: Water
+              - color: "#008000"
+                from: '[[plant_moisture_min]]'
+              - color: "#0000FF"
+                from: '[[plant_moisture_max]]'
+                label: Too Wet
+
 plant_notification_card:
   card:
     type: custom:vertical-stack-in-card
