@@ -503,110 +503,134 @@ cards:
                 double_tap_action:
                   action: none
                 multiline_secondary: true
-        - type: conditional
-          conditions:
-            - condition: or
+        - type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Indoor Greenhouse
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('front_yard'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('front_yard'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:pine-tree-box
+            icon_color: green
+          cards:
+            - type: conditional
+              conditions:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity: input_boolean.soil_moisture_1_notify
+                      state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Front Porch Planter"
+                  - plant_entity: plant.front_flowers
+                  - plant_path: plant_flowers
+                  - plant_icon: flower-outline
+                  - plant_moisture_entity: sensor.soil_moisture_1
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
+
+            - type: conditional
+              conditions:
+                - condition: or
+                  conditions:
+                    - condition: state
+                      entity: input_boolean.soil_moisture_8_notify
+                      state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Juniper"
+                  - plant_entity: plant.juniper
+                  - plant_path: plant_juniper
+                  - plant_icon: pine-tree-variant-outline
+                  - plant_moisture_entity: sensor.soil_moisture_8
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
+
+            - type: conditional
               conditions:
                 - condition: state
-                  entity: input_boolean.soil_moisture_1_notify
+                  entity: input_boolean.soil_moisture_9_notify
                   state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "Front Porch Planter"
-              - plant_entity: plant.front_flowers
-              - plant_path: plant_flowers
-              - plant_icon: flower-outline
-              - plant_moisture_entity: sensor.soil_moisture_1
-              - plant_moisture_min: 15
-              - plant_moisture_max: 61
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Camellia"
+                  - plant_entity: plant.camellia
+                  - plant_path: plant_camellia
+                  - plant_icon: flower
+                  - plant_moisture_entity: sensor.soil_moisture_9
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
 
-        - type: conditional
-          conditions:
-            - condition: or
+            - type: conditional
               conditions:
                 - condition: state
-                  entity: input_boolean.soil_moisture_8_notify
+                  entity: input_boolean.soil_moisture_19_notify
                   state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "Juniper"
-              - plant_entity: plant.juniper
-              - plant_path: plant_juniper
-              - plant_icon: pine-tree-variant-outline
-              - plant_moisture_entity: sensor.soil_moisture_8
-              - plant_moisture_min: 15
-              - plant_moisture_max: 61
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Japanese Holly"
+                  - plant_entity: plant.japanese_holly
+                  - plant_path: plant_japanese_holly
+                  - plant_icon: weather-cloudy
+                  - plant_moisture_entity: sensor.soil_moisture_19
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
 
-        - type: conditional
-          conditions:
-            - condition: state
-              entity: input_boolean.soil_moisture_9_notify
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "Camellia"
-              - plant_entity: plant.camellia
-              - plant_path: plant_camellia
-              - plant_icon: flower
-              - plant_moisture_entity: sensor.soil_moisture_9
-              - plant_moisture_min: 20
-              - plant_moisture_max: 61
-
-        - type: conditional
-          conditions:
-            - condition: state
-              entity: input_boolean.soil_moisture_19_notify
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "Japanese Holly"
-              - plant_entity: plant.japanese_holly
-              - plant_path: plant_japanese_holly
-              - plant_icon: weather-cloudy
-              - plant_moisture_entity: sensor.soil_moisture_19
-              - plant_moisture_min: 20
-              - plant_moisture_max: 61
-
-        - type: conditional
-          conditions:
-            - condition: state
-              entity: input_boolean.soil_moisture_20_notify
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "Holly"
-              - plant_entity: plant.holly
-              - plant_path: plant_holly
-              - plant_icon: weather-cloudy
-              - plant_moisture_entity: sensor.soil_moisture_20
-              - plant_moisture_min: 20
-              - plant_moisture_max: 61
-        - type: conditional
-          conditions:
-            - condition: state
-              entity: input_boolean.soil_moisture_21_notify
-              state: "on"
-          card:
-            type: custom:decluttering-card
-            template: plant_graphs
-            variables:
-              - plant_name: "The Stick"
-              - plant_entity: plant.stick
-              - plant_path: plant_stick
-              - plant_icon: tree-outline
-              - plant_moisture_entity: sensor.soil_moisture_21
-              - plant_moisture_min: 15
-              - plant_moisture_max: 61
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_20_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Holly"
+                  - plant_entity: plant.holly
+                  - plant_path: plant_holly
+                  - plant_icon: weather-cloudy
+                  - plant_moisture_entity: sensor.soil_moisture_20
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_21_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "The Stick"
+                  - plant_entity: plant.stick
+                  - plant_path: plant_stick
+                  - plant_icon: tree-outline
+                  - plant_moisture_entity: sensor.soil_moisture_21
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
@@ -723,113 +747,163 @@ cards:
               ulm_card_graph_hours: 24
       - type: conditional
         conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_2_notify
-            state: "on"
+          - condition: or
+            conditions:
+              - condition: state
+                entity: input_boolean.soil_moisture_2_notify
+                state: "on"
+              - condition: state
+                entity: input_boolean.soil_moisture_3_notify
+                state: "on"      
+              - condition: state
+                entity: input_boolean.soil_moisture_4_notify
+                state: "on"
+              - condition: state
+                entity: input_boolean.soil_moisture_5_notify
+                state: "on"    
+              - condition: state
+                entity: input_boolean.soil_moisture_6_notify
+                state: "on"
+              - condition: state
+                entity: input_boolean.soil_moisture_7_notify
+                state: "on"
+              - condition: state
+                entity: input_boolean.soil_moisture_15_notify
+                state: "on"
         card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Okra"
-            - plant_entity: plant.okra
-            - plant_path: plant_okra
-            - plant_icon: chili-mild
-            - plant_moisture_entity: sensor.soil_moisture_2
-            - plant_moisture_min: 20
-            - plant_moisture_max: 61
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_3_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Amaranth"
-            - plant_entity: plant.amaranth
-            - plant_path: plant_amaranth
-            - plant_moisture_entity: sensor.soil_moisture_3
-            - plant_moisture_min: 20
-            - plant_moisture_max: 60
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_4_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Herbs"
-            - plant_entity: plant.herbs
-            - plant_path: plant_herbs
-            - plant_moisture_entity: sensor.soil_moisture_4
-            - plant_moisture_min: 40
-            - plant_moisture_max: 81
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_5_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Cucumber"
-            - plant_entity: plant.cucumber
-            - plant_path: plant_cucumber
-            - plant_icon: fruit-pear
-            - plant_moisture_entity: sensor.soil_moisture_5
-            - plant_moisture_min: 30
-            - plant_moisture_max: 76  
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_6_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Tomatoes"
-            - plant_entity: plant.tomatoes
-            - plant_path: plant_tomatoes
-            - plant_icon: pig
-            - plant_moisture_entity: sensor.soil_moisture_6
-            - plant_moisture_min: 20
-            - plant_moisture_max: 66   
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_7_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Beans"
-            - plant_entity: plant.beans
-            - plant_path: plant_beans
-            - plant_moisture_entity: sensor.soil_moisture_7
-            - plant_moisture_min: 25
-            - plant_moisture_max: 66
-      - type: conditional
-        conditions:
-          - condition: state
-            entity: input_boolean.soil_moisture_15_notify
-            state: "on"
-        card:
-          type: custom:decluttering-card
-          template: plant_graphs
-          variables:
-            - plant_name: "Carrots"
-            - plant_entity: plant.carrots
-            - plant_icon: carrot
-            - plant_path: plant_carrot
-            - plant_moisture_entity: sensor.soil_moisture_15
-            - plant_moisture_min: 15
-            - plant_moisture_max: 61
+          type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Indoor Greenhouse
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('garden'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('garden'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:pine-tree-box
+            icon_color: green
+          cards:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_2_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Okra"
+                  - plant_entity: plant.okra
+                  - plant_path: plant_okra
+                  - plant_icon: chili-mild
+                  - plant_moisture_entity: sensor.soil_moisture_2
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_3_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Amaranth"
+                  - plant_entity: plant.amaranth
+                  - plant_path: plant_amaranth
+                  - plant_moisture_entity: sensor.soil_moisture_3
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 60
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_4_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Herbs"
+                  - plant_entity: plant.herbs
+                  - plant_path: plant_herbs
+                  - plant_moisture_entity: sensor.soil_moisture_4
+                  - plant_moisture_min: 40
+                  - plant_moisture_max: 81
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_5_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Cucumber"
+                  - plant_entity: plant.cucumber
+                  - plant_path: plant_cucumber
+                  - plant_icon: fruit-pear
+                  - plant_moisture_entity: sensor.soil_moisture_5
+                  - plant_moisture_min: 30
+                  - plant_moisture_max: 76  
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_6_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Tomatoes"
+                  - plant_entity: plant.tomatoes
+                  - plant_path: plant_tomatoes
+                  - plant_icon: pig
+                  - plant_moisture_entity: sensor.soil_moisture_6
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 66   
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_7_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Beans"
+                  - plant_entity: plant.beans
+                  - plant_path: plant_beans
+                  - plant_moisture_entity: sensor.soil_moisture_7
+                  - plant_moisture_min: 25
+                  - plant_moisture_max: 66
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.soil_moisture_15_notify
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Carrots"
+                  - plant_entity: plant.carrots
+                  - plant_icon: carrot
+                  - plant_path: plant_carrot
+                  - plant_moisture_entity: sensor.soil_moisture_15
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
 
   - type: vertical-stack
     cards:
