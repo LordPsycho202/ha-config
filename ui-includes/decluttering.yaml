@@ -154,7 +154,7 @@ plant_graphs_cond:
                 label: Feed
               - color: "#008000"
                 from: '[[plant_cond_min]]'
-              - color: "#000080"
+              - color: "#0000FF"
                 from: '[[plant_cond_max]]'
                 label: Just Water
           - type: gauge
