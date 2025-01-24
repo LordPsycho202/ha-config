@@ -36,44 +36,52 @@ plant_mushroom_card:
         {% endif %}
       {% endif %}
     icon: |-
-      {%- set plant = '[[plant_entity]]' %}
-      {%- set moisture = state_attr(plant,'moisture_status')|string %}
-      {%- set temp = state_attr(plant,'temperature_status')|string %}
-      {%- set cond = state_attr(plant,'conductivity_status')|string %}
-      {% if moisture == "Low"%}
-      mdi:watering-can-outline
-      {% elif moisture == "High"%}
-      mdi:water-alert
-      {% elif temp == "Low" %}
-      mdi:snowflake-thermometer
-      {% elif temp == "High" %}
-      mdi:sun-thermometer-outline
-      {% elif cond == "Low" %}
-      mdi:seed-plus-outline
-      {% elif cond == "High" %}
-      mdi:seed-off-outline
-      {% else %}
+      {% if states('[[plant_entity]]') == 'ok' %}
       mdi:[[plant_icon]]
+      {% else %}
+        {%- set plant = '[[plant_entity]]' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:[[plant_icon]]
+        {% endif %}
       {% endif %}
     icon_color: |-
-      {%- set plant = '[[plant_entity]]' %}
-      {%- set moisture = state_attr(plant,'moisture_status')|string %}
-      {%- set temp = state_attr(plant,'temperature_status')|string %}
-      {%- set cond = state_attr(plant,'conductivity_status')|string %}
-      {% if moisture == "Low"%}
-      brown
-      {% elif moisture == "High"%}
-      blue
-      {% elif temp == "Low" %}
-      cyan
-      {% elif temp == "High" %}
-      red
-      {% elif cond == "Low" %}
-      cyan
-      {% elif cond == "High" %}
-      blue
-      {% else %}
+      {% if states('[[plant_entity]]') == 'ok' %}
       green
+      {% else %}
+        {%- set plant = '[[plant_entity]]' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        brown
+        {% elif moisture == "High"%}
+        blue
+        {% elif temp == "Low" %}
+        cyan
+        {% elif temp == "High" %}
+        red
+        {% elif cond == "Low" %}
+        cyan
+        {% elif cond == "High" %}
+        blue
+        {% else %}
+        green
+        {% endif %}
       {% endif %}
 
 plant_graphs:
