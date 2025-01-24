@@ -152,7 +152,7 @@ plant_graphs_cond:
               - from: 0
                 color: "#00FFFF"
                 label: Feed
-              - color: "#00FF00"
+              - color: "#008000"
                 from: '[[plant_cond_min]]'
               - color: "#000080"
                 from: '[[plant_cond_max]]'
@@ -169,7 +169,7 @@ plant_graphs_cond:
               - from: 0
                 color: "#A0522D"
                 label: Water
-              - color: "#00FF00"
+              - color: "#008000"
                 from: '[[plant_moisture_min]]'
               - color: "#0000FF"
                 from: '[[plant_moisture_max]]'
