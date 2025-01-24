@@ -7,7 +7,7 @@ plant_mushroom_card:
     type: custom:mushroom-template-card
     primary: "{{ state_attr('[[plant_entity]]','friendly_name') }}"
     entity: '[[plant_entity]]'
-    layout: vertical
+    layout: horizontal
     tap_action:
       action: '[[plant_action]]'
       navigation_path: "[[plant_path]]"
@@ -85,27 +85,24 @@ plant_graphs:
     title: '[[plant_name]]'
     mode: vertical
     cards:
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: '[[plant_entity]]'
+          - plant_path: '[[plant_path]]'
+          - plant_icon: '[[plant_icon]]'
       - type: custom:stack-in-card
         mode: horizontal
         cards:
-          - type: custom:stack-in-card
-            mode: vertical
-            cards:
-              - type: custom:decluttering-card
-                template: plant_mushroom_card
-                variables:
-                  - plant_entity: '[[plant_entity]]'
-                  - plant_path: '[[plant_path]]'
-                  - plant_icon: '[[plant_icon]]'
-              - type: "custom:button-card"
-                template: card_graph
-                entity: '[[plant_moisture_entity]]'
-                variables:
-                  ulm_card_graph_color: "var(--google-green)"
-                  ulm_card_graph_name: Soil Moisture Trend
-                  ulm_card_graph_entity: '[[plant_moisture_entity]]'
-                  ulm_card_graph_type: fill
-                  ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: '[[plant_moisture_entity]]'
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture Trend
+              ulm_card_graph_entity: '[[plant_moisture_entity]]'
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
           - type: gauge
             entity: '[[plant_moisture_entity]]'
             name: Soil Moisture
