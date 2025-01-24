@@ -572,7 +572,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs
+                template: plant_graphs_temp
                 variables:
                   - plant_name: "Camellia"
                   - plant_entity: plant.camellia
@@ -611,7 +611,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs
+                template: plant_graphs_temp
                 variables:
                   - plant_name: "Holly"
                   - plant_entity: plant.holly
@@ -630,7 +630,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs
+                template: plant_graphs_temp
                 variables:
                   - plant_name: "The Stick"
                   - plant_entity: plant.stick
@@ -906,7 +906,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs
+                template: plant_graphs_temp
                 variables:
                   - plant_name: "Carrots"
                   - plant_entity: plant.carrots
