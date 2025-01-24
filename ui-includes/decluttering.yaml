@@ -90,7 +90,6 @@ plant_graphs:
     - plant_action: navigate
   card:
     type: custom:stack-in-card
-    title: '[[plant_name]]'
     mode: vertical
     cards:
       - type: custom:decluttering-card
@@ -136,7 +135,6 @@ plant_graphs_cond:
     - plant_cond_scale: 6000
   card:
     type: custom:stack-in-card
-    title: '[[plant_name]]'
     mode: vertical
     cards:
       - type: custom:decluttering-card
@@ -190,7 +188,6 @@ plant_graphs_temp:
     - plant_temp_scale: 105
   card:
     type: custom:stack-in-card
-    title: '[[plant_name]]'
     mode: vertical
     cards:
       - type: custom:decluttering-card
