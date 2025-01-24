@@ -299,7 +299,7 @@ cards:
         - type: custom:expander-card
           title-card:
             type: custom:mushroom-template-card
-            primary: Indoor Greenhouse
+            primary: Potted Plants
             secondary: |-
               Good: 
               {{
@@ -506,7 +506,7 @@ cards:
         - type: custom:expander-card
           title-card:
             type: custom:mushroom-template-card
-            primary: Indoor Greenhouse
+            primary: Front Yard
             secondary: |-
               Good: 
               {{
@@ -785,7 +785,7 @@ cards:
           type: custom:expander-card
           title-card:
             type: custom:mushroom-template-card
-            primary: Indoor Greenhouse
+            primary: Garden
             secondary: |-
               Good: 
               {{
