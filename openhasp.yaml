@@ -58,7 +58,7 @@ greenhouse:
 
     - obj: "p1b40"
       properties:
-        "val": "{{ states('sensor.lettuce_soil_moisture') }}"
+        "val": "{{ states('sensor.kale_soil_moisture') }}"
     - obj: "p1b41"
       properties:
         "val": "{{ states('sensor.kale_soil_moisture') }}"
