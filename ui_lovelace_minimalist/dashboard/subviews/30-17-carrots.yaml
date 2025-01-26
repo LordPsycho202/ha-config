@@ -11,9 +11,10 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.carrot
+          - plant_entity: plant.carrots
           - plant_path: plant_carrot
           - plant_icon: carrot
+          - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
@@ -31,7 +32,7 @@ cards:
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.soil_moistute_15_temp
+              ulm_card_graph_entity: sensor.soil_moisture_15_temp
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'

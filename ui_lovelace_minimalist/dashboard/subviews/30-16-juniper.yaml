@@ -14,6 +14,7 @@ cards:
           - plant_entity: plant.juniper
           - plant_path: plant_juniper
           - plant_icon: pine-tree-variant-outline
+          - plant_action: more-info
       - type: "custom:button-card"
         template: card_graph
         entity: sensor.soil_moisture_8
