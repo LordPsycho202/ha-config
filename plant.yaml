@@ -76,7 +76,7 @@ Steve:
   min_conductivity: 350
   max_conductivity: 6000
   min_battery: 35
-Lettuce:
+Kale:
   sensors:
     moisture: sensor.soil_moisture_11
     battery: sensor.soil_moisture_11_batt

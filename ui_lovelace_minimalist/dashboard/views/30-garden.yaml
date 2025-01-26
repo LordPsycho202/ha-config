@@ -195,9 +195,9 @@ cards:
           type: custom:decluttering-card
           template: plant_graphs
           variables:
-            - plant_name: "Lettuce"
-            - plant_entity: plant.lettuce
-            - plant_path: plant_lettuce
+            - plant_name: "kale"
+            - plant_entity: plant.kale
+            - plant_path: plant_kale
             - plant_moisture_entity: sensor.soil_moisture_11
             - plant_moisture_min: 15
             - plant_moisture_max: 61

@@ -42,19 +42,19 @@ greenhouse:
 
     - obj: "p1b29"
       properties:
-        "val": "{{ states('sensor.lettuce_soil_moisture') }}"
+        "val": "{{ states('sensor.kale_soil_moisture') }}"
         "value_str": |-
-          {%- set problem = state_attr('plant.lettuce','moisture_status') %}
-          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.lettuce_soil_moisture')|string + '%'}}{% endif %}
+          {%- set problem = state_attr('plant.kale','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.kale_soil_moisture')|string + '%'}}{% endif %}
         "value_color": |-
-          {%- set problem = state_attr('plant.lettuce','moisture_status') %}
+          {%- set problem = state_attr('plant.kale','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
         "scale_end_color": |-
-          {%- set problem = state_attr('plant.lettuce','moisture_status') %}
+          {%- set problem = state_attr('plant.kale','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b31"
       properties:
-        "text": "{{ state_attr('plant.lettuce','friendly_name')}}"
+        "text": "{{ state_attr('plant.kale','friendly_name')}}"
 
     - obj: "p1b33"
       properties:
