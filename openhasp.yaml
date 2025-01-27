@@ -56,7 +56,7 @@ greenhouse:
       properties:
         "text": "{{ state_attr('plant.steve','friendly_name')}}"
 
-     - obj: "p1b40"
+    - obj: "p1b40"
       properties:
         "val": "{{ states('sensor.kale_soil_moisture') }}"
     - obj: "p1b41"
