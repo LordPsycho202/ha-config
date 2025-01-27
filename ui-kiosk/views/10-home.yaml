@@ -93,7 +93,7 @@ cards:
             }
       - show_name: true
         show_icon: true
-        entity: binary_sensor.garage_door
+        entity: binary_sensor.door_garage_opening
         type: button
         icon: mdi:garage
         name: Shuttle Bay Door
