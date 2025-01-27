@@ -859,17 +859,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.kale
+            entity: plant.kale_2
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_11_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.kale
+      entity: plant.kale_2
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.kale' %}
+        {%- set plant = 'plant.kale_2' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
