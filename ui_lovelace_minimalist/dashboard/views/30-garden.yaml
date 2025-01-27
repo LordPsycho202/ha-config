@@ -252,7 +252,7 @@ cards:
                   - plant_moisture_max: 76
                   - plant_cond_entity: sensor.kale_conductivity
                   - plant_cond_min: 350
-                  - plant_cond_max: 2800
+                  - plant_cond_max: 2801
                   - plant_cond_scale: 3650
             - type: conditional
               conditions:
@@ -269,7 +269,7 @@ cards:
                   - plant_moisture_entity: sensor.garlic_soil_moisture
                   - plant_moisture_min: 20
                   - plant_moisture_max: 66
-                  - plant_cond_entity: sensor.kale_conductivity
+                  - plant_cond_entity: sensor.garlic_conductivity
                   - plant_cond_min: 100
                   - plant_cond_max: 2001
                   - plant_cond_scale: 3000
