@@ -248,12 +248,12 @@ cards:
                   - plant_entity: plant.kale
                   - plant_path: plant_kale
                   - plant_moisture_entity: sensor.kale_soil_moisture
-                  - plant_moisture_min: 25
-                  - plant_moisture_max: 76
+                  - plant_moisture_min: '{{ states("number.kale_min_soil_moisture")|int }}'
+                  - plant_moisture_max: '{{ states("number.kale_max_soil_moisture")|int + 1 }}'
                   - plant_cond_entity: sensor.kale_conductivity
-                  - plant_cond_min: 350
-                  - plant_cond_max: 2800
-                  - plant_cond_scale: 3500
+                  - plant_cond_min: '{{ states("number.kale_min_conductivity")|int }}'
+                  - plant_cond_max: '{{ states("number.kale_max_conductivity")|int + 1 }}'
+                  - plant_cond_scale: '{{ states("number.kale_max_conductivity")|int + 1000 }}'
             - type: conditional
               conditions:
                 - condition: state
