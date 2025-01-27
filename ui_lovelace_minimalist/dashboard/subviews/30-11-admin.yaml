@@ -259,7 +259,7 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
-          - plant_entity: plant.lettuce
+          - plant_entity: plant.kale_2
           - moisture_entity: sensor.soil_moisture_11
           - battery_entity: sensor.soil_moisture_11_batt
           - notify_entity: input_boolean.soil_moisture_11_notify

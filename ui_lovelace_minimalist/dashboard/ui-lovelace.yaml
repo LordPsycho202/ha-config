@@ -26,7 +26,7 @@ views:
   # Garden
   - !include views/30-garden.yaml
   - !include subviews/30-1-steve.yaml
-  - !include subviews/30-2-lettuce.yaml
+  - !include subviews/30-2-kale.yaml
   - !include subviews/30-3-pineapple.yaml
   - !include subviews/30-4-flowers.yaml
   - !include subviews/30-5-blackberries.yaml

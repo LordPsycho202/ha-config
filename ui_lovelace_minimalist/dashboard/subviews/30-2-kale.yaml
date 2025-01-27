@@ -1,9 +1,9 @@
 ---
-title: "Lettuce"
+title: "kale"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:leaf
 subview: true
-path: plant_lettuce
+path: plant_kale
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
@@ -11,8 +11,8 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.lettuce
-          - plant_path: plant_lettuce
+          - plant_entity: plant.kale_2
+          - plant_path: plant_kale
           - plant_action: more-info
       - type: horizontal-stack
         cards:

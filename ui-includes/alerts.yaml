@@ -859,17 +859,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.lettuce
+            entity: plant.kale_2
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_11_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.lettuce
+      entity: plant.kale_2
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.lettuce' %}
+        {%- set plant = 'plant.kale_2' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -888,10 +888,10 @@ chips:
         {% else %}
         mdi:leaf
         {% endif %}
-      content: Lettuce
+      content: Kale
       tap_action:
         action: navigate
-        navigation_path: plant_lettuce
+        navigation_path: plant_kale
 
   - type: conditional
     conditions:

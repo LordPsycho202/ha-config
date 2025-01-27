@@ -258,7 +258,7 @@ cards:
           ulm_custom_card_rnissen_weather_date: sensor.date_long
       - type: horizontal-stack
         cards:
-          - type: custom:mushroom-entity-card
+          - type: custom:mushroom-template-card
             entity: sensor.obs_low_temp
             name: Observed Low
             icon_color: blue
