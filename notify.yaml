@@ -1,0 +1,7 @@
+  - name: signal
+    platform: signal_messenger
+    url: "http://127.0.0.1:8080" # the URL where the Signal Messenger REST API is listening
+    number: "+17063894421" # the sender number
+    recipients: # one or more recipients
+      - "+12566515381"
+      - "+16784167609"

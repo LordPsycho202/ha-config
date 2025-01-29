@@ -113,6 +113,9 @@ battery_notes:
 #### For Timeplapse #############################################
 ffmpeg:
 
+#### Notificaitions #############################################
+notify: !include notify.yaml
+
 #### Camera Integrations #############################################
 camera:
   - platform: ffmpeg
