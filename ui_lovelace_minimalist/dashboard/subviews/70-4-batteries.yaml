@@ -30,8 +30,12 @@ cards:
               domain: sensor
               attributes:
                 device_class: battery
+            - integration: eufy_security
+              domain: sensor
+              attributes:
+                device_class: battery
           exclude:
-            - name: "*Doorbell*"
+            - name: "* Level Doorbell*"
         sort:
           method: state
           numeric: true

@@ -212,18 +212,14 @@ cards:
                 image_view: arlo-stream
                 image_top: previous,name,next
                 image_bottom: motion,sound,signal,battery|library,snapshot
-          - type: custom:aarlo-glance
-            card_mod:
-              class: middle-left
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
+          - camera_view: auto
+            type: picture-glance
+            title: Doorbell
             entities:
-              - entity: camera.aarlo_doorbell
-                image_view: arlo-stream
-                image_top: previous,name,next
-                image_bottom: motion,sound,signal,bell|library,snapshot
+              - entity: binary_sensor.doorbell_motion_detected
+              - entity: binary_sensor.doorbell_package_delivered
+              - entity: binary_sensor.doorbell_ringing
+            image_entity: image.doorbell_event_image
           - type: custom:aarlo-glance
             card_mod:
               class: middle-left

@@ -88,4 +88,4 @@ cards:
           camera_view: auto
           type: picture-entity
           entity: sensor.mail_packages_delivered
-          camera_image: camera.aarlo_doorbell
+          camera_image: camera.doorbell

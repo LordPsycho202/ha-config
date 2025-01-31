@@ -108,7 +108,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: binary_sensor.aarlo_motion_doorbell
+        entity: binary_sensor.doorbell_motion_detected
         name: "Motion Sensor: Forward Airlock"
         icon: mdi:door
         show_state: true
@@ -166,13 +166,14 @@ cards:
         cards:
           - type: horizontal-stack
             cards:
-              - type: custom:aarlo-glance
-                entity: camera.aarlo_doorbell
-                image_view: arlo-stream
-                image_top: name|date
-                image_bottom: motion,sound,signal|library,snapshot
-                image_click: stream
-                library_sizes: 3,4,2
+              - camera_view: auto
+                type: picture-glance
+                title: Doorbell
+                entities:
+                  - entity: binary_sensor.doorbell_motion_detected
+                  - entity: binary_sensor.doorbell_package_delivered
+                  - entity: binary_sensor.doorbell_ringing
+                image_entity: image.doorbell_event_image
               - type: custom:aarlo-glance
                 entity: camera.aarlo_back_door
                 image_view: arlo-stream

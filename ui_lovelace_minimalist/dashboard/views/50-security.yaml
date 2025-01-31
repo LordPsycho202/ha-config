@@ -18,13 +18,14 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Front Door"
-      - type: custom:aarlo-glance
-        entity: camera.aarlo_doorbell
-        image_view: arlo-stream
-        image_top: date,status
-        image_bottom: motion,sound,signal|library,snapshot
-        image_click: stream
-        library_sizes: 3,4,2
+      - camera_view: auto
+        type: picture-glance
+        title: Doorbell
+        entities:
+          - entity: binary_sensor.doorbell_motion_detected
+          - entity: binary_sensor.doorbell_package_delivered
+          - entity: binary_sensor.doorbell_ringing
+        image_entity: image.doorbell_event_image
       - type: "custom:button-card"
         entity: lock.front_door
         template: "custom_card_eraycetinay_lock"
