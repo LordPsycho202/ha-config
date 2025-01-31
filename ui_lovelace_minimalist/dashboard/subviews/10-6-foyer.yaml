@@ -25,6 +25,7 @@ cards:
           - entity: binary_sensor.doorbell_package_delivered
           - entity: binary_sensor.doorbell_ringing
         image_entity: image.doorbell_event_image
+        aspect_ratio: "16:9"
       - type: "custom:button-card"
         entity: lock.front_door
         template: "custom_card_eraycetinay_lock"
