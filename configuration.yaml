@@ -70,6 +70,9 @@ recorder: !include recorder.yaml
 #### HTTPS ##################################
 http: !include http.yaml
 
+#### Influx ##################################
+influxdb: !include influxdb.yaml
+
 #### OpenHASP ##################################
 openhasp: !include openhasp.yaml
 
