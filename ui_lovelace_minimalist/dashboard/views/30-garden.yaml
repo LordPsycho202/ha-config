@@ -192,7 +192,7 @@ cards:
                 | map(attribute='entity_id')
                 | list | count
               }}
-            icon: mdi:pine-tree-box
+            icon: mdi:greenhouse
             icon_color: |-
               {%- set problems = states.plant
                 | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
@@ -323,7 +323,7 @@ cards:
                 | map(attribute='entity_id')
                 | list | count
               }}
-            icon: mdi:pine-tree-box
+            icon: mdi:sprout
             icon_color: |-
               {%- set problems = states.plant
                 | selectattr('entity_id', 'in', label_entities('potted_plants'))
@@ -536,7 +536,7 @@ cards:
                 | map(attribute='entity_id')
                 | list | count
               }}
-            icon: mdi:pine-tree-box
+            icon: mdi:nature
             icon_color: |-
               {%- set problems = states.plant
                 | selectattr('entity_id', 'in', label_entities('front_yard'))
@@ -821,7 +821,7 @@ cards:
                 | map(attribute='entity_id')
                 | list | count
               }}
-            icon: mdi:pine-tree-box
+            icon: mdi:land-fields
             icon_color: |-
               {%- set problems = states.plant
                 | selectattr('entity_id', 'in', label_entities('garden'))
@@ -977,7 +977,7 @@ cards:
                 | map(attribute='entity_id')
                 | list | count
               }}
-            icon: mdi:pine-tree-box
+            icon: mdi:grass
             icon_color: |-
               {%- set problems = states.plant
                 | selectattr('entity_id', 'in', label_entities('misc_plants'))
