@@ -41,7 +41,7 @@ cards:
         label: "Driveway"
       - type: custom:aarlo-glance
         entity: camera.aarlo_driveway
-        image_view: arlo-stream
+        image_view: direct
         image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
@@ -87,7 +87,7 @@ cards:
         label: "Back Door"
       - type: custom:aarlo-glance
         entity: camera.aarlo_back_door
-        image_view: arlo-stream
+        image_view: direct
         image_top: date,status
         image_bottom: motion,sound,signal,battery|library,snapshot
         image_click: stream
