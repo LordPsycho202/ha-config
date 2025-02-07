@@ -25,29 +25,31 @@ views:
 
   # Garden
   - !include views/30-garden.yaml
-  - !include subviews/30-1-steve.yaml
-  - !include subviews/30-2-kale.yaml
-  - !include subviews/30-3-pineapple.yaml
-  - !include subviews/30-4-flowers.yaml
-  - !include subviews/30-5-blackberries.yaml
-  - !include subviews/30-6-herbs.yaml
-  - !include subviews/30-7-cucumber.yaml
-  - !include subviews/30-8-tomatoes.yaml
-  - !include subviews/30-9-beans.yaml
-  - !include subviews/30-10-garlic.yaml
-  - !include subviews/30-11-admin.yaml
-  - !include subviews/30-12-timelapse.yaml
-  - !include subviews/30-13-mums.yaml
-  - !include subviews/30-14-japanese-maple.yaml
-  - !include subviews/30-15-fairy-washboard.yaml
-  - !include subviews/30-16-juniper.yaml
-  - !include subviews/30-17-carrots.yaml
-  - !include subviews/30-18-camellia.yaml
-  - !include subviews/30-19-okra.yaml
-  - !include subviews/30-20-amaranth.yaml
-  - !include subviews/30-21-japanese_holly.yaml
-  - !include subviews/30-22-holly.yaml
-  - !include subviews/30-23-stick.yaml
+  - !include subviews/30-1-flowers.yaml
+  - !include subviews/30-2-okra.yaml
+  - !include subviews/30-3-amaranth.yaml
+  - !include subviews/30-4-herbs.yaml
+  - !include subviews/30-5-cucumber.yaml
+  - !include subviews/30-6-tomatoes.yaml
+  - !include subviews/30-7-beans.yaml
+  - !include subviews/30-8-juniper.yaml
+  - !include subviews/30-9-camellia.yaml
+  - !include subviews/30-10-steve.yaml
+  - !include subviews/30-11-kale.yaml
+  - !include subviews/30-12-mums.yaml
+  - !include subviews/30-13-japanese-maple.yaml
+  - !include subviews/30-14-fairy-washboard.yaml
+  - !include subviews/30-15-carrots.yaml
+  - !include subviews/30-16-garlic.yaml
+  - !include subviews/30-17-blackberries.yaml
+  - !include subviews/30-18-pineapple.yaml
+  - !include subviews/30-19-japanese_holly.yaml 
+  - !include subviews/30-20-holly.yaml
+  - !include subviews/30-21-stick.yaml
+  - !include subviews/30-22-michael.yaml
+  - !include subviews/30-50-timelapse.yaml
+  - !include subviews/30-51-admin.yaml
+
   # Weather
   - !include views/40-weather.yaml
   # Security

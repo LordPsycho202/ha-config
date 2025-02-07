@@ -919,6 +919,41 @@ cards:
                   - plant_temp_min: 40
                   - plant_temp_max: 96
 
+  - type: conditional
+    conditions:
+      - condition: or
+        conditions:
+          - condition: state
+            entity: input_boolean.soil_moisture_22_notify
+            state: "on"      
+    card:
+      type: vertical-stack
+      cards:
+        - type: "custom:button-card"
+          template: card_title
+          name: Misc Plants
+
+        - type: conditional
+          conditions:
+            - condition: state
+              entity: input_boolean.soil_moisture_22_notify
+              state: "on"
+          card:
+            type: custom:decluttering-card
+            template: plant_graphs_cond
+            variables:
+              - plant_name: "Michael (Office Succulents)"
+              - plant_entity: plant.michael
+              - plant_path: plant_michael
+              - plant_icon: cactus
+              - plant_moisture_entity: sensor.michael_soil_moisture
+              - plant_moisture_min: 7
+              - plant_moisture_max: 50
+              - plant_cond_entity: sensor.michael_conductivity
+              - plant_cond_min: 300
+              - plant_cond_max: 1000
+              - plant_cond_scale: 1500
+
   - type: vertical-stack
     cards:
       - type: "custom:button-card"

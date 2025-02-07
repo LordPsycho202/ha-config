@@ -330,6 +330,19 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
+        name: Misc Plants
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - plant_entity: plant.michael
+          - moisture_entity: sensor.soil_moisture_22
+          - battery_entity: sensor.soil_moisture_22_batt
+          - notify_entity: input_boolean.soil_moisture_22_notify
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
         name: Batteries
       - type: entities
         entities:
