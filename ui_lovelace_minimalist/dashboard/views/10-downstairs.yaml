@@ -369,21 +369,17 @@ cards:
         cards:
           - camera_view: auto
             type: picture-glance
-            title: Doorbell
-            entities:
-              - entity: binary_sensor.doorbell_motion_detected
-              - entity: binary_sensor.doorbell_package_delivered
-              - entity: binary_sensor.doorbell_ringing
+            entities: []
             image_entity: image.doorbell_event_image
             aspect_ratio: "16:9"
-          - type: custom:aarlo-glance
-            entity: camera.aarlo_driveway
-            image_view: arlo-stream
-            image_click: stream
-            library_sizes: 3,4,2
-          - type: custom:aarlo-glance
-            entity: camera.aarlo_back_door
-            image_view: arlo-stream
-            image_click: stream
-            library_sizes: 3,4,2
+          - camera_view: auto
+            type: picture-glance
+            entities: []
+            image_entity: image.driveway_event_image
+            aspect_ratio: "16:9"
+          - camera_view: auto
+            type: picture-glance
+            entities: []
+            image_entity: image.backyard_event_image
+            aspect_ratio: "16:9"
  

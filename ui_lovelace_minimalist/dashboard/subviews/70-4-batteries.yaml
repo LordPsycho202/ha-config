@@ -18,10 +18,6 @@ cards:
           columns: 2
         filter:
           include:
-            - integration: aarlo
-              domain: sensor
-              attributes:
-                device_class: battery
             - integration: august
               domain: sensor
               attributes:

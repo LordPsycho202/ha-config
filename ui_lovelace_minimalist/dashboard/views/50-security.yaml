@@ -39,13 +39,48 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Driveway"
-      - type: custom:aarlo-glance
-        entity: camera.aarlo_driveway
-        image_view: direct
-        image_top: date,status
-        image_bottom: motion,sound,signal,battery|library,snapshot
-        image_click: stream
-        library_sizes: 3,4,2
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - entity: camera.driveway
+                state: idle
+            card:
+              show_state: true
+              show_name: true
+              camera_view: auto
+              type: picture-entity
+              entity: camera.driveway
+              camera_image: camera.driveway
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                data: {}
+                target:
+                  entity_id: camera.driveway
+          - type: conditional
+            conditions:
+              - entity: camera.driveway
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.driveway
+                  entity: camera.driveway
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.driveway
+
       - type: 'custom:button-card'
         template: card_binary_sensor
         variables:
@@ -85,13 +120,48 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Back Door"
-      - type: custom:aarlo-glance
-        entity: camera.aarlo_back_door
-        image_view: direct
-        image_top: date,status
-        image_bottom: motion,sound,signal,battery|library,snapshot
-        image_click: stream
-        library_sizes: 3,4,2
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - entity: camera.backyard
+                state: idle
+            card:
+              show_state: true
+              show_name: true
+              camera_view: auto
+              type: picture-entity
+              entity: camera.backyard
+              camera_image: camera.backyard
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                data: {}
+                target:
+                  entity_id: camera.backyard
+          - type: conditional
+            conditions:
+              - entity: camera.backyard
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.backyard
+                  entity: camera.backyard
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.backyard
+
       - type: "custom:button-card"
         entity: lock.back_door
         template: "custom_card_eraycetinay_lock"

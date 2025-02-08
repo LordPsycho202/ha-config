@@ -12,13 +12,47 @@ cards:
         template: card_title
         name: Outside
 
-      - type: custom:aarlo-glance
-        entity: camera.aarlo_back_door
-        image_view: direct
-        image_top: name,date,status
-        image_bottom: motion,sound,signal,battery|library,snapshot
-        image_click: stream
-        library_sizes: 3,4,2
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - entity: camera.backyard
+                state: idle
+            card:
+              show_state: true
+              show_name: true
+              camera_view: auto
+              type: picture-entity
+              entity: camera.backyard
+              camera_image: camera.backyard
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                data: {}
+                target:
+                  entity_id: camera.backyard
+          - type: conditional
+            conditions:
+              - entity: camera.backyard
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.backyard
+                  entity: camera.backyard
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.backyard
 
   - type: vertical-stack
     cards:
