@@ -993,20 +993,27 @@ cards:
                   entity: input_boolean.soil_moisture_22_notify
                   state: "on"
               card:
-                type: custom:decluttering-card
-                template: plant_graphs_cond
-                variables:
-                  - plant_name: "Michael (Office Succulents)"
-                  - plant_entity: plant.michael
-                  - plant_path: plant_michael
-                  - plant_icon: cactus
-                  - plant_moisture_entity: sensor.michael_soil_moisture
-                  - plant_moisture_min: 7
-                  - plant_moisture_max: 50
-                  - plant_cond_entity: sensor.michael_conductivity
-                  - plant_cond_min: 300
-                  - plant_cond_max: 1000
-                  - plant_cond_scale: 1500
+                type: vertical-stack
+                cards:
+                  - type: entities
+                    entities:
+                      - entity: switch.michael_light_switch
+                        icon: mdi:light-flood-down
+                    state_color: true
+                  - type: custom:decluttering-card
+                    template: plant_graphs_cond
+                    variables:
+                      - plant_name: "Michael (Office Succulents)"
+                      - plant_entity: plant.michael
+                      - plant_path: plant_michael
+                      - plant_icon: cactus
+                      - plant_moisture_entity: sensor.michael_soil_moisture
+                      - plant_moisture_min: 7
+                      - plant_moisture_max: 50
+                      - plant_cond_entity: sensor.michael_conductivity
+                      - plant_cond_min: 300
+                      - plant_cond_max: 1000
+                      - plant_cond_scale: 1500
 
   - type: vertical-stack
     cards:
