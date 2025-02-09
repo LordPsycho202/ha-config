@@ -995,11 +995,13 @@ cards:
               card:
                 type: vertical-stack
                 cards:
-                  - type: entities
-                    entities:
-                      - entity: switch.michael_light_switch
-                        icon: mdi:light-flood-down
-                    state_color: true
+                  - type: "custom:button-card"
+                    template: card_light
+                    entity: light.michael_light_switch
+                    variables:
+                      ulm_card_light_name: "Michael's Light"
+                      ulm_card_light_force_background_color: true
+                      ulm_card_light_enable_collapse: true
                   - type: custom:decluttering-card
                     template: plant_graphs_cond
                     variables:
