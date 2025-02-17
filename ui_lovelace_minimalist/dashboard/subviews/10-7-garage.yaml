@@ -125,7 +125,7 @@ cards:
           action: none
 
       - type: custom:mushroom-entity-card
-        entity: input_select.trash_day_status
+        entity: input_select.recycling_day_status
         icon_color: yellow
         tap_action:
           action: more-info
