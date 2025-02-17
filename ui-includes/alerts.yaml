@@ -434,6 +434,58 @@ chips:
 
   - type: conditional
     conditions:
+      - entity: binary_sensor.door_garage_opening
+        state: open
+    chip:
+      type: template
+      icon_color: red
+      content: Garage Door Open
+      icon: mdi:garage-open-variant
+      tap_action:
+        action: navigate
+        navigation_path: garage
+
+  - type: conditional
+    conditions:
+      - entity: lock.back_door
+        state: unlocked
+    chip:
+      type: template
+      icon_color: red
+      content: Back Door Unlocked
+      icon: mdi:lock-open-alert
+      tap_action:
+        action: navigate
+        navigation_path: livingroom
+
+  - type: conditional
+    conditions:
+      - entity: binary_sensor.back_door_open
+        state: open
+    chip:
+      type: template
+      icon_color: red
+      content: Back Door Open
+      icon: mdi:door-open
+      tap_action:
+        action: navigate
+        navigation_path: livingroom
+
+  - type: conditional
+    conditions:
+      - entity: lock.front_door
+        state: unlocked
+    chip:
+      type: template
+      icon_color: red
+      content: Front Door Unlocked
+      icon: mdi:lock-open-alert
+      tap_action:
+        action: navigate
+        navigation_path: foyer
+
+  - type: conditional
+    conditions:
       - entity: vacuum.catbug
         state: error
     chip:
