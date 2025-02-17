@@ -153,84 +153,6 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: state
-        entity: alarm_control_panel.aarlo_garage
-        state_not: disarmed
-    chip:
-      type: alarm-control-panel
-      entity: alarm_control_panel.aarlo_garage
-      tap_action:
-        action: more-info
-      hold_action:
-        action: call-service
-        service: alarm_control_panel.alarm_disarm
-        target:
-          entity_id: alarm_control_panel.aarlo_garage
-      name: Garage Camera
-      icon: mdi:cctv
-
-  - type: conditional
-    conditions:
-      - entity: switch.back_yard_zone
-        state: 'on'
-    chip:
-      type: template
-      content: Backyard
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: navigate
-        navigation_path: garden
-
-  - type: conditional
-    conditions:
-      - entity: switch.flower_beds_zone
-        state: 'on'
-    chip:
-      type: template
-      content: Flower Beds
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: navigate
-        navigation_path: garden
-
-  - type: conditional
-    conditions:
-      - entity: switch.front_yard_zone
-        state: 'on'
-    chip:
-      type: template
-      content: Front Yard
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: navigate
-        navigation_path: garden
-
-  - type: conditional
-    conditions:
-      - entity: switch.side_yard_zone
-        state: 'on'
-    chip:
-      type: template
-      content: Side Yards
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: navigate
-        navigation_path: garden
-
-  - type: conditional
-    conditions:
-      - entity: switch.garden_watering
-        state: 'on'
-    chip:
-      type: template
-      content: Garden
-      icon: mdi:sprinkler-variant
-      tap_action:
-        action: navigate
-        navigation_path: garden
-
-  - type: conditional
-    conditions:
       - condition: numeric_state
         entity: sensor.monthly_water
         above: 7500
@@ -421,16 +343,21 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: lawn_mower.philoctetes
-        state: error
+      - condition: state
+        entity: alarm_control_panel.aarlo_garage
+        state_not: disarmed
     chip:
-      type: template
-      icon_color: grey
-      content: Philoctetes
-      icon: mdi:alert
+      type: alarm-control-panel
+      entity: alarm_control_panel.aarlo_garage
       tap_action:
-        action: navigate
-        navigation_path: outside
+        action: more-info
+      hold_action:
+        action: call-service
+        service: alarm_control_panel.alarm_disarm
+        target:
+          entity_id: alarm_control_panel.aarlo_garage
+      name: Garage Camera
+      icon: mdi:cctv
 
   - type: conditional
     conditions:
@@ -486,6 +413,19 @@ chips:
 
   - type: conditional
     conditions:
+      - entity: lawn_mower.philoctetes
+        state: error
+    chip:
+      type: template
+      icon_color: grey
+      content: Philoctetes
+      icon: mdi:alert
+      tap_action:
+        action: navigate
+        navigation_path: outside
+
+  - type: conditional
+    conditions:
       - entity: vacuum.catbug
         state: error
     chip:
@@ -513,6 +453,66 @@ chips:
           entity_id: input_select.dishwasher_state
         data:
           option: Dirty
+
+  - type: conditional
+    conditions:
+      - entity: switch.back_yard_zone
+        state: 'on'
+    chip:
+      type: template
+      content: Backyard
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.flower_beds_zone
+        state: 'on'
+    chip:
+      type: template
+      content: Flower Beds
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.front_yard_zone
+        state: 'on'
+    chip:
+      type: template
+      content: Front Yard
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.side_yard_zone
+        state: 'on'
+    chip:
+      type: template
+      content: Side Yards
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
+
+  - type: conditional
+    conditions:
+      - entity: switch.garden_watering
+        state: 'on'
+    chip:
+      type: template
+      content: Garden
+      icon: mdi:sprinkler-variant
+      tap_action:
+        action: navigate
+        navigation_path: garden
 
   - type: spacer
 
