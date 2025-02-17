@@ -435,7 +435,7 @@ chips:
   - type: conditional
     conditions:
       - entity: binary_sensor.door_garage_opening
-        state: open
+        state: on
     chip:
       type: template
       icon_color: red
@@ -461,7 +461,7 @@ chips:
   - type: conditional
     conditions:
       - entity: binary_sensor.back_door_open
-        state: open
+        state: on
     chip:
       type: template
       icon_color: red
