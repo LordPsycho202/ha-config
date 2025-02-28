@@ -133,11 +133,11 @@ cards:
                           service: camera.turn_off
                           data: {}
                           target:
-                            entity_id: camera.backyard
+                            entity_id: camera.garage
                         entity: camera.backyard
                         name: Stop
                       - type: custom:webrtc-camera
-                        entity: camera.backyard
+                        entity: camera.garage
           - type: conditional
             conditions:
               - condition: state
