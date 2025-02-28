@@ -94,8 +94,8 @@ cards:
           - type: conditional
             conditions:
               - condition: state
-                entity: switch.garage_camera_enabled
-                state_not: off
+                entity: alarm_control_panel.garage
+                state_not: disarmed
             card:
               square: false
               columns: 1
@@ -141,12 +141,19 @@ cards:
           - type: conditional
             conditions:
               - condition: state
-                entity: switch.garage_camera_enabled
-                state: off
+                entity: alarm_control_panel.garage
+                state: disarmed
             card:
-              type: entities
-              entities:
-                - switch.garage_camera_enabled
+              type: custom:mushroom-alarm-control-panel-card
+              entity: alarm_control_panel.garage
+              states:
+                - armed_home
+                - disarmed
+              tap_action:
+                action: more-info
+              hold_action:
+                action: more-info
+
 
       - type: "custom:button-card"
         template: card_title
