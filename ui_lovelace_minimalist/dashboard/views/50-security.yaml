@@ -134,7 +134,7 @@ cards:
                           data: {}
                           target:
                             entity_id: camera.garage
-                        entity: camera.backyard
+                        entity: camera.garage
                         name: Stop
                       - type: custom:webrtc-camera
                         entity: camera.garage
