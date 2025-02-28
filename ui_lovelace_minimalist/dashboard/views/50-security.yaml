@@ -147,7 +147,7 @@ cards:
               type: custom:mushroom-alarm-control-panel-card
               entity: alarm_control_panel.garage
               states:
-                - armed_home
+                - armed_away
                 - disarmed
               tap_action:
                 action: more-info
