@@ -48,16 +48,15 @@ cards:
               - entity: camera.driveway
                 state: idle
             card:
-              show_state: true
-              show_name: true
-              camera_view: auto
-              type: picture-entity
-              entity: camera.driveway
-              camera_image: camera.driveway
+              type: picture-glance
+              title: Driveway
+              entities:
+                - entity: binary_sensor.driveway_motion_detected
+                - entity: light.light_garagesconce
+              image_entity: image.driveway_event_image
               tap_action:
-                action: call-service
-                service: camera.turn_on
-                data: {}
+                action: perform-action
+                perform_action: camera.turn_on
                 target:
                   entity_id: camera.driveway
           - type: conditional
@@ -161,16 +160,15 @@ cards:
               - entity: camera.backyard
                 state: idle
             card:
-              show_state: true
-              show_name: true
-              camera_view: auto
-              type: picture-entity
-              entity: camera.backyard
-              camera_image: camera.backyard
+              type: picture-glance
+              title: Backyard
+              entities:
+                - entity: binary_sensor.backyard_motion_detected
+                - entity: light.back_porch
+              image_entity: image.backyard_event_image
               tap_action:
-                action: call-service
-                service: camera.turn_on
-                data: {}
+                action: perform-action
+                perform_action: camera.turn_on
                 target:
                   entity_id: camera.backyard
           - type: conditional

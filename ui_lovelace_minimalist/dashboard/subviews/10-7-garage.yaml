@@ -115,7 +115,7 @@ cards:
   - type: vertical-stack
     cards:
       - type: custom:mushroom-entity-card
-        entity: sensor.next_trash
+        entity: input_select.trash_day_status
         icon_color: brown
         tap_action:
           action: more-info
@@ -125,7 +125,7 @@ cards:
           action: none
 
       - type: custom:mushroom-entity-card
-        entity: sensor.next_recycling
+        entity: input_select.recycling_day_status
         icon_color: yellow
         tap_action:
           action: more-info
@@ -149,11 +149,11 @@ cards:
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
-            entity: sensor.indoor_temperature
+            entity: sensor.gw1100b_indoor_temperature
             template: card_graph
             variables:
               ulm_card_graph_color: "var(--google-red)"
               ulm_card_graph_name: Garage Temp
-              ulm_card_graph_entity: sensor.indoor_temperature
+              ulm_card_graph_entity: sensor.gw1100b_indoor_temperature
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
