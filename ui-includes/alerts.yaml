@@ -1136,7 +1136,7 @@ chips:
         {% else %}
         mdi:leaf
         {% endif %}
-      content: Garlic
+      content: Seeds
       tap_action:
         action: navigate
         navigation_path: plant_garlic
