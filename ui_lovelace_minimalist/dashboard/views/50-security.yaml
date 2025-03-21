@@ -94,27 +94,66 @@ cards:
           - type: conditional
             conditions:
               - condition: state
-                entity: alarm_control_panel.aarlo_garage
+                entity: alarm_control_panel.garage
                 state_not: disarmed
             card:
-              type: custom:aarlo-glance
-              entity: camera.aarlo_garage
-              image_view: direct
-              image_top: name,date,status
-              image_bottom: motion,sound,signal,onoff|library,snapshot
-              image_click: stream
-              library_sizes: 3,4,2
+              square: false
+              columns: 1
+              type: grid
+              cards:
+                - type: conditional
+                  conditions:
+                    - entity: camera.garage
+                      state: idle
+                  card:
+                    show_state: true
+                    show_name: true
+                    camera_view: auto
+                    type: picture-entity
+                    entity: camera.garage
+                    camera_image: camera.garage
+                    tap_action:
+                      action: call-service
+                      service: camera.turn_on
+                      data: {}
+                      target:
+                        entity_id: camera.garage
+                - type: conditional
+                  conditions:
+                    - entity: camera.garage
+                      state: streaming
+                  card:
+                    type: vertical-stack
+                    cards:
+                      - show_name: true
+                        show_icon: false
+                        type: button
+                        tap_action:
+                          action: call-service
+                          service: camera.turn_off
+                          data: {}
+                          target:
+                            entity_id: camera.garage
+                        entity: camera.garage
+                        name: Stop
+                      - type: custom:webrtc-camera
+                        entity: camera.garage
           - type: conditional
             conditions:
               - condition: state
-                entity: alarm_control_panel.aarlo_garage
+                entity: alarm_control_panel.garage
                 state: disarmed
             card:
               type: custom:mushroom-alarm-control-panel-card
-              entity: alarm_control_panel.aarlo_garage
+              entity: alarm_control_panel.garage
               states:
                 - armed_away
-              name: Garage Camera
+                - disarmed
+              tap_action:
+                action: more-info
+              hold_action:
+                action: more-info
+
 
       - type: "custom:button-card"
         template: card_title
