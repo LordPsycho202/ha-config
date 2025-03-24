@@ -36,6 +36,8 @@ cards:
         triggers_update:
           - "sensor.front_door_battery"
 
+  - type: vertical-stack
+    cards:
       - type: "custom:button-card"
         template: card_title
         label: "Driveway"
@@ -154,7 +156,8 @@ cards:
               hold_action:
                 action: more-info
 
-
+  - type: vertical-stack
+    cards:
       - type: "custom:button-card"
         template: card_title
         label: "Back Door"
