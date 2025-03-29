@@ -31,12 +31,12 @@ views:
   - !include subviews/30-4-herbs.yaml
   - !include subviews/30-5-cucumber.yaml
   - !include subviews/30-6-tomatoes.yaml
-  - !include subviews/30-7-beans.yaml
+  - !include subviews/30-7-strawberryyaml
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
   - !include subviews/30-10-steve.yaml
   - !include subviews/30-11-kale.yaml
-  - !include subviews/30-12-mums.yaml
+  - !include subviews/30-12-beans.yaml
   - !include subviews/30-13-japanese-maple.yaml
   - !include subviews/30-14-fairy-washboard.yaml
   - !include subviews/30-15-carrots.yaml
