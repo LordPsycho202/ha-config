@@ -31,7 +31,7 @@ views:
   - !include subviews/30-4-herbs.yaml
   - !include subviews/30-5-cucumber.yaml
   - !include subviews/30-6-tomatoes.yaml
-  - !include subviews/30-7-strawberryyaml
+  - !include subviews/30-7-strawberry.yaml
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
   - !include subviews/30-10-steve.yaml
