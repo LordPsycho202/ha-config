@@ -11,35 +11,55 @@ cards:
       - type: custom:decluttering-card
         template: plant_mushroom_card
         variables:
-          - plant_entity: plant.beans
+          - plant_entity: plant.beans_2
           - plant_path: plant_beans
+          - plant_icon: mdi:leaf
           - plant_action: more-info
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.soil_moisture_7
+            entity: sensor.soil_moisture_12
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_7
+              ulm_card_graph_entity: sensor.soil_moisture_12
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_12_cond
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Nutrients
+              ulm_card_graph_entity: sensor.soil_moisture_12_cond
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"
             template: card_graph
-            entity: sensor.outdoor_temp
+            entity: sensor.soil_moisture_12_temp
             variables:
               ulm_card_graph_color: "var(--google-green)"
               ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.outdoor_temp
+              ulm_card_graph_entity: sensor.soil_moisture_12_temp
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_12_lum
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Light
+              ulm_card_graph_entity: sensor.soil_moisture_12_lum
               ulm_card_graph_type: fill
               ulm_card_graph_hours: 24
       - type: 'custom:button-card'
         template: card_battery
-        entity: sensor.soil_moisture_7_batt
+        entity: sensor.soil_moisture_12_batt
         variables:
           ulm_card_battery_battery_level_danger: 30
           ulm_card_battery_battery_level_warning: 80
           ulm_card_battery_name: Battery
+

@@ -434,13 +434,13 @@ cards:
                 template: plant_graphs_cond
                 variables:
                   - plant_name: "Mums"
-                  - plant_entity: plant.mums
-                  - plant_path: plant_mums
+                  - plant_entity: plant.beans_2
+                  - plant_path: plant_beans
                   - plant_icon: flower-outline
-                  - plant_moisture_entity: sensor.mums_soil_moisture
+                  - plant_moisture_entity: sensor.soil_moisture_12
                   - plant_moisture_min: 20
                   - plant_moisture_max: 61
-                  - plant_cond_entity: sensor.mums_conductivity
+                  - plant_cond_entity: sensor.soil_moisture_12_cond
                   - plant_cond_min: 350
                   - plant_cond_max: 2001
                   - plant_cond_scale: 3000
@@ -949,9 +949,9 @@ cards:
                 type: custom:decluttering-card
                 template: plant_graphs
                 variables:
-                  - plant_name: "Beans"
-                  - plant_entity: plant.beans
-                  - plant_path: plant_beans
+                  - plant_name: "Strawberries"
+                  - plant_entity: plant.strawberry
+                  - plant_path: plant_strawberry
                   - plant_moisture_entity: sensor.soil_moisture_7
                   - plant_moisture_min: 25
                   - plant_moisture_max: 66

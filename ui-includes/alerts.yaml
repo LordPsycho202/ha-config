@@ -755,17 +755,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.beans
+            entity: plant.strawberry
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_7_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.beans
+      entity: plant.strawberry
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.beans' %}
+        {%- set plant = 'plant.strawberry' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -782,12 +782,12 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:leaf
+        mdi:fruit-grapes
         {% endif %}
-      content: Beans
+      content: Strawberries
       tap_action:
         action: navigate
-        navigation_path: plant_beans
+        navigation_path: plant_strawberry
 
   - type: conditional
     conditions:
@@ -950,17 +950,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.mums
+            entity: plant.beans_2
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_12_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.mums
+      entity: plant.beans_2
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.mums' %}
+        {%- set plant = 'plant.beans_2' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -977,12 +977,12 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:fruit-grapes
+        mdi:leaf
         {% endif %}
-      content: mums
+      content: Beans
       tap_action:
         action: navigate
-        navigation_path: plant_mums
+        navigation_path: plant_beans
 
   - type: conditional
     conditions:
@@ -1351,7 +1351,7 @@ chips:
       entity: plant.michael
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.plant.michael' %}
+        {%- set plant = 'plant.michael' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -1368,7 +1368,7 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:tree-outline
+        mdi:grass
         {% endif %}
       content: Michael
       tap_action:
