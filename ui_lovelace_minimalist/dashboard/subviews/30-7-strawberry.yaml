@@ -3,7 +3,7 @@ title: "Strawberry"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:fruit-grapes
 subview: true
-path: plant_beans
+path: plant_strawberry
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: vertical-stack
