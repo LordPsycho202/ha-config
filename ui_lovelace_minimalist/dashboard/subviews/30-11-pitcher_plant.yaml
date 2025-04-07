@@ -1,0 +1,71 @@
+---
+title: "Pitcher Plant"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:leaf
+subview: true
+path: plant_pitcher
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.pitcher_plant
+          - plant_path: plant_pitcher
+          - plant_action: more-info
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_11
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Moisture
+              ulm_card_graph_entity: sensor.soil_moisture_11
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_11_cond
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Soil Nutrients
+              ulm_card_graph_entity: sensor.soil_moisture_11_cond
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_11_temp
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.soil_moisture_11_temp
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.soil_moisture_11_lum
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Light
+              ulm_card_graph_entity: sensor.soil_moisture_11_lum
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: 'custom:button-card'
+        template: card_battery
+        entity: sensor.soil_moisture_11_batt
+        variables:
+          ulm_card_battery_battery_level_danger: 30
+          ulm_card_battery_battery_level_warning: 80
+          ulm_card_battery_name: Battery
+      - show_state: true
+        show_name: true
+        camera_view: auto
+        type: picture-entity
+        entity: light.greenhouse
+        tap_action:
+          action: more-info
+        camera_image: camera.esp32_cam01_esp32_cam01

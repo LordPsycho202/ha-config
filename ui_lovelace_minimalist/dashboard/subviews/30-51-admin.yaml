@@ -202,6 +202,13 @@ cards:
           - moisture_entity: sensor.soil_moisture_21
           - battery_entity: sensor.soil_moisture_21_batt
           - notify_entity: input_boolean.soil_moisture_21_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - plant_entity: plant.lavender
+          - moisture_entity: sensor.soil_moisture_24
+          - battery_entity: sensor.soil_moisture_24_batt
+          - notify_entity: input_boolean.soil_moisture_24_notify
 
   - type: vertical-stack
     cards:
@@ -256,13 +263,6 @@ cards:
           - moisture_entity: sensor.soil_moisture_14
           - battery_entity: sensor.soil_moisture_14_batt
           - notify_entity: input_boolean.soil_moisture_14_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.kale_2
-          - moisture_entity: sensor.soil_moisture_11
-          - battery_entity: sensor.soil_moisture_11_batt
-          - notify_entity: input_boolean.soil_moisture_11_notify
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
@@ -321,10 +321,24 @@ cards:
       - type: custom:decluttering-card
         template: plant_notification_card
         variables:
+          - plant_entity: plant.pitcher_plant
+          - moisture_entity: sensor.soil_moisture_11
+          - battery_entity: sensor.soil_moisture_11_batt
+          - notify_entity: input_boolean.soil_moisture_11_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
           - plant_entity: plant.carrots
           - moisture_entity: sensor.soil_moisture_15
           - battery_entity: sensor.soil_moisture_15_batt
           - notify_entity: input_boolean.soil_moisture_15_notify
+      - type: custom:decluttering-card
+        template: plant_notification_card
+        variables:
+          - plant_entity: plant.kale_2
+          - moisture_entity: sensor.soil_moisture_23
+          - battery_entity: sensor.soil_moisture_23_batt
+          - notify_entity: input_boolean.soil_moisture_23_notify
 
   - type: vertical-stack
     cards:
