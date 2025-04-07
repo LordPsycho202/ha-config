@@ -47,6 +47,8 @@ views:
   - !include subviews/30-20-holly.yaml
   - !include subviews/30-21-stick.yaml
   - !include subviews/30-22-michael.yaml
+  - !include subviews/30-23-kale.yaml
+  - !include subviews/30-24-lavender.yaml
   - !include subviews/30-50-timelapse.yaml
   - !include subviews/30-51-admin.yaml
 
