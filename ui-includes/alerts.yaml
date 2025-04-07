@@ -911,17 +911,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.kale_2
+            entity: plant.pitcher_plant
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_11_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.kale_2
+      entity: plant.pitcher_plant
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.kale_2' %}
+        {%- set plant = 'plant.pitcher_plant' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -940,10 +940,10 @@ chips:
         {% else %}
         mdi:leaf
         {% endif %}
-      content: Kale
+      content: "Pitcher Plant"
       tap_action:
         action: navigate
-        navigation_path: plant_kale
+        navigation_path: plant_pitcher
 
   - type: conditional
     conditions:
@@ -1374,3 +1374,81 @@ chips:
       tap_action:
         action: navigate
         navigation_path: plant_michael
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.kale_2
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_23_notify
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.
+      icon_color: grey
+      icon: |-
+        {%- set plant = 'plant.kale_2' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:grass
+        {% endif %}
+      content: Kale
+      tap_action:
+        action: navigate
+        navigation_path: plant_kale
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.lavender
+            state_not: ok
+          - condition: state
+            entity: input_boolean.soil_moisture_24_notify
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.
+      icon_color: grey
+      icon: |-
+        {%- set plant = 'plant.lavender' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:grass
+        {% endif %}
+      content: Lavender
+      tap_action:
+        action: navigate
+        navigation_path: plant_lavender
