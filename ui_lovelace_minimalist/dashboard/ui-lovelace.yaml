@@ -35,7 +35,7 @@ views:
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
   - !include subviews/30-10-steve.yaml
-  - !include subviews/30-11-kale.yaml
+  - !include subviews/30-11-pitcher_plant.yaml
   - !include subviews/30-12-beans.yaml
   - !include subviews/30-13-japanese-maple.yaml
   - !include subviews/30-14-fairy-washboard.yaml
