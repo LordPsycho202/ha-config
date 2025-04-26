@@ -284,12 +284,18 @@ plant_subview:
               name: Conductivity
       - type: horizontal-stack
         cards:
-          - type: custom:mini-graph-card
-            entities:
-              - sensor.[[plant]]_temperature
-            line_color: '[[line_color]]'
-            line_width: 8
-            name: Temperature
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.[[plant]]_temperature
+                state_not: unknown
+            card:
+              type: custom:mini-graph-card
+              entities:
+                - sensor.[[plant]]_temperature
+              line_color: '[[line_color]]'
+              line_width: 8
+              name: Temperature
           - type: conditional
             conditions:
               - condition: state
