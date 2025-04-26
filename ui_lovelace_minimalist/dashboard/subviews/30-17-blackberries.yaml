@@ -6,59 +6,10 @@ subview: true
 path: plant_blackberries
 back_path: /ui-lovelace-minimalist/garden
 cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: plant_mushroom_card
-        variables:
-          - plant_entity: plant.blackberries
-          - plant_path: plant_blackberries
-          - plant_icon: fruit-grapes
-          - plant_action: more-info
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_17
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_17
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_17_cond
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Nutrients
-              ulm_card_graph_entity: sensor.soil_moisture_17_cond
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_17_temp
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.soil_moisture_17_temp
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_17_lum
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Light
-              ulm_card_graph_entity: sensor.soil_moisture_17_lum
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-      - type: 'custom:button-card'
-        template: card_battery
-        entity: sensor.soil_moisture_17_batt
-        variables:
-          ulm_card_battery_battery_level_danger: 30
-          ulm_card_battery_battery_level_warning: 80
-          ulm_card_battery_name: Battery
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: blackberries
+      - plant_path: blackberries
+      - plant_icon: fruit-grapes
+      - sensor_batt: sensor.soil_moisture_17_batt

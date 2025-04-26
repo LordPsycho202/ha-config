@@ -6,27 +6,10 @@ subview: true
 path: plant_holly
 back_path: /ui-lovelace-minimalist/garden
 cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: plant_mushroom_card
-        variables:
-          - plant_entity: plant.holly
-          - plant_path: plant_holly
-          - plant_icon: weather-cloudy
-      - type: "custom:button-card"
-        template: card_graph
-        entity: sensor.soil_moisture_20
-        variables:
-          ulm_card_graph_color: "var(--google-green)"
-          ulm_card_graph_name: Soil Moisture
-          ulm_card_graph_entity: sensor.soil_moisture_20
-          ulm_card_graph_type: fill
-          ulm_card_graph_hours: 24
-      - type: 'custom:button-card'
-        template: card_battery
-        entity: sensor.soil_moisture_20_batt
-        variables:
-          ulm_card_battery_battery_level_danger: 30
-          ulm_card_battery_battery_level_warning: 80
-          ulm_card_battery_name: Battery
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: holly
+      - plant_path: holly
+      - plant_icon: weather-cloudy
+      - sensor_batt: sensor.soil_moisture_20_batt

@@ -950,17 +950,17 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.beans_2
+            entity: plant.beans
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_12_notify
             state: 'on'
     chip:
       type: template
-      entity: plant.beans_2
+      entity: plant.beans
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.beans_2' %}
+        {%- set plant = 'plant.beans' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -1380,7 +1380,7 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.kale_2
+            entity: plant.kale
             state_not: ok
           - condition: state
             entity: input_boolean.soil_moisture_23_notify
@@ -1390,7 +1390,7 @@ chips:
       entity: plant.
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.kale_2' %}
+        {%- set plant = 'plant.kale' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}

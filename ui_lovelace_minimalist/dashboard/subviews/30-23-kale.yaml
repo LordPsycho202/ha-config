@@ -6,46 +6,9 @@ subview: true
 path: plant_kale
 back_path: /ui-lovelace-minimalist/garden
 cards:
-  - type: vertical-stack
-    cards:
-      - type: custom:decluttering-card
-        template: plant_mushroom_card
-        variables:
-          - plant_entity: plant.kale_2
-          - plant_path: plant_kale
-          - plant_action: more-info
-      - type: horizontal-stack
-        cards:
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_23
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Soil Moisture
-              ulm_card_graph_entity: sensor.soil_moisture_23
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-          - type: "custom:button-card"
-            template: card_graph
-            entity: sensor.soil_moisture_23_temp
-            variables:
-              ulm_card_graph_color: "var(--google-green)"
-              ulm_card_graph_name: Temperature
-              ulm_card_graph_entity: sensor.soil_moisture_23_temp
-              ulm_card_graph_type: fill
-              ulm_card_graph_hours: 24
-      - type: 'custom:button-card'
-        template: card_battery
-        entity: sensor.soil_moisture_23_batt
-        variables:
-          ulm_card_battery_battery_level_danger: 30
-          ulm_card_battery_battery_level_warning: 80
-          ulm_card_battery_name: Battery
-      - show_state: true
-        show_name: true
-        camera_view: auto
-        type: picture-entity
-        entity: light.greenhouse
-        tap_action:
-          action: more-info
-        camera_image: camera.esp32_cam01_esp32_cam01
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: kale
+      - plant_path: kale
+      - sensor_batt: sensor.soil_moisture_23_batt

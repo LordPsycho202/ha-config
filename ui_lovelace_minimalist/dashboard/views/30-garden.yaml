@@ -986,7 +986,7 @@ cards:
                 template: plant_graphs_cond
                 variables:
                   - plant_name: "Mums"
-                  - plant_entity: plant.beans_2
+                  - plant_entity: plant.beans
                   - plant_path: plant_beans
                   - plant_icon: flower-outline
                   - plant_moisture_entity: sensor.soil_moisture_12
@@ -1026,7 +1026,7 @@ cards:
                 template: plant_graphs_temp
                 variables:
                   - plant_name: "kale"
-                  - plant_entity: plant.kale_2
+                  - plant_entity: plant.kale
                   - plant_path: plant_kale
                   - plant_moisture_entity: sensor.kale_soil_moisture
                   - plant_moisture_min: 25
