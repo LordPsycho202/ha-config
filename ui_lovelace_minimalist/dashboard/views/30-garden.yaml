@@ -211,7 +211,7 @@ cards:
                   state: "on"    
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Steve"
                   - plant_entity: plant.steve
@@ -231,7 +231,7 @@ cards:
                   state: "on"    
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Fairy Washboard"
                   - plant_entity: plant.fairy_washboard
@@ -251,7 +251,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Garlic"
                   - plant_entity: plant.garlic
@@ -279,7 +279,7 @@ cards:
                       ulm_card_light_force_background_color: true
                       ulm_card_light_enable_collapse: true
                   - type: custom:decluttering-card
-                    template: plant_graphs_cond
+                    template: plant_graphs
                     variables:
                       - plant_name: "Michael (Office Succulents)"
                       - plant_entity: plant.michael
@@ -343,7 +343,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Pineapples"
                   - plant_entity: plant.pineapples
@@ -541,7 +541,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "Camellia"
                   - plant_entity: plant.camellia
@@ -561,7 +561,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "Japanese Holly"
                   - plant_entity: plant.japanese_holly
@@ -580,7 +580,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "Holly"
                   - plant_entity: plant.holly
@@ -599,7 +599,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "The Stick"
                   - plant_entity: plant.stick
@@ -618,7 +618,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "Lavender"
                   - plant_entity: plant.lavender
@@ -925,7 +925,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "Carrots"
                   - plant_entity: plant.carrots
@@ -944,7 +944,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Blackberries"
                   - plant_entity: plant.blackberries
@@ -964,7 +964,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Pitcher Plant"
                   - plant_entity: plant.pitcher_plant
@@ -983,7 +983,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Mums"
                   - plant_entity: plant.beans
@@ -1003,7 +1003,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_cond
+                template: plant_graphs
                 variables:
                   - plant_name: "Japanese Maple"
                   - plant_entity: plant.japanese_maple
@@ -1023,7 +1023,7 @@ cards:
                   state: "on"
               card:
                 type: custom:decluttering-card
-                template: plant_graphs_temp
+                template: plant_graphs
                 variables:
                   - plant_name: "kale"
                   - plant_entity: plant.kale
