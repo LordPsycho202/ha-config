@@ -118,6 +118,12 @@ plant_graphs:
               - color: "#0000FF"
                 from: '[[plant_moisture_max]]'
                 label: Too Wet
+          - type: custom:mini-graph-card
+            entities:
+              - '[[plant_moisture_entity]]'
+            line_color: '#008000'
+            line_width: 8
+            name: History
 
 plant_notification_card:
   card:
