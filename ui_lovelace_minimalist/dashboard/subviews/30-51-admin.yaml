@@ -30,6 +30,8 @@ cards:
             name: Automatically Water Flower Beds?
             icon: mdi:sprinkler
           - type: divider
+          - entity: input_number.recent_rain_config
+            name: Post-Rain Alert Cooldown
           - type: conditional
             conditions:
               - entity: input_boolean.garden_watering
