@@ -529,6 +529,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
+            state: 'off'
     chip:
       type: template
       icon_color: grey
@@ -570,6 +573,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.garden_watering
             state: 'off'
     chip:
       type: template
@@ -613,6 +619,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       entity: plant.amaranth
@@ -654,6 +663,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.garden_watering
             state: 'off'
     chip:
       type: template
@@ -697,6 +709,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       entity: plant.cucumber
@@ -738,6 +753,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.garden_watering
             state: 'off'
     chip:
       type: template
@@ -781,6 +799,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       entity: plant.strawberry
@@ -823,6 +844,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
+            state: 'off'
     chip:
       type: template
       entity: plant.juniper
@@ -864,6 +888,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
             state: 'off'
     chip:
       type: template
@@ -949,6 +976,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       entity: plant.pitcher_plant
@@ -991,6 +1021,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       entity: plant.beans
@@ -1032,6 +1065,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.garden_watering
             state: 'off'
     chip:
       type: template
@@ -1116,6 +1152,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.garden_watering
             state: 'off'
     chip:
       type: template
@@ -1202,6 +1241,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
       icon_color: grey
@@ -1286,6 +1328,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
+            state: 'off'
     chip:
       type: template
       entity: plant.japanese_holly
@@ -1328,6 +1373,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
+            state: 'off'
     chip:
       type: template
       entity: plant.holly
@@ -1369,6 +1417,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.front_yard_zone
             state: 'off'
     chip:
       type: template
@@ -1454,9 +1505,12 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: switch.garden_watering
+            state: 'off'
     chip:
       type: template
-      entity: plant.
+      entity: plant.kale
       icon_color: grey
       icon: |-
         {%- set plant = 'plant.kale' %}
@@ -1495,6 +1549,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: switch.flower_beds_zone
             state: 'off'
     chip:
       type: template
