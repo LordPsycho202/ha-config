@@ -42,13 +42,14 @@ views:
   - !include subviews/30-15-carrots.yaml
   - !include subviews/30-16-garlic.yaml
   - !include subviews/30-17-blackberries.yaml
-  - !include subviews/30-18-pineapple.yaml
+  
   - !include subviews/30-19-japanese_holly.yaml 
   - !include subviews/30-20-holly.yaml
   - !include subviews/30-21-stick.yaml
   - !include subviews/30-22-michael.yaml
   - !include subviews/30-23-kale.yaml
   - !include subviews/30-24-lavender.yaml
+  - !include subviews/30-25-pineapple.yaml
   - !include subviews/30-50-timelapse.yaml
   - !include subviews/30-51-admin.yaml
 
