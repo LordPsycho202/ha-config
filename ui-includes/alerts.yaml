@@ -527,12 +527,6 @@ chips:
             entity: input_boolean.soil_moisture_1_notify
             state: 'on'
           - condition: state
-            entity: binary_sensor.is_rain_2
-            state: 'off'
-          - condition: state
-            entity: binary_sensor.recent_rain
-            state: 'off'
-          - condition: state
             entity: switch.flower_beds_zone
             state: 'off'
     chip:
