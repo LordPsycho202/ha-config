@@ -526,6 +526,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_1_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       icon_color: grey
@@ -565,6 +568,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_2_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       icon_color: grey
@@ -604,6 +610,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_3_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.amaranth
@@ -643,6 +652,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_4_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.herbs
@@ -682,6 +694,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_5_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.cucumber
@@ -721,6 +736,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_6_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.tomatoes
@@ -760,6 +778,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_7_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.strawberry
@@ -799,6 +820,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_8_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.juniper
@@ -838,6 +862,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_9_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.camellia
@@ -877,6 +904,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_10_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.steve
@@ -916,6 +946,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_11_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.pitcher_plant
@@ -955,6 +988,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_12_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.beans
@@ -994,6 +1030,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_13_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.japanese_maple
@@ -1033,6 +1072,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_14_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.fairy_washboard
@@ -1072,6 +1114,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_15_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.carrots
@@ -1112,6 +1157,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_16_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.garlic
@@ -1151,6 +1199,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_17_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       icon_color: grey
@@ -1190,6 +1241,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_18_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.pineapples
@@ -1229,6 +1283,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_19_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.japanese_holly
@@ -1268,6 +1325,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_20_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.holly
@@ -1307,6 +1367,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_21_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.stick
@@ -1346,6 +1409,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_22_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.michael
@@ -1385,6 +1451,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_23_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.
@@ -1424,6 +1493,9 @@ chips:
           - condition: state
             entity: input_boolean.soil_moisture_24_notify
             state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
     chip:
       type: template
       entity: plant.
