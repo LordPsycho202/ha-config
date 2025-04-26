@@ -122,6 +122,7 @@ plant_graphs:
             entities:
               - '[[plant_moisture_entity]]'
             line_color: '#008000'
+            font_size: 75
             line_width: 8
             name: History
 
