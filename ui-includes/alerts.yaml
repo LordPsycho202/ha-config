@@ -530,6 +530,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.flower_beds_zone
             state: 'off'
     chip:
@@ -573,6 +576,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.garden_watering
@@ -620,6 +626,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -663,6 +672,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.garden_watering
@@ -710,6 +722,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -753,6 +768,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.garden_watering
@@ -800,6 +818,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -845,6 +866,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.flower_beds_zone
             state: 'off'
     chip:
@@ -888,6 +912,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.flower_beds_zone
@@ -974,6 +1001,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -1019,6 +1049,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -1062,6 +1095,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.garden_watering
@@ -1146,6 +1182,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.garden_watering
@@ -1233,6 +1272,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -1277,6 +1319,9 @@ chips:
           - condition: state
             entity: binary_sensor.is_rain_2
             state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
     chip:
       type: template
       entity: plant.pineapples
@@ -1318,6 +1363,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.flower_beds_zone
@@ -1365,6 +1413,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.flower_beds_zone
             state: 'off'
     chip:
@@ -1408,6 +1459,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.front_yard_zone
@@ -1494,6 +1548,9 @@ chips:
             entity: binary_sensor.is_rain_2
             state: 'off'
           - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+          - condition: state
             entity: switch.garden_watering
             state: 'off'
     chip:
@@ -1537,6 +1594,9 @@ chips:
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
             state: 'off'
           - condition: state
             entity: switch.flower_beds_zone
