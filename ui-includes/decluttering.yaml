@@ -247,3 +247,62 @@ plant_notification_card:
           - entity: '[[battery_entity]]'
           - entity: '[[notify_entity]]'
             name: Notify on this Plant?
+
+plant_subview:
+  default:
+    - line_color: "#81c995"
+  card:
+    type: vertical-stack
+    cards:
+      - type: custom:decluttering-card
+        template: plant_mushroom_card
+        variables:
+          - plant_entity: plant.'[[plant]]'
+          - plant_path: plant_'[[plant]]'
+          - plant_icon: fruit-pineapple
+          - plant_action: more-info
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.'[[plant]]'_soil_moisture
+            line_color: '[[line_color]]'
+            line_width: 8
+            name: Soil Moisture
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.'[[plant]]'_conductivity
+                state_not: unknown
+            card:
+              type: custom:mini-graph-card
+              entities:
+                - sensor.'[[plant]]'_conductivity
+              line_color: '[[line_color]]'
+              line_width: 8
+              name: Conductivity
+      - type: horizontal-stack
+        cards:
+          - type: custom:mini-graph-card
+            entities:
+              - sensor.'[[plant]]'_temperature
+            line_color: '[[line_color]]'
+            line_width: 8
+            name: Temperature
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: sensor.'[[plant]]'_illuminance
+                state_not: unknown
+            card:
+              type: custom:mini-graph-card
+              entities:
+                - sensor.'[[plant]]'_illuminance
+              line_color: '[[line_color]]'
+              line_width: 8
+              name: Illuminance
+      - type: tile
+        entity: '[[sensor_batt]]'
+        features_position: bottom
+        vertical: false
+        name: Battery
