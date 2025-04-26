@@ -108,9 +108,17 @@ cards:
           - entity: lawn_mower.philoctetes
             state_not: "docked"
         card:
-          type: "custom:button-card"
-          template: card_vacuum
-          entity: lawn_mower.philoctetes
+          type: vertical-stack
+          cards:
+            - type: map
+              entities:
+                - entity: device_tracker.philoctetes
+              theme_mode: auto
+              default_zoom: 19
+              auto_fit: true
+            - type: "custom:button-card"
+              template: card_vacuum
+              entity: lawn_mower.philoctetes
 
   - type: vertical-stack
     cards:
