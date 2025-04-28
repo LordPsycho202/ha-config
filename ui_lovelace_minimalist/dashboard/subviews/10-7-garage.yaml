@@ -53,12 +53,56 @@ cards:
                   name: Stop
                 - type: custom:webrtc-camera
                   entity: camera.driveway
+          - type: custom:mushroom-alarm-control-panel-card
+            entity: alarm_control_panel.robins_roost
+            states:
+              - armed_home
+              - armed_away
+            fill_container: false
+          - type: conditional
+            conditions:
+              - entity: camera.garage
+                state: idle
+            card:
+              show_state: true
+              show_name: true
+              camera_view: auto
+              type: picture-entity
+              entity: camera.garage
+              camera_image: camera.garage
+              tap_action:
+                action: call-service
+                service: camera.turn_on
+                data: {}
+                target:
+                  entity_id: camera.garage
+          - type: conditional
+            conditions:
+              - entity: camera.garage
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.garage
+                  entity: camera.garage
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.garage
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         label: "Devices"
+      
       - type: tile
         entity: light.mud_room
         features_position: bottom
