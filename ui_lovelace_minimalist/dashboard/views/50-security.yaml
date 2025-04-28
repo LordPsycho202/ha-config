@@ -82,15 +82,20 @@ cards:
                 - type: custom:webrtc-camera
                   entity: camera.driveway
 
-      - type: 'custom:button-card'
-        template: card_binary_sensor
-        variables:
-          ulm_card_binary_sensor_name: "Garage Door"
-          ulm_card_binary_sensor_icon: mdi:garage-open-variant
-          ulm_card_binary_sensor_alert: true
-          ulm_card_binary_sensor_show_last_changed: false
-          ulm_card_binary_sensor_color: red
+      - type: tile
         entity: binary_sensor.door_garage_opening
+        features_position: bottom
+        vertical: false
+        tap_action:
+          action: perform-action
+          perform_action: cover.toggle
+          target:
+            entity_id: cover.garage_door
+        hold_action:
+          action: more-info
+        name: Garage Door
+        color: red
+        state_content: state
       - type: vertical-stack
         cards:
           - type: conditional
@@ -140,21 +145,6 @@ cards:
                         name: Stop
                       - type: custom:webrtc-camera
                         entity: camera.garage
-          - type: conditional
-            conditions:
-              - condition: state
-                entity: alarm_control_panel.garage
-                state: disarmed
-            card:
-              type: custom:mushroom-alarm-control-panel-card
-              entity: alarm_control_panel.garage
-              states:
-                - armed_away
-                - disarmed
-              tap_action:
-                action: more-info
-              hold_action:
-                action: more-info
 
   - type: vertical-stack
     cards:
@@ -218,8 +208,15 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Alarms (Hold to activate)
+        name: Alarms
+      - type: custom:mushroom-alarm-control-panel-card
+        entity: alarm_control_panel.robins_roost
+        states:
+          - armed_home
+          - armed_away
+        fill_container: false
       - type: horizontal-stack
+        title:  (Hold to activate)
         cards:
           - type: "custom:button-card"
             template: card_script
