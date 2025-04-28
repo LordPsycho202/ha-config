@@ -59,23 +59,24 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Devices"
-
-      - type: "custom:button-card"
-        template: card_light
+      - type: tile
         entity: light.mud_room
-        variables:
-          ulm_card_light_name: Mud Room
-          ulm_card_light_force_background_color: true
-          ulm_card_light_enable_collapse: true
-
-      - type: "custom:button-card"
-        template: card_light
+        features_position: bottom
+        vertical: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        state_content: state
+      - type: tile
         entity: light.garage
-        variables:
-          ulm_card_light_name: Garage
-          ulm_card_light_force_background_color: true
-          ulm_card_light_enable_collapse: true
-
+        features_position: bottom
+        vertical: false
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        state_content: state
       - type: tile
         entity: binary_sensor.door_garage_opening
         features_position: bottom
