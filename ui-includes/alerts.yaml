@@ -218,26 +218,6 @@ chips:
 
   - type: conditional
     conditions:
-      - condition: and
-        conditions:
-          - condition: user
-            users:
-              - 829c75b162794808a699871056da2b93
-          - condition: numeric_state
-            entity: sensor.anniversary_surgery
-            above: 0
-    chip:
-      type: template
-      tap_action:
-        action: more-info
-      icon: "{{ state_attr('sensor.anniversary_surgery','icon') }}"
-      icon_color: grey
-      content: >-
-        Surgery - {{ states('sensor.anniversary_surgery') ~'
-        '~state_attr('sensor.anniversary_surgery','unit_of_measurement') }}
-
-  - type: conditional
-    conditions:
       - entity: input_select.trash_day_status
         state: 'Trash Day'
     chip:
