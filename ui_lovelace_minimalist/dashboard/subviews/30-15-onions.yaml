@@ -1,15 +1,15 @@
 ---
-title: "Carrots"
+title: "Onions"
 theme: "minimalist-mobile-tapbar"
-icon: mdi:carrot
+icon: mdi:grass
 subview: true
-path: plant_carrot
+path: plant_onion
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: custom:decluttering-card
     template: plant_subview
     variables:
-      - plant: carrots
-      - plant_path: carrot
-      - plant_icon: carrot
+      - plant: onions
+      - plant_path: onion
+      - plant_icon: grass
       - sensor_batt: sensor.soil_moisture_15_batt

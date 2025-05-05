@@ -142,7 +142,7 @@ Carrots:
   min_temperature: 41
   max_temperature: 95
   min_battery: 35
-Garlic:
+Seeds:
   sensors:
     moisture: sensor.soil_moisture_16
     battery: sensor.soil_moisture_16_batt

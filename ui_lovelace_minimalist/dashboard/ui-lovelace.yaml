@@ -35,13 +35,10 @@ views:
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
   - !include subviews/30-10-steve.yaml
-  - !include subviews/30-11-pitcher_plant.yaml
-  - !include subviews/30-12-beans.yaml
-  - !include subviews/30-13-japanese-maple.yaml
+
   - !include subviews/30-14-fairy-washboard.yaml
-  - !include subviews/30-15-carrots.yaml
-  - !include subviews/30-16-garlic.yaml
-  - !include subviews/30-17-blackberries.yaml
+  - !include subviews/30-15-onions.yaml
+  - !include subviews/30-16-seeds.yaml
   
   - !include subviews/30-19-japanese_holly.yaml 
   - !include subviews/30-20-holly.yaml
@@ -50,6 +47,10 @@ views:
   - !include subviews/30-23-kale.yaml
   - !include subviews/30-24-lavender.yaml
   - !include subviews/30-25-pineapple.yaml
+  - !include subviews/30-26-japanese-maple.yaml
+  - !include subviews/30-27-pitcher_plant.yaml
+  - !include subviews/30-28-beans.yaml
+  - !include subviews/30-29-blackberries.yaml
   - !include subviews/30-50-timelapse.yaml
   - !include subviews/30-51-admin.yaml
 

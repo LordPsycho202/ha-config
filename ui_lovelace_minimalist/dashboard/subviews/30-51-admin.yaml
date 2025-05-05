@@ -30,8 +30,6 @@ cards:
             name: Automatically Water Flower Beds?
             icon: mdi:sprinkler
           - type: divider
-          - entity: input_number.recent_rain_config
-            name: Post-Rain Alert Cooldown
           - type: conditional
             conditions:
               - entity: input_boolean.garden_watering
@@ -56,6 +54,9 @@ cards:
               entity: input_number.flower_bed_watering
               name: How Long for the Flower Beds?
               icon: mdi:clock-end
+          - type: divider
+          - entity: input_number.recent_rain_config
+            name: Post-Rain Alert Cooldown
       - type: "custom:button-card"
         template: card_title
         label: Manual Override
@@ -162,198 +163,135 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Front Yard
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.front_flowers
-          - moisture_entity: sensor.soil_moisture_1
-          - battery_entity: sensor.soil_moisture_1_batt
-          - notify_entity: input_boolean.soil_moisture_1_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.juniper
-          - moisture_entity: sensor.soil_moisture_8
-          - battery_entity: sensor.soil_moisture_8_batt
-          - notify_entity: input_boolean.soil_moisture_8_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.camellia
-          - moisture_entity: sensor.soil_moisture_9
-          - battery_entity: sensor.soil_moisture_9_batt
-          - notify_entity: input_boolean.soil_moisture_9_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.japanese_holly
-          - moisture_entity: sensor.soil_moisture_19
-          - battery_entity: sensor.soil_moisture_19_batt
-          - notify_entity: input_boolean.soil_moisture_19_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.holly
-          - moisture_entity: sensor.soil_moisture_20
-          - battery_entity: sensor.soil_moisture_20_batt
-          - notify_entity: input_boolean.soil_moisture_20_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.stick
-          - moisture_entity: sensor.soil_moisture_21
-          - battery_entity: sensor.soil_moisture_21_batt
-          - notify_entity: input_boolean.soil_moisture_21_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.lavender
-          - moisture_entity: sensor.soil_moisture_24
-          - battery_entity: sensor.soil_moisture_24_batt
-          - notify_entity: input_boolean.soil_moisture_24_notify
+      - type: entities
+        entities:
+          - entity: input_boolean.plant_notify_camellia
+            name: Camellia
+          - entity: input_boolean.plant_notify_front_flowers
+            name: Front Flowers
+          - entity: input_boolean.plant_notify_holly
+            name: American Holly
+          - entity: input_boolean.plant_notify_japanese_holly
+            name: Japanese Holly
+          - entity: input_boolean.plant_notify_juniper
+            name: Juniper
+          - entity: input_boolean.plant_notify_lavender
+            name: Lavender
+          - entity: input_boolean.plant_notify_stick
+            name: The Stick
+        state_color: true
+      - type: custom:auto-entities
+        card:
+          type: glance
+          columns: 2
+        filter:
+          include:
+            - label: frontyard
+              domain: sensor
+              attributes:
+                device_class: battery
+        sort:
+          method: state
+          numeric: true
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Potted Plants
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.blackberries
-          - moisture_entity: sensor.soil_moisture_17
-          - battery_entity: sensor.soil_moisture_17_batt
-          - notify_entity: input_boolean.soil_moisture_17_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.pineapples
-          - moisture_entity: sensor.soil_moisture_18
-          - battery_entity: sensor.soil_moisture_18_batt
-          - notify_entity: input_boolean.soil_moisture_18_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.japanese_maple
-          - moisture_entity: sensor.soil_moisture_13
-          - battery_entity: sensor.soil_moisture_13_batt
-          - notify_entity: input_boolean.soil_moisture_13_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.beans
-          - moisture_entity: sensor.soil_moisture_12
-          - battery_entity: sensor.soil_moisture_12_batt
-          - notify_entity: input_boolean.soil_moisture_12_notify
+      - type: entities
+        entities:
+          - entity: input_boolean.plant_notify_blackberries
+            name: Blackberries
+          - entity: input_boolean.plant_notify_pineapples
+            name: Pineapples
+          - entity: input_boolean.plant_notify_japanese_maple
+            name: Japanese Maple
+          - entity: input_boolean.plant_notify_beans
+            name: Beans
+          - entity: input_boolean.plant_notify_pitcher_plant
+            name: Pitcher Plant
+        state_color: true
+      - type: custom:auto-entities
+        card:
+          type: glance
+          columns: 2
+        filter:
+          include:
+            - label: potted_plants
+              domain: sensor
+              attributes:
+                device_class: battery
+        sort:
+          method: state
+          numeric: true
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Indoor Greenhouse
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.steve
-          - moisture_entity: sensor.soil_moisture_10
-          - battery_entity: sensor.soil_moisture_10_batt
-          - notify_entity: input_boolean.soil_moisture_10_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.fairy_washboard
-          - moisture_entity: sensor.soil_moisture_14
-          - battery_entity: sensor.soil_moisture_14_batt
-          - notify_entity: input_boolean.soil_moisture_14_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.garlic
-          - moisture_entity: sensor.soil_moisture_16
-          - battery_entity: sensor.soil_moisture_16_batt
-          - notify_entity: input_boolean.soil_moisture_16_notify
-
+      - type: entities
+        entities:
+          - entity: input_boolean.plant_notify_steve
+            name: Steve
+          - entity: input_boolean.plant_notify_fairy_washboard
+            name: Fairy Washboard
+          - entity: input_boolean.plant_notify_seeds
+            name: Seeds
+          - entity: input_boolean.plant_notify_michael
+            name: Michael
+        state_color: true
+      - type: custom:auto-entities
+        card:
+          type: glance
+          columns: 2
+        filter:
+          include:
+            - label: indoor_greenhouse
+              domain: sensor
+              attributes:
+                device_class: battery
+        sort:
+          method: state
+          numeric: true
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Garden Plots
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.okra
-          - moisture_entity: sensor.soil_moisture_2
-          - battery_entity: sensor.soil_moisture_2_batt
-          - notify_entity: input_boolean.soil_moisture_2_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.amaranth
-          - moisture_entity: sensor.soil_moisture_3
-          - battery_entity: sensor.soil_moisture_3_batt
-          - notify_entity: input_boolean.soil_moisture_3_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.herbs
-          - moisture_entity: sensor.soil_moisture_4
-          - battery_entity: sensor.soil_moisture_4_batt
-          - notify_entity: input_boolean.soil_moisture_4_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.cucumber
-          - moisture_entity: sensor.soil_moisture_5
-          - battery_entity: sensor.soil_moisture_5_batt
-          - notify_entity: input_boolean.soil_moisture_5_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.tomatoes
-          - moisture_entity: sensor.soil_moisture_6
-          - battery_entity: sensor.soil_moisture_6_batt
-          - notify_entity: input_boolean.soil_moisture_6_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.strawberry
-          - moisture_entity: sensor.soil_moisture_7
-          - battery_entity: sensor.soil_moisture_7_batt
-          - notify_entity: input_boolean.soil_moisture_7_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.pitcher_plant
-          - moisture_entity: sensor.soil_moisture_11
-          - battery_entity: sensor.soil_moisture_11_batt
-          - notify_entity: input_boolean.soil_moisture_11_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.carrots
-          - moisture_entity: sensor.soil_moisture_15
-          - battery_entity: sensor.soil_moisture_15_batt
-          - notify_entity: input_boolean.soil_moisture_15_notify
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.kale
-          - moisture_entity: sensor.soil_moisture_23
-          - battery_entity: sensor.soil_moisture_23_batt
-          - notify_entity: input_boolean.soil_moisture_23_notify
-
-  - type: vertical-stack
-    cards:
-      - type: "custom:button-card"
-        template: card_title
-        name: Misc Plants
-      - type: custom:decluttering-card
-        template: plant_notification_card
-        variables:
-          - plant_entity: plant.michael
-          - moisture_entity: sensor.soil_moisture_22
-          - battery_entity: sensor.soil_moisture_22_batt
-          - notify_entity: input_boolean.soil_moisture_22_notify
+      - type: entities
+        entities:
+          - entity: input_boolean.plant_notify_okra
+            name: Okra
+          - entity: input_boolean.plant_notify_amaranth
+            name: Amaranth
+          - entity: input_boolean.plant_notify_herbs
+            name: Herbs
+          - entity: input_boolean.plant_notify_cucumber
+            name: Cucumber
+          - entity: input_boolean.plant_notify_tomatoes
+            name: Tomatoes
+          - entity: input_boolean.plant_notify_strawberry
+            name: Strawberry
+          - entity: input_boolean.plant_notify_onion
+            name: Onion
+          - entity: input_boolean.plant_notify_kale
+            name: Kale
+        state_color: true
+      - type: custom:auto-entities
+        card:
+          type: glance
+          columns: 2
+        filter:
+          include:
+            - label: indoor_greenhouse
+              domain: sensor
+              attributes:
+                device_class: battery
+        sort:
+          method: state
+          numeric: true
 
   - type: vertical-stack
     cards:

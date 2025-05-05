@@ -16,24 +16,24 @@ greenhouse:
 
     - obj: "p1b20"
       properties:
-        "val": "{{ states('sensor.garlic_soil_moisture') }}"
+        "val": "{{ states('sensor.seeds_soil_moisture') }}"
     - obj: "p1b21"
       properties:
-        "val": "{{ states('sensor.garlic_soil_moisture') }}"
-        "critical_value": "{{ states('number.garlic_min_soil_moisture') }}"
+        "val": "{{ states('sensor.seeds_soil_moisture') }}"
+        "critical_value": "{{ states('number.seeds_min_soil_moisture') }}"
         "value_str": |-
-          {%- set problem = state_attr('plant.garlic','moisture_status') %}
-          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.garlic_soil_moisture')|string + '%'}}{% endif %}
+          {%- set problem = state_attr('plant.seeds','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.seeds_soil_moisture')|string + '%'}}{% endif %}
         "value_color": |-
-          {%- set problem = state_attr('plant.garlic','moisture_status') %}
+          {%- set problem = state_attr('plant.seeds','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b22"
       properties:
-        "val": "{{ states('sensor.garlic_soil_moisture') }}"
-        "critical_value": "{{ states('number.garlic_max_soil_moisture') }}"
+        "val": "{{ states('sensor.seeds_soil_moisture') }}"
+        "critical_value": "{{ states('number.seeds_max_soil_moisture') }}"
     - obj: "p1b23"
       properties:
-        "text": "{{ state_attr('plant.garlic','friendly_name')}}"
+        "text": "{{ state_attr('plant.seeds','friendly_name')}}"
 
     - obj: "p1b30"
       properties:

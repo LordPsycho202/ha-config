@@ -3,12 +3,12 @@ title: "Seeds"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:leaf
 subview: true
-path: plant_garlic
+path: plant.seeds
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: custom:decluttering-card
     template: plant_subview
     variables:
-      - plant: garlic
-      - plant_path: garlic
+      - plant: seeds
+      - plant_path: seeds
       - sensor_batt: sensor.soil_moisture_16_batt
