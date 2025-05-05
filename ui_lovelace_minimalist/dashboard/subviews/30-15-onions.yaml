@@ -9,7 +9,7 @@ cards:
   - type: custom:decluttering-card
     template: plant_subview
     variables:
-      - plant: onions
+      - plant: onion
       - plant_path: onion
       - plant_icon: grass
       - sensor_batt: sensor.soil_moisture_15_batt

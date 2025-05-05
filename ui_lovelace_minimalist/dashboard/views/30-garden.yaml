@@ -1010,7 +1010,7 @@ cards:
                 variables:
                   - plant_name: "Onions"
                   - plant_entity: plant.onion
-                  - plant_icon: onion
+                  - plant_icon: grass
                   - plant_path: plant_onion
                   - plant_moisture_entity: sensor.onion_soil_moisture
                   - plant_moisture_min: 25
