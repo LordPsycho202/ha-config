@@ -58,24 +58,24 @@ greenhouse:
 
     - obj: "p1b40"
       properties:
-        "val": "{{ states('sensor.kale_soil_moisture') }}"
+        "val": "{{ states('sensor.michael_soil_moisture') }}"
     - obj: "p1b41"
       properties:
-        "val": "{{ states('sensor.kale_soil_moisture') }}"
-        "critical_value": "{{ states('number.kale_min_soil_moisture') }}"
+        "val": "{{ states('sensor.michael_soil_moisture') }}"
+        "critical_value": "{{ states('number.michael_min_soil_moisture') }}"
         "value_str": |-
-          {%- set problem = state_attr('plant.kale','moisture_status') %}
-          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.kale_soil_moisture')|string + '%'}}{% endif %}
+          {%- set problem = state_attr('plant.michael','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.michael_soil_moisture')|string + '%'}}{% endif %}
         "value_color": |-
-          {%- set problem = state_attr('plant.kale','moisture_status') %}
+          {%- set problem = state_attr('plant.michael','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p1b42"
       properties:
-        "val": "{{ states('sensor.kale_soil_moisture') }}"
-        "critical_value": "{{ states('number.kale_max_soil_moisture') }}"
+        "val": "{{ states('sensor.michael_soil_moisture') }}"
+        "critical_value": "{{ states('number.michael_max_soil_moisture') }}"
     - obj: "p1b43"
       properties:
-        "text": "{{ state_attr('plant.kale','friendly_name')}}"
+        "text": "{{ state_attr('plant.michael','friendly_name')}}"
 
     - obj: "p1b50"
       properties:
