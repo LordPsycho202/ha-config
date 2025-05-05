@@ -150,7 +150,74 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        label: "Back Door"
+        label: "Back Yard"
+      - square: false
+        columns: 1
+        type: grid
+        cards:
+          - type: conditional
+            conditions:
+              - entity: camera.back_porch
+                state: idle
+            card:
+              type: picture-glance
+              title: Backyard
+              entities:
+                - entity: binary_sensor.backyard_motion_detected
+                - entity: light.back_porch
+              image_entity: image.backyard_event_image
+              tap_action:
+                action: perform-action
+                perform_action: camera.turn_on
+                target:
+                  entity_id: camera.back_porch
+          - type: conditional
+            conditions:
+              - entity: camera.back_porch
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.back_porch
+                  entity: camera.back_porch
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.back_porch
+                  ptz:
+                    service: eufy_security.ptz
+                    data_left:
+                      entity_id: camera.back_porch
+                      direction: LEFT
+                    data_right:
+                      entity_id: camera.back_porch
+                      direction: RIGHT
+                    data_up:
+                      entity_id: camera.back_porch
+                      direction: UP
+                    data_down:
+                      entity_id: camera.back_porch
+                      direction: DOWN
+
+      - type: "custom:button-card"
+        entity: lock.back_door
+        template: "custom_card_eraycetinay_lock"
+        name: "Back Door Lock"
+        variables:
+          ulm_custom_card_eraycetinay_lock_tap_control: true
+          ulm_custom_card_eraycetinay_lock_battery_level: sensor.back_door_battery
+          ulm_custom_card_eraycetinay_lock_door_open: binary_sensor.back_door_open
+        triggers_update:
+          - "sensor.back_door_battery"
+          - "binary_sensor.back_door_open"
+
       - square: false
         columns: 1
         type: grid
@@ -191,18 +258,6 @@ cards:
                   name: Stop
                 - type: custom:webrtc-camera
                   entity: camera.backyard
-
-      - type: "custom:button-card"
-        entity: lock.back_door
-        template: "custom_card_eraycetinay_lock"
-        name: "Back Door Lock"
-        variables:
-          ulm_custom_card_eraycetinay_lock_tap_control: true
-          ulm_custom_card_eraycetinay_lock_battery_level: sensor.back_door_battery
-          ulm_custom_card_eraycetinay_lock_door_open: binary_sensor.back_door_open
-        triggers_update:
-          - "sensor.back_door_battery"
-          - "binary_sensor.back_door_open"
 
   - type: vertical-stack
     cards:
