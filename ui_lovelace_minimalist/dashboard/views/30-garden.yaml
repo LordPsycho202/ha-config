@@ -573,7 +573,7 @@ cards:
               Good: 
               {{
                 states.plant
-                | selectattr('entity_id', 'in', label_entities('front_yard'))
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
                 | selectattr('state','in','ok')
                 | map(attribute='entity_id')
                 | list | count
@@ -581,7 +581,7 @@ cards:
               | Needs Attention: 
               {{
                 states.plant
-                | selectattr('entity_id', 'in', label_entities('front_yard'))
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
                 | selectattr('state','in','problem')
                 | map(attribute='entity_id')
                 | list | count
@@ -589,7 +589,7 @@ cards:
             icon: mdi:nature
             icon_color: |-
               {%- set problems = states.plant
-                | selectattr('entity_id', 'in', label_entities('front_yard'))
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
                 | selectattr('state','in','problem')
                 | map(attribute='entity_id')
                 | list | count %}
