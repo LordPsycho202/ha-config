@@ -274,7 +274,7 @@ cards:
             name: Tomatoes
           - entity: input_boolean.plant_notify_strawberry
             name: Strawberry
-          - entity: input_boolean.plant_notify_onion
+          - entity: input_boolean.plant_notify_onions
             name: Onion
           - entity: input_boolean.plant_notify_kale
             name: Kale
@@ -285,7 +285,7 @@ cards:
           columns: 2
         filter:
           include:
-            - label: indoor_greenhouse
+            - label: garden
               domain: sensor
               attributes:
                 device_class: battery
