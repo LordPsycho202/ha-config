@@ -266,7 +266,7 @@ cards:
                   - plant_path: plant.seeds
                   - plant_moisture_entity: sensor.seeds_soil_moisture
                   - plant_moisture_min: 20
-                  - plant_moisture_max: 66
+                  - plant_moisture_max: 61
                   - plant_cond_entity: sensor.seeds_conductivity
                   - plant_cond_min: 100
                   - plant_cond_max: 2001
@@ -295,7 +295,7 @@ cards:
                       - plant_icon: cactus
                       - plant_moisture_entity: sensor.michael_soil_moisture
                       - plant_moisture_min: 7
-                      - plant_moisture_max: 50
+                      - plant_moisture_max: 51
                       - plant_cond_entity: sensor.michael_conductivity
                       - plant_cond_min: 300
                       - plant_cond_max: 1000
@@ -409,8 +409,8 @@ cards:
                   - plant_entity: plant.pitcher_plant
                   - plant_path: plant_pitcher
                   - plant_moisture_entity: sensor.pitcher_plant_soil_moisture
-                  - plant_moisture_min: 25
-                  - plant_moisture_max: 76
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
                   - plant_cond_entity: sensor.pitcher_plant_conductivity
                   - plant_cond_min: 350
                   - plant_cond_max: 2801
@@ -418,7 +418,7 @@ cards:
             - type: conditional
               conditions:
                 - condition: state
-                  entity: v
+                  entity: input_boolean.plant_notify_beans
                   state: "on"
               card:
                 type: custom:decluttering-card
@@ -428,9 +428,9 @@ cards:
                   - plant_entity: plant.beans
                   - plant_path: plant_beans
                   - plant_icon: flower-outline
-                  - plant_moisture_entity: sensor.soil_moisture_12
+                  - plant_moisture_entity: sensor.beans_soil_moisture
                   - plant_moisture_min: 20
-                  - plant_moisture_max: 61
+                  - plant_moisture_max: 66
                   - plant_cond_entity: sensor.soil_moisture_12_cond
                   - plant_cond_min: 350
                   - plant_cond_max: 2001
@@ -610,7 +610,7 @@ cards:
                   - plant_entity: plant.front_flowers
                   - plant_path: plant_flowers
                   - plant_icon: flower-outline
-                  - plant_moisture_entity: sensor.soil_moisture_1
+                  - plant_moisture_entity: sensor.front_flowers_soil_moisture
                   - plant_moisture_min: 15
                   - plant_moisture_max: 61
 
@@ -629,7 +629,7 @@ cards:
                   - plant_entity: plant.juniper
                   - plant_path: plant_juniper
                   - plant_icon: pine-tree-variant-outline
-                  - plant_moisture_entity: sensor.soil_moisture_8
+                  - plant_moisture_entity: sensor.juniper_soil_moisture
                   - plant_moisture_min: 15
                   - plant_moisture_max: 61
 
@@ -647,7 +647,7 @@ cards:
                   - plant_path: plant_camellia
                   - plant_icon: flower
                   - plant_moisture_entity: sensor.camellia_soil_moisture
-                  - plant_moisture_min: 20
+                  - plant_moisture_min: 15
                   - plant_moisture_max: 61
                   - plant_temp_entity: sensor.camellia_temperature
                   - plant_temp_min: 40
@@ -668,7 +668,7 @@ cards:
                   - plant_icon: weather-cloudy
                   - plant_moisture_entity: sensor.japanese_holly_soil_moisture
                   - plant_moisture_min: 20
-                  - plant_moisture_max: 61
+                  - plant_moisture_max: 101
                   - plant_temp_entity: sensor.japanese_holly_temperature
                   - plant_temp_min: 40
                   - plant_temp_max: 96
@@ -713,7 +713,7 @@ cards:
             - type: conditional
               conditions:
                 - condition: state
-                  entity: input_boolean.plant_notify_pitcher_plant
+                  entity: input_boolean.plant_notify_lavender
                   state: "on"
               card:
                 type: custom:decluttering-card
@@ -919,7 +919,7 @@ cards:
                   - plant_entity: plant.okra
                   - plant_path: plant_okra
                   - plant_icon: chili-mild
-                  - plant_moisture_entity: sensor.soil_moisture_2
+                  - plant_moisture_entity: sensor.okra_soil_moisture
                   - plant_moisture_min: 20
                   - plant_moisture_max: 61
             - type: conditional
@@ -934,9 +934,9 @@ cards:
                   - plant_name: "Amaranth"
                   - plant_entity: plant.amaranth
                   - plant_path: plant_amaranth
-                  - plant_moisture_entity: sensor.soil_moisture_3
-                  - plant_moisture_min: 20
-                  - plant_moisture_max: 60
+                  - plant_moisture_entity: sensor.amaranth_soil_moisture
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
             - type: conditional
               conditions:
                 - condition: state
@@ -949,9 +949,9 @@ cards:
                   - plant_name: "Herbs"
                   - plant_entity: plant.herbs
                   - plant_path: plant_herbs
-                  - plant_moisture_entity: sensor.soil_moisture_4
-                  - plant_moisture_min: 40
-                  - plant_moisture_max: 81
+                  - plant_moisture_entity: sensor.herbs_soil_moisture
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 60
             - type: conditional
               conditions:
                 - condition: state
@@ -965,8 +965,8 @@ cards:
                   - plant_entity: plant.cucumber
                   - plant_path: plant_cucumber
                   - plant_icon: fruit-pear
-                  - plant_moisture_entity: sensor.soil_moisture_5
-                  - plant_moisture_min: 30
+                  - plant_moisture_entity: sensor.cucumber_soil_moisture
+                  - plant_moisture_min: 25
                   - plant_moisture_max: 76  
             - type: conditional
               conditions:
@@ -981,9 +981,9 @@ cards:
                   - plant_entity: plant.tomatoes
                   - plant_path: plant_tomatoes
                   - plant_icon: pig
-                  - plant_moisture_entity: sensor.soil_moisture_6
-                  - plant_moisture_min: 20
-                  - plant_moisture_max: 66   
+                  - plant_moisture_entity: sensor.tomatoes_soil_moisture
+                  - plant_moisture_min: 25
+                  - plant_moisture_max: 61
             - type: conditional
               conditions:
                 - condition: state
@@ -996,9 +996,9 @@ cards:
                   - plant_name: "Strawberries"
                   - plant_entity: plant.strawberry
                   - plant_path: plant_strawberry
-                  - plant_moisture_entity: sensor.soil_moisture_7
-                  - plant_moisture_min: 25
-                  - plant_moisture_max: 66
+                  - plant_moisture_entity: sensor.strawberry_soil_moisture
+                  - plant_moisture_min: 2
+                  - plant_moisture_max: 61
             - type: conditional
               conditions:
                 - condition: state
@@ -1009,13 +1009,13 @@ cards:
                 template: plant_graphs
                 variables:
                   - plant_name: "Onions"
-                  - plant_entity: plant.onions
+                  - plant_entity: plant.onion
                   - plant_icon: onion
                   - plant_path: plant_onion
-                  - plant_moisture_entity: sensor.onions_soil_moisture
-                  - plant_moisture_min: 15
-                  - plant_moisture_max: 61
-                  - plant_temp_entity: sensor.onions_temperature
+                  - plant_moisture_entity: sensor.onion_soil_moisture
+                  - plant_moisture_min: 25
+                  - plant_moisture_max: 71
+                  - plant_temp_entity: sensor.onion_temperature
                   - plant_temp_min: 40
                   - plant_temp_max: 96     
             - type: conditional
