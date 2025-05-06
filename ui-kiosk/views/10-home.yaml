@@ -186,6 +186,8 @@ cards:
           spaceBetween: 8
           loop: true
           preloadImages: true
+        card_mod:
+          class: middle-left
           pagination:
             type: 'bullets'
         cards:
