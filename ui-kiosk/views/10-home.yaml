@@ -303,6 +303,7 @@ cards:
                   type: picture-entity
                   entity: camera.garage
                   camera_image: camera.garage
+                  aspect_ratio: "16:9"
                   tap_action:
                     action: call-service
                     service: camera.turn_on
