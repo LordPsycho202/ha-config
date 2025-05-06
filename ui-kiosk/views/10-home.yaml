@@ -34,8 +34,8 @@ cards:
     card_mod:
       class:middle-right
     cards:
-      - type: markdown
-        content: "# Status Updates"
+      - type: custom:html-card
+        content: "<font size=5>Status Updates</font>"
         card_mod:
           class: middle-right
           style: |
@@ -139,8 +139,8 @@ cards:
     view_layout:
       grid-area: footerL
     cards:
-      - type: markdown
-        content: '## plants with problems: {{ states.plant | selectattr(''state'',''equalto'',''problem'') | list | length }}'
+      - type: custom:html-card
+        content: '<font size=5> plants with problems:</font>'
         card_mod:
           class: footer-right
           style: |
@@ -150,8 +150,8 @@ cards:
 
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: "# Deck A"
+      - type: custom:html-card
+        content: "<font size='5'>Deck A</font>"
         card_mod:
           class: header-open
           style: |
@@ -159,8 +159,8 @@ cards:
               font-family: Antonio
             }
       - !include /config/ui-includes/space_maps/downstairsMap.yaml
-      - type: markdown
-        content: "# Deck B"
+      - type: custom:html-card
+        content: '<font size="5">Deck B</font>'
         card_mod:
           class: bar
           style: |
@@ -172,8 +172,8 @@ cards:
       grid-area: aux
   - type: vertical-stack
     cards:
-      - type: markdown
-        content: "# Viewscreen"
+      - type: custom:html-card
+        content: "<font size='5'>Viewscreen</font>"
         card_mod:
           class: header-left
           style: |
@@ -229,8 +229,8 @@ cards:
                 image_view: arlo-stream
                 image_top: previous,name,next
                 image_bottom: motion,sound,signal,onoff|library,snapshot
-      - type: markdown
-        content: "# Utility Usage"
+      - type: custom:html-card
+        content: "<font size='5'>Utility Usage</font>"
         card_mod:
           class: bar-left
           style: |
@@ -419,8 +419,8 @@ cards:
                     ha-card {
                       font-family: Antonio;
                     }
-      - type: markdown
-        content: "# Worker Bees"
+      - type: custom:html-card
+        content: "<font size='5'>Worker Bees</font>"
         card_mod:
           class: bar-left
           style: |
