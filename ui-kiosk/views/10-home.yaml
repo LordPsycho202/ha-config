@@ -230,35 +230,144 @@ cards:
                     - type: custom:webrtc-camera
                       entity: camera.driveway
 
-          - type: custom:aarlo-glance
-            card_mod:
-              class: middle-left
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-            entities:
-              - entity: camera.aarlo_back_door
-                image_view: arlo-stream
-                image_top: previous,name,next
-                image_bottom: motion,sound,signal,battery|library,snapshot
-          - camera_view: auto
-            type: picture-glance
-            title: Doorbell
-            image_entity: image.doorbell_event_image
-            aspect_ratio: "16:9"
-          - type: custom:aarlo-glance
-            card_mod:
-              class: middle-left
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-            entities:
-              - entity: camera.aarlo_garage
-                image_view: arlo-stream
-                image_top: previous,name,next
-                image_bottom: motion,sound,signal,onoff|library,snapshot
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: camera.back_porch
+                    state: idle
+                card:
+                  type: picture-glance
+                  title: Backyard
+                  entities:
+                    - entity: binary_sensor.back_porch_motion_detected
+                    - entity: light.back_porch
+                    - entity: switch.back_porch_light
+                  image_entity: image.back_porch_event_image
+                  tap_action:
+                    action: perform-action
+                    perform_action: camera.turn_on
+                    target:
+                      entity_id: camera.back_porch
+              - type: conditional
+                conditions:
+                  - entity: camera.back_porch
+                    state: streaming
+                card:
+                  type: vertical-stack
+                  cards:
+                    - show_name: true
+                      show_icon: false
+                      type: button
+                      tap_action:
+                        action: call-service
+                        service: camera.turn_off
+                        data: {}
+                        target:
+                          entity_id: camera.back_porch
+                      entity: camera.back_porch
+                      name: Stop
+                    - type: custom:webrtc-camera
+                      entity: camera.back_porch
+                      ptz:
+                        service: eufy_security.ptz
+                        data_left:
+                          entity_id: camera.back_porch
+                          direction: LEFT
+                        data_right:
+                          entity_id: camera.back_porch
+                          direction: RIGHT
+                        data_up:
+                          entity_id: camera.back_porch
+                          direction: UP
+                        data_down:
+                          entity_id: camera.back_porch
+                          direction: DOWN
+
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: camera.garage
+                    state: idle
+                card:
+                  show_state: true
+                  show_name: true
+                  camera_view: auto
+                  type: picture-entity
+                  entity: camera.garage
+                  camera_image: camera.garage
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_on
+                    data: {}
+                    target:
+                      entity_id: camera.garage
+              - type: conditional
+                conditions:
+                  - entity: camera.garage
+                    state: streaming
+                card:
+                  type: vertical-stack
+                  cards:
+                    - show_name: true
+                      show_icon: false
+                      type: button
+                      tap_action:
+                        action: call-service
+                        service: camera.turn_off
+                        data: {}
+                        target:
+                          entity_id: camera.garage
+                      entity: camera.garage
+                      name: Stop
+                    - type: custom:webrtc-camera
+                      entity: camera.garage
+
+          - square: false
+            columns: 1
+            type: grid
+            cards:
+              - type: conditional
+                conditions:
+                  - entity: camera.backyard
+                    state: idle
+                card:
+                  type: picture-glance
+                  title: Backyard
+                  entities:
+                    - entity: binary_sensor.backyard_motion_detected
+                  image_entity: image.backyard_event_image
+                  tap_action:
+                    action: perform-action
+                    perform_action: camera.turn_on
+                    target:
+                      entity_id: camera.backyard
+              - type: conditional
+                conditions:
+                  - entity: camera.backyard
+                    state: streaming
+                card:
+                  type: vertical-stack
+                  cards:
+                    - show_name: true
+                      show_icon: false
+                      type: button
+                      tap_action:
+                        action: call-service
+                        service: camera.turn_off
+                        data: {}
+                        target:
+                          entity_id: camera.backyard
+                      entity: camera.backyard
+                      name: Stop
+                    - type: custom:webrtc-camera
+                      entity: camera.backyard
+
       - type: custom:html-card
         content: "<font size='5'>Utility Usage</font>"
         card_mod:
