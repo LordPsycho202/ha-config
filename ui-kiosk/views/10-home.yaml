@@ -204,6 +204,7 @@ cards:
                     - entity: binary_sensor.driveway_motion_detected
                     - entity: light.light_garagesconce
                   image_entity: image.driveway_event_image
+                  aspect_ratio: "16:9"
                   tap_action:
                     action: perform-action
                     perform_action: camera.turn_on
@@ -246,6 +247,7 @@ cards:
                     - entity: light.back_porch
                     - entity: switch.back_porch_light
                   image_entity: image.back_porch_event_image
+                  aspect_ratio: "16:9"
                   tap_action:
                     action: perform-action
                     perform_action: camera.turn_on
@@ -342,6 +344,7 @@ cards:
                   entities:
                     - entity: binary_sensor.backyard_motion_detected
                   image_entity: image.backyard_event_image
+                  aspect_ratio: "16:9"
                   tap_action:
                     action: perform-action
                     perform_action: camera.turn_on
