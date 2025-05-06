@@ -3,8 +3,8 @@ type: vertical-stack
 view_layout:
   grid-area: menu
 cards:
-  - type: markdown
-    content: '# Controls'
+  - type: custom:html-card
+    content: '<font size="5">Controls</font>'
     card_mod:
       class: header-right
       style: |
