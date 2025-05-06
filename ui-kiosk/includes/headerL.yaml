@@ -38,9 +38,13 @@ cards:
         icon_color: green
         content: "R: {{ states('person.rodney_nissen')|string|capitalize }}"
         entity: person.rodney_nissen
-  - type: markdown
-    content: >-
-      #  {{ states('sensor.template_header_greet') }}
+  - type: custom:html-card
+    content: |
+      <div align="right">
+        <font size=5>
+          [[ sensor.template_header_greet ]]
+        </font>
+      </div>
     card_mod:
       class: footer-right
       style:

@@ -5,8 +5,11 @@ view_layout:
   place-self: end stretch
 cards:
   - !include /config/ui-includes/alerts.yaml
-  - type: markdown
-    content: '# Weather: {{ states(''sensor.template_header_weather'') }} &#149; Stardate: {{ states(''sensor.stardate'')}} &#149; {{ as_timestamp(now()) | timestamp_custom( ''%d %b %Y &#149; %H:%M'' ) }}'
+  - type: custom:html-card
+    content: >-
+      <font size=5><b>Weather:</b> [[ sensor.template_header_weather ]] &#149;
+      <b>Stardate:</b> [[ sensor.stardate ]] &#149; [[ sensor.date_time ]]
+      </font>
     card_mod:
       class: footer-left
       style:
