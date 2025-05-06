@@ -180,26 +180,47 @@ cards:
             ha-card > * {
               font-family: Antonio
             }
-      - type: custom:swipe-card
-        parameters:
-          spaceBetween: 8
-          loop: true
-          preloadImages: true
-          pagination:
-            type: 'bullets'
+      - square: false
+        columns: 1
+        type: grid
         cards:
-          - type: custom:aarlo-glance
-            card_mod:
-              class: middle-left
-              style: |
-                ha-card > * {
-                  font-family: Antonio
-                }
-            entities:
-              - entity: camera.aarlo_driveway
-                image_view: arlo-stream
-                image_top: previous,name,next
-                image_bottom: motion,sound,signal,battery|library,snapshot
+          - type: conditional
+            conditions:
+              - entity: camera.driveway
+                state: idle
+            card:
+              type: picture-glance
+              title: Driveway
+              entities:
+                - entity: binary_sensor.driveway_motion_detected
+                - entity: light.light_garagesconce
+              image_entity: image.driveway_event_image
+              tap_action:
+                action: perform-action
+                perform_action: camera.turn_on
+                target:
+                  entity_id: camera.driveway
+          - type: conditional
+            conditions:
+              - entity: camera.driveway
+                state: streaming
+            card:
+              type: vertical-stack
+              cards:
+                - show_name: true
+                  show_icon: false
+                  type: button
+                  tap_action:
+                    action: call-service
+                    service: camera.turn_off
+                    data: {}
+                    target:
+                      entity_id: camera.driveway
+                  entity: camera.driveway
+                  name: Stop
+                - type: custom:webrtc-camera
+                  entity: camera.driveway
+
           - type: custom:aarlo-glance
             card_mod:
               class: middle-left
