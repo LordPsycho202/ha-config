@@ -218,6 +218,25 @@ chips:
 
   - type: conditional
     conditions:
+      - condition: user
+        users:
+          - 829c75b162794808a699871056da2b93
+      - condition: state
+        entity: input_boolean.replace_rodneys_contacts
+        state: "on"
+    chip:
+      type: template
+      tap_action:
+        action: perform-action
+        perform_action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.replace_rodneys_contacts
+      icon: mdi:glasses
+      icon_color: grey
+      content: Replace Contacts
+
+  - type: conditional
+    conditions:
       - entity: input_select.trash_day_status
         state: 'Trash Day'
     chip:
