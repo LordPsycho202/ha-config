@@ -3,11 +3,21 @@ type: vertical-stack
 view_layout:
   grid-area: footer
 cards:
-  - type: markdown
-    content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
+  - type: custom:html-card
+    content: >-
+      <font size=5>
+        [[ sensor.quote ]] - <i>[[ sensor.quote_author ]]</i>
+      </font>
     card_mod:
       class: footer-left
-      style: |
-        ha-card > * {
-          font-family: Antonio
-        }
+      style:
+        .: |
+          ha-card > * {
+            font-family: Antonio
+          }
+          ha-card.type-markdown {
+            overflow-x: hidden;
+            text-overflow: ellipsis;
+            overflow-wrap: unset;
+            white-space: nowrap;
+          }
