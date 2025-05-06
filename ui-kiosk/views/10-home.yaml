@@ -231,6 +231,16 @@ cards:
                     - type: custom:webrtc-camera
                       entity: camera.driveway
 
+          - camera_view: auto
+            type: picture-glance
+            title: Doorbell
+            entities:
+              - entity: binary_sensor.doorbell_motion_detected
+              - entity: binary_sensor.doorbell_package_delivered
+              - entity: binary_sensor.doorbell_ringing
+            image_entity: image.doorbell_event_image
+            aspect_ratio: "16:9"
+
           - square: false
             columns: 1
             type: grid
