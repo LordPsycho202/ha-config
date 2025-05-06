@@ -192,8 +192,6 @@ cards:
           - square: false
             columns: 1
             type: grid
-            card_mod:
-              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -201,6 +199,8 @@ cards:
                     state: idle
                 card:
                   type: picture-glance
+                  card_mod:
+                    class: middle-left
                   title: Driveway
                   entities:
                     - entity: binary_sensor.driveway_motion_detected
@@ -222,6 +222,8 @@ cards:
                     - show_name: true
                       show_icon: false
                       type: button
+                      card_mod:
+                        class: button-bullet
                       tap_action:
                         action: call-service
                         service: camera.turn_off
@@ -231,25 +233,25 @@ cards:
                       entity: camera.driveway
                       name: Stop
                     - type: custom:webrtc-camera
+                      card_mod:
+                        class: middle-left
                       entity: camera.driveway
 
           - camera_view: auto
             type: picture-glance
             title: Doorbell
-            card_mod:
-              class: middle-left
             entities:
               - entity: binary_sensor.doorbell_motion_detected
               - entity: binary_sensor.doorbell_package_delivered
               - entity: binary_sensor.doorbell_ringing
             image_entity: image.doorbell_event_image
             aspect_ratio: "16:9"
+            card_mod:
+                    class: middle-left
 
           - square: false
             columns: 1
             type: grid
-            card_mod:
-              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -257,6 +259,8 @@ cards:
                     state: idle
                 card:
                   type: picture-glance
+                  card_mod:
+                    class: middle-left
                   title: Backyard
                   entities:
                     - entity: binary_sensor.back_porch_motion_detected
@@ -278,6 +282,8 @@ cards:
                   cards:
                     - show_name: true
                       show_icon: false
+                      card_mod:
+                        class: button-bullet
                       type: button
                       tap_action:
                         action: call-service
@@ -288,6 +294,8 @@ cards:
                       entity: camera.back_porch
                       name: Stop
                     - type: custom:webrtc-camera
+                      card_mod:
+                        class: middle-left
                       entity: camera.back_porch
                       ptz:
                         service: eufy_security.ptz
@@ -307,8 +315,6 @@ cards:
           - square: false
             columns: 1
             type: grid
-            card_mod:
-              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -319,6 +325,8 @@ cards:
                   show_name: true
                   camera_view: auto
                   type: picture-entity
+                  card_mod:
+                    class: middle-left
                   entity: camera.garage
                   camera_image: camera.garage
                   aspect_ratio: "16:9"
@@ -338,6 +346,8 @@ cards:
                     - show_name: true
                       show_icon: false
                       type: button
+                      card_mod:
+                        class: button-bullet
                       tap_action:
                         action: call-service
                         service: camera.turn_off
@@ -347,13 +357,13 @@ cards:
                       entity: camera.garage
                       name: Stop
                     - type: custom:webrtc-camera
+                      card_mod:
+                        class: middle-left
                       entity: camera.garage
 
           - square: false
             columns: 1
             type: grid
-            card_mod:
-              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -366,6 +376,8 @@ cards:
                     - entity: binary_sensor.backyard_motion_detected
                   image_entity: image.backyard_event_image
                   aspect_ratio: "16:9"
+                  card_mod:
+                    class: middle-left
                   tap_action:
                     action: perform-action
                     perform_action: camera.turn_on
@@ -381,6 +393,8 @@ cards:
                     - show_name: true
                       show_icon: false
                       type: button
+                      card_mod:
+                        class: button-bullet
                       tap_action:
                         action: call-service
                         service: camera.turn_off
@@ -390,6 +404,8 @@ cards:
                       entity: camera.backyard
                       name: Stop
                     - type: custom:webrtc-camera
+                      card_mod:
+                        class: middle-left
                       entity: camera.backyard
 
       - type: custom:html-card
