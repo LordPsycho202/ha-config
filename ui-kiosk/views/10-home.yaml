@@ -186,14 +186,14 @@ cards:
           spaceBetween: 8
           loop: true
           preloadImages: true
-        card_mod:
-          class: middle-left
           pagination:
             type: 'bullets'
         cards:
           - square: false
             columns: 1
             type: grid
+            card_mod:
+              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -236,6 +236,8 @@ cards:
           - camera_view: auto
             type: picture-glance
             title: Doorbell
+            card_mod:
+              class: middle-left
             entities:
               - entity: binary_sensor.doorbell_motion_detected
               - entity: binary_sensor.doorbell_package_delivered
@@ -246,6 +248,8 @@ cards:
           - square: false
             columns: 1
             type: grid
+            card_mod:
+              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -303,6 +307,8 @@ cards:
           - square: false
             columns: 1
             type: grid
+            card_mod:
+              class: middle-left
             cards:
               - type: conditional
                 conditions:
@@ -346,6 +352,8 @@ cards:
           - square: false
             columns: 1
             type: grid
+            card_mod:
+              class: middle-left
             cards:
               - type: conditional
                 conditions:
