@@ -1153,7 +1153,7 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.onions
+            entity: plant.onion
             state_not: ok
           - condition: state
             entity: input_boolean.plant_notify_onions
@@ -1169,10 +1169,10 @@ chips:
             state: 'off'
     chip:
       type: template
-      entity: plant.onions
+      entity: plant.onion
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.onions' %}
+        {%- set plant = 'plant.onion' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -1189,12 +1189,12 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:onion
+        mdi:grass
         {% endif %}
       content: Onions
       tap_action:
         action: navigate
-        navigation_path: plant_onions
+        navigation_path: plant_onion
 
 
   - type: conditional
