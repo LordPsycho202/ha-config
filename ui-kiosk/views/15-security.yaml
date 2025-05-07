@@ -25,32 +25,32 @@ cards:
     view_layout:
       grid-area: aux
     cards:
-      - type: markdown
-        content: "# Deck A"
+      - type: custom:html-card
+        content: "<font size='5'>Deck A</font>"
         card_mod:
           class: header-open
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/downstairsMap.yaml
-      - type: markdown
-        content: "# Deck B"
+      - !include /config/ui-includes/space_maps/downstairsMap.yaml
+      - type: custom:html-card
+        content: '<font size="5">Deck B</font>'
         card_mod:
           class: bar
           style: |
             ha-card > * {
               font-family: Antonio
             }
-      - !include ../includes/space_maps/upstairsMap.yaml
+      - !include /config/ui-includes/space_maps/upstairsMap.yaml
 
   - type: vertical-stack
     view_layout:
       grid-area: sidebar
     cards:
 
-      - type: markdown
-        content: "# Locks"
+      - type: custom:html-card
+        content: "<font size='5'>Locks</font>"
         card_mod:
           class: middle-right
           style: |
@@ -154,8 +154,8 @@ cards:
     view_layout:
       grid-area: main
     cards:
-      - type: markdown
-        content: "# Viewscreen"
+      - type: custom:html-card
+        content: "<font size='5'>Viewscreen</font>"
         card_mod:
           class: header-open
           style: |
@@ -198,8 +198,8 @@ cards:
                 image_bottom: motion,sound,signal,onoff|library,snapshot
                 image_click: stream
                 library_sizes: 3,4,2
-          - type: markdown
-            content: "# Information"
+          - type: custom:html-card
+            content: "<font size='5'>Information</font>"
             card_mod:
               class: bar
               style: |
@@ -223,8 +223,8 @@ cards:
                   font-family: Antonio
                 }
 
-          - type: markdown
-            content: "# Hold to activate"
+          - type: custom:html-card
+            content: "<font size='5'><b>Hold to Activate</b></font>"
             card_mod:
               class: bar
               style: |
