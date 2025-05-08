@@ -76,111 +76,59 @@ cards:
           - type: conditional
             conditions:
               - condition: state
-                entity: alarm_control_panel.garage
-                state_not: disarmed
+                entity: alarm_control_panel.robins_roost
+                state_not: armed_home
             card:
-              square: false
-              columns: 1
-              type: grid
-              cards:
-                - type: conditional
-                  conditions:
-                    - entity: camera.garage
-                      state: idle
-                  card:
-                    show_state: true
-                    show_name: true
-                    camera_view: auto
-                    type: picture-entity
-                    entity: camera.garage
-                    camera_image: camera.garage
-                    tap_action:
-                      action: call-service
-                      service: camera.turn_on
-                      data: {}
-                      target:
-                        entity_id: camera.garage
-                - type: conditional
-                  conditions:
-                    - entity: camera.garage
-                      state: streaming
-                  card:
-                    type: vertical-stack
-                    cards:
-                      - show_name: true
-                        show_icon: false
-                        type: button
-                        tap_action:
-                          action: call-service
-                          service: camera.turn_off
-                          data: {}
-                          target:
-                            entity_id: camera.garage
-                        entity: camera.garage
-                        name: Stop
-                      - type: custom:webrtc-camera
-                        entity: camera.garage
+              type: custom:webrtc-camera
+              entity: camera.garage
+              poster: image.garage_event_image
+              ui: true
+              shortcuts:
+                - name: Play
+                  icon: mdi:play
+                  service: camera.turn_on
+                  service_data:
+                    entity_id: camera.garage
+                - name: Stop
+                  icon: mdi:stop
+                  service: camera.turn_off
+                  service_data:
+                    entity_id: camera.garage
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         label: "Back Yard"
-      - square: false
-        columns: 1
-        type: grid
-        cards:
-          - type: conditional
-            conditions:
-              - entity: camera.back_porch
-                state: idle
-            card:
-              type: picture-glance
-              title: Backyard
-              entities:
-                - entity: binary_sensor.back_porch_motion_detected
-                - entity: light.back_porch
-                - entity: switch.back_porch_light
-              image_entity: image.back_porch_event_image
-              tap_action:
-                action: perform-action
-                perform_action: camera.turn_on
-                target:
-                  entity_id: camera.back_porch
-          - type: conditional
-            conditions:
-              - entity: camera.back_porch
-                state: streaming
-            card:
-              type: vertical-stack
-              cards:
-                - show_name: true
-                  show_icon: false
-                  type: button
-                  tap_action:
-                    action: call-service
-                    service: camera.turn_off
-                    data: {}
-                    target:
-                      entity_id: camera.back_porch
-                  entity: camera.back_porch
-                  name: Stop
-                - type: custom:webrtc-camera
-                  entity: camera.back_porch
-                  ptz:
-                    service: eufy_security.ptz
-                    data_left:
-                      entity_id: camera.back_porch
-                      direction: LEFT
-                    data_right:
-                      entity_id: camera.back_porch
-                      direction: RIGHT
-                    data_up:
-                      entity_id: camera.back_porch
-                      direction: UP
-                    data_down:
-                      entity_id: camera.back_porch
-                      direction: DOWN
+      - type: custom:webrtc-camera
+        entity: camera.back_porch
+        poster: image.back_porch_event_image
+        ui: true
+        shortcuts:
+          - name: Play
+            icon: mdi:play
+            service: camera.turn_on
+            service_data:
+              entity_id: camera.back_porch
+          - name: Stop
+            icon: mdi:stop
+            service: camera.turn_off
+            service_data:
+              entity_id: camera.back_porch
+        ptz:
+          service: eufy_security.ptz
+          data_left:
+            entity_id: camera.back_porch
+            direction: LEFT
+          data_right:
+            entity_id: camera.back_porch
+            direction: RIGHT
+          data_up:
+            entity_id: camera.back_porch
+            direction: UP
+          data_down:
+            entity_id: camera.back_porch
+            direction: DOWN
 
       - type: "custom:button-card"
         entity: lock.back_door
@@ -194,45 +142,21 @@ cards:
           - "sensor.back_door_battery"
           - "binary_sensor.back_door_open"
 
-      - square: false
-        columns: 1
-        type: grid
-        cards:
-          - type: conditional
-            conditions:
-              - entity: camera.backyard
-                state: idle
-            card:
-              type: picture-glance
-              title: Backyard
-              entities:
-                - entity: binary_sensor.backyard_motion_detected
-              image_entity: image.backyard_event_image
-              tap_action:
-                action: perform-action
-                perform_action: camera.turn_on
-                target:
-                  entity_id: camera.backyard
-          - type: conditional
-            conditions:
-              - entity: camera.backyard
-                state: streaming
-            card:
-              type: vertical-stack
-              cards:
-                - show_name: true
-                  show_icon: false
-                  type: button
-                  tap_action:
-                    action: call-service
-                    service: camera.turn_off
-                    data: {}
-                    target:
-                      entity_id: camera.backyard
-                  entity: camera.backyard
-                  name: Stop
-                - type: custom:webrtc-camera
-                  entity: camera.backyard
+      - type: custom:webrtc-camera
+        entity: camera.backyard
+        poster: image.backyard_event_image
+        ui: true
+        shortcuts:
+          - name: Play
+            icon: mdi:play
+            service: camera.turn_on
+            service_data:
+              entity_id: camera.backyard
+          - name: Stop
+            icon: mdi:stop
+            service: camera.turn_off
+            service_data:
+              entity_id: camera.backyard
 
   - type: vertical-stack
     cards:
@@ -260,16 +184,44 @@ cards:
                 entity_id: script.bedroom_flic_long_click
             tap_action:
               action: none
-          - type: "custom:button-card"
-            template: card_script
-            entity: switch.aarlo_all_sirens
-            variables:
-              ulm_card_script_title: Siren
-              ulm_card_script_icon: "mdi:alarm-light"
-            hold_action:
-              action: toggle
-            tap_action:
-              action: none
+          - type: horizontal-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: binary_sensor.robins_roost_alarm
+                    state: "off"
+                card:
+                  type: "custom:button-card"
+                  template: card_script
+                  entity: binary_sensor.robins_roost_alarm
+                  variables:
+                    ulm_card_script_title: Siren
+                    ulm_card_script_icon: "mdi:alarm-light"
+                  hold_action:
+                    action: perform-action
+                    perform_action: script.trigger_alarms
+                    target: {}
+                  tap_action:
+                    action: none
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: binary_sensor.robins_roost_alarm
+                    state_not: "off"
+                card:
+                  type: "custom:button-card"
+                  template: card_script
+                  entity: binary_sensor.robins_roost_alarm
+                  variables:
+                    ulm_card_script_title: Siren
+                    ulm_card_script_icon: "mdi:alarm-light-off"
+                  tap_action:
+                    action: perform-action
+                    perform_action: script.reset_alarms
+                    target: {}
+                  hold_action:
+                    action: none
 
   - type: markdown
     content: '## "{{states.sensor.quote.state}}" - {{states.sensor.quote_author.state}}'
