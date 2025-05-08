@@ -62,7 +62,7 @@ cards:
         type: button
         tap_action:
           action: none
-        entity: cover.garage_door_2
+        entity: cover.garage_door
         icon: mdi:garage
         name: "Lock: Shuttle Bay Door"
         show_state: true
@@ -77,7 +77,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: binary_sensor.aarlo_motion_driveway
+        entity: binary_sensor.driveway_motion_detected
         name: "Motion Sensor: Shuttle Bay Door"
         icon: mdi:garage
         show_state: true
@@ -139,7 +139,7 @@ cards:
         type: button
         tap_action:
           action: toggle
-        entity: binary_sensor.aarlo_motion_back_door
+        entity: binary_sensor.back_porch_motion_detected
         name: "Motion Sensor: Aft Airlock"
         icon: mdi:door
         show_state: true
@@ -157,7 +157,7 @@ cards:
       - type: custom:html-card
         content: "<font size='5'>Viewscreen</font>"
         card_mod:
-          class: header-open
+          class: header-left
           style: |
             ha-card > * {
               font-family: Antonio
@@ -175,29 +175,32 @@ cards:
                   - entity: binary_sensor.doorbell_ringing
                 image_entity: image.doorbell_event_image
                 aspect_ratio: "16:9"
-              - type: custom:aarlo-glance
-                entity: camera.aarlo_back_door
-                image_view: arlo-stream
-                image_top: name|date
-                image_bottom: motion,sound,signal,battery|library,snapshot
-                image_click: stream
-                library_sizes: 3,4,2
+              - camera_view: auto
+                type: picture-glance
+                title: Driveway
+                entities:
+                  - entity: binary_sensor.driveway_motion_detected
+                  - entity: binary_sensor.driveway_person_detected
+                image_entity: image.driveway_event_image
+                aspect_ratio: "16:9"
           - type: horizontal-stack
             cards:
-              - type: custom:aarlo-glance
-                entity: camera.aarlo_driveway
-                image_view: arlo-stream
-                image_top: name|date
-                image_bottom: motion,sound,signal,battery|library,snapshot
-                image_click: stream
-                library_sizes: 3,4,2
-              - type: custom:aarlo-glance
-                entity: camera.aarlo_garage
-                image_view: arlo-stream
-                image_top: name|date
-                image_bottom: motion,sound,signal,onoff|library,snapshot
-                image_click: stream
-                library_sizes: 3,4,2
+              - camera_view: auto
+                type: picture-glance
+                title: Backyard
+                entities:
+                  - entity: binary_sensor.backyard_motion_detected
+                  - entity: binary_sensor.backyard_person_detected
+                image_entity: image.backyard_event_image
+                aspect_ratio: "16:9"
+              - camera_view: auto
+                type: picture-glance
+                title: Back Porch
+                entities:
+                  - entity: binary_sensor.back_porch_motion_detected
+                  - entity: binary_sensor.back_porch_person_detected
+                image_entity: image.back_porch_event_image
+                aspect_ratio: "16:9"
           - type: custom:html-card
             content: "<font size='5'>Information</font>"
             card_mod:
