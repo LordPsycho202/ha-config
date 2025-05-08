@@ -41,46 +41,21 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Driveway"
-      - square: false
-        columns: 1
-        type: grid
-        cards:
-          - type: conditional
-            conditions:
-              - entity: camera.driveway
-                state: idle
-            card:
-              type: picture-glance
-              title: Driveway
-              entities:
-                - entity: binary_sensor.driveway_motion_detected
-                - entity: light.light_garagesconce
-              image_entity: image.driveway_event_image
-              tap_action:
-                action: perform-action
-                perform_action: camera.turn_on
-                target:
-                  entity_id: camera.driveway
-          - type: conditional
-            conditions:
-              - entity: camera.driveway
-                state: streaming
-            card:
-              type: vertical-stack
-              cards:
-                - show_name: true
-                  show_icon: false
-                  type: button
-                  tap_action:
-                    action: call-service
-                    service: camera.turn_off
-                    data: {}
-                    target:
-                      entity_id: camera.driveway
-                  entity: camera.driveway
-                  name: Stop
-                - type: custom:webrtc-camera
-                  entity: camera.driveway
+      - type: custom:webrtc-camera
+        entity: camera.driveway
+        poster: image.driveway_event_image
+        ui: true
+        shortcuts:
+          - name: Play
+            icon: mdi:play
+            service: camera.turn_on
+            service_data:
+              entity_id: camera.driveway
+          - name: Stop
+            icon: mdi:stop
+            service: camera.turn_off
+            service_data:
+              entity_id: camera.driveway
 
       - type: tile
         entity: binary_sensor.door_garage_opening
