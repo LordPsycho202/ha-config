@@ -167,8 +167,8 @@ cards:
           - type: alarm-modes
             modes:
               - armed_home
-                - armed_away
-                - armed_custom_bypass
+              - armed_away
+              - armed_custom_bypass
         type: tile
         features_position: bottom
         vertical: false
