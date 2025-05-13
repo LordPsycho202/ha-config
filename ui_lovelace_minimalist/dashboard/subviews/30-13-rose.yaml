@@ -1,0 +1,15 @@
+---
+title: "Mini Roses"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:flower-tulip-outline
+subview: true
+path: plant_rose
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: rose
+      - plant_path: rose
+      - plant_icon: flower-tulip-outline
+      - sensor_batt: sensor.soil_moisture_13_batt

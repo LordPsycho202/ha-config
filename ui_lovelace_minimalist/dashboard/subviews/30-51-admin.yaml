@@ -211,6 +211,8 @@ cards:
             name: Beans
           - entity: input_boolean.plant_notify_pitcher_plant
             name: Pitcher Plant
+          - entity: input_boolean.plant_notify_hydrangea
+            name: Hydrangea
         state_color: true
       - type: custom:auto-entities
         card:
@@ -233,6 +235,8 @@ cards:
         name: Indoor Greenhouse
       - type: entities
         entities:
+          - entity: input_boolean.plant_notify_rose
+            name: "Mini Roses"
           - entity: input_boolean.plant_notify_steve
             name: Steve
           - entity: input_boolean.plant_notify_fairy_washboard

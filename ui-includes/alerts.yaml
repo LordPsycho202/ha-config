@@ -950,6 +950,45 @@ chips:
       - condition: and
         conditions:
           - condition: state
+            entity: plant.rose
+            state_not: ok
+          - condition: state
+            entity: input_boolean.plant_notify_rose
+            state: 'on'
+    chip:
+      type: template
+      entity: plant.rose
+      icon_color: grey
+      icon: |-
+        {%- set plant = 'plant.steve' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:flower-tulip-outline
+        {% endif %}
+      content: Mini Roses
+      tap_action:
+        action: navigate
+        navigation_path: plant_rose
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
             entity: plant.steve
             state_not: ok
           - condition: state
@@ -1347,6 +1386,51 @@ chips:
       tap_action:
         action: navigate
         navigation_path: plant_pineapple
+
+  - type: conditional
+    conditions:
+      - condition: and
+        conditions:
+          - condition: state
+            entity: plant.hydrangea
+            state_not: ok
+          - condition: state
+            entity: input_boolean.plant_notify_hydrangea
+            state: 'on'
+          - condition: state
+            entity: binary_sensor.is_rain_2
+            state: 'off'
+          - condition: state
+            entity: binary_sensor.recent_rain
+            state: 'off'
+    chip:
+      type: template
+      entity: plant.hydrangea
+      icon_color: grey
+      icon: |-
+        {%- set plant = 'plant.hydrangea' %}
+        {%- set moisture = state_attr(plant,'moisture_status')|string %}
+        {%- set temp = state_attr(plant,'temperature_status')|string %}
+        {%- set cond = state_attr(plant,'conductivity_status')|string %}
+        {% if moisture == "Low"%}
+        mdi:watering-can-outline
+        {% elif moisture == "High"%}
+        mdi:water-alert
+        {% elif temp == "Low" %}
+        mdi:snowflake-thermometer
+        {% elif temp == "High" %}
+        mdi:sun-thermometer-outline
+        {% elif cond == "Low" %}
+        mdi:seed-plus-outline
+        {% elif cond == "High" %}
+        mdi:seed-off-outline
+        {% else %}
+        mdi:flower-outline
+        {% endif %}
+      content: Hydrangea
+      tap_action:
+        action: navigate
+        navigation_path: plant_hydrangea
 
   - type: conditional
     conditions:

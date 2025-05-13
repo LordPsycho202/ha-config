@@ -1,0 +1,15 @@
+---
+title: "Hydrangea"
+theme: "minimalist-mobile-tapbar"
+icon: mdi:flower-outline
+subview: true
+path: plant_hydrangea
+back_path: /ui-lovelace-minimalist/garden
+cards:
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: hydrangea
+      - plant_path: hydrangea
+      - plant_icon: flower-outline
+      - sensor_batt: sensor.soil_moisture_11_batt

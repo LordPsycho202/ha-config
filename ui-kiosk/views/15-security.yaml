@@ -262,7 +262,7 @@ cards:
                 type: button
                 tap_action:
                   action: none
-                entity: switch.aarlo_all_sirens
+                entity: switch.chickadee
                 hold_action:
                   action: toggle
                 card_mod:

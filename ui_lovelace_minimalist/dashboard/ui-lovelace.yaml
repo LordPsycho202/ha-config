@@ -35,7 +35,9 @@ views:
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
   - !include subviews/30-10-steve.yaml
+  - !include subviews/30-11-hydrangea.yaml
 
+  - !include subviews/30-13-rose.yaml
   - !include subviews/30-14-fairy-washboard.yaml
   - !include subviews/30-15-onions.yaml
   - !include subviews/30-16-seeds.yaml

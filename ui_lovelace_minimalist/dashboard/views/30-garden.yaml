@@ -215,6 +215,24 @@ cards:
             - type: conditional
               conditions:
                 - condition: state
+                  entity: input_boolean.plant_notify_rose
+                  state: "on"
+              card:
+                type: vertical-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: plant_graphs
+                    variables:
+                      - plant_name: "Mini Roses"
+                      - plant_entity: plant.rose
+                      - plant_path: plant_rose
+                      - plant_icon: flower-tulip-outline
+                      - plant_moisture_entity: sensor.rose_soil_moisture
+                      - plant_moisture_min: 16
+                      - plant_moisture_max: 76
+            - type: conditional
+              conditions:
+                - condition: state
                   entity: input_boolean.plant_notify_steve
                   state: "on"    
               card:
@@ -455,6 +473,24 @@ cards:
                   - plant_cond_min: 350
                   - plant_cond_max: 2001
                   - plant_cond_scale: 3000
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_hydrangea
+                  state: "on"
+              card:
+                type: vertical-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: plant_graphs
+                    variables:
+                      - plant_name: "Hydrangea"
+                      - plant_entity: plant.hydrangea
+                      - plant_path: plant_hydrangea
+                      - plant_icon: flower-outline
+                      - plant_moisture_entity: sensor.hydrangea_soil_moisture
+                      - plant_moisture_min: 20
+                      - plant_moisture_max: 61
 
   - type: conditional
     conditions:
