@@ -960,7 +960,7 @@ chips:
       entity: plant.rose
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.steve' %}
+        {%- set plant = 'plant.rose' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
