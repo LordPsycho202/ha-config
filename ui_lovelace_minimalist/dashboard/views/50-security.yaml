@@ -163,12 +163,16 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Alarms
-      - type: custom:mushroom-alarm-control-panel-card
+      - features:
+          - type: alarm-modes
+            modes:
+              - armed_home
+              - armed_away
+              - armed_custom_bypass
+        type: tile
+        features_position: bottom
+        vertical: false
         entity: alarm_control_panel.robins_roost
-        states:
-          - armed_home
-          - armed_away
-        fill_container: false
       - type: horizontal-stack
         title:  (Hold to activate)
         cards:
