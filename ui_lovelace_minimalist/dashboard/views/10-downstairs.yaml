@@ -278,10 +278,13 @@ cards:
                 templates:
                   - red_on
                   - green_off
-                tap_action:
-                  action: cover.toggle
+                hold_action:
+                  action: perform-action
+                  perform_action: cover.toggle
                   target:
                     entity_id: cover.garage_door
+                tap_action:
+                  action: more-info
           - type: "custom:button-card"
             template:
               - card_room
