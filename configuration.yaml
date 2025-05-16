@@ -137,12 +137,6 @@ shell_command:
   clean_folder: "/config/clean_folder.sh {{ folder }} {{ filetype }} {{ limit }}"
 
 sensor:
-  - platform: tank_utility
-    email: !secret arlo_username
-    password: !secret tank_util_password
-    devices:
-      - "002a001d383334340d473130"
-
   - platform: unifigateway
     host: !secret unifi_ip
     port: !secret unifi_port
