@@ -76,7 +76,7 @@ cards:
       - type: horizontal-stack
         cards:
           - type: gauge
-            entity: sensor.tank_utility_002a001d383334340d473130
+            entity: sensor.generac_2231834_fuel_level
             max: 100
             min: 0
             unit: "%"
