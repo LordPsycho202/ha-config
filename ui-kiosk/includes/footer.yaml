@@ -9,7 +9,7 @@ cards:
         [[ sensor.quote ]] - <i>[[ sensor.quote_author ]]</i>
       </font>
     card_mod:
-      class: footer-left
+      class: footer-contained
       style:
         .: |
           ha-card > * {

@@ -153,7 +153,7 @@ cards:
       - type: custom:html-card
         content: "<font size='5'>Deck A</font>"
         card_mod:
-          class: header-open
+          class: header-right
           style: |
             ha-card > * {
               font-family: Antonio
@@ -162,7 +162,7 @@ cards:
       - type: custom:html-card
         content: '<font size="5">Deck B</font>'
         card_mod:
-          class: bar
+          class: middle-right
           style: |
             ha-card > * {
               font-family: Antonio
