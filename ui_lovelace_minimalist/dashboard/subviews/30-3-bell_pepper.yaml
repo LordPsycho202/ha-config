@@ -1,14 +1,15 @@
 ---
-title: "Amaranth"
+title: "Bell Pepper"
 theme: "minimalist-mobile-tapbar"
 icon: mdi:leaf
 subview: true
-path: plant_amaranth
+path: plant_bell_pepper
 back_path: /ui-lovelace-minimalist/garden
 cards:
   - type: custom:decluttering-card
     template: plant_subview
     variables:
-      - plant: amaranth
-      - plant_path: amaranth
+      - plant: bell_pepper
+      - plant_path: bell_pepper
       - sensor_batt: sensor.soil_moisture_3_batt
+      - plant_icon: chili-mild

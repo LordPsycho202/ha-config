@@ -614,10 +614,10 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: plant.amaranth
+            entity: plant.bell_pepper
             state_not: ok
           - condition: state
-            entity: input_boolean.plant_notify_amaranth
+            entity: input_boolean.plant_notify_bell_pepper
             state: 'on'
           - condition: state
             entity: binary_sensor.is_rain_2
@@ -630,10 +630,10 @@ chips:
             state: 'off'
     chip:
       type: template
-      entity: plant.amaranth
+      entity: plant.bell_pepper
       icon_color: grey
       icon: |-
-        {%- set plant = 'plant.amaranth' %}
+        {%- set plant = 'plant.bell_pepper' %}
         {%- set moisture = state_attr(plant,'moisture_status')|string %}
         {%- set temp = state_attr(plant,'temperature_status')|string %}
         {%- set cond = state_attr(plant,'conductivity_status')|string %}
@@ -650,12 +650,12 @@ chips:
         {% elif cond == "High" %}
         mdi:seed-off-outline
         {% else %}
-        mdi:leaf
+        mdi:chili-mild
         {% endif %}
-      content: Amaranth
+      content: Bell Pepper
       tap_action:
         action: navigate
-        navigation_path: plant_amaranth
+        navigation_path: plant_bell_pepper
 
   - type: conditional
     conditions:

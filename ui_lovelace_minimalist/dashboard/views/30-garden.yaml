@@ -784,7 +784,7 @@ cards:
                         entity: sensor.okra_soiL_moisture
                         below: 20
                       - condition: numeric_state
-                        entity: sensor.amaranth_soil_moisture
+                        entity: sensor.bell_pepper_soil_moisture
                         below: 20
                       - condition: numeric_state
                         entity: sensor.herbs_soil_moisture
@@ -891,7 +891,7 @@ cards:
                 entity: input_boolean.plant_notify_okra
                 state: "on"
               - condition: state
-                entity: input_boolean.plant_notify_amaranth
+                entity: input_boolean.plant_notify_bell_pepper
                 state: "on"      
               - condition: state
                 entity: input_boolean.plant_notify_herbs
@@ -961,18 +961,19 @@ cards:
             - type: conditional
               conditions:
                 - condition: state
-                  entity: input_boolean.plant_notify_amaranth
+                  entity: input_boolean.plant_notify_bell_pepper
                   state: "on"
               card:
                 type: custom:decluttering-card
                 template: plant_graphs
                 variables:
-                  - plant_name: "Amaranth"
-                  - plant_entity: plant.amaranth
-                  - plant_path: plant_amaranth
-                  - plant_moisture_entity: sensor.amaranth_soil_moisture
-                  - plant_moisture_min: 15
-                  - plant_moisture_max: 61
+                  - plant_name: "Bell Pepper"
+                  - plant_entity: plant.bell_pepper
+                  - plant_path: plant_bell_pepper
+                  - plant_moisture_entity: sensor.bell_pepper_soil_moisture
+                  - plant_icon: chili-mild
+                  - plant_moisture_min: 22
+                  - plant_moisture_max: 71
             - type: conditional
               conditions:
                 - condition: state

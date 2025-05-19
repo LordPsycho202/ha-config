@@ -27,7 +27,7 @@ views:
   - !include views/30-garden.yaml
   - !include subviews/30-1-flowers.yaml
   - !include subviews/30-2-okra.yaml
-  - !include subviews/30-3-amaranth.yaml
+  - !include subviews/30-3-bell_pepper.yaml
   - !include subviews/30-4-herbs.yaml
   - !include subviews/30-5-cucumber.yaml
   - !include subviews/30-6-tomatoes.yaml

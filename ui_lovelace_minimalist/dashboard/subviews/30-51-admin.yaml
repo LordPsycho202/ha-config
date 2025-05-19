@@ -268,8 +268,8 @@ cards:
         entities:
           - entity: input_boolean.plant_notify_okra
             name: Okra
-          - entity: input_boolean.plant_notify_amaranth
-            name: Amaranth
+          - entity: input_boolean.plant_notify_bell_pepper
+            name: Bell Pepper
           - entity: input_boolean.plant_notify_herbs
             name: Herbs
           - entity: input_boolean.plant_notify_cucumber

@@ -12,12 +12,12 @@ Okra:
   min_moisture: 20
   max_moisture: 100
   min_battery: 35
-Amaranth:
+Bell Pepper:
   sensors:
     moisture: sensor.soil_moisture_3
     battery: sensor.soil_moisture_3_batt
-  min_moisture: 20
-  max_moisture: 100
+  min_moisture: 22
+  max_moisture: 71
   min_battery: 35
 Herbs:
   sensors:
