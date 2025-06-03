@@ -137,10 +137,8 @@ cards:
         variables:
           ulm_custom_card_eraycetinay_lock_tap_control: true
           ulm_custom_card_eraycetinay_lock_battery_level: sensor.back_door_battery
-          ulm_custom_card_eraycetinay_lock_door_open: binary_sensor.back_door_open
         triggers_update:
           - "sensor.back_door_battery"
-          - "binary_sensor.back_door_open"
 
       - type: custom:webrtc-camera
         entity: camera.backyard
