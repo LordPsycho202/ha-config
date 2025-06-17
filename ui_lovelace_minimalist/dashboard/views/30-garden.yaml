@@ -110,8 +110,9 @@ cards:
         card:
           type: custom:stack-in-card
           cards:
-            - type: custom:mushroom-entity-card
-              entity: lawn_mower.philoctetes
+            - type: custom:mushroom-template-card
+              primary: "{{ state_attr('lawn_mower.philoctetes','friendly_name')|capitalize }}"
+              secondary: "Error: {{ states('sensor.philoctetes_error') }}"
               icon: mdi:robot-mower
               icon_color: red
               tap_action:
