@@ -95,7 +95,7 @@ cards:
             - type: custom:mushroom-entity-card
               entity: sensor.philoctetes_next_start
               icon: mdi:robot-mower
-              icon_color: red
+              icon_color: blue
               tap_action:
                 action: more-info
               hold_action:
@@ -105,8 +105,14 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: lawn_mower.philoctetes
-            state_not: "docked"
+          - condition: or
+            conditions:
+              - condition: state
+                entity: lawn_mower.philoctetes
+                state: mowing
+              - condition: state
+                entity: lawn_mower.philoctetes
+                state: returning
         card:
           type: vertical-stack
           cards:
