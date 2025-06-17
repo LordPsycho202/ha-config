@@ -85,6 +85,64 @@ cards:
             action: navigate
             navigation_path: weather
 
+      - type: conditional
+        conditions:
+          - entity: lawn_mower.philoctetes
+            state: "docked"
+        card:
+          type: custom:stack-in-card
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: sensor.philoctetes_next_start
+              icon: mdi:robot-mower
+              icon_color: blue
+              tap_action:
+                action: more-info
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+
+      - type: conditional
+        conditions:
+          - entity: lawn_mower.philoctetes
+            state: "error"
+        card:
+          type: custom:stack-in-card
+          cards:
+            - type: custom:mushroom-entity-card
+              entity: lawn_mower.philoctetes
+              icon: mdi:robot-mower
+              icon_color: red
+              tap_action:
+                action: more-info
+              hold_action:
+                action: none
+              double_tap_action:
+                action: none
+
+      - type: conditional
+        conditions:
+          - condition: or
+            conditions: 
+              - entity: lawn_mower.philoctetes
+                state: "mowing"
+              - entity: lawn_mower.philoctetes
+                state: "returning"
+        card:
+          type: vertical-stack
+          cards:
+            - type: map
+              entities:
+                - entity: device_tracker.philoctetes
+              theme_mode: auto
+              default_zoom: 19
+              auto_fit: true
+            - type: "custom:button-card"
+              template: card_vacuum
+              entity: lawn_mower.philoctetes
+
+
       - type: custom:mushroom-template-card
         primary: Duck
         icon: mdi:chili-mild
