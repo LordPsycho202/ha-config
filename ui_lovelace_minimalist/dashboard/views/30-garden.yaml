@@ -243,16 +243,117 @@ cards:
               card:
                 type: vertical-stack
                 cards:
-                  - type: custom:decluttering-card
-                    template: plant_graphs
-                    variables:
-                      - plant_name: "Mini Roses"
-                      - plant_entity: plant.rose
-                      - plant_path: plant_rose
-                      - plant_icon: flower-tulip-outline
-                      - plant_moisture_entity: sensor.rose_soil_moisture
-                      - plant_moisture_min: 16
-                      - plant_moisture_max: 76
+                  - type: custom:stack-in-card
+                    mode: vertical
+                    cards:
+                      - type: custom:mushroom-template-card
+                        primary: "{{ state_attr('plant.rose','friendly_name') }}"
+                        entity: 'plant.rose'
+                        layout: horizontal
+                        tap_action:
+                          action: 'navigate'
+                          navigation_path: "plant_rose"
+                        secondary: |-
+                          {% if states('plant.rose') == 'ok' %}
+                          We're Happy!
+                          {% else %}
+                            {%- set plant = 'plant.rose' %}
+                            {%- set moisture = state_attr(plant,'moisture_status')|string %}
+                            {%- set temp = state_attr(plant,'temperature_status')|string %}
+                            {%- set cond = state_attr(plant,'conductivity_status')|string %}
+                            {% if moisture == "Low"%}
+                            Water Me, plz
+                            {% elif moisture == "High"%}
+                            Too Much Water
+                            {% elif temp == "Low" %}
+                            I'm Cold
+                            {% elif temp == "High" %}
+                            I'm Hot
+                            {% elif cond == "Low" %}
+                            Feed Me Seymore
+                            {% elif cond == "High" %}
+                            Just water, plz
+                            {% else %}
+                            mdi:flower-tulip-outline
+                            {% endif %}
+                          {% endif %}
+                        icon: |-
+                          {% if states('plant.rose') == 'ok' %}
+                          mdi:flower-tulip-outline
+                          {% else %}
+                            {%- set plant = 'plant.rose' %}
+                            {%- set moisture = state_attr(plant,'moisture_status')|string %}
+                            {%- set temp = state_attr(plant,'temperature_status')|string %}
+                            {%- set cond = state_attr(plant,'conductivity_status')|string %}
+                            {% if moisture == "Low"%}
+                            mdi:watering-can-outline
+                            {% elif moisture == "High"%}
+                            mdi:water-alert
+                            {% elif temp == "Low" %}
+                            mdi:snowflake-thermometer
+                            {% elif temp == "High" %}
+                            mdi:sun-thermometer-outline
+                            {% elif cond == "Low" %}
+                            mdi:seed-plus-outline
+                            {% elif cond == "High" %}
+                            mdi:seed-off-outline
+                            {% else %}
+                            mdi:flower-tulip-outline
+                            {% endif %}
+                          {% endif %}
+                        icon_color: |-
+                          {% if states('plant.rose') == 'ok' %}
+                          green
+                          {% else %}
+                            {%- set plant = 'plant.rose' %}
+                            {%- set moisture = state_attr(plant,'moisture_status')|string %}
+                            {%- set temp = state_attr(plant,'temperature_status')|string %}
+                            {%- set cond = state_attr(plant,'conductivity_status')|string %}
+                            {% if moisture == "Low"%}
+                            brown
+                            {% elif moisture == "High"%}
+                            blue
+                            {% elif temp == "Low" %}
+                            cyan
+                            {% elif temp == "High" %}
+                            red
+                            {% elif cond == "Low" %}
+                            cyan
+                            {% elif cond == "High" %}
+                            blue
+                            {% else %}
+                            green
+                            {% endif %}
+                          {% endif %}
+                      - type: custom:stack-in-card
+                        mode: horizontal
+                        cards:
+                          - type: gauge
+                            entity: 'sensor.rose_soil_moisture'
+                            name: Soil Moisture
+                            unit: "%"
+                            min: 0
+                            max: 100
+                            needle: true
+                            header_position: bottom
+                            segments:
+                              - from: 0
+                                color: "#A0522D"
+                                label: Water
+                              - color: "#008000"
+                                from: '16'
+                              - color: "#0000FF"
+                                from: '76'
+                                label: Too Wet
+                          - type: custom:mini-graph-card
+                            entities:
+                              - '[[plant_moisture_entity]]'
+                            line_color: '#008000'
+                            show:
+                              state: false
+                            line_width: 8
+                            name: History
+                  
 
 
       - type: custom:mushroom-template-card
