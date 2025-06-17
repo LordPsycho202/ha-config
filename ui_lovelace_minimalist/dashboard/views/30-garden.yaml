@@ -241,10 +241,12 @@ cards:
                   entity: input_boolean.plant_notify_rose
                   state: "on"
               card:
-                type: custom:mushroom-template-card
-                primary: pig
-                icon: mdi:fruit-grapes
-                icon_color: red
+                type: vertical-stack
+                cards:
+                  - type: custom:mushroom-template-card
+                    primary: pig
+                    icon: mdi:fruit-grapes
+                    icon_color: red
 
       - type: custom:mushroom-template-card
         primary: Duck
