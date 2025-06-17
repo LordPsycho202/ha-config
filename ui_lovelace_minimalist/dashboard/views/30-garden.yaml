@@ -205,13 +205,12 @@ cards:
                 entity: input_boolean.plant_notify_michael
                 state: "on"   
         card:
-          type: custom:expander-card
-          title-card:
-            type: custom:mushroom-template-card
-            primary: Pig
-            icon: mdi:fruit-grapes
-            icon_color: purple
+          type: vertical-stack
           cards:
+            - type: custom:mushroom-template-card
+              primary: Pig
+              icon: mdi:fruit-grapes
+              icon_color: purple
             - type: conditional
               conditions:
                 - condition: state
