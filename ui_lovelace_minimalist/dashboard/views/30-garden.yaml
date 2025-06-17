@@ -25,6 +25,23 @@ cards:
             action: navigate
             navigation_path: weather
 
+      - type: conditional
+        conditions:
+          - entity: switch.sprinklers
+            state: "on"
+        card:
+          type: custom:mushroom-entity-card
+          entity: switch.sprinklers
+          icon: mdi:sprinkler-variant
+          icon_color: light-blue
+          fill_container: false
+          tap_action:
+            action: none
+          hold_action:
+            action: more-info
+          double_tap_action:
+            action: none
+
       - type: custom:mushroom-template-card
         primary: Duck
         icon: mdi:chili-mild
