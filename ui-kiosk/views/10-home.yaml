@@ -562,7 +562,7 @@ cards:
                   indicator: "off"
                   name: "outside"
                 entities:
-                  - entity: sensor.tank_utility_002a001d383334340d473130
+                  - entity: sensor.generac_2231834_fuel_level
                     name: House C₃H₈ Reserve
                 severity:
                   - color: "#ffaa00"
