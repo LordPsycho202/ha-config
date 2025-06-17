@@ -414,18 +414,18 @@ chips:
         action: navigate
         navigation_path: foyer
 
-  - type: conditional
-    conditions:
-      - entity: lawn_mower.philoctetes
-        state: error
-    chip:
-      type: template
-      icon_color: grey
-      content: Philoctetes
-      icon: mdi:alert
-      tap_action:
-        action: navigate
-        navigation_path: outside
+  # - type: conditional
+    # conditions:
+      # - entity: lawn_mower.philoctetes
+        # state: error
+    # chip:
+      # type: template
+      # icon_color: grey
+      # content: Philoctetes
+      # icon: mdi:alert
+      # tap_action:
+        # action: navigate
+        # navigation_path: outside
 
   - type: conditional
     conditions:
