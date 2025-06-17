@@ -205,10 +205,17 @@ cards:
                 entity: input_boolean.plant_notify_michael
                 state: "on"   
         card:
-          type: custom:mushroom-template-card
-          primary: cOw
-          icon: mdi:flower-tulip-outline
-          icon_color: red
+          type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: cOw
+            icon: mdi:flower-tulip-outline
+            icon_color: red
+          cards:
+            - type: custom:mushroom-template-card
+              primary: pig
+              icon: mdi:fruit-grapes
+              icon_color: red
 
       - type: custom:mushroom-template-card
         primary: Duck
