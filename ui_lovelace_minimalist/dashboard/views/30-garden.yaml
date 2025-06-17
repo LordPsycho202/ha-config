@@ -243,15 +243,12 @@ cards:
               card:
                 type: vertical-stack
                 cards:
-                  - type: custom:stack-in-card
-                    mode: vertical
-                    cards:
-                      - type: custom:decluttering-card
-                        template: plant_mushroom_card
-                        variables:
-                          - plant_entity: plant.rose
-                          - plant_path: plant_rose
-                          - plant_icon: flower-tulip-outline
+                  - type: custom:decluttering-card
+                    template: plant_mushroom_card
+                    variables:
+                      - plant_entity: plant.rose
+                      - plant_path: plant_rose
+                      - plant_icon: flower-tulip-outline
 
       - type: custom:mushroom-template-card
         primary: Duck
