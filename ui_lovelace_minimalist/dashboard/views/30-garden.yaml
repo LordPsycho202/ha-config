@@ -143,6 +143,188 @@ cards:
               template: card_vacuum
               entity: lawn_mower.philoctetes
 
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Indoor Greenhouse
+      - type: horizontal-stack
+        cards:
+          - type: "custom:button-card"
+            template: card_light
+            entity: light.greenhouse
+            variables:
+              ulm_card_light_name: Plant Light
+              ulm_card_light_force_background_color: true
+              ulm_card_light_enable_collapse: true
+      - type: custom:button-card
+        template: card_navigate
+        variables:
+          ulm_card_navigate_path: /ui-lovelace-minimalist/plant_timelapse
+          ulm_card_navigate_title: Timelapse Views
+          ulm_card_navigate_icon: mdi:camera-burst
+          ulm_card_navigate_color: var(--color-green)
+      - type: custom:stack-in-card
+        mode: horizontal
+        cards:
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.temp_indoor_greenhouse
+            variables:
+              ulm_card_graph_color: "var(--google-green)"
+              ulm_card_graph_name: Temperature
+              ulm_card_graph_entity: sensor.temp_indoor_greenhouse
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+          - type: "custom:button-card"
+            template: card_graph
+            entity: sensor.humidity_indoor_greenhouse
+            variables:
+              ulm_card_graph_color: "var(--google-blue)"
+              ulm_card_graph_name: Humidity
+              ulm_card_graph_entity: sensor.humidity_indoor_greenhouse
+              ulm_card_graph_type: fill
+              ulm_card_graph_hours: 24
+      - type: conditional
+        conditions:
+          - condition: or
+            conditions:
+              - condition: state
+                entity: input_boolean.plant_notify_steve
+                state: "on"
+              - condition: state
+                entity: input_boolean.plant_notify_fairy_washboard
+                state: "on"      
+              - condition: state
+                entity: input_boolean.plant_notify_pitcher_plant
+                state: "on"
+              - condition: state
+                entity: input_boolean.plant_notify_seeds
+                state: "on"
+              - condition: state
+                entity: input_boolean.plant_notify_michael
+                state: "on"   
+        card:
+          type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Indoor Greenhouse
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:greenhouse
+            icon_color: |-
+              {%- set problems = states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count %}
+              {% if problems | int > 0 %}red{% else %}green{% endif %}
+          cards:
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_rose
+                  state: "on"
+              card:
+                type: vertical-stack
+                cards:
+                  - type: custom:decluttering-card
+                    template: plant_graphs
+                    variables:
+                      - plant_name: "Mini Roses"
+                      - plant_entity: plant.rose
+                      - plant_path: plant_rose
+                      - plant_icon: flower-tulip-outline
+                      - plant_moisture_entity: sensor.rose_soil_moisture
+                      - plant_moisture_min: 16
+                      - plant_moisture_max: 76
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_steve
+                  state: "on"    
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Steve"
+                  - plant_entity: plant.steve
+                  - plant_path: plant_steve
+                  - plant_icon: pine-tree-variant-outline
+                  - plant_moisture_entity: sensor.steve_soil_moisture
+                  - plant_moisture_min: 15
+                  - plant_moisture_max: 61
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_fairy_washboard
+                  state: "on"    
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Fairy Washboard"
+                  - plant_entity: plant.fairy_washboard
+                  - plant_path: plant_fairy_washboard
+                  - plant_icon: grass
+                  - plant_moisture_entity: sensor.fairy_washboard_soil_moisture
+                  - plant_moisture_min: 7
+                  - plant_moisture_max: 51
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_seeds
+                  state: "on"
+              card:
+                type: custom:decluttering-card
+                template: plant_graphs
+                variables:
+                  - plant_name: "Seeds"
+                  - plant_entity: plant.seeds
+                  - plant_path: plant.seeds
+                  - plant_moisture_entity: sensor.seeds_soil_moisture
+                  - plant_moisture_min: 20
+                  - plant_moisture_max: 61
+            - type: conditional
+              conditions:
+                - condition: state
+                  entity: input_boolean.plant_notify_michael
+                  state: "on"
+              card:
+                type: vertical-stack
+                cards:
+                  - type: "custom:button-card"
+                    template: card_light
+                    entity: light.michael_light_switch
+                    variables:
+                      ulm_card_light_name: "Michael's Light"
+                      ulm_card_light_force_background_color: true
+                      ulm_card_light_enable_collapse: true
+                  - type: custom:decluttering-card
+                    template: plant_graphs
+                    variables:
+                      - plant_name: "Michael (Office Succulents)"
+                      - plant_entity: plant.michael
+                      - plant_path: plant_michael
+                      - plant_icon: cactus
+                      - plant_moisture_entity: sensor.michael_soil_moisture
+                      - plant_moisture_min: 7
+                      - plant_moisture_max: 51
 
       - type: custom:mushroom-template-card
         primary: Duck
