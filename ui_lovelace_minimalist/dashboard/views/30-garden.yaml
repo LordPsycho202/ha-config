@@ -112,7 +112,7 @@ cards:
           cards:
             - type: custom:mushroom-template-card
               primary: "{{ state_attr('lawn_mower.philoctetes','friendly_name')|capitalize }}"
-              secondary: "Error: {{ states('sensor.philoctetes_error')|replace("_"," ")|capitalize }}"
+              secondary: "Error: {{ states('sensor.philoctetes_error')|replace('_',' ')|capitalize }}"
               icon: mdi:robot-mower
               icon_color: red
               tap_action:
