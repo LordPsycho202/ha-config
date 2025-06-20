@@ -190,7 +190,7 @@ cards:
           - condition: or
             conditions:
               - condition: state
-                entity: input_boolean.plant_notify_steveas
+                entity: input_boolean.plant_notify_steve
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_fairy_washboard
@@ -205,35 +205,36 @@ cards:
                 entity: input_boolean.plant_notify_michael
                 state: "on"   
         card:
-          type: vertical-stack
+          type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Indoor Greenhouse
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:greenhouse
+            icon_color: |-
+              {%- set problems = states.plant
+                | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count %}
+              {% if problems | int > 0 %}red{% else %}green{% endif %}
           cards:
-            - type: custom:mushroom-template-card
-              primary: Indoor Greenhouse
-              secondary: |-
-                Good: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
-                  | selectattr('state','in','ok')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-                | Needs Attention: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-              icon: mdi:greenhouse
-              icon_color: |-
-                {%- set problems = states.plant
-                  | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count %}
-                {% if problems | int > 0 %}red{% else %}green{% endif %}
             - type: conditional
               conditions:
                 - condition: state
@@ -350,35 +351,36 @@ cards:
         - type: "custom:button-card"
           template: card_title
           name: Potted Plants
-        - type: vertical-stack
+        - type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Potted Plants
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('potted_plants'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('potted_plants'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:sprout
+            icon_color: |-
+              {%- set problems = states.plant
+                | selectattr('entity_id', 'in', label_entities('potted_plants'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count %}
+              {% if problems | int > 0 %}red{% else %}green{% endif %}
           cards:
-            - type: custom:mushroom-template-card
-              primary: Potted Plants
-              secondary: |-
-                Good: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('potted_plants'))
-                  | selectattr('state','in','ok')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-                | Needs Attention: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('potted_plants'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-              icon: mdi:sprout
-              icon_color: |-
-                {%- set problems = states.plant
-                  | selectattr('entity_id', 'in', label_entities('potted_plants'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count %}
-                {% if problems | int > 0 %}red{% else %}green{% endif %}
             - type: conditional
               conditions:
                 - condition: state
@@ -606,35 +608,36 @@ cards:
                 double_tap_action:
                   action: none
                 multiline_secondary: true
-        - type: vertical-stack
+        - type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Front Yard
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:nature
+            icon_color: |-
+              {%- set problems = states.plant
+                | selectattr('entity_id', 'in', label_entities('frontyard'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count %}
+              {% if problems | int > 0 %}red{% else %}green{% endif %}
           cards:
-            - type: custom:mushroom-template-card
-              primary: Front Yard
-              secondary: |-
-                Good: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('frontyard'))
-                  | selectattr('state','in','ok')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-                | Needs Attention: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('frontyard'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-              icon: mdi:nature
-              icon_color: |-
-                {%- set problems = states.plant
-                  | selectattr('entity_id', 'in', label_entities('frontyard'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count %}
-                {% if problems | int > 0 %}red{% else %}green{% endif %}
             - type: conditional
               conditions:
                 - condition: or
@@ -916,35 +919,36 @@ cards:
                 entity: input_boolean.plant_notify_kale
                 state: "on"
         card:
-          type: vertical-stack
+          type: custom:expander-card
+          title-card:
+            type: custom:mushroom-template-card
+            primary: Garden
+            secondary: |-
+              Good: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('garden'))
+                | selectattr('state','in','ok')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+              | Needs Attention: 
+              {{
+                states.plant
+                | selectattr('entity_id', 'in', label_entities('garden'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count
+              }}
+            icon: mdi:land-fields
+            icon_color: |-
+              {%- set problems = states.plant
+                | selectattr('entity_id', 'in', label_entities('garden'))
+                | selectattr('state','in','problem')
+                | map(attribute='entity_id')
+                | list | count %}
+              {% if problems | int > 0 %}red{% else %}green{% endif %}
           cards:
-            - type: custom:mushroom-template-card
-              primary: Garden
-              secondary: |-
-                Good: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('garden'))
-                  | selectattr('state','in','ok')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-                | Needs Attention: 
-                {{
-                  states.plant
-                  | selectattr('entity_id', 'in', label_entities('garden'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count
-                }}
-              icon: mdi:land-fields
-              icon_color: |-
-                {%- set problems = states.plant
-                  | selectattr('entity_id', 'in', label_entities('garden'))
-                  | selectattr('state','in','problem')
-                  | map(attribute='entity_id')
-                  | list | count %}
-                {% if problems | int > 0 %}red{% else %}green{% endif %}
             - type: conditional
               conditions:
                 - condition: state
@@ -1089,4 +1093,5 @@ cards:
           ulm_card_navigate_title: Garden Admin
           ulm_card_navigate_icon: mdi:cog
           ulm_card_navigate_color: var(--color-red)
+
 
