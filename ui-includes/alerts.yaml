@@ -167,7 +167,7 @@ chips:
   - type: conditional
     conditions:
       - condition: numeric_state
-        entity: sensor.tank_utility_002a001d383334340d473130
+        entity: sensor.generac_2231834_fuel_level
         below: 50
     chip:
       type: template
@@ -390,19 +390,6 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: binary_sensor.back_door_open
-        state: on
-    chip:
-      type: template
-      icon_color: red
-      content: Back Door Open
-      icon: mdi:door-open
-      tap_action:
-        action: navigate
-        navigation_path: livingroom
-
-  - type: conditional
-    conditions:
       - entity: lock.front_door
         state: unlocked
     chip:
@@ -482,7 +469,7 @@ chips:
 
   - type: conditional
     conditions:
-      - entity: switch.side_yard_zone
+      - entity: switch.side_yards_garden_zone
         state: 'on'
     chip:
       type: template
