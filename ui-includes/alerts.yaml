@@ -121,6 +121,22 @@ chips:
 
   - type: conditional
     conditions:
+      - condition: user
+        users:
+          - 829c75b162794808a699871056da2b93
+      - entity: binary_sensor.heat_condition
+        state: 'on'
+    chip:
+      type: template
+      icon_color: grey
+      content: Too Hot Outside
+      icon: mdi:heart-remove-outline
+      tap_action:
+        action: navigate
+        navigate_path: weather
+
+  - type: conditional
+    conditions:
       - entity: binary_sensor.is_snow
         state: 'on'
     chip:
