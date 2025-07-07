@@ -6,6 +6,6 @@ lint-test-job:
   stage: test
   tags:
     - core
-  image: cytopia/yamllint:latest
+  image: pipelinecomponents/yamllint:latest
   script:
-    - yamllint .
+    - yamllint -f colored .
