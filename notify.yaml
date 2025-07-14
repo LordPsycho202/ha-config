@@ -1,12 +1,13 @@
+---
   - name: signal_R
     platform: signal_messenger
-    url: "http://127.0.0.1:8080" # the URL where the Signal Messenger REST API is listening
-    number: "+17063894421" # the sender number
-    recipients: # one or more recipients
+    url: "http://127.0.0.1:8080"  # the URL where the Signal Messenger REST API is listening
+    number: "+17063894421"  # the sender number
+    recipients:  # one or more recipients
       - "@mcducked.86"
   - name: signal_J
     platform: signal_messenger
-    url: "http://127.0.0.1:8080" # the URL where the Signal Messenger REST API is listening
-    number: "+17063894421" # the sender number
-    recipients: # one or more recipients
+    url: "http://127.0.0.1:8080"  # the URL where the Signal Messenger REST API is listening
+    number: "+17063894421"  # the sender number
+    recipients:  # one or more recipients
       - "+16784167609"

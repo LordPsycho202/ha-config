@@ -58,7 +58,7 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Robot Batteries
-      
+
       - type: horizontal-stack
         cards:
           - type: "custom:button-card"

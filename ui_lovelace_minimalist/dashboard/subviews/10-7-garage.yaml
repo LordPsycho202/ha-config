@@ -102,7 +102,7 @@ cards:
       - type: "custom:button-card"
         template: card_title
         label: "Devices"
-      
+
       - type: tile
         entity: light.mud_room
         features_position: bottom

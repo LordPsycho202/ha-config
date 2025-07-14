@@ -247,7 +247,7 @@ cards:
             image_entity: image.doorbell_event_image
             aspect_ratio: "16:9"
             card_mod:
-                    class: middle-left
+              class: middle-left
 
           - square: false
             columns: 1

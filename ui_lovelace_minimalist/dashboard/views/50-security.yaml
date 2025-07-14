@@ -172,7 +172,7 @@ cards:
         vertical: false
         entity: alarm_control_panel.robins_roost
       - type: horizontal-stack
-        title:  (Hold to activate)
+        title: (Hold to activate)
         cards:
           - type: "custom:button-card"
             template: card_script

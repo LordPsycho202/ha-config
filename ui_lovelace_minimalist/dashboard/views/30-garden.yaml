@@ -126,7 +126,7 @@ sections:
       - type: conditional
         conditions:
           - condition: or
-            conditions: 
+            conditions:
               - entity: lawn_mower.philoctetes
                 state: "mowing"
               - entity: lawn_mower.philoctetes
@@ -194,7 +194,7 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_fairy_washboard
-                state: "on"      
+                state: "on"    
               - condition: state
                 entity: input_boolean.plant_notify_pitcher_plant
                 state: "on"
@@ -203,14 +203,14 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_michael
-                state: "on"   
+                state: "on"
         card:
           type: custom:expander-card
           title-card:
             type: custom:mushroom-template-card
             primary: Indoor Greenhouse
             secondary: |-
-              Good: 
+              Good:
               {{
                 states.plant
                 | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
@@ -218,7 +218,7 @@ sections:
                 | map(attribute='entity_id')
                 | list | count
               }}
-              | Needs Attention: 
+              | Needs Attention:
               {{
                 states.plant
                 | selectattr('entity_id', 'in', label_entities('indoor_greenhouse'))
@@ -257,7 +257,7 @@ sections:
               conditions:
                 - condition: state
                   entity: input_boolean.plant_notify_steve
-                  state: "on"    
+                  state: "on"
               card:
                 type: custom:decluttering-card
                 template: plant_graphs
@@ -273,7 +273,7 @@ sections:
               conditions:
                 - condition: state
                   entity: input_boolean.plant_notify_fairy_washboard
-                  state: "on"    
+                  state: "on"
               card:
                 type: custom:decluttering-card
                 template: plant_graphs
@@ -357,7 +357,7 @@ sections:
                 type: custom:mushroom-template-card
                 primary: Potted Plants
                 secondary: |-
-                  Good: 
+                  Good:
                   {{
                     states.plant
                     | selectattr('entity_id', 'in', label_entities('potted_plants'))
@@ -365,7 +365,7 @@ sections:
                     | map(attribute='entity_id')
                     | list | count
                   }}
-                  | Needs Attention: 
+                  | Needs Attention:
                   {{
                     states.plant
                     | selectattr('entity_id', 'in', label_entities('potted_plants'))
@@ -510,7 +510,7 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_juniper
-                state: "on"      
+                state: "on" 
               - condition: state
                 entity: input_boolean.plant_notify_camellia
                 state: "on"
@@ -525,7 +525,7 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_lavender
-                state: "on"         
+                state: "on"
         card:
           type: vertical-stack
           cards:
@@ -563,7 +563,7 @@ sections:
                           state: idle
                         - condition: state
                           entity: input_boolean.flower_bed_watering
-                          state: "on"     
+                          state: "on"
                   card:
                     type: custom:mushroom-template-card
                     primary: Water Flower Beds
@@ -615,7 +615,7 @@ sections:
                 type: custom:mushroom-template-card
                 primary: Front Yard
                 secondary: |-
-                  Good: 
+                  Good:
                   {{
                     states.plant
                     | selectattr('entity_id', 'in', label_entities('frontyard'))
@@ -623,7 +623,7 @@ sections:
                     | map(attribute='entity_id')
                     | list | count
                   }}
-                  | Needs Attention: 
+                  | Needs Attention:
                   {{
                     states.plant
                     | selectattr('entity_id', 'in', label_entities('frontyard'))
@@ -818,7 +818,7 @@ sections:
                     state: idle
                   - condition: state
                     entity: input_boolean.garden_watering
-                    state: "on"                    
+                    state: "on"
             card:
               type: custom:mushroom-template-card
               primary: Water Garden
@@ -901,13 +901,13 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_bell_pepper
-                state: "on"      
+                state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_herbs
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_cucumber
-                state: "on"    
+                state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_tomatoes
                 state: "on"
@@ -926,7 +926,7 @@ sections:
             type: custom:mushroom-template-card
             primary: Garden
             secondary: |-
-              Good: 
+              Good:
               {{
                 states.plant
                 | selectattr('entity_id', 'in', label_entities('garden'))
@@ -934,7 +934,7 @@ sections:
                 | map(attribute='entity_id')
                 | list | count
               }}
-              | Needs Attention: 
+              | Needs Attention:
               {{
                 states.plant
                 | selectattr('entity_id', 'in', label_entities('garden'))
@@ -1013,7 +1013,7 @@ sections:
                   - plant_icon: fruit-pear
                   - plant_moisture_entity: sensor.cucumber_soil_moisture
                   - plant_moisture_min: 25
-                  - plant_moisture_max: 76  
+                  - plant_moisture_max: 76
             - type: conditional
               conditions:
                 - condition: state
@@ -1063,7 +1063,7 @@ sections:
                   - plant_moisture_max: 71
                   - plant_temp_entity: sensor.onion_temperature
                   - plant_temp_min: 40
-                  - plant_temp_max: 96     
+                  - plant_temp_max: 96
             - type: conditional
               conditions:
                 - condition: state
@@ -1095,5 +1095,3 @@ sections:
           ulm_card_navigate_title: Garden Admin
           ulm_card_navigate_icon: mdi:cog
           ulm_card_navigate_color: var(--color-red)
-
-

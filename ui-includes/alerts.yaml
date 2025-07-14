@@ -1244,7 +1244,6 @@ chips:
         action: navigate
         navigation_path: plant_onion
 
-
   - type: conditional
     conditions:
       - condition: and

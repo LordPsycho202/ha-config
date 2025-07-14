@@ -41,8 +41,8 @@ views:
   - !include subviews/30-14-fairy-washboard.yaml
   - !include subviews/30-15-onions.yaml
   - !include subviews/30-16-seeds.yaml
-  
-  - !include subviews/30-19-japanese_holly.yaml 
+
+  - !include subviews/30-19-japanese_holly.yaml
   - !include subviews/30-20-holly.yaml
   - !include subviews/30-21-stick.yaml
   - !include subviews/30-22-michael.yaml
@@ -60,7 +60,7 @@ views:
   - !include views/40-weather.yaml
   # Security
   - !include views/50-security.yaml
-    #Utilities
+  # Utilities
   - !include views/25-utilities.yaml
   # Network
   - !include views/60-network.yaml

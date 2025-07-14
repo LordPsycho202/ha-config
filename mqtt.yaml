@@ -79,7 +79,7 @@ sensor:
       name: Enviro+
       manufacturer: Pimaroni
 
-# ToBS 
+  # ToBS
 
   - name: "ToBS Battery Voltage"
     unique_id: "node_1__battery_voltage"
@@ -94,11 +94,11 @@ sensor:
         {{ this.state }}
       {% endif %}
     unit_of_measurement: "Volts"
-    device: 
+    device:
       identifiers: "!947b7813"
       name: ToBS Meshtastic Node
-    # Telemetry packets come in two flavors: The default node telemetry, and the I2C sensor data.
-    # Both packets contain "voltage" so we check for temperature to ignore the sensor packet here.
+  # Telemetry packets come in two flavors: The default node telemetry, and the I2C sensor data.
+  # Both packets contain "voltage" so we check for temperature to ignore the sensor packet here.
 
   - name: "ToBS Battery Percent"
     unique_id: "node_1_battery_percent"
@@ -149,10 +149,10 @@ sensor:
       {% endif %}
     device_class: "temperature"
     unit_of_measurement: "°F"
-# With device_class: "temperature" set, make sure to use the configured unit for temperature in your HA instance.
-# If you don't, then non-temperature messages will change the value of this sensor by reinterpreting the current state with the wrong unit, unless you account for it.
-# For Celsius use:    {{ (value_json.payload.temperature | float) | round(1) }} 
-# For Fahrenheit use: {{ (((value_json.payload.temperature | float) * 1.8) +32) | round(2) }}
+  # With device_class: "temperature" set, make sure to use the configured unit for temperature in your HA instance.
+  # If you don't, then non-temperature messages will change the value of this sensor by reinterpreting the current state with the wrong unit, unless you account for it.
+  # For Celsius use:    {{ (value_json.payload.temperature | float) | round(1) }}
+  # For Fahrenheit use: {{ (((value_json.payload.temperature | float) * 1.8) +32) | round(2) }}
 
   - name: "ToBS Humidity"
     unique_id: "node_1_humidity"
