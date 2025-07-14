@@ -194,7 +194,7 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_fairy_washboard
-                state: "on"    
+                state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_pitcher_plant
                 state: "on"
@@ -510,7 +510,7 @@ sections:
                 state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_juniper
-                state: "on" 
+                state: "on"
               - condition: state
                 entity: input_boolean.plant_notify_camellia
                 state: "on"
