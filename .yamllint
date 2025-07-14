@@ -1,4 +1,9 @@
 ---
+locale: en_US.UTF-8
+yaml-files:
+  - '*.yaml'
+  - '*.yml'
+  - '.yamllint'
 ignore: |
   automations.yaml
   blueprints/*/homeassistant/*.yaml
@@ -69,7 +74,7 @@ rules:
     level: error
   new-lines:
     level: error
-    type: unix
+    type: platform
   trailing-spaces:
     level: error
   truthy:
