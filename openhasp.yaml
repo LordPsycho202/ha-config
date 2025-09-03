@@ -202,21 +202,63 @@ greenhouse:
 
     - obj: "p2b50"
       properties:
-        "val": "{{ states('sensor.mums_soil_moisture') }}"
+        "val": "{{ states('sensor.hydrangea_soil_moisture') }}"
     - obj: "p2b51"
       properties:
-        "val": "{{ states('sensor.mums_soil_moisture') }}"
-        "critical_value": "{{ states('number.mums_min_soil_moisture') }}"
+        "val": "{{ states('sensor.hydrangea_soil_moisture') }}"
+        "critical_value": "{{ states('number.hydrangea_min_soil_moisture') }}"
         "value_str": |-
-          {%- set problem = state_attr('plant.mums','moisture_status') %}
-          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.mums_soil_moisture')|string + '%'}}{% endif %}
+          {%- set problem = state_attr('plant.hydrangea','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.hydrangea_soil_moisture')|string + '%'}}{% endif %}
         "value_color": |-
-          {%- set problem = state_attr('plant.mums','moisture_status') %}
+          {%- set problem = state_attr('plant.hydrangea','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
     - obj: "p2b52"
       properties:
-        "val": "{{ states('sensor.mums_soil_moisture') }}"
-        "critical_value": "{{ states('number.mums_max_soil_moisture') }}"
+        "val": "{{ states('sensor.hydrangea_soil_moisture') }}"
+        "critical_value": "{{ states('number.hydrangea_max_soil_moisture') }}"
     - obj: "p2b53"
       properties:
-        "text": "{{ state_attr('plant.mums','friendly_name')}}"
+        "text": "{{ state_attr('plant.hydrangea','friendly_name')}}"
+
+    - obj: "p2b60"
+      properties:
+        "val": "{{ states('sensor.pitcher_plant_soil_moisture') }}"
+    - obj: "p2b61"
+      properties:
+        "val": "{{ states('sensor.pitcher_plant_soil_moisture') }}"
+        "critical_value": "{{ states('number.pitcher_plant_min_soil_moisture') }}"
+        "value_str": |-
+          {%- set problem = state_attr('plant.pitcher_plant','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.pitcher_plant_soil_moisture')|string + '%'}}{% endif %}
+        "value_color": |-
+          {%- set problem = state_attr('plant.pitcher_plant','moisture_status') %}
+          {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
+    - obj: "p2b62"
+      properties:
+        "val": "{{ states('sensor.pitcher_plant_soil_moisture') }}"
+        "critical_value": "{{ states('number.pitcher_plant_max_soil_moisture') }}"
+    - obj: "p2b63"
+      properties:
+        "text": "{{ state_attr('plant.pitcher_plant','friendly_name')}}"
+
+    - obj: "p2b70"
+      properties:
+        "val": "{{ states('sensor.beans_soil_moisture') }}"
+    - obj: "p2b71"
+      properties:
+        "val": "{{ states('sensor.beans_soil_moisture') }}"
+        "critical_value": "{{ states('number.beans_min_soil_moisture') }}"
+        "value_str": |-
+          {%- set problem = state_attr('plant.beans','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.beans_soil_moisture')|string + '%'}}{% endif %}
+        "value_color": |-
+          {%- set problem = state_attr('plant.beans','moisture_status') %}
+          {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
+    - obj: "p2b72"
+      properties:
+        "val": "{{ states('sensor.beans_soil_moisture') }}"
+        "critical_value": "{{ states('number.beans_max_soil_moisture') }}"
+    - obj: "p2b73"
+      properties:
+        "text": "{{ state_attr('plant.beans','friendly_name')}}"
