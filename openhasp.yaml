@@ -101,7 +101,7 @@ greenhouse:
     - obj: "p1b60"
       properties:
         "val": "{{ states('sensor.rose_soil_moisture') }}"
-    - obj: "p1b51"
+    - obj: "p1b61"
       properties:
         "val": "{{ states('sensor.rose_soil_moisture') }}"
         "critical_value": "{{ states('number.rose_min_soil_moisture') }}"
@@ -111,11 +111,11 @@ greenhouse:
         "value_color": |-
           {%- set problem = state_attr('plant.rose','moisture_status') %}
           {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
-    - obj: "p1b52"
+    - obj: "p1b62"
       properties:
         "val": "{{ states('sensor.rose_soil_moisture') }}"
         "critical_value": "{{ states('number.rose_max_soil_moisture') }}"
-    - obj: "p1b53"
+    - obj: "p1b63"
       properties:
         "text": "{{ state_attr('plant.rose','friendly_name')}}"
 
