@@ -98,6 +98,27 @@ greenhouse:
       properties:
         "text": "{{ state_attr('plant.fairy_washboard','friendly_name')}}"
 
+    - obj: "p1b60"
+      properties:
+        "val": "{{ states('sensor.rose_soil_moisture') }}"
+    - obj: "p1b51"
+      properties:
+        "val": "{{ states('sensor.rose_soil_moisture') }}"
+        "critical_value": "{{ states('number.rose_min_soil_moisture') }}"
+        "value_str": |-
+          {%- set problem = state_attr('plant.rose','moisture_status') %}
+          {% if 'Low' in problem %}Water{% elif 'High' in problem %}Too Wet{% else %}{{ states('sensor.fairy_washboard_soil_moisture')|string + '%'}}{% endif %}
+        "value_color": |-
+          {%- set problem = state_attr('plant.rose','moisture_status') %}
+          {% if 'Low' in problem %}sienna{% elif 'High' in problem %}cyan{% else %}lime{% endif %}
+    - obj: "p1b52"
+      properties:
+        "val": "{{ states('sensor.rose_soil_moisture') }}"
+        "critical_value": "{{ states('number.rose_max_soil_moisture') }}"
+    - obj: "p1b53"
+      properties:
+        "text": "{{ state_attr('plant.rose','friendly_name')}}"
+
     - obj: "p2b20"
       properties:
         "val": "{{ states('sensor.pineapples_soil_moisture') }}"

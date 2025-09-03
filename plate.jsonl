@@ -1,22 +1,74 @@
+{"comment":" ----------- Navigation ------------"}
+{"page":1,"id":0,"prev":2}
+{"page":2,"id":0,"next":1}
+
 {"comment":" ----------- Page 1 layout ------------"}
 {"comment":" ----------- Header ------------"}
-{"page":1,"id":3,"obj":"label","x":0,"y":5,"h":40,"w":480,"text":"Greenhouse","align":"center","bg_opa":100,"bg_grad_color":"green","bg_color":"black","bg_grad_dir":1,"bg_grad_stop":48}
-{"page":1,"id":4,"obj":"label","x":380,"y":5,"h":40,"w":60,"text":"00.0","align":2}
-{"page":1,"id":5,"obj":"label","x":440,"y":5,"h":40,"w":40,"text":"°F","align":0}
-{"page":1,"id":6,"obj":"label","x":3,"y":5,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":"0"}
+{"page":1,"id":3,"obj":"label","x":0,"y":0,"h":40,"w":480,"text":"Greenhouse","align":"center","bg_opa":255,"bg_color":"#2C3E50"}
+{"page":1,"id":4,"obj":"label","x":380,"y":0,"h":40,"w":60,"text":"00","align":2}
+{"page":1,"id":5,"obj":"label","x":440,"y":0,"h":40,"w":40,"text":"°F","align":0}
+{"page":1,"id":6,"obj":"label","x":3,"y":0,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":"0"}
+{"page":0,"id":1,"obj":"btn","action":"prev","x":0,"y":448,"w":79,"h":32,"bg_color":"#2C3E50","text":"\uE141","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":28}
+{"page":0,"id":2,"obj":"btn","action":"back","x":80,"y":448,"w":326,"h":32,"bg_color":"#2C3E50","text":"\uE2DC","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":22}
+{"page":0,"id":3,"obj":"btn","action":"next","x":407,"y":448,"w":79,"h":32,"bg_color":"#2C3E50","text":"\uE142","text_color":"#FFFFFF","radius":0,"border_side":0,"text_font":28}
 
 {"comment":" ----------- Gauge 1 ------------"}
-{"page":1,"id":21,"obj":"gauge","align":"center","x":20,"y":60,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":100,"label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"green"}
-{"page":1,"id":23,"obj":"label","align":"center","x":20,"y":230,"w":200,"h":30,"text":"Plant 1","text_font":24}
+{"page":1,"id":20,"obj":"gauge","align":"center","x":20,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":21,"obj":"gauge","align":"center","x":20,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":22,"obj":"gauge","align":"center","x":20,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":23,"obj":"label","align":"center","x":20,"y":150,"w":120,"h":30,"text":"Plant 1","text_font":16,"bg_color":"black","bg_opa":85}
 
 {"comment":" ----------- Gauge 2 ------------"}
-{"page":1,"id":25,"obj":"gauge","align":"center","x":260,"y":60,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":100,"label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"green"}
-{"page":1,"id":27,"obj":"label","align":"center","x":260,"y":230,"w":200,"h":30,"text":"Plant 2","text_font":24}
+{"page":1,"id":30,"obj":"gauge","align":"center","x":180,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":31,"obj":"gauge","align":"center","x":180,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":32,"obj":"gauge","align":"center","x":180,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":33,"obj":"label","align":"center","x":180,"y":150,"w":120,"h":30,"text":"Plant 2","text_font":16,"bg_color":"black","bg_opa":85}
 
 {"comment":" ----------- Gauge 3 ------------"}
-{"page":1,"id":29,"obj":"gauge","align":"center","x":20,"y":270,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":100,"label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"green"}
-{"page":1,"id":31,"obj":"label","align":"center","x":20,"y":440,"w":200,"h":30,"text":"Plant 3","text_font":24}
+{"page":1,"id":40,"obj":"gauge","align":"center","x":340,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":41,"obj":"gauge","align":"center","x":340,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":42,"obj":"gauge","align":"center","x":340,"y":50,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":43,"obj":"label","align":"center","x":340,"y":150,"w":120,"h":30,"text":"Plant 3","text_font":16,"bg_color":"black","bg_opa":85}
 
 {"comment":" ----------- Gauge 4 ------------"}
-{"page":1,"id":33,"obj":"gauge","align":"center","x":260,"y":270,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":100,"label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width10":3,"line_rounded10":1,"line_color":"green"}
-{"page":1,"id":35,"obj":"label","align":"center","x":260,"y":440,"w":200,"h":30,"text":"Plant 4","text_font":24}
+{"page":1,"id":50,"obj":"gauge","align":"center","x":20,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":51,"obj":"gauge","align":"center","x":20,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":52,"obj":"gauge","align":"center","x":20,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":53,"obj":"label","align":"center","x":20,"y":290,"w":120,"h":30,"text":"Plant 4","text_font":16,"bg_color":"black","bg_opa":85}
+
+{"comment":" ----------- Gauge 5 ------------"}
+{"page":1,"id":60,"obj":"gauge","align":"center","x":340,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":61,"obj":"gauge","align":"center","x":340,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":62,"obj":"gauge","align":"center","x":340,"y":190,"w":120,"h":120,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":8}
+{"page":1,"id":63,"obj":"label","align":"center","x":340,"y":290,"w":120,"h":30,"text":"Plant 5","text_font":16,"bg_color":"black","bg_opa":85}
+
+{"comment":" ----------- Page 2 layout ------------"}
+{"comment":" ----------- Header ------------"}
+{"page":2,"id":3,"obj":"label","x":0,"y":0,"h":40,"w":480,"text":"Garage","align":"center","bg_opa":255,"bg_color":"#2C3E50"}
+{"page":2,"id":4,"obj":"label","x":380,"y":0,"h":40,"w":60,"text":"00.0","align":2}
+{"page":2,"id":5,"obj":"label","x":440,"y":0,"h":40,"w":40,"text":"°F","align":0}
+{"page":2,"id":6,"obj":"label","x":3,"y":0,"h":40,"w":75,"text":"00:00","template":"%H:%M","align":"0"}
+
+{"comment":" ----------- Gauge 1 ------------"}
+{"page":2,"id":20,"obj":"gauge","align":"center","x":20,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":21,"obj":"gauge","align":"center","x":20,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":22,"obj":"gauge","align":"center","x":20,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":23,"obj":"label","align":"center","x":20,"y":210,"w":200,"h":30,"text":"Plant 1","text_font":24,"bg_color":"black","bg_opa":85}
+
+{"comment":" ----------- Gauge 2 ------------"}
+{"page":2,"id":30,"obj":"gauge","align":"center","x":260,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":31,"obj":"gauge","align":"center","x":260,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":32,"obj":"gauge","align":"center","x":260,"y":50,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":33,"obj":"label","align":"center","x":260,"y":210,"w":200,"h":30,"text":"Plant 2","text_font":24,"bg_color":"black","bg_opa":85}
+
+{"comment":" ----------- Gauge 3 ------------"}
+{"page":2,"id":40,"obj":"gauge","align":"center","x":20,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":41,"obj":"gauge","align":"center","x":20,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":42,"obj":"gauge","align":"center","x":20,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":43,"obj":"label","align":"center","x":20,"y":410,"w":200,"h":30,"text":"Plant 3","text_font":24,"bg_color":"black","bg_opa":85}
+
+{"comment":" ----------- Gauge 4 ------------"}
+{"page":2,"id":50,"obj":"gauge","align":"center","x":260,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":0,"scale_end_color":"sienna","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":51,"obj":"gauge","align":"center","x":260,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":33,"scale_end_color":"lime","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"%","value_opa":255,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":52,"obj":"gauge","align":"center","x":260,"y":250,"w":200,"h":200,"min":0,"max":100,"val":50,"critical_value":66,"scale_end_color":"blue","label_count":11,"border_width":0,"pad_top":2,"pad_bottom":2,"pad_left":2,"pad_right":2,"value_str":"","value_opa":0,"value_ofs_y":30,"bg_opa":0,"line_width":3,"line_rounded":1,"line_color":"white","text_font":12}
+{"page":2,"id":53,"obj":"label","align":"center","x":260,"y":410,"w":200,"h":30,"text":"Plant 4","text_font":24,"bg_color":"black","bg_opa":85}
