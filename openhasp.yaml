@@ -3,13 +3,13 @@ greenhouse:
   objects:
     - obj: "p1b4"
       properties:
-        "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
+        "text": "{{ states('sensor.temp_indoor_greenhouse')|round() }}"
     - obj: "p1b5"
       properties:
         "text": "{{ state_attr('sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
     - obj: "p2b4"
       properties:
-        "text": "{{ states('sensor.temp_indoor_greenhouse') }}"
+        "text": "{{ states('sensor.temp_indoor_greenhouse')|round() }}"
     - obj: "p2b5"
       properties:
         "text": "{{ state_attr('sensor.temp_indoor_greenhouse','unit_of_measurement') }}"
