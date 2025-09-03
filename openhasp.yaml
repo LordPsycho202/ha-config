@@ -119,6 +119,24 @@ greenhouse:
       properties:
         "text": "{{ state_attr('plant.rose','friendly_name')}}"
 
+    - obj: "p1b70"
+      properties:
+        "val": "{{ states('sensor.humidity_indoor_greenhouse') }}"
+    - obj: "p1b71"
+      properties:
+        "val": "{{ states('sensor.humidity_indoor_greenhouse') }}"
+        "critical_value": "0"
+        "value_str": "{{ states('sensor.humidity_indoor_greenhouse')|string + '%'}}"
+        "value_color": "lime"
+    - obj: "p1b72"
+      properties:
+        "val": "{{ states('sensor.humidity_indoor_greenhouse') }}"
+        "critical_value": "100"
+    - obj: "p1b73"
+      properties:
+        "text": "{{ state_attr('sensor.humidity_indoor_greenhouse','friendly_name')}}"
+
+
     - obj: "p2b20"
       properties:
         "val": "{{ states('sensor.pineapples_soil_moisture') }}"
