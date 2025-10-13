@@ -1,7 +1,7 @@
 ---
 sensor:
   - name: "Humidity"
-    object_id: office_humidity
+    default_entity_id: sensor.office_humidity
     unique_id: 181645a6_hum
     state_topic: "sensor/eplus/humidity"
     unit_of_measurement: "%"
@@ -15,7 +15,7 @@ sensor:
       manufacturer: Pimaroni
 
   - name: "Pressure"
-    object_id: office_pressure
+    default_entity_id: sensor.office_pressure
     unique_id: 181645a6_pre
     state_topic: "sensor/eplus/pressure"
     unit_of_measurement: "hPa"
@@ -29,7 +29,7 @@ sensor:
       manufacturer: Pimaroni
 
   - name: "NH3"
-    object_id: office_nh3
+    default_entity_id: sensor.office_nh3
     unique_id: 181645a6_nh3
     state_topic: "sensor/eplus/gas/nh3"
     unit_of_measurement: "ppm"
@@ -46,7 +46,7 @@ sensor:
       manufacturer: Pimaroni
 
   - name: "Reducing"
-    object_id: office_reducing
+    default_entity_id: sensor.office_reducing
     unique_id: 181645a6_red
     state_topic: "sensor/eplus/gas/reducing"
     unit_of_measurement: "ppm"
@@ -63,7 +63,7 @@ sensor:
       manufacturer: Pimaroni
 
   - name: "Oxidising"
-    object_id: office_oxidising
+    default_entity_id: sensor.office_oxidising
     unique_id: 181645a6_oxi
     state_topic: "sensor/eplus/gas/oxidising"
     unit_of_measurement: "ppm"
