@@ -301,6 +301,22 @@ chips:
 
   - type: conditional
     conditions:
+      - condition: state
+        entity: input_boolean.clean_hair_trap
+        state: "on"
+    chip:
+      type: template
+      tap_action:
+        action: perform-action
+        perform_action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.clean_hair_trap
+      icon: mdi:pipe
+      icon_color: grey
+      content: Clean Hair Trap
+
+  - type: conditional
+    conditions:
       - entity: input_select.trash_day_status
         state: 'Trash Day'
     chip:
