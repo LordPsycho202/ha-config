@@ -110,9 +110,6 @@ zha: !include zha.yaml
 #### Workday Sensors #############################################
 # time_date: !include time_date.yaml
 
-#### Battery Notes #############################################
-battery_notes:
-
 #### For Timeplapse #############################################
 ffmpeg:
 
