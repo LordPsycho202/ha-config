@@ -72,20 +72,12 @@ cards:
       - type: "custom:button-card"
         template: card_title
         name: Propane
-        label: House Tank
+        label: House Tank Calculator
       - type: horizontal-stack
         cards:
-          - type: gauge
-            entity: sensor.generac_2231834_fuel_level
-            max: 100
-            min: 0
-            unit: "%"
-            name: Propane Tank
-            needle: true
-            severity:
-              green: 66
-              yellow: 33
-              red: 0
+          - type: entity
+            entity: input_number.manual_propane_level
+            name: Set Propane Tank Level
           - type: vertical-stack
             cards:
               - type: custom:mushroom-template-card
