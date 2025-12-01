@@ -75,9 +75,17 @@ cards:
         label: House Tank Calculator
       - type: horizontal-stack
         cards:
-          - type: entity
+          - type: gauge
             entity: input_number.manual_propane_level
+            max: 100
+            min: 0
+            unit: "%"
             name: Set Propane Tank Level
+            needle: true
+            severity:
+              green: 66
+              yellow: 33
+              red: 0
           - type: vertical-stack
             cards:
               - type: custom:mushroom-template-card
