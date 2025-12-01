@@ -1033,7 +1033,7 @@ sections:
                   - plant_path: plant_onion
                   - plant_moisture_entity: sensor.onion_soil_moisture
                   - plant_moisture_min: number.onion_min_soil_moisture
-                  - plant_moisture_max: number.onion_max_soil_moistures
+                  - plant_moisture_max: number.onion_max_soil_moisture
             - type: conditional
               conditions:
                 - condition: state
