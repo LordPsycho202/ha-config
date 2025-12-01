@@ -101,23 +101,27 @@ plant_graphs:
       - type: custom:stack-in-card
         mode: horizontal
         cards:
-          - type: gauge
+          - type: custom:gauge-card-pro
             entity: '[[plant_moisture_entity]]'
-            name: Soil Moisture
-            unit: "%"
             min: 0
             max: 100
             needle: true
             header_position: bottom
             segments:
               - from: 0
-                color: "#A0522D"
-                label: Water
-              - color: "#008000"
-                from: '[[plant_moisture_min]]'
-              - color: "#0000FF"
-                from: '[[plant_moisture_max]]'
-                label: Too Wet
+                color: "#008000"
+            min_indicator:
+              type: entity
+              value: number.{{ ([[plant_entity]].split("."))[1] }}_min_soil_moisture
+              color: "#A0522D"
+            max_indicator:
+              type: entity
+              value: number.{{ ([[plant_entity]].split("."))[1] }}_max_soil_moisture
+              color: "#0000FF"
+            value_texts:
+              primary_unit: "%"
+            titles:
+              primary: Soil Moisture
           - type: custom:mini-graph-card
             entities:
               - '[[plant_moisture_entity]]'
