@@ -109,19 +109,27 @@ plant_graphs:
             header_position: bottom
             segments:
               - from: 0
-                color: "#008000"
+                color: '#008000'
             min_indicator:
               type: entity
-              value: number.{{ ([[plant_entity]].split("."))[1] }}_min_soil_moisture
-              color: "#A0522D"
+              value: '[[plant_moisture_min]]'
+              color: '#A0522D'
             max_indicator:
               type: entity
-              value: number.{{ ([[plant_entity]].split("."))[1] }}_max_soil_moisture
-              color: "#0000FF"
+              value: '[[plant_moisture_max]]'
+              color: '#0000FF'
             value_texts:
-              primary_unit: "%"
+              primary_unit: '%'
             titles:
               primary: Soil Moisture
+          - type: custom:mini-graph-card
+            entities:
+              - '[[plant_moisture_entity]]'
+            line_color: '#008000'
+            show:
+              state: false
+            line_width: 8
+            name: History
           - type: custom:mini-graph-card
             entities:
               - '[[plant_moisture_entity]]'
