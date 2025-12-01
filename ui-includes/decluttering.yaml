@@ -130,14 +130,6 @@ plant_graphs:
               state: false
             line_width: 8
             name: History
-          - type: custom:mini-graph-card
-            entities:
-              - '[[plant_moisture_entity]]'
-            line_color: '#008000'
-            show:
-              state: false
-            line_width: 8
-            name: History
 
 plant_notification_card:
   card:
