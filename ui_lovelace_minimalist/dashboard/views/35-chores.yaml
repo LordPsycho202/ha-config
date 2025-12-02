@@ -281,7 +281,7 @@ cards:
                 conditions:
                   - condition: state
                     entity: input_boolean.dishes
-                    state: 0n
+                    state: on
                 card:
                   type: custom:mushroom-template-card
                   icon: mdi:dishwasher
