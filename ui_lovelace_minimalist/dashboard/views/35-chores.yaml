@@ -281,7 +281,7 @@ cards:
                 conditions:
                   - condition: state
                     entity: input_boolean.dishes
-                    state: on
+                    state: "on"
                 card:
                   type: custom:mushroom-template-card
                   icon: mdi:dishwasher
@@ -297,12 +297,14 @@ cards:
                       entity_id: input_boolean.dishes
               - type: conditional
                 conditions:
-                  - condition: state
-                    entity: input_boolean.dishes
-                    state: off
-                  - condition: state
-                    entity: input_select.dishwasher_state
-                    state_not: Clean
+                  - condition: and
+                    conditions:
+                      - condition: state
+                        entity: input_boolean.dishes
+                        state: "off"
+                      - condition: state
+                        entity: input_select.dishwasher_state
+                        state_not: Clean
                 card:
                   type: custom:mushroom-template-card
                   icon: mdi:dishwasher
