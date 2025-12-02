@@ -1,0 +1,254 @@
+---
+title: "Chores"
+icon: "mdi:checkbox-marked-circle-auto-outline"
+theme: "minimalist-mobile"
+path: "chores"
+cards:
+  - type: vertical-stack
+    cards:
+      - !include ../includes/1-welcome.yaml      
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Monday Chores
+      - type: vertical-stack
+        cards:
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: input_select.cat_litter_full_clean
+                state: Done
+            card:
+              type: custom:mushroom-template-card
+              icon: mdi:cat
+              features_position: bottom
+              primary: Cat Litter
+              secondary: Done
+              color: grey
+              entity: input_select.cat_litter_full_clean
+              tap_action:
+                action: none
+          - type: conditional
+            conditions:
+              - condition: state
+                entity: input_select.cat_litter_full_clean
+                state_not: Done
+            card:
+              type: custom:mushroom-template-card
+              icon: mdi:cat
+              features_position: bottom
+              primary: Cat Litter
+              secondary: Clean All, Empty {{ states('input_select.cat_litter_full_clean') }}
+              entity: input_select.cat_litter_full_clean
+              tap_action:
+                action: perform-action
+                perform_action: input_select.select_option
+                target:
+                  entity_id: input_select.cat_litter_full_clean
+                data:
+                  option: Done
+              color: yellow
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.trash_day_status
+                    state: Trash Day
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Trash
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Take out to curb
+                  color: yellow
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_select.select_option
+                    target:
+                      entity_id: input_select.trash_day_status
+                    data:
+                      option: On Curb
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.trash_day_status
+                    state: On Curb
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Trash
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Done
+                  color: grey
+                  tap_action:
+                    action: none
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.trash_day_status
+                    state: Empty
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Trash
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Take inside
+                  color: yellow
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_select.select_option
+                    target:
+                      entity_id: input_select.trash_day_status
+                    data:
+                      option: In Garage
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.trash_day_status
+                    state: In Garage
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Trash
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Done
+                  color: grey
+                  tap_action:
+                    action: none
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.recycling_day_status
+                    state: Recycling Day
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Recycling
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Take out to curb
+                  color: yellow
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_select.select_option
+                    target:
+                      entity_id:
+                        - input_select.recycling_day_status
+                    data:
+                      option: On Curb
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.recycling_day_status
+                    state: On Curb
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Recycling
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Done
+                  color: grey
+                  tap_action:
+                    action: none
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.recycling_day_status
+                    state: Empty
+                card:
+                  type: custom:mushroom-template-card
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Take inside
+                  color: yellow
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_select.select_option
+                    target:
+                      entity_id:
+                        - input_select.recycling_day_status
+                    data:
+                      option: In Garage
+                  primary: Recycling
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.recycling_day_status
+                    state: In Garage
+                card:
+                  type: custom:mushroom-template-card
+                  primary: Recycling
+                  icon: mdi:delete
+                  features_position: bottom
+                  entity: input_select.trash_day_status
+                  secondary: Done
+                  color: grey
+                  tap_action:
+                    action: none
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Bedroom/Bathroom Chores
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.replace_towels
+            name: Replace Towels
+            tap_action:
+              action: perform-action
+              perform_action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.replace_towels
+            fill_container: false
+            icon_color: yellow
+            secondary_info: none
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.
+            name: Replace Towels
+            tap_action:
+              action: perform-action
+              perform_action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.change_sheets
+            fill_container: false
+            icon_color: yellow
+            secondary_info: none
+      - type: horizontal-stack
+        cards:
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.clean_hair_trap
+            name: Clean Hairtrap
+            tap_action:
+              action: perform-action
+              perform_action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.clean_hair_trap
+            fill_container: false
+            icon_color: yellow
+            secondary_info: none
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.replace_rodneys_contacts
+            name: Replace Towels
+            tap_action:
+              action: perform-action
+              perform_action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.replace_rodneys_contacts
+            fill_container: false
+            icon_color: yellow
+            secondary_info: none
