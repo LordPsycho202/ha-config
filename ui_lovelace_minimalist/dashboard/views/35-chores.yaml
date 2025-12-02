@@ -203,7 +203,7 @@ cards:
     cards:
       - type: "custom:button-card"
         template: card_title
-        name: Bedroom/Bathroom Chores
+        name: Bedroom/Bathroom
       - type: horizontal-stack
         cards:
           - type: custom:mushroom-entity-card
@@ -249,6 +249,78 @@ cards:
               perform_action: input_boolean.turn_off
               target:
                 entity_id: input_boolean.replace_rodneys_contacts
+            fill_container: false
+            icon_color: yellow
+            secondary_info: none
+
+  - type: vertical-stack
+    cards:
+      - type: "custom:button-card"
+        template: card_title
+        name: Kitchen
+      - type: horizontal-stack
+        cards:
+          - type: vertical-stack
+            cards:
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_select.dishwasher_state
+                    state: Clean
+                card:
+                  type: custom:mushroom-template-card
+                  icon: mdi:dishwasher
+                  features_position: bottom
+                  primary: Dishes
+                  secondary: Empty Dishwasher
+                  color: yellow
+                  entity: input_select.dishwasher_state
+                  tap_action:
+                    action: none
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_boolean.dishes
+                    state: 0n
+                card:
+                  type: custom:mushroom-template-card
+                  icon: mdi:dishwasher
+                  features_position: bottom
+                  primary: Dishes
+                  secondary: Clean dishes
+                  color: yellow
+                  entity: input_boolean.dishes
+                  tap_action:
+                    action: perform-action
+                    perform_action: input_boolean.turn_off
+                    target:
+                      entity_id: input_boolean.dishes
+              - type: conditional
+                conditions:
+                  - condition: state
+                    entity: input_boolean.dishes
+                    state: off
+                  - condition: state
+                    entity: input_select.dishwasher_state
+                    state_not: Clean
+                card:
+                  type: custom:mushroom-template-card
+                  icon: mdi:dishwasher
+                  features_position: bottom
+                  primary: Dishes
+                  secondary: Done
+                  color: grey
+                  entity: input_boolean.dishes
+                  tap_action:
+                    action: none
+          - type: custom:mushroom-entity-card
+            entity: input_boolean.water_terrarium
+            name: Water Terrarium
+            tap_action:
+              action: perform-action
+              perform_action: input_boolean.turn_off
+              target:
+                entity_id: input_boolean.water_terrarium
             fill_container: false
             icon_color: yellow
             secondary_info: none
