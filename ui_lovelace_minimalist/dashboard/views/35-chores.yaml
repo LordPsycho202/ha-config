@@ -218,8 +218,8 @@ cards:
             icon_color: yellow
             secondary_info: none
           - type: custom:mushroom-entity-card
-            entity: input_boolean.
-            name: Replace Towels
+            entity: input_boolean.change_sheets
+            name: Change Sheets
             tap_action:
               action: perform-action
               perform_action: input_boolean.turn_off
@@ -243,7 +243,7 @@ cards:
             secondary_info: none
           - type: custom:mushroom-entity-card
             entity: input_boolean.replace_rodneys_contacts
-            name: Replace Towels
+            name: Replace Contacts
             tap_action:
               action: perform-action
               perform_action: input_boolean.turn_off
