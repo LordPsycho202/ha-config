@@ -510,3 +510,21 @@ sensor:
         Done
       {% endif %}
 
+weather:
+  - name: Station 
+    unique_id: home_wx
+    condition_template: >
+      {% if has_value('weather.kwdr_daynight') %}
+        {{ states('weather.kwdr_daynight') }}
+      {% else %}
+        {{ states('weather.main_floor') }}
+      {% endif %}
+    temperature_template: '{{ states.sensor.outdoor_temp.state|float }}'
+    temperature_unit: °F
+    humidity_template: '{{ states.sensor.outdoor_humidity.state|float }}'
+    pressure_template: '{{ states.sensor.relative_pressure.state|float }}'
+    pressure_unit: hPa
+    wind_speed_template: '{{ states.sensor.wind_acurite_5n1.state|float }}'
+    wind_speed_unit: mph
+    wind_bearing_template: '{{ states.sensor.wind_dir_acurite_5n1.state }}'
+
