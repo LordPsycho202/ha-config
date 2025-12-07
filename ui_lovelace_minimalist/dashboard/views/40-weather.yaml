@@ -313,7 +313,7 @@ cards:
           windspeed_bar_location: right
           wind_direction_entity:
             entity: sensor.wind_direction_average
-            use_statistics: true
+            use_statistics: false
             direction_compensation: 0
           windspeed_entities:
             - entity: sensor.wind_acurite_5n1
