@@ -6,7 +6,7 @@ path: "chores"
 cards:
   - type: vertical-stack
     cards:
-      - !include ../includes/1-welcome.yaml      
+      - !include ../includes/1-welcome.yaml 
 
   - type: vertical-stack
     cards:

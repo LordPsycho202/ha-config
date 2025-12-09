@@ -748,7 +748,6 @@ sections:
                       - plant_moisture_min: number.lavender_min_soil_moisture
                       - plant_moisture_max: number.lavender_max_soil_moisture
 
-
   - type: grid
     cards:
       - type: "custom:button-card"
@@ -1049,7 +1048,6 @@ sections:
                   - plant_moisture_entity: sensor.kale_soil_moisture
                   - plant_moisture_min: number.kale_min_soil_moisture
                   - plant_moisture_max: number.kale_max_soil_moisture
-
 
   - type: grid
     cards:

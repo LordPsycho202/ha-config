@@ -511,7 +511,7 @@ sensor:
       {% endif %}
 
 weather:
-  - name: Station 
+  - name: Station
     unique_id: home_wx
     condition_template: >
       {% if has_value('weather.kwdr_daynight') %}
@@ -527,4 +527,3 @@ weather:
     wind_speed_template: '{{ states.sensor.wind_acurite_5n1.state|float }}'
     wind_speed_unit: mph
     wind_bearing_template: '{{ states.sensor.wind_dir_acurite_5n1.state }}'
-
