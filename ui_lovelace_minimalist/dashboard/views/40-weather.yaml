@@ -313,13 +313,13 @@ cards:
           windspeed_bar_location: right
           wind_direction_entity:
             entity: sensor.wind_direction_average
-            use_statistics: false
+            use_statistics: true
             direction_compensation: 0
           windspeed_entities:
             - entity: sensor.wind_acurite_5n1
               name: Winds
               speed_unit: mph
-              use_statistics: false
+              use_statistics: ftrue
               windspeed_bar_full: true
               output_speed_unit: mph
               output_speed_unit_label: mph
