@@ -323,7 +323,7 @@ cards:
               windspeed_bar_full: true
               output_speed_unit: mph
               output_speed_unit_label: mph
-              speed_range_max: 20
+              speed_range_max: 18
               speed_range_step: 2
               speed_range_beaufort: false
           direction_labels:
