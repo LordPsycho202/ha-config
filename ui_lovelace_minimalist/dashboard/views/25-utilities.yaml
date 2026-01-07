@@ -66,6 +66,16 @@ cards:
               {% else %} red
               {% endif %}
             layout: vertical
+      - type: custom:expander-card
+        title: Calibrate Water Meter
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.last_water_bill_reading
+                name: Current Reading from Bill
+              - entity: script.set_water_meter
+                name: Press Run to Apply to Meter
+                secondary_info: last-triggered
 
   - type: vertical-stack
     cards:
