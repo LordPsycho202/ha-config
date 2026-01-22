@@ -270,6 +270,17 @@ cards:
       - type: conditional
         conditions:
           - condition: numeric_state
+            entity: sensor.soil_temperature_1
+            below: 45
+        card:
+          type: custom:mushroom-entity-card
+          entity: sensor.soil_temperature_1
+          icon_color: brown
+          name: Soil Temperature
+
+      - type: conditional
+        conditions:
+          - condition: numeric_state
             entity: sensor.rain_daily
             above: 0
         card:
