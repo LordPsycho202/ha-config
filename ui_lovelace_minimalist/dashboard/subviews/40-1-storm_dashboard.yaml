@@ -1,0 +1,196 @@
+---
+type: sections
+max_columns: 2
+title: Storm Dashboard
+path: storm-dashboard
+icon: mdi:weather-lightning-rainy
+back_path: /ui-lovelace-minimalist/weather
+subview: true
+theme: minimalist-mobile-tapbar
+sections:
+  - type: grid
+    cards:
+      - type: heading
+        heading_style: title
+        heading: Temp
+      - type: vertical-stack
+        cards:
+          - type: custom:gauge-card-pro
+            needle: true
+            gradient: true
+            titles:
+              primary: Temp & Humdity
+            gradient_resolution: auto
+            entity: sensor.outdoor_temp
+            entity2: sensor.outdoor_humidity
+            min: 10
+            max: 105
+            segments:
+              - pos: 100
+                color: red
+            setpoint:
+              type: entity
+              value: sensor.outside_dew_point
+              label: true
+              precision: 1
+            inner:
+              mode: needle
+              min: 0
+              max: 100
+              setpoint:
+                type: entity
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.obs_low_temp
+                icon_color: blue
+                name: Low
+              - type: custom:mushroom-entity-card
+                entity: sensor.obs_high_temp
+                icon_color: red
+                name: High
+              - type: custom:mushroom-entity-card
+                entity: sensor.soil_temperature_1
+                icon_color: brown
+                name: Soil
+      - type: vertical-stack
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.wind_avg_acurite_5n1
+                name: Wind speed
+                min: 0
+                max: 30
+                needle: true
+                severity:
+                  green: 0
+                  yellow: 15
+                  red: 25
+              - type: custom:compass-card
+                indicator_sensors:
+                  - indicator:
+                      image: arrow_outward
+                    sensor: sensor.wind_direction_average
+                value_sensors:
+                  - sensor: ''
+          - type: horizontal-stack
+            cards:
+              - type: custom:mushroom-entity-card
+                entity: sensor.wind_gust_acurite_5n1
+                name: Gusts
+              - type: custom:mushroom-entity-card
+                entity: sensor.wind_daily_hi_acurite_5n1
+                icon_color: red
+                name: Highest Today
+          - type: custom:expander-card
+            title: Wind Rose
+            cards:
+              - type: custom:windrose-card
+                title: Winds
+                data_period:
+                  hours_to_show: 4
+                refresh_interval: 300
+                windspeed_bar_location: right
+                wind_direction_entity:
+                  entity: sensor.wind_direction_average
+                  use_statistics: true
+                  direction_compensation: 0
+                windspeed_entities:
+                  - entity: sensor.wind_acurite_5n1
+                    name: Winds
+                    speed_unit: mph
+                    use_statistics: true
+                    windspeed_bar_full: true
+                    output_speed_unit: mph
+                    output_speed_unit_label: mph
+                    speed_range_max: 18
+                    speed_range_step: 2
+                    speed_range_beaufort: false
+                direction_labels:
+                  cardinal_direction_letters: NESW
+                windrose_draw_north_offset: 0
+                current_direction:
+                  show_arrow: true
+                  arrow_size: 50
+                  center_circle_size: 30
+                compass_direction:
+                  auto_rotate: false
+                  entity: ''
+                cardinal_direction_letters: N,E,S,W
+                matching_strategy: direction-first
+                center_calm_percentage: true
+            expanded: false
+          - show_name: true
+            show_icon: true
+            show_state: true
+            type: glance
+            entities:
+              - entity: sensor.blitzortung_lightning_counter
+              - entity: sensor.blitzortung_lightning_distance
+              - entity: sensor.blitzortung_lightning_azimuth
+            state_color: true
+  - type: grid
+    cards:
+      - type: heading
+        heading: New section
+      - type: custom:weather-radar-card
+        frame_count: 75
+        frame_delay: 100
+        center_latitude: 34.07
+        center_longtitude: -83.69
+        show_marker: true
+        show_range: true
+        show_recenter: true
+        show_playback: true
+        center_longitude: -83.69
+        square_map: true
+        zoom_level: 8
+        data_source: RainViewer-TITAN
+        map_style: Voyager
+    column_span: 1
+badges:
+  - type: custom:mushroom-template-badge
+    entity: sensor.nws_alerts
+    content: |-
+      {%- set ns = namespace(count = 0,index=0) %}
+      {%- if states.sensor.nws_alerts.state | int > 0 %}
+        {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
+        {%- for desc in description %}
+          {%- set ends = as_timestamp(desc.Expires) %}
+          {%- if as_timestamp(now()) < ends %}
+            {%- set ns.count = ns.count+1 %}
+            {%- set ns.index = loop.index0 %}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+      {%- if ns.count > 1 %}
+        {{ns.count}} NWS Alerts
+      {%- else %}
+        {{states.sensor.nws_alerts.attributes.Alerts[ns.index].Event}}
+      {%- endif %}
+    icon: '{{states.sensor.nws_alerts.attributes.icon}}'
+    color: |-
+      {%- set ns = namespace(output="grey") %}
+      {%- if states.sensor.nws_alerts.state | int > 0 %}
+        {%- set description = states.sensor.nws_alerts.attributes.Alerts %}
+        {%- for desc in description %}
+          {%- set ends = as_timestamp(desc.Ends) %}
+          {%- if as_timestamp(now()) < ends %}
+            {% set severity = desc.Severity %}
+            {%- if severity == "Extreme" %}
+              {%- set ns.output = "red" %}
+            {% elif severity == "Severe" and ns.output != "red" %}
+              {%- set ns.output = "orange" %}
+            {% elif severity == "Moderate" and (ns.output != "red" or ns.output != "yellow") %}
+              {%- set ns.output = "yellow" %}
+            {%- endif %}
+          {%- endif %}
+        {%- endfor %}
+      {%- endif %}
+      {{ ns.output }}
+  - type: entity
+    show_name: false
+    show_state: true
+    show_icon: true
+    entity: weather.kwdr_daynight

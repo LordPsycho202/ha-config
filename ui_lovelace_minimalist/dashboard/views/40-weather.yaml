@@ -97,7 +97,7 @@ cards:
             {{ ns.output }}
           tap_action:
             action: navigate
-            navigation_path: wxalert
+            navigation_path: storm-dashboard
           hold_action:
             action: more-info
           entity: sensor.nws_alerts
