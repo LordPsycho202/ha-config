@@ -146,7 +146,6 @@ sections:
         center_longitude: -83.69
         square_map: true
         zoom_level: 8
-        data_source: RainViewer-TITAN
         map_style: Voyager
     column_span: 1
 badges:
