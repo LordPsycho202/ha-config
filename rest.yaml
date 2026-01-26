@@ -20,6 +20,39 @@
       value_template: "{{ value_json.queryresult.pods[0].subpods[0].plaintext | replace('° (degrees)', '') | float}}"
 
 - scan_interval: 600
+  resource: https://services1.arcgis.com/2iUE8l8JKrP2tygQ/arcgis/rest/services/GDOT_Road_Weather_Stations/FeatureServer/0/query?where=ID%3D11677&outFields=ID,OBSTIME,TMPF,DPTF,WDIR,WSPD,WGUST,VIS,ROADT,SUBSURFACET,ROADSTATE,LAT,LON&outSR=4326&f=json
+  method: GET
+  sensor:
+    - unique_id: gdot_road_temp_11677
+      name: Road Temperature
+      unit_of_measurement: °F
+      device_class: temperature
+      state_class: measurement
+      value_template: "{{ value_json.features[0].attributes.ROADT}}"
+      json_attributes_path: value_json.features[0].attributes
+      json_attributes:
+        - OBSTIME
+    - unique_id: gdot_subsurface_temp_11677
+      name: Subsurface Temperature
+      unit_of_measurement: °F
+      device_class: temperature
+      state_class: measurement
+      value_template: "{{ value_json.features[0].attributes.SUBSURFACET}}"
+      json_attributes_path: value_json.features[0].attributes
+      json_attributes:
+        - OBSTIME
+  binary_sensor:
+    - unique_id: gdot_roadstate_11677
+      name: Road State
+      device_class: moisture
+      state_class: measurement
+      value_template: "{%- if value_json.features[0].attributes.ROADSTATE == 'Dry' %}off{%- else %}on{%- endif %}"
+      json_attributes_path: value_json.features[0].attributes
+      json_attributes:
+        - OBSTIME
+
+
+- scan_interval: 600
   resource: http://api.weatherapi.com/v1/current.json?key=7528cc921ce345f8823181847232604&q=30549&aqi=no
   method: GET
   sensor:
