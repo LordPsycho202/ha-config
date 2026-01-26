@@ -45,11 +45,7 @@
     - unique_id: gdot_roadstate_11677
       name: Road State
       device_class: moisture
-      state_class: measurement
       value_template: "{%- if value_json.features[0].attributes.ROADSTATE == 'Dry' %}off{%- else %}on{%- endif %}"
-      json_attributes_path: value_json.features[0].attributes
-      json_attributes:
-        - OBSTIME
 
 
 - scan_interval: 600
