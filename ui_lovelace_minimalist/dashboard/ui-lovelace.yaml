@@ -61,6 +61,7 @@ views:
 
   # Weather
   - !include views/40-weather.yaml
+  - !include subviews/40-1-storm_dashboard.yaml
   # Security
   - !include views/50-security.yaml
   # Utilities
