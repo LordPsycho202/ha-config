@@ -66,21 +66,31 @@ cards:
               {% else %} red
               {% endif %}
             layout: vertical
+      - type: custom:expander-card
+        title: Calibrate Water Meter
+        cards:
+          - type: entities
+            entities:
+              - entity: input_number.last_water_bill_reading
+                name: Current Reading from Bill
+              - entity: script.set_water_meter
+                name: Press Run to Apply to Meter
+                secondary_info: last-triggered
 
   - type: vertical-stack
     cards:
       - type: "custom:button-card"
         template: card_title
         name: Propane
-        label: House Tank
+        label: House Tank Calculator
       - type: horizontal-stack
         cards:
           - type: gauge
-            entity: sensor.generac_2231834_fuel_level
+            entity: input_number.manual_propane_level
             max: 100
             min: 0
             unit: "%"
-            name: Propane Tank
+            name: Set Propane Tank Level
             needle: true
             severity:
               green: 66

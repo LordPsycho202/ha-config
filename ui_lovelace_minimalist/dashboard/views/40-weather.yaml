@@ -97,7 +97,7 @@ cards:
             {{ ns.output }}
           tap_action:
             action: navigate
-            navigation_path: wxalert
+            navigation_path: storm-dashboard
           hold_action:
             action: more-info
           entity: sensor.nws_alerts
@@ -270,6 +270,17 @@ cards:
       - type: conditional
         conditions:
           - condition: numeric_state
+            entity: sensor.soil_temperature_1
+            below: 45
+        card:
+          type: custom:mushroom-entity-card
+          entity: sensor.soil_temperature_1
+          icon_color: brown
+          name: Soil Temperature
+
+      - type: conditional
+        conditions:
+          - condition: numeric_state
             entity: sensor.rain_daily
             above: 0
         card:
@@ -323,8 +334,8 @@ cards:
               windspeed_bar_full: true
               output_speed_unit: mph
               output_speed_unit_label: mph
-              speed_range_max: 21
-              speed_range_step: 3
+              speed_range_max: 18
+              speed_range_step: 2
               speed_range_beaufort: false
           direction_labels:
             cardinal_direction_letters: NESW

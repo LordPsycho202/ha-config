@@ -136,7 +136,6 @@ greenhouse:
       properties:
         "text": "Humidity"
 
-
     - obj: "p2b20"
       properties:
         "val": "{{ states('sensor.pineapples_soil_moisture') }}"
