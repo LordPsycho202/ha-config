@@ -1,14 +1,6 @@
 ---
 binary_sensor:
 
-  - name: Mail Card
-    state: >
-      {% if states.input_boolean.mail_present.state == 'on' or states('sensor.mail_usps_mail')|int > 0 %}
-      on
-      {% else %}
-      off
-      {% endif %}
-
   - name: WX Card
     state: >
       {%- set ns = namespace(output="off") %}
@@ -25,37 +17,6 @@ binary_sensor:
         {%- endfor %}
       {%- endif %}
       {{ ns.output }}
-
-  - unique_id: new_movie
-    name: New Plex Movie
-    icon: mdi:movie-filter
-    state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_movies.attributes.last_added_timestamp)) <= 259200 %}
-        true
-      {% else %}
-        false
-      {% endif %}
-
-  - unique_id: new_show
-    name: New Plex Show
-    icon: mdi:television-shimmer
-    state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.muse_library_tv_shows.attributes.last_added_timestamp)) <= 259200 %}
-        true
-      {% else %}
-        false
-      {% endif %}
-
-  - name: Is Rain
-    device_class: moisture
-    unique_id: is_rain
-    icon: mdi:weather-rainy
-    state: >
-      {% if (as_timestamp(now()) - as_timestamp(states.sensor.rain_daily.last_changed) <= 600) and states('sensor.rain_daily')|float > 0 %}
-      on
-      {% else %}
-      off
-      {% endif %}
 
   - unique_id: christmas_season
     name: Christmas Season
@@ -95,6 +56,7 @@ sensor:
   - name: sunlight pct
     unique_id: sunlight_pct
     unit_of_measurement: "%"
+    state_class: measurement
     device_class: "illuminance"
     state: >
       {%- set elevation = state_attr('sun.sun','elevation') | float %}
@@ -110,50 +72,10 @@ sensor:
       {%- set brightness = adjusted_elevation * cloud_factor %}
       {{ brightness | round  }}
 
-  - name: Mail State
-    state: >
-      {% if states('sensor.mail_usps_mail')|int > 0 %}
-        {% if states.input_boolean.mail_present.state == 'off' and states.input_boolean.mail_grabbed.state == 'off' %}
-        1
-        {% elif states.input_boolean.mail_present.state == 'on' and states.input_boolean.mail_grabbed.state == 'off' %}
-        2
-        {% else %}
-        3
-        {% endif %}
-      {% else %}
-      0
-      {% endif %}
-
-  - name: Blank
-    state: " "
-
-  - unique_id: header_greet
-    state: |
-      {% set time = now().hour %}
-
-      {% if time <= 1 %} Good Night {{'\U0001F611'}}
-      {% elif time <= 3 %} Good Night {{'\U0001F62A'}}
-      {% elif time <= 5 %} Good Night {{'\U0001F634'}}
-      {% elif time <= 7 %} Good Morning {{'\U0001F4A9'}}
-      {% elif time <= 9 %} Good Morning {{'\u2615\uFE0F'}}
-      {% elif time <= 10 %} Good Morning {{'\U0001F642'}}
-      {% elif time <= 12 %} Good Afternoon {{'\U0001F60A'}}
-      {% elif time <= 15 %} Good Afternoon {{'\U0001F60E'}}
-      {% elif time <= 17 %} Good Afternoon{{'\U0001F44B\U0001F3FB'}}
-      {% elif time <= 19 %} Good Evening {{'\U0001F44B\U0001F3FB'}}
-      {% elif time <= 22 %} Good Night {{'\U0001F60C'}}
-      {% elif time <= 23 %} Good Night {{'\U0001F974'}}
-      {% else %} Hello! {{'\U0001F974'}}
-      {% endif %}
-
-  - unique_id: date_long
-    name: date_long
-    state: >
-      {{ as_timestamp(now()) | timestamp_custom( '%b %d %A') }}
-
   - name: rpi_mem_use_cardinal
     unique_id: rpi_mem_use_cardinal
     unit_of_measurement: "%"
+    state_class: measurement
     state: >-
       {% set memUsed = '%0.1f' % ( 100- (
       states.sensor.rpi_monitor_cardinal.attributes.memory.free_mb|float /
@@ -173,6 +95,7 @@ sensor:
 
   - name: rpi_mem_use_apollo
     unique_id: rpi_mem_use_apollo
+    state_class: measurement
     unit_of_measurement: "%"
     state: >-
       {% set memUsed = '%0.1f' % ( 100- (
@@ -193,6 +116,7 @@ sensor:
 
   - name: rpi_mem_use_artemis
     unique_id: rpi_mem_use_artemis
+    state_class: measurement
     unit_of_measurement: "%"
     state: >-
       {% set memUsed = '%0.1f' % ( 100- (
@@ -213,6 +137,7 @@ sensor:
 
   - name: rpi_mem_use_charles
     unique_id: rpi_mem_use_charles
+    state_class: measurement
     unit_of_measurement: "%"
     state: >-
       {% set memUsed = '%0.1f' % ( 100- (
@@ -230,156 +155,6 @@ sensor:
       (states.sensor.rpi_monitor_charles.attributes.memory.size_mb|int/1024)|int
       +1 %}
       RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
-
-  - name: rpi_mem_use_k3s_1
-    unique_id: rpi_mem_use_k3s_1
-    unit_of_measurement: "%"
-    state: >-
-      {% set memUsed = '%0.1f' % ( 100- (
-      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.free_mb|float /
-      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|float )  *
-      100) %}
-      {{memUsed}}
-
-  - name: rpi_model_k3s_1
-    unique_id: rpi_model_k3s_1
-    state: >-
-      {% set rpi_model =
-      states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.rpi_model.split(' ') %}
-      {% set memMax =
-      (states.sensor.rpi_k3s_1_folden_nissen_com_rpi_monitor_k3s_1.attributes.memory.size_mb|int/1024)|int
-      +1 %}
-      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
-
-  - name: rpi_mem_use_k3s_2
-    unique_id: rpi_mem_use_k3s_2
-    unit_of_measurement: "%"
-    state: >-
-      {% set memUsed = '%0.1f' % ( 100- (
-      states.sensor.rpi_monitor_k3s_2.attributes.memory.free_mb|float /
-      states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|float )  *
-      100) %}
-      {{memUsed}}
-
-  - name: rpi_model_k3s_2
-    unique_id: rpi_model_k3s_2
-    state: >-
-      {% set rpi_model =
-      states.sensor.rpi_monitor_k3s_2.attributes.rpi_model.split(' ') %}
-      {% set memMax =
-      (states.sensor.rpi_monitor_k3s_2.attributes.memory.size_mb|int/1024)|int
-      +1 %}
-      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
-
-  - name: rpi_mem_use_k3s_3
-    unique_id: rpi_mem_use_k3s_3
-    unit_of_measurement: "%"
-    state: >-
-      {% set memUsed = '%0.1f' % ( 100- (
-      states.sensor.rpi_monitor_k3s_3.attributes.memory.free_mb|float /
-      states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|float )  *
-      100) %}
-      {{memUsed}}
-
-  - name: rpi_model_k3s_3
-    unique_id: rpi_model_k3s_3
-    state: >-
-      {% set rpi_model =
-      states.sensor.rpi_monitor_k3s_3.attributes.rpi_model.split(' ') %}
-      {% set memMax =
-      (states.sensor.rpi_monitor_k3s_3.attributes.memory.size_mb|int/1024)|int
-      +1 %}
-      RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
-
-  - unique_id: wind_dir
-    state: >
-      {{states.sensor.wind_acurite_5n1_b.state | float }} {{states.sensor.wind_acurite_5n1_b.attributes.unit_of_measurement }} {{states.sensor.wind_dir_acurite_5n1_b.attributes.compass | string }}
-
-  - unique_id: stardate
-    name: Stardate
-    state: >
-      {{ (((as_timestamp(states('sensor.date_time_iso')) - (as_timestamp("1987-07-15 00:00:00"))) // 3155.76 ) + 410000 ) / 10 }}
-
-  - unique_id: header_weather
-    state: >
-      {%- if has_value('weather.weather_station') %}
-        {%- set entity = 'weather.weather_station' %}
-        {%- set Condition = states(entity) %}
-        {%- set Temp = state_attr(entity, 'temperature') %}
-        {%- set Unit = state_attr(entity, 'temperature_unit') %}
-        {%- set forecast = "Currently " + Condition|replace("-"," & ")|capitalize + ", " + Temp|string + Unit|string %}
-        {%- set sun = states.sun.sun.state %}
-        {%- if sun == 'above_horizon' %} {{forecast}} 🌞
-        {%- else %} {{forecast}} 🌙
-        {%- endif %}
-      {%- else %}
-        Can't Load Weather...
-      {%- endif %}
-
-  - name: Water Meter m3
-    unique_id: water_meter_m3
-    state: >
-      {{ states('sensor.water_meter') | float * 0.0037854118 }}
-    unit_of_measurement: m³
-    device_class: water
-    icon: mdi:water
-
-  - name: "Water Bill"
-    icon: mdi:currency-usd
-    unit_of_measurement: USD
-    device_class: monetary
-    state: >
-      {% set sewer_base=26.28 %}
-      {% set water_base=12.98 %}
-      {% set sum = sewer_base + water_base %}
-      {% set sum = sum + ((([states('sensor.monthly_water') | float , 5700 ] | min ) /1000 ) * 7.36) %}
-      {% set sum = sum + (([[ states('sensor.monthly_water') | float - 5700, 0 ] | max, 7500] | min / 1000 )* 11.17) %}
-      {% set sum = sum + (([ states('sensor.monthly_water') | float - 7500 , 0 ] | max / 1000 ) * 14.68) %}
-      {% set sum = sum + (([ states('sensor.monthly_water') | float - 1500 , 0 ] | max / 1000 ) * 10.35 )%}
-
-      {{ sum|float|round(2) }}
-
-  - name: "Power Bill"
-    icon: mdi:currency-usd
-    unit_of_measurement: USD
-    device_class: monetary
-    state: >-
-      {%- if now().month in (1,2,3,4,10,11,12) -%}
-        {% set sum = ([states('sensor.home_123_1mon') | float , 650 ] | min * 0.0881) %}
-        {% set sum = sum + ([[ states('sensor.home_123_1mon') | float - 650 , 0 ] | max, 350 ] | min * 0.0816) %}
-        {% set sum = sum + ([ states('sensor.home_123_1mon') | float - 1000 , 0 ] | max * 0.0806) %}
-      {%- else -%}
-        {% set sum = ([states('sensor.home_123_1mon') | float , 650 ] | min * 0.0881) %}
-        {% set sum = sum + ([[ states('sensor.home_123_1mon') | float - 650 , 0 ] | max, 350 ] | min * 0.1106) %}
-        {% set sum = sum + ([ states('sensor.home_123_1mon') | float - 1000 , 0 ] | max * 0.1166) %}
-      {%- endif -%}
-      {{ sum + 25 }}
-
-  - name: "Current Power Price"
-    icon: mdi:currency-usd
-    unit_of_measurement: USD/kWh
-    state: >-
-      {%- if now().month in (1,2,3,4,10,11,12) -%}
-        {% if states('sensor.home_123_1mon') | float <= 650 %} 0.0881
-        {% elif states('sensor.home_123_1mon') | float <= 1000 %} 0.0816
-        {% else %} 0.0806
-        {% endif %}
-      {%- else -%}
-        {% if states('sensor.home_123_1mon') | float <= 650 %} 0.0881
-        {% elif states('sensor.home_123_1mon') | float <= 1000 %} 0.1106
-        {% else %} 0.1166
-        {% endif %}
-      {%- endif -%}
-
-  - name: "Current Water Price"
-    icon: mdi:currency-usd
-    unit_of_measurement: USD/gal
-    state: >-
-      {% if states('sensor.monthly_water') | float  < 1500 %} 0.00736
-      {% elif states('sensor.monthly_water') | float < 5700 %} 0.01771
-      {% elif states('sensor.monthly_water') | float < 7500 %} 0.02152
-      {% else %} 0.02503
-      {% endif %}
 
   - name: "Next Sunrise"
     state: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
@@ -425,11 +200,6 @@ sensor:
     state: >
       {% set water_times = as_timestamp(states("sensor.back_yard_zone_history")), as_timestamp(states("sensor.front_yard_zone_history")), as_timestamp(states("sensor.side_yard_zone_history")) %}
           {{ water_times|max | timestamp_custom("%Y-%m-%dT%H:%M:%S%z",false) }}
-
-  - name: "Alarm - Lights"
-    device_class: timestamp
-    state: >
-      {{(as_timestamp(states('sensor.rodney_s_phone_next_alarm')) - (15*60))|timestamp_custom("%Y-%m-%dT%H:%M:%S%z")}}
 
   - name: "Next Sunset"
     state: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
