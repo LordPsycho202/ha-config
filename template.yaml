@@ -155,57 +155,76 @@ sensor:
       (states.sensor.rpi_monitor_charles.attributes.memory.size_mb|int/1024)|int
       +1 %}
       RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
+  
+  - name: Rpi Temp Hestia
+    unique_id: rpi_temp_hestia
+    unit_of_measurement: °C
+    device_class: temperature
+    icon: mdi:thermometer
+    state: >
+      {{ states.sensor.cpu_temp.state}}
 
   - name: "Next Sunrise"
+    unique_id: "next_sunrise"
     state: "{{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
     icon: mdi:weather-sunset-up
 
   - name: "Morning Outside Off"
+    unique_id: "morning_outside_off"
     state: "{{ state_attr('sun.sun', 'next_rising') | as_datetime + timedelta(minutes=(states.input_number.morning_outside_offset.state|int-1440)) }}"
     device_class: timestamp
     icon: mdi:weather-sunset-up
 
   - name: "Evening Outside On"
+    unique_id: "evening_outside_on"
     state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=states.input_number.evening_outside_offset.state|int) }}"
     device_class: timestamp
     icon: mdi:weather-sunset-down
 
   - name: "Evening Living Room On"
+    unique_id: "evening_living_room_on"
     state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=states.input_number.evening_livingroom_offset.state|int) }}"
     device_class: timestamp
     icon: mdi:weather-sunset-down
 
   - name: "Night Living Room dim"
+    unique_id: "night_living_room_dim"
     state: "{{ state_attr('sun.sun', 'next_setting') | as_datetime + timedelta(minutes=(states.input_number.night_livingroom_offset.state|int-1440)) }}"
     device_class: timestamp
     icon: mdi:weather-sunset-down
 
   - name: "Next Trash"
+    unique_id: "next_trash"
     state: "{{ as_timestamp(state_attr('calendar.trash_collection','start_time'))| as_datetime }}"
     device_class: timestamp
     icon: mdi:trash-can-outline
 
   - name: "Next Recycling"
+    unique_id: "next_recycling"
     state: "{{ as_timestamp(state_attr('calendar.recycling_collection','start_time'))| as_datetime }}"
     device_class: timestamp
     icon: mdi:recycle
 
   - name: "Rain Delay Time"
+    unique_id: "rain_delay_time"
     state: "{{ now().replace(minute=0) +  timedelta(hours=states.switch.waterbender_rain_delay.attributes.delay|int)}}"
     device_class: timestamp
     icon: mdi:sprinkler
 
   - name: "Last Watering"
+    unique_id: "last_watering"
     device_class: timestamp
     state: >
       {% set water_times = as_timestamp(states("sensor.back_yard_zone_history")), as_timestamp(states("sensor.front_yard_zone_history")), as_timestamp(states("sensor.side_yard_zone_history")) %}
           {{ water_times|max | timestamp_custom("%Y-%m-%dT%H:%M:%S%z",false) }}
 
   - name: "Next Sunset"
+    unique_id: "next_sunset"
     state: "{{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom(' %I:%M %p') | replace(' 0', '') }}"
     icon: mdi:weather-sunset-down
 
   - name: "Sun Hours"
+    unique_id: "sun_hours"
     icon: mdi:weather-sunny
     state: >
       {% set nrise = as_timestamp(state_attr('sun.sun','next_rising')) %}
@@ -216,27 +235,24 @@ sensor:
       {{ (nset - nrise)|timestamp_custom('%H:%M',false) }}
 
   - name: "Sun Elevation"
+    unique_id: "sun_elevation"
     unit_of_measurement: "degrees"
     icon: mdi:angle-acute
     state: "{{ state_attr('sun.sun', 'elevation') }}"
 
   - name: "sun azimuth"
+    unique_id: "sun_azimuth"
     state: "{{ state_attr ('sun.sun', 'azimuth') | int }}"
     icon: mdi:angle-acute
     unit_of_measurement: "degrees"
 
   - name: "Sun Minutes"
+    unique_id: "sun_minutes"
     state: "{{ (states.sensor.sun_hours.state.split(':')[0]|int * 60) + (states.sensor.sun_hours.state.split(':')[1] | int) }}"
     icon: mdi:weather-sunny
 
-  - name: Rpi Temp Hestia
-    unit_of_measurement: °C
-    device_class: temperature
-    icon: mdi:thermometer
-    state: >
-      {{ states.sensor.cpu_temp.state}}
-
   - name: "Wind Chill"
+    unique_id: "2619_wind_chill"
     device_class: temperature
     unit_of_measurement: °F
     icon: mdi:windsock
@@ -250,6 +266,7 @@ sensor:
       {% endif %}
 
   - name: "Heat Index"
+    unique_id: "2619_heat_index"
     device_class: temperature
     unit_of_measurement: °F
     icon: mdi:thermometer-alert
