@@ -152,7 +152,7 @@ chips:
       - condition: and
         conditions:
           - condition: state
-            entity: binary_sensor.is_rain_2
+            entity: binary_sensor.is_rain
             state: 'on'
           - condition: state
             entity: switch.sprinklers
