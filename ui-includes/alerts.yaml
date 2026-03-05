@@ -34,7 +34,7 @@ chips:
                 {%- set ns.output = "red" %}
               {% elif severity == "Severe" and ns.output != "red" %}
                 {%- set ns.output = "orange" %}
-              {% elif severity == "Moderate" and (ns.output != "red" or ns.output != "yellow") %}
+              {% elif severity == "Moderate" and ns.output not in ["red", "orange"] %}
                 {%- set ns.output = "yellow" %}
               {%- endif %}
             {%- endif %}
@@ -55,8 +55,10 @@ chips:
         {%- endif %}
         {%- if ns.count > 1 %}
           {{ns.count}} NWS Alerts
-        {%- else %}
+        {%- elif ns.count == 1 %}
           {{states.sensor.nws_alerts.attributes.Alerts[ns.index].Event}}
+        {%- else %}
+          No Active NWS Alerts
         {%- endif %}
       icon: "{{states.sensor.nws_alerts.attributes.icon}}"
 
@@ -133,7 +135,7 @@ chips:
       icon: mdi:heart-remove-outline
       tap_action:
         action: navigate
-        navigate_path: weather
+        navigation_path: weather
 
   - type: conditional
     conditions:
@@ -1737,7 +1739,7 @@ chips:
             state: 'off'
     chip:
       type: template
-      entity: plant.
+      entity: plant.lavender
       icon_color: grey
       icon: |-
         {%- set plant = 'plant.lavender' %}
