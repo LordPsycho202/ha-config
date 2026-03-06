@@ -47,7 +47,6 @@
       device_class: moisture
       value_template: "{%- if value_json.features[0].attributes.ROADSTATE == 'Dry' %}off{%- else %}on{%- endif %}"
 
-
 - scan_interval: 600
   resource: http://api.weatherapi.com/v1/current.json?key=7528cc921ce345f8823181847232604&q=30549&aqi=no
   method: GET

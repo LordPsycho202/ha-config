@@ -155,7 +155,7 @@ sensor:
       (states.sensor.rpi_monitor_charles.attributes.memory.size_mb|int/1024)|int
       +1 %}
       RPi {{ rpi_model[1] }}{{ rpi_model[3] }} {{ memMax }}GB
-  
+
   - name: Rpi Temp Hestia
     unique_id: rpi_temp_hestia
     unit_of_measurement: °C
