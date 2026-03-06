@@ -33,4 +33,31 @@ ha-config-check:
     - '[ -f automations.yaml ] || printf "%s\n%s\n" "---" "[]" > automations.yaml'
     - '[ -f scripts.yaml ] || printf "%s\n%s\n" "---" "{}" > scripts.yaml'
     - '[ -f scenes.yaml ] || printf "%s\n%s\n" "---" "[]" > scenes.yaml'
-    - hass --script check_config --config .
+    - mkdir -p /config/timelapses
+    - |
+      status=0
+      output_file="$(mktemp)"
+      hass --script check_config --config . >"$output_file" 2>&1 || status=$?
+      cat "$output_file"
+
+      # Any config error should fail the job.
+      if grep -q "General Errors" "$output_file"; then
+        rm -f "$output_file"
+        exit 1
+      fi
+
+      # Allow only known CI-only missing integration warnings.
+      if grep -E "Integration error:|Platform error" "$output_file" | \
+        grep -Ev "Integration error: openhasp - Integration 'openhasp' not found\\.|Platform error 'sensor' from integration 'marta' - Integration 'marta' not found\\." | \
+        grep -q "."; then
+        rm -f "$output_file"
+        exit 1
+      fi
+
+      # If hass still returned non-zero for reasons other than allowed warnings, fail.
+      if [ "$status" -ne 0 ] && ! grep -Eq "Integration error: openhasp - Integration 'openhasp' not found\\.|Platform error 'sensor' from integration 'marta' - Integration 'marta' not found\\." "$output_file"; then
+        rm -f "$output_file"
+        exit "$status"
+      fi
+
+      rm -f "$output_file"
