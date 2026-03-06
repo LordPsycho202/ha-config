@@ -6,7 +6,7 @@ yamllint:
   stage: test
   tags:
     - core
-  image: pipelinecomponents/yamllint:1.35.1
+  image: pipelinecomponents/yamllint:arm64-6f941ff
   rules:
     - changes:
         - ".yamllint"
@@ -20,7 +20,7 @@ ha-config-check:
   stage: test
   tags:
     - core
-  image: ghcr.io/home-assistant/home-assistant:2026.2.4
+  image: ghcr.io/home-assistant/home-assistant:2026.3.0
   rules:
     - changes:
         - "configuration.yaml"
