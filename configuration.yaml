@@ -66,9 +66,6 @@ recorder: !include recorder.yaml
 #### HTTPS ##################################
 http: !include http.yaml
 
-#### Influx ##################################
-influxdb: !include influxdb.yaml
-
 #### OpenHASP ##################################
 openhasp: !include openhasp.yaml
 
@@ -91,20 +88,8 @@ rest: !include rest.yaml
 #### MQTT Sensors #############################################
 mqtt: !include mqtt.yaml
 
-#### Plant Sensors #############################################
-# plant: !include plant.yaml
-
 #### ZHA Sensors #############################################
 zha: !include zha.yaml
-
-#### Filter Sensors #############################################
-# filter: !include filter.yaml
-
-#### Workday Sensors #############################################
-# workday: !include workday.yaml
-
-#### Workday Sensors #############################################
-# time_date: !include time_date.yaml
 
 #### For Timeplapse #############################################
 ffmpeg:
