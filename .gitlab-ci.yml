@@ -2,10 +2,32 @@
 stages:
   - test
 
-lint-test-job:
+yamllint:
   stage: test
   tags:
     - core
-  image: pipelinecomponents/yamllint:latest
+  image: pipelinecomponents/yamllint:1.35.1
+  rules:
+    - changes:
+        - ".yamllint"
+        - ".gitattributes"
+        - "**/*.yaml"
+        - "**/*.yml"
   script:
     - yamllint -f colored .
+
+ha-config-check:
+  stage: test
+  tags:
+    - core
+  image: ghcr.io/home-assistant/home-assistant:2026.2.4
+  rules:
+    - changes:
+        - "configuration.yaml"
+        - "automations.yaml"
+        - "scripts.yaml"
+        - "scenes.yaml"
+        - "**/*.yaml"
+        - "**/*.yml"
+  script:
+    - hass --script check_config --config .
