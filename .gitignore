@@ -1,76 +1,78 @@
-# ignore my git update script
+# Local helper scripts
 update_git.py
 transporter.py
 
-
-# ignore hidden folders
-.storage
-.cloud
-.aarlo
+# HA runtime state and tokens
+.storage/
+.cloud/
+.aarlo/
 .google.token
 
-# ignore some directories.
+# Local config directories not tracked in this repo
 icloud/
-/zha_updates/
-/tts/
-/deps/
-/esphome/
-/hadashboards/
-/intents/
-/themes/
-/custom_components
-/deps
-/hacs
-/www/community
-/www/mail_and_packages
+zha_updates/
+tts/
+deps/
+esphome/
+hadashboards/
+intents/
+themes/
+custom_components/
+hacs/
+www/community/
+www/mail_and_packages/
 
-# ignore some specific files
-
-# ignore any of these files no matter where they are using double *
-**.DS_Store
-**._*
-**.HA_VERSION
-**.pyc
-**.conf
-**.uuid
-**.txt
-**.log
-**.db
-**.sqlite
-**.xml
-**secrets*
-**known_devices.yaml
-**google_calendars.yaml
-**govee_learning.yaml
-**ip_bans.yaml
-**.spotify-token-cache
-**zones.yaml
-**test.yaml
-**testing.yaml
-**.homekit*
-**.vscode
-**.pid
-**.xml
-**.csr
-**.crt
-**.key
-**core.*
-**OZW_Log.txt
-**home-assistant.log*
-**home-assistant_v2.db*
-**.db-journal
-**.db-shm
-**.db-wal
-**.sqlite
-**__pycache__
-**phue.conf 
-**ios.conf
-**pyozw.sqlite
-**ipchange.yaml
-**production_auth.json
-**automations.yaml
-**scenes.yaml
-**scripts.yaml
-**govee_learning.yaml
-govee_learning.yaml
+# OS/editor artifacts
+**/.DS_Store
+**/._*
+.vscode/
 .gitconfig
+
+# Generic transient files
+*.pyc
+*.pid
+*.log
+*.txt
+
+# Certificates/keys
+*.csr
+*.crt
+*.key
+
+# HA databases and logs
+*.db
+*.sqlite
+*.db-journal
+*.db-shm
+*.db-wal
+home-assistant.log*
+home-assistant_v2.db*
+core.*
+OZW_Log.txt
+pyozw.sqlite
+
+# HA generated/local-only config
+secrets.yaml
+secrets*.yaml
+known_devices.yaml
+google_calendars.yaml
+ip_bans.yaml
+zones.yaml
+ipchange.yaml
+production_auth.json
+.spotify-token-cache
+.homekit*
+HA_VERSION
+phue.conf
+ios.conf
+
+# Intentionally unmanaged in git to avoid production/UI conflicts
+automations.yaml
+scripts.yaml
+scenes.yaml
+
+# Project-specific local artifacts
+govee_learning.yaml
+test.yaml
+testing.yaml
+
