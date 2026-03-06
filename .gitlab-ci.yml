@@ -30,4 +30,7 @@ ha-config-check:
         - "**/*.yaml"
         - "**/*.yml"
   script:
+    - '[ -f automations.yaml ] || printf "%s\n%s\n" "---" "[]" > automations.yaml'
+    - '[ -f scripts.yaml ] || printf "%s\n%s\n" "---" "{}" > scripts.yaml'
+    - '[ -f scenes.yaml ] || printf "%s\n%s\n" "---" "[]" > scenes.yaml'
     - hass --script check_config --config .
