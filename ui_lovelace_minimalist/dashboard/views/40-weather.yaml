@@ -131,7 +131,7 @@ cards:
               icon_color: red
             - type: "custom:button-card"
               template: card_title
-              label: Exercise Limits
+              label: "Exercise Limits"
             - type: horizontal-stack
               cards:
                 - type: custom:mushroom-template-card
@@ -333,7 +333,6 @@ cards:
               use_statistics: true
               windspeed_bar_full: true
               output_speed_unit: mph
-              output_speed_unit_label: mph
               speed_range_max: 18
               speed_range_step: 2
               speed_range_beaufort: false
@@ -378,9 +377,6 @@ cards:
       - camera_view: auto
         type: picture-glance
         camera_image: camera.511ga_org
-        entities:
-          - entity: sensor.waze_travel_time
-          - entity: sensor.jennifer_time_to_home
       - show_state: true
         show_name: true
         camera_view: auto
