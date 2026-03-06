@@ -6,7 +6,7 @@ yamllint:
   stage: test
   tags:
     - core
-  image: pipelinecomponents/yamllint:arm64-6f941ff
+  image: pipelinecomponents/yamllint:amd64-6f941ff
   rules:
     - changes:
         - ".yamllint"
