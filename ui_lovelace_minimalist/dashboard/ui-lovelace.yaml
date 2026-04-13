@@ -29,11 +29,7 @@ views:
   # Garden
   - !include views/30-garden.yaml
   - !include subviews/30-1-flowers.yaml
-  - !include subviews/30-2-okra.yaml
-  - !include subviews/30-3-bell_pepper.yaml
   - !include subviews/30-4-herbs.yaml
-  - !include subviews/30-5-cucumber.yaml
-  - !include subviews/30-6-tomatoes.yaml
   - !include subviews/30-7-strawberry.yaml
   - !include subviews/30-8-juniper.yaml
   - !include subviews/30-9-camellia.yaml
@@ -42,20 +38,14 @@ views:
 
   - !include subviews/30-13-rose.yaml
   - !include subviews/30-14-fairy-washboard.yaml
-  - !include subviews/30-15-onions.yaml
-  - !include subviews/30-16-seeds.yaml
 
   - !include subviews/30-19-japanese_holly.yaml
   - !include subviews/30-20-holly.yaml
   - !include subviews/30-21-stick.yaml
   - !include subviews/30-22-michael.yaml
-  - !include subviews/30-23-kale.yaml
   - !include subviews/30-24-lavender.yaml
   - !include subviews/30-25-pineapple.yaml
   - !include subviews/30-26-japanese-maple.yaml
-  - !include subviews/30-27-pitcher_plant.yaml
-  - !include subviews/30-28-beans.yaml
-  - !include subviews/30-29-blackberries.yaml
   - !include subviews/30-50-timelapse.yaml
   - !include subviews/30-51-admin.yaml
 

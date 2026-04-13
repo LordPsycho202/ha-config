@@ -89,28 +89,28 @@ cards:
 
       - type: conditional
         conditions:
-          - entity: switch.waterbender_rain_delay
-            state: "off"
+          - entity: valve.smart_hose_tap_timer_zone
+            state: "closed"
         card:
           type: custom:button-card
           template: custom_card_rnissen_entities
           variables:
-            ulm_custom_card_rnissen_entities_entity_1: switch.back_yard_zone
-            ulm_custom_card_rnissen_entities_entity_2: switch.front_yard_zone
-            ulm_custom_card_rnissen_entities_entity_3: switch.side_yard_zone
-            ulm_custom_card_rnissen_entities_entity_4: switch.flower_beds_zone
+            ulm_custom_card_rnissen_entities_entity_1: valve.waterbender_back_yard_zone
+            ulm_custom_card_rnissen_entities_entity_2: valve.waterbender_front_yard_zone
+            ulm_custom_card_rnissen_entities_entity_3: valve.waterbender_side_yards_garden_zone
+            ulm_custom_card_rnissen_entities_entity_4: valve.waterbender_flower_beds_zone
             ulm_custom_card_rnissen_entities_name_1: Back
             ulm_custom_card_rnissen_entities_name_2: Front
             ulm_custom_card_rnissen_entities_name_3: Side
             ulm_custom_card_rnissen_entities_name_4: Flowers
             ulm_custom_card_rnissen_entities_icon: 💧
-            ulm_custom_card_rnissen_entities_name: "[[[ return states['switch.back_yard_zone'].attributes.device_name+' Sprinkler System' ]]]"
-            ulm_custom_card_rnissen_entities: switch.waterbender_rain_delay
+            ulm_custom_card_rnissen_entities_name: "[[[ return states['valve.waterbender_back_yard_zone'].attributes.device_name+' Sprinkler System' ]]]"
+            ulm_custom_card_rnissen_entities: valve.smart_hose_tap_timer_zone
 
       - type: conditional
         conditions:
-          - entity: switch.waterbender_rain_delay
-            state: "on"
+          - entity: valve.smart_hose_tap_timer_zone
+            state: "open"
         card:
           type: custom:stack-in-card
           cards:

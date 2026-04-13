@@ -13,3 +13,10 @@ cards:
       - plant_path: pineapple
       - plant_icon: fruit-pineapple
       - sensor_batt: sensor.soil_moisture_25_batt
+  - type: custom:decluttering-card
+    template: plant_subview
+    variables:
+      - plant: pineapple
+      - plant_path: pineapple
+      - plant_icon: fruit-pineapple
+      - sensor_batt: sensor.soil_moisture_28_batt

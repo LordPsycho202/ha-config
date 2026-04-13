@@ -201,16 +201,12 @@ cards:
         name: Potted Plants
       - type: entities
         entities:
-          - entity: input_boolean.plant_notify_blackberries
-            name: Blackberries
           - entity: input_boolean.plant_notify_pineapples
             name: Pineapples
+          - entity: input_boolean.plant_notify_pineapple
+            name: Pineapple 2
           - entity: input_boolean.plant_notify_japanese_maple
             name: Japanese Maple
-          - entity: input_boolean.plant_notify_beans
-            name: Beans
-          - entity: input_boolean.plant_notify_pitcher_plant
-            name: Pitcher Plant
           - entity: input_boolean.plant_notify_hydrangea
             name: Hydrangea
         state_color: true
@@ -241,8 +237,6 @@ cards:
             name: Steve
           - entity: input_boolean.plant_notify_fairy_washboard
             name: Fairy Washboard
-          - entity: input_boolean.plant_notify_seeds
-            name: Seeds
           - entity: input_boolean.plant_notify_michael
             name: Michael
         state_color: true
@@ -266,22 +260,10 @@ cards:
         name: Garden Plots
       - type: entities
         entities:
-          - entity: input_boolean.plant_notify_okra
-            name: Okra
-          - entity: input_boolean.plant_notify_bell_pepper
-            name: Bell Pepper
           - entity: input_boolean.plant_notify_herbs
             name: Herbs
-          - entity: input_boolean.plant_notify_cucumber
-            name: Cucumber
-          - entity: input_boolean.plant_notify_tomatoes
-            name: Tomatoes
           - entity: input_boolean.plant_notify_strawberry
             name: Strawberry
-          - entity: input_boolean.plant_notify_onions
-            name: Onion
-          - entity: input_boolean.plant_notify_kale
-            name: Kale
         state_color: true
       - type: custom:auto-entities
         card:
